@@ -49,6 +49,19 @@ Os 12 placeholders já foram substituídos (Fase 2 concluída). As imagens reais
 
 Esses 4 destinos se repetem em nav, hero, seções de CTA e footer em todas as 6 páginas. Ver `IMPLEMENTACAO.md` Fase 1 para o mapeamento completo de cada botão.
 
+## Seletor de idiomas (GTranslate)
+
+As 6 páginas têm o widget de bandeiras do GTranslate no `<nav>` (entre o logo e o botão de CTA), replicando exatamente a configuração já usada no resto do site `amarigomes.com` (plugin GTranslate, gratuito/público — sem chave de API paga). Idiomas: NL, EN, FR, PT, ES. Cada página define `default_language` como o idioma do próprio arquivo (`en` ou `nl`).
+
+Mecanismo (3 partes, sempre juntas, dentro do `<nav>`):
+1. `<div class="gtranslate_wrapper" id="gt-wrapper-XXXXXXXX"></div>` — onde as bandeiras são injetadas
+2. `<script>window.gtranslateSettings['XXXXXXXX'] = {...}</script>` — config inline (idiomas, estilo de bandeira, etc.)
+3. `<script src="https://amarigomes.com/wp-content/plugins/gtranslate/js/flags.js?ver=7.0" data-gt-widget-id="XXXXXXXX"></script>` — script que lê a config e renderiza
+
+**Importante:** o atributo `data-gt-widget-id` na tag `<script src="...flags.js">` é obrigatório e precisa bater com a chave usada em `window.gtranslateSettings['XXXXXXXX']` e com o `id` do wrapper — sem ele, o script roda mas não renderiza nada (silenciosamente, só loga no console "gtranslateSettings is not properly initialized"). Cada página tem um ID de 8 dígitos próprio (não há necessidade de ser globalmente único, mas evite reusar o mesmo ID em duas páginas que possam coexistir na mesma sessão de navegação).
+
+O script é carregado direto de `amarigomes.com` (mesmo arquivo que o resto do site usa) — funciona tanto localmente (abrindo o `.html` direto no navegador) quanto depois de publicado no WordPress, sem depender de a página estar hospedada lá.
+
 ## Convenções ao editar
 
 - **Espelhar mudanças estruturais/de link entre o par EN/NL da mesma LP.** Texto (copy) muda por idioma, mas links, contatos e estrutura de seções devem ficar em sincronia entre `*-en.html` e `*-nl.html` da mesma página.
