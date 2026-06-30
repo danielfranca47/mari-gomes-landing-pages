@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Koppelsmassage Amsterdam | Holistische Ervaring voor Twee | Mari Gomes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --ivory: #F8F4EF; --white: #FEFCFA; --ink: #1E1A17; --warm-gray: #7C746E; --rose: #9B5E52; --rose-light: #C4897E; --blush: #EDD9D3; --gold: #A87B4A; --border: rgba(30,26,23,0.09); }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--ivory); color: var(--ink); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; background: rgba(248,244,239,0.93); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); }
+  .logo { font-family: 'Libre Baskerville', serif; font-size: 18px; font-weight: 400; color: var(--ink); text-decoration: none; letter-spacing: 0.04em; }
+  .logo span { color: var(--rose); }
+  .nav-cta { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); background: var(--rose); text-decoration: none; padding: 10px 24px; transition: background 0.3s; }
+  .nav-cta:hover { background: var(--ink); }
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; background: var(--ivory); }
+  .hero-left { background: var(--blush); display: flex; align-items: flex-end; padding: 64px 48px; min-height: 560px; position: relative; overflow: hidden; }
+  .hero-left::before { content: '❧'; position: absolute; top: 40px; left: 48px; font-size: 48px; color: rgba(155,94,82,0.2); }
+  .hero-number { font-family: 'Libre Baskerville', serif; font-size: 180px; font-weight: 400; color: rgba(155,94,82,0.1); position: absolute; top: 20px; right: -10px; line-height: 1; user-select: none; }
+  .hero-left-content { position: relative; z-index: 1; }
+  .hero-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .hero-tag::before { content: ''; width: 20px; height: 0.5px; background: var(--rose); }
+  .hero-pull { font-family: 'Libre Baskerville', serif; font-size: clamp(26px, 3.2vw, 42px); font-weight: 400; font-style: italic; line-height: 1.3; color: var(--ink); }
+  .hero-right { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px 64px 56px; }
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); margin-bottom: 20px; }
+  .hero-headline { font-family: 'Libre Baskerville', serif; font-size: clamp(32px, 3.5vw, 50px); font-weight: 400; line-height: 1.2; color: var(--ink); margin-bottom: 24px; }
+  .hero-headline em { font-style: italic; color: var(--rose); }
+  .hero-sub { font-size: 16px; color: var(--warm-gray); max-width: 400px; margin-bottom: 36px; line-height: 1.8; }
+  .btn-rose { display: inline-block; background: var(--rose); color: var(--white); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 16px 36px; text-decoration: none; transition: background 0.3s; }
+  .btn-rose:hover { background: var(--ink); }
+  .hero-note { font-size: 12px; color: var(--warm-gray); margin-top: 12px; }
+  .promise-bar { background: var(--ink); color: var(--ivory); padding: 28px 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; }
+  .promise-item { padding: 0 32px; text-align: center; border-right: 0.5px solid rgba(255,255,255,0.1); }
+  .promise-item:last-child { border-right: none; }
+  .promise-icon { font-size: 22px; margin-bottom: 8px; }
+  .promise-title { font-family: 'Libre Baskerville', serif; font-size: 16px; font-weight: 400; margin-bottom: 4px; }
+  .promise-desc { font-size: 12px; color: rgba(248,244,239,0.55); line-height: 1.5; }
+  section { padding: 96px 48px; }
+  .label { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .label::before { content: ''; width: 20px; height: 0.5px; background: var(--rose); }
+  .title { font-family: 'Libre Baskerville', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 400; line-height: 1.25; margin-bottom: 20px; }
+  .title em { font-style: italic; color: var(--rose); }
+  .for-whom { background: var(--white); }
+  .for-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .for-card { padding: 36px 28px; border: 0.5px solid var(--border); background: var(--ivory); }
+  .for-card-icon { font-size: 28px; margin-bottom: 20px; }
+  .for-card h3 { font-family: 'Libre Baskerville', serif; font-size: 19px; font-weight: 400; margin-bottom: 12px; color: var(--ink); }
+  .for-card p { font-size: 14px; color: var(--warm-gray); line-height: 1.7; }
+  .experience-section { background: var(--blush); }
+  .exp-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto; }
+  .exp-visual { background: var(--ivory); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; position: relative; border: 0.5px solid var(--border); }
+  .exp-visual-inner { text-align: center; padding: 40px; }
+  .exp-visual-inner .big { font-family: 'Libre Baskerville', serif; font-size: 80px; font-weight: 400; font-style: italic; color: var(--rose); line-height: 1; }
+  .exp-visual-inner p { font-size: 13px; color: var(--warm-gray); margin-top: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .exp-list { list-style: none; }
+  .exp-list li { padding: 18px 0; border-bottom: 0.5px solid rgba(30,26,23,0.1); display: flex; gap: 16px; align-items: flex-start; }
+  .exp-list li:last-child { border-bottom: none; }
+  .exp-list-num { font-family: 'Libre Baskerville', serif; font-size: 13px; font-style: italic; color: var(--rose); flex-shrink: 0; width: 24px; }
+  .exp-list-title { font-size: 15px; font-weight: 400; margin-bottom: 4px; }
+  .exp-list-desc { font-size: 13px; color: var(--warm-gray); line-height: 1.6; }
+  .options { background: var(--white); }
+  .options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 56px; }
+  .option-card { background: var(--ivory); padding: 36px 28px; border: 0.5px solid var(--border); position: relative; }
+  .option-popular { position: absolute; top: 0; left: 0; right: 0; background: var(--rose); color: var(--white); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 6px; }
+  .option-card.featured { margin-top: -1px; border-color: var(--rose); }
+  .option-name { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 400; margin: 12px 0; }
+  .option-desc { font-size: 13px; color: var(--warm-gray); line-height: 1.7; margin-bottom: 16px; }
+  .option-cta { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+  .option-cta:hover { color: var(--ink); }
+  .testimonials { background: var(--ivory); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
+  .testi-card { background: var(--white); border: 0.5px solid var(--border); padding: 32px; position: relative; }
+  .testi-card::before { content: '"'; font-family: 'Libre Baskerville', serif; font-size: 64px; font-style: italic; color: var(--blush); position: absolute; top: 16px; left: 24px; line-height: 1; }
+  .testi-text { font-family: 'Libre Baskerville', serif; font-size: 15px; font-style: italic; line-height: 1.75; color: var(--ink); margin-bottom: 20px; padding-top: 36px; }
+  .testi-name { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); }
+  .testi-stars { color: var(--gold); font-size: 12px; letter-spacing: 3px; margin-bottom: 4px; }
+  .faq { background: var(--white); }
+  .faq-inner { max-width: 680px; margin: 56px auto 0; }
+  .faq-item { border-bottom: 0.5px solid var(--border); padding: 22px 0; }
+  .faq-q { font-family: 'Libre Baskerville', serif; font-size: 18px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--ink); }
+  .faq-q span { color: var(--rose); font-size: 22px; flex-shrink: 0; transition: transform 0.3s; }
+  .faq-a { font-size: 14px; color: var(--warm-gray); line-height: 1.8; padding-top: 14px; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q span { transform: rotate(45deg); }
+  .cta-final { background: var(--rose); color: var(--white); text-align: center; padding: 96px 48px; position: relative; overflow: hidden; }
+  .cta-final::before { content: '❧'; position: absolute; font-size: 300px; color: rgba(255,255,255,0.04); top: -60px; right: -40px; font-family: serif; user-select: none; }
+  .cta-final .label { justify-content: center; color: rgba(248,244,239,0.65); }
+  .cta-final .label::before { background: rgba(248,244,239,0.4); }
+  .cta-final .title { color: var(--white); margin-bottom: 16px; }
+  .cta-final p { font-size: 16px; color: rgba(248,244,239,0.78); max-width: 460px; margin: 0 auto 40px; line-height: 1.8; }
+  .btn-ivory { display: inline-block; background: var(--ivory); color: var(--rose); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 16px 40px; text-decoration: none; transition: all 0.3s; }
+  .btn-ivory:hover { background: var(--ink); color: var(--ivory); }
+  .cta-note { font-size: 12px; color: rgba(248,244,239,0.5); margin-top: 16px; }
+  footer { background: var(--ink); color: rgba(248,244,239,0.5); padding: 36px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  footer a { color: inherit; text-decoration: none; font-size: 13px; }
+  footer .logo { color: var(--ivory); }
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { min-height: 220px; padding: 40px 24px; }
+    .hero-number { display: none; }
+    .hero-right { padding: 48px 24px; }
+    section { padding: 64px 24px; }
+    .promise-bar { grid-template-columns: 1fr; gap: 20px; padding: 32px 24px; }
+    .promise-item { border-right: none; border-bottom: 0.5px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+    .for-grid, .options-grid, .testi-grid { grid-template-columns: 1fr; }
+    .exp-layout { grid-template-columns: 1fr; }
+    .exp-visual { display: none; }
+    footer { flex-direction: column; text-align: center; padding: 28px 24px; }
+  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { opacity: 0; animation: fadeUp 0.7s ease 0.1s forwards; }
+  .hero-headline { opacity: 0; animation: fadeUp 0.7s ease 0.25s forwards; }
+  .hero-sub { opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards; }
+  .btn-rose, .hero-note { opacity: 0; animation: fadeUp 0.7s ease 0.55s forwards; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
+  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20meer%20informatie%20en%20een%20offerte%20sturen?" class="nav-cta" target="_blank">Boek voor twee</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-left" style="background:transparent;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;z-index:0;"><img src="images/LP3_Hero.webp" alt="Stel dat samen ontspant na een massage-sessie in de studio van Mari Gomes" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+  <div class="hero-number" style="z-index:1;position:relative;">2</div>
+    <div class="hero-left-content" style="position:relative;z-index:2;background:rgba(237,217,211,0.55);padding:20px;border-radius:4px;">
+      <p class="hero-tag">Koppelsmassage</p>
+      <p class="hero-pull">"Een ervaring<br>die je deelt —<br>en allebei voelt."</p>
+    </div>
+  </div>
+  <div class="hero-right">
+    <p class="hero-eyebrow">Amsterdam · Privé Studio · Voor twee</p>
+    <h1 class="hero-headline">Een holistische<br>massage-ervaring<br><em>voor koppels</em></h1>
+    <p class="hero-sub">Meer dan een massage — een gedeelde reis die stress verlicht, energie herstelt en verbinding verdiept. In een privé, zorgvuldig ingericht studio in Amsterdam.</p>
+    <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20een%20offerte%20en%20beschikbaarheid%20sturen?" class="btn-rose" target="_blank">Vraag je offerte voor twee aan →</a>
+    <p class="hero-note">Privé studio · Op afspraak · Offerte via WhatsApp</p>
+  </div>
+</div>
+
+<div class="promise-bar">
+  <div class="promise-item"><div class="promise-icon">◈</div><div class="promise-title">Naast elkaar</div><p class="promise-desc">Beleef de sessie samen, in dezelfde ruimte, op hetzelfde moment.</p></div>
+  <div class="promise-item"><div class="promise-icon">◎</div><div class="promise-title">Op maat voor twee</div><p class="promise-desc">Elke sessie wordt gepersonaliseerd op wat jullie die dag meebrengen.</p></div>
+  <div class="promise-item"><div class="promise-icon">◇</div><div class="promise-title">Privé studio</div><p class="promise-desc">Een intieme, toegewijde ruimte in Amsterdam ontworpen voor koppels.</p></div>
+</div>
+
+<section class="for-whom">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="label">Deze sessie is voor jullie als...</div>
+    <h2 class="title">Gemaakt voor elk <em>soort koppel</em></h2>
+    <div class="for-grid">
+      <div class="for-card"><div class="for-card-icon">◈</div><h3>Jullie willen herverbinden</h3><p>Drukke levens creëren afstand. Een gezamenlijke sessie vertraagt alles en creëert ruimte voor echte aanwezigheid — samen, zonder afleiding.</p></div>
+      <div class="for-card"><div class="for-card-icon">◎</div><h3>Jullie iets anders willen</h3><p>Een unieke ervaring die verder gaat dan een diner. Iets wat jullie allebei bijblijft. Een cadeau dat op een dieper niveau geeft.</p></div>
+      <div class="for-card"><div class="for-card-icon">◇</div><h3>Jullie allebei stress dragen</h3><p>Wanneer beide partners gestrest zijn, lijdt de relatie eronder. Samen ontspannen — in dezelfde ruimte, op hetzelfde moment — creëert een gedeelde reset.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="experience-section">
+  <div class="exp-layout">
+    <div class="exp-visual" style="background:transparent;overflow:hidden;"><img src="images/LP3_Experience.webp" alt="Sfeer van de behandelkamer ingericht voor een koppelsessie in de studio van Mari Gomes" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <div class="exp-visual-inner" style="display:none;"><div class="big">voor<br>twee</div><p>Amsterdam · Studio · Privé</p></div></div>
+    <div>
+      <div class="label">Wat er in jullie sessie gebeurt</div>
+      <h2 class="title">Elk detail <em>intentioneel</em></h2>
+      <ul class="exp-list">
+        <li><div class="exp-list-num">i.</div><div><div class="exp-list-title">Verwelkomingsritueel</div><div class="exp-list-desc">Jullie komen allebei aan in een ruimte die is voorbereid voor jullie sessie — rustgevend, sfeervol en privé. Een korte intake om te begrijpen wat jullie die dag meebrengen.</div></div></li>
+        <li><div class="exp-list-num">ii.</div><div><div class="exp-list-title">Gelijktijdige holistische massage</div><div class="exp-list-desc">Naast elkaar, elk een full-body holistische massage ontvangend van Mari. Druk, techniek en focus individueel aangepast aan elke partner.</div></div></li>
+        <li><div class="exp-list-num">iii.</div><div><div class="exp-list-title">Energetische en zintuiglijke elementen</div><div class="exp-list-desc">Aromatische oliën, begeleide ademhaling en intentionele energetische aanraking — de volledige holistische ervaring, samen gedeeld.</div></div></li>
+        <li><div class="exp-list-num">iv.</div><div><div class="exp-list-title">Afsluiting en integratie</div><div class="exp-list-desc">Tijd om na de sessie te rusten en te herverbinden in een rustige, privé omgeving voordat jullie vertrekken.</div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="options">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="label">Sessieformaten</div>
+    <h2 class="title">Kies de <em>diepte</em> die bij jullie past</h2>
+    <div class="options-grid">
+      <div class="option-card">
+        <div class="option-name">Ontspanning Duo</div>
+        <p class="option-desc">Een full-body holistische massage gericht op diepe fysieke ontspanning en stressverlichting. Ideaal voor koppels die samen willen ontspannen en lichter willen vertrekken.</p>
+        <p class="option-desc" style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color: var(--rose);">Beste voor → eerste keer · stressverlichting · verjaardag</p>
+        <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20We%20willen%20graag%20een%20Ontspanning%20Duo%20sessie%20boeken.%20Kun%20je%20ons%20een%20offerte%20sturen?" class="option-cta" target="_blank">Offerte aanvragen →</a>
+      </div>
+      <div class="option-card featured">
+        <div class="option-popular">Meest gevraagd</div>
+        <div class="option-name">Holistische Koppelservaring</div>
+        <p class="option-desc">Onze signatuursessie voor twee — combineert fysieke massage, energetische heling en bewuste elementen. Elk partner ontvangt een volledig gepersonaliseerde sessie terwijl jullie de ervaring samen delen.</p>
+        <p class="option-desc" style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color: var(--rose);">Beste voor → herverbinding · jubileum · diepe reset</p>
+        <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20We%20zijn%20ge%C3%AFnteresseerd%20in%20de%20Holistische%20Koppelservaring.%20Kun%20je%20ons%20details%20en%20een%20offerte%20sturen?" class="option-cta" target="_blank">Offerte aanvragen →</a>
+      </div>
+      <div class="option-card">
+        <div class="option-name">Tantrische Koppelstherapie</div>
+        <p class="option-desc">Een diepere energetische ervaring voor koppels die klaar zijn om samen verbinding, levensenergie en emotionele vrijlating te verkennen. Een transformerende sessie die echte vernieuwing brengt.</p>
+        <p class="option-desc" style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color: var(--rose);">Beste voor → diepere verbinding · energiewerk · vernieuwing</p>
+        <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20We%20zijn%20ge%C3%AFnteresseerd%20in%20de%20Tantrische%20Koppelstherapie.%20Kun%20je%20ons%20meer%20informatie%20sturen?" class="option-cta" target="_blank">Offerte aanvragen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="label">Wat cliënten zeggen</div>
+    <h2 class="title">Ervaringen die<br><em>bijblijven</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">De therapeut was zeer vriendelijk en hartelijk. Alles — van de inrichting tot het licht en de muziek — was doordacht samengesteld. We vertrokken ontspannen en verfrist. Onvergetelijk.</p><p class="testi-name">Kinuthia</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">Ze laat je zweven. Haar ongelooflijke techniek en warmte creëren een omgeving die zowel professioneel als diep gastvrij is. We komen zeker terug.</p><p class="testi-name">Larissa G.</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">De toewijding die ze in haar werk stopt is buitengewoon. Je voelt je volledig verzorgd vanaf het moment dat je binnenkomt. Een ervaring die we elk koppel aanraden.</p><p class="testi-name">Fernão O.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="label">Jullie vragen, beantwoord</div>
+    <h2 class="title">Alles wat je moet weten<br><em>voor je boekt</em></h2>
+    <div class="faq-inner">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ontvangen we de massage tegelijkertijd?<span>+</span></div><div class="faq-a">Ja. Beide partners ontvangen hun massage gelijktijdig in dezelfde privé ruimte. Jullie beleven het samen, naast elkaar.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is er één of zijn er twee therapeuten?<span>+</span></div><div class="faq-a">Mari adviseert over het beste formaat voor de gekozen sessie wanneer jullie contact opnemen. Dit wordt vóór de boeking verduidelijkt samen met de offerte.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe krijgen we een offerte?<span>+</span></div><div class="faq-a">Stuur een WhatsApp-bericht met het gewenste sessietype. Mari antwoordt met een persoonlijke offerte, alle details en beschikbare datums — meestal snel.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Waar vindt de sessie plaats?<span>+</span></div><div class="faq-a">Alle sessies vinden plaats in een privé studio in Amsterdam. Het exacte adres wordt gedeeld na bevestiging van de boeking.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is dit een seksuele dienst?<span>+</span></div><div class="faq-a">Nee. Alle sessies — inclusief Tantrische Therapie — zijn strikt therapeutisch en energetisch van aard. De studio is professioneel en te allen tijde volledig respectvol.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kunnen we dit cadeau geven?<span>+</span></div><div class="faq-a">Ja. Een koppelssessie is een doordacht en betekenisvol cadeau. Neem contact op via WhatsApp en Mari adviseert over de beste optie voor de gelegenheid.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="label">Boek jullie ervaring</div>
+  <h2 class="title">Gun jullie zelf<br>de ervaring <em>die je verdient</em></h2>
+  <p>Stuur een WhatsApp-bericht en ontvang een persoonlijke offerte met sessieopties, beschikbaarheid en alles wat jullie nodig hebben om te boeken.</p>
+  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20een%20offerte%20en%20beschikbaarheid%20sturen?" class="btn-ivory" target="_blank">Vraag jullie offerte aan →</a>
+  <p class="cta-note">Privé studio · Amsterdam · Op afspraak · Snelle reactie</p>
+</section>
+
+<footer>
+  <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
+  <div style="display:flex; gap:24px; flex-wrap:wrap;">
+    <a href="mailto:marycontato@gmail.com">marycontato@gmail.com</a>
+    <a href="https://wa.me/31634366008" target="_blank">+31 634 366 008</a>
+    <a href="https://www.instagram.com/massage.tantric.therapy/" target="_blank">@massage.tantric.therapy</a>
+  </div>
+  <p style="font-size:12px;">© 2026 Mari Gomes</p>
+</footer>
+<script>function toggleFaq(el) { el.parentElement.classList.toggle('open'); }</script>
+</body>
+</html>

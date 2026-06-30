@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holistic Energy Massage Amsterdam | Mari Gomes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F3EE;
+    --warm-white: #FDFAF7;
+    --charcoal: #1C1916;
+    --stone: #6B6460;
+    --gold: #B8924A;
+    --gold-light: #D4B07A;
+    --sage: #7A8C7E;
+    --blush: #D4B5A8;
+    --border: rgba(28,25,22,0.1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(247,243,238,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 400; letter-spacing: 0.06em;
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+  .logo span { color: var(--gold); }
+  .nav-cta {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--charcoal); text-decoration: none;
+    padding: 10px 24px; border: 0.5px solid var(--charcoal);
+    transition: all 0.3s ease;
+  }
+  .nav-cta:hover { background: var(--charcoal); color: var(--cream); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding: 120px 48px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: #EDE6DC;
+    z-index: 0;
+  }
+  .hero-left { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 32px; height: 0.5px; background: var(--gold);
+  }
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 300; line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 28px;
+  }
+  .hero-headline em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 16px; font-weight: 300;
+    color: var(--stone);
+    max-width: 420px; margin-bottom: 40px;
+    line-height: 1.8;
+  }
+  .hero-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--charcoal); color: var(--cream);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 16px 36px; text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover { background: var(--gold); }
+  .hero-note {
+    font-size: 12px; color: var(--stone); letter-spacing: 0.04em;
+  }
+  .hero-right {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-img-frame {
+    width: 100%; max-width: 420px;
+    aspect-ratio: 3/4;
+    background: var(--blush);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-img-frame::after {
+    content: 'MARI GOMES';
+    position: absolute; bottom: 24px; left: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px; letter-spacing: 0.2em;
+    color: rgba(28,25,22,0.5);
+  }
+  .hero-badges {
+    position: absolute; bottom: -20px; left: -20px;
+    background: var(--warm-white); border: 0.5px solid var(--border);
+    padding: 20px 24px;
+  }
+  .hero-badges p { font-size: 11px; color: var(--stone); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .hero-badges strong { font-size: 22px; font-weight: 400; font-family: 'Cormorant Garamond', serif; }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--charcoal); color: var(--cream);
+    padding: 24px 48px;
+    display: flex; justify-content: space-around; align-items: center;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .trust-item { text-align: center; }
+  .trust-item strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300;
+  }
+  .trust-item span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; }
+
+  /* SECTION BASE */
+  section { padding: 96px 48px; }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before { content: ''; width: 24px; height: 0.5px; background: var(--gold); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 300; line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* ABOUT SECTION */
+  .about { background: var(--warm-white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .about-img {
+    aspect-ratio: 3/4; background: #E8DDD4;
+    position: relative;
+  }
+  .about-img::before {
+    content: ''; position: absolute; top: -16px; left: -16px;
+    width: 100%; height: 100%;
+    border: 0.5px solid var(--gold);
+    z-index: -1;
+  }
+  .about-text p { font-size: 16px; color: var(--stone); margin-bottom: 20px; line-height: 1.8; }
+  .about-text p strong { color: var(--charcoal); font-weight: 400; }
+  .about-sig {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-style: italic;
+    color: var(--charcoal); margin-top: 32px;
+  }
+
+  /* THERAPIES */
+  .therapies { background: var(--cream); }
+  .therapies-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    margin-top: 56px;
+  }
+  .therapy-card {
+    background: var(--warm-white); padding: 40px 32px;
+    border: 0.5px solid var(--border);
+    transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .therapy-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 3px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .therapy-card:hover::before { transform: scaleX(1); }
+  .therapy-card:hover { background: #FBF8F4; }
+  .therapy-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px; font-weight: 300;
+    color: rgba(184,146,74,0.2);
+    line-height: 1; margin-bottom: 20px;
+  }
+  .therapy-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .therapy-desc { font-size: 14px; color: var(--stone); line-height: 1.7; }
+
+  /* EXPERIENCE SECTION */
+  .experience { background: var(--charcoal); color: var(--cream); }
+  .experience .section-label { color: var(--gold-light); }
+  .experience .section-label::before { background: var(--gold-light); }
+  .experience .section-title { color: var(--cream); }
+  .exp-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;
+    max-width: 900px; margin: 56px auto 0;
+  }
+  .exp-item {
+    padding: 32px; border: 0.5px solid rgba(255,255,255,0.12);
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .exp-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(184,146,74,0.2);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 18px;
+  }
+  .exp-item h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 400; margin-bottom: 8px;
+  }
+  .exp-item p { font-size: 13px; color: rgba(253,250,247,0.6); line-height: 1.7; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--cream); }
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 56px;
+  }
+  .testi-card {
+    background: var(--warm-white);
+    border: 0.5px solid var(--border);
+    padding: 32px;
+  }
+  .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 16px; letter-spacing: 3px; }
+  .testi-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px; font-style: italic;
+    line-height: 1.7; color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+  .testi-name { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); }
+
+  /* FAQ */
+  .faq { background: var(--warm-white); }
+  .faq-grid { max-width: 720px; margin: 56px auto 0; }
+  .faq-item { border-bottom: 0.5px solid var(--border); padding: 24px 0; }
+  .faq-q {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 400;
+    color: var(--charcoal); cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px;
+  }
+  .faq-q span { font-size: 20px; color: var(--gold); flex-shrink: 0; transition: transform 0.3s; }
+  .faq-a { font-size: 15px; color: var(--stone); line-height: 1.8; padding-top: 16px; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q span { transform: rotate(45deg); }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: #EDE6DC; text-align: center;
+    padding: 96px 48px;
+  }
+  .cta-section .section-title { margin-bottom: 16px; }
+  .cta-section p { font-size: 16px; color: var(--stone); max-width: 480px; margin: 0 auto 40px; line-height: 1.8; }
+  .btn-outline {
+    display: inline-block; color: var(--charcoal);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 16px 36px; border: 0.5px solid var(--charcoal);
+    text-decoration: none; margin-left: 16px;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover { background: var(--charcoal); color: var(--cream); }
+  .cta-disclaimer { font-size: 12px; color: var(--stone); margin-top: 20px; opacity: 0.7; }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal); color: rgba(253,250,247,0.6);
+    padding: 40px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  footer a { color: inherit; text-decoration: none; font-size: 13px; }
+  footer .logo { color: var(--cream); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+    .hero::before { width: 100%; top: 55%; height: 50%; }
+    .hero-right { display: none; }
+    section { padding: 64px 24px; }
+    .about-grid, .therapies-grid, .testi-grid { grid-template-columns: 1fr; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .trust-bar { padding: 20px 24px; }
+    footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * {
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero-headline { animation-delay: 0.25s; }
+  .hero-sub { animation-delay: 0.4s; }
+  .hero-actions { animation-delay: 0.55s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
+  <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Holistic%20Energy%20Massage%20session.%20Could%20you%20provide%20more%20details?" class="nav-cta" target="_blank">Book a session</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Holistic Massage · Amsterdam</p>
+    <h1 class="hero-headline">
+      Restore your <em>energy,</em><br>
+      balance your chakras,<br>
+      find inner peace
+    </h1>
+    <p class="hero-sub">
+      Feeling drained, disconnected, or out of balance? Our holistic energy sessions realign your body, mind, and vital energy — in a private, professional studio in Amsterdam.
+    </p>
+    <div class="hero-actions">
+      <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Holistic%20Energy%20Massage%20session.%20Could%20you%20please%20send%20me%20more%20details%20and%20availability?" class="btn-primary" target="_blank">Request your session →</a>
+      <p class="hero-note">Sessions by appointment · Studio in Amsterdam · Quote via WhatsApp</p>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-frame" style="background:transparent;overflow:hidden;">
+<img src="images/LP1_hero.webp" alt="Mari Gomes, holistic massage therapist, in her Amsterdam studio" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <div class="hero-badges">
+        <p>Holistic specialist</p>
+        <strong>Mari Gomes</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><strong>5★</strong><span>Verified reviews</span></div>
+  <div class="trust-item"><strong>Studio</strong><span>Amsterdam</span></div>
+  <div class="trust-item"><strong>3</strong><span>Therapy modalities</span></div>
+  <div class="trust-item"><strong>100%</strong><span>Personal approach</span></div>
+</div>
+
+<!-- ABOUT PROMISE -->
+<section class="about">
+  <div class="about-grid">
+    <div class="about-img" style="background:transparent;overflow:hidden;min-height:400px;"><img src="images/LP1_About.webp" alt="Interior of Mari Gomes' private massage studio in Amsterdam" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <div class="about-text">
+      <div class="section-label">Why Mari Gomes</div>
+      <h2 class="section-title">A session that <em>goes beyond</em> the physical</h2>
+      <p>Most massages relieve physical tension. <strong>Holistic energy work goes deeper</strong> — it addresses the energetic root of that tension: blocked chakras, accumulated stress, emotional residues stored in the body.</p>
+      <p>Mari Gomes is a specialist in holistic energy therapies. Each session is tailored to what you bring that day — no scripts, no one-size-fits-all. Just precise, intentional work on your body's energy field.</p>
+      <p>Sessions take place in a <strong>private, carefully designed studio in Amsterdam</strong> — a space built for deep relaxation and confidential healing work.</p>
+      <div class="about-sig">Mari Gomes</div>
+    </div>
+  </div>
+</section>
+
+<!-- THERAPIES -->
+<section class="therapies">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">What we offer</div>
+    <h2 class="section-title">Three paths to <em>energetic balance</em></h2>
+    <div class="therapies-grid">
+      <div class="therapy-card">
+        <div class="therapy-num">01</div>
+        <div class="therapy-name">Energetic Healing Massage</div>
+        <p class="therapy-desc">Combines therapeutic touch with energy healing techniques to restore your body's natural energy flow. Ideal for dissolving emotional blockages, reducing anxiety, and strengthening your spiritual connection. Goes well beyond conventional massage.</p>
+      </div>
+      <div class="therapy-card">
+        <div class="therapy-num">02</div>
+        <div class="therapy-name">Holistic Healing Massage</div>
+        <p class="therapy-desc">A full-body holistic approach that works simultaneously on physical tension and deeper energetic layers. Each session is an invitation to leave accumulated stress behind and access a state of genuine regeneration — body, mind, and energy.</p>
+      </div>
+      <div class="therapy-card">
+        <div class="therapy-num">03</div>
+        <div class="therapy-name">Tantric Therapy</div>
+        <p class="therapy-desc">Advanced energetic unblocking through conscious touch and breathing. Releases deeply stored trauma, reactivates vital energy, and creates emotional balance. A profound therapeutic experience for those ready to go to the root.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience">
+  <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+    <div class="section-label" style="justify-content: center;">The experience</div>
+    <h2 class="section-title" style="max-width: 600px; margin: 0 auto 16px;">What happens in <em>your session</em></h2>
+    <p style="color: rgba(253,250,247,0.6); max-width: 520px; margin: 0 auto; font-size: 15px;">Each element of the session is intentional. Nothing is accidental.</p>
+    <div class="exp-grid">
+      <div class="exp-item">
+        <div class="exp-icon">✦</div>
+        <div>
+          <h4>Conscious energetic touch</h4>
+          <p>Intentional pressure that relaxes deep muscles and unblocks energy pathways. Chakra balancing through precise, calibrated touch.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-icon">◉</div>
+        <div>
+          <h4>Guided conscious breathing</h4>
+          <p>Breathing techniques that help channel vital energy, release daily accumulated blockages, and deepen the state of presence.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-icon">◇</div>
+        <div>
+          <h4>Aromatic oils ritual</h4>
+          <p>Therapeutic aromas that heighten sensory awareness, enhance body relaxation, and promote mental clarity throughout the session.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-icon">○</div>
+        <div>
+          <h4>Curated private studio</h4>
+          <p>A dedicated space in Amsterdam designed for deep work — lighting, music, and environment calibrated for complete immersion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">What clients say</div>
+    <h2 class="section-title">Real experiences,<br><em>real transformations</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The dedication she puts into her work, her presence, and the focus she maintains throughout the entire session are extraordinary."</p>
+        <p class="testi-name">Fernão O.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Everything from the decor to the lighting and music was thoughtfully curated. I left feeling relaxed and rejuvenated — like a new person."</p>
+        <p class="testi-name">Kinuthia</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"She makes you feel like you're floating with her incredible relaxation and energy balance techniques. The environment is professional and very welcoming."</p>
+        <p class="testi-name">Larissa G.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">Questions</div>
+    <h2 class="section-title">Everything you need<br>to know <em>before booking</em></h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What is the difference between holistic and conventional massage?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Conventional massage primarily addresses physical muscle tension. Holistic energy massage works simultaneously on physical, emotional, and energetic layers — addressing not just the symptom (tension) but its root cause (blockage in the energy field).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Does the session involve any sexual activity?
+          <span>+</span>
+        </div>
+        <div class="faq-a">No. All sessions are strictly therapeutic and energetic. The work focuses on releasing blockages, restoring energy flow, and promoting genuine well-being. The environment is professional, safe, and respectful at all times.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How does pricing work? Can I get a quote?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Sessions are priced based on the modality and duration chosen. To receive a personalised quote with full details, simply send a message via WhatsApp — Mari will respond with all the information you need within a short time.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Where do sessions take place?
+          <span>+</span>
+        </div>
+        <div class="faq-a">All sessions take place in Mari's private studio in Amsterdam. The address and exact directions are shared upon booking confirmation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What should I wear to the session?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Wear comfortable, easy-to-remove clothing such as loose trousers and a simple top. Please arrive already showered if possible — a shower is available on-site as well.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Are there any contraindications?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Sessions are not recommended for those with fever, deep vein thrombosis, fractures, severe osteoporosis, open wounds, or high-risk pregnancy. If you have any health concerns, please mention them when booking.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="section-label" style="justify-content: center;">Ready to begin</div>
+  <h2 class="section-title">Your energy <em>deserves</em><br>to be restored</h2>
+  <p>Send a message on WhatsApp and receive a personalised quote with full session details, availability, and answers to any questions you may have.</p>
+  <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Holistic%20Energy%20Massage%20session.%20Could%20you%20please%20send%20me%20more%20details%20and%20availability?" class="btn-primary" target="_blank">Request your quote on WhatsApp →</a>
+  <p class="cta-disclaimer">Quick response · Studio in Amsterdam · Sessions by appointment</p>
+</section>
+
+<footer>
+  <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
+  <div style="display:flex; gap:24px; flex-wrap:wrap;">
+    <a href="mailto:marycontato@gmail.com">marycontato@gmail.com</a>
+    <a href="https://wa.me/31634366008" target="_blank">+31 634 366 008</a>
+    <a href="https://www.instagram.com/massage.tantric.therapy/" target="_blank">@massage.tantric.therapy</a>
+  </div>
+  <p style="font-size:12px;">© 2026 Mari Gomes</p>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>
