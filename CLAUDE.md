@@ -62,3 +62,9 @@ Esses 4 destinos se repetem em nav, hero, seções de CTA e footer em todas as 6
 ## Fluxo de trabalho deste projeto
 
 Ver `IMPLEMENTACAO.md` para o plano de fases (botões → imagens → QA e publicação no WordPress da Mary).
+
+## Git
+
+Este projeto tem repositório no GitHub: `danielfranca47/mari-gomes-landing-pages` (público).
+
+**Ao final de toda atualização (qualquer mudança nos arquivos do projeto), fazer commit.** Não deixar trabalho concluído sem commit — cada rodada de edições termina com um `git add` + `git commit` descrevendo o que mudou. Perguntar ao usuário apenas se o push para o remoto deve ser feito também; o commit local em si não precisa de confirmação prévia.
