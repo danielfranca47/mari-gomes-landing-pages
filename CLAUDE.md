@@ -67,4 +67,4 @@ Ver `IMPLEMENTACAO.md` para o plano de fases (botões → imagens → QA e publi
 
 Este projeto tem repositório no GitHub: `danielfranca47/mari-gomes-landing-pages` (público).
 
-**Ao final de toda atualização (qualquer mudança nos arquivos do projeto), fazer commit.** Não deixar trabalho concluído sem commit — cada rodada de edições termina com um `git add` + `git commit` descrevendo o que mudou. Perguntar ao usuário apenas se o push para o remoto deve ser feito também; o commit local em si não precisa de confirmação prévia.
+**Ao final de toda atualização (qualquer mudança nos arquivos do projeto), fazer commit com resumo das atualizações.** Não deixar trabalho concluído sem commit — cada rodada de edições termina com um `git add` + `git commit` descrevendo o que mudou. Perguntar ao usuário apenas se o push para o remoto deve ser feito também; o commit local em si não precisa de confirmação prévia.
