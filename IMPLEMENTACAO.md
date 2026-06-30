@@ -111,13 +111,13 @@ Resumindo: **5 conceitos de foto únicos** cobrem os 6 placeholders (retrato da 
 
 ### Checklist de revisão (a ser percorrido ao final das Fases 1 e 2)
 
-**Status em 30/06/2026 — 6 de 9 itens concluídos, 3 pendentes:**
+**Status em 30/06/2026 — 8 de 9 itens concluídos, 1 pendente:**
 
 - [x] Todos os 19 links das 6 páginas (8+8+11 — ver Fase 1) apontam para os destinos finais corretos, sem nenhum link de placeholder esquecido
 - [x] Todos os 6 placeholders de foto foram substituídos por imagens reais, em todas as 6 páginas
 - [x] Conferir o texto pré-preenchido de cada link de WhatsApp (idioma certo, sem erro de digitação, encoding válido)
-- [ ] Testar visualmente cada página no desktop e no mobile (breakpoint em 768px)
-- [ ] Testar o accordion do FAQ em todas as páginas
+- [x] Testar visualmente cada página no desktop e no mobile (breakpoint em 768px)
+- [x] Testar o accordion do FAQ em todas as páginas
 - [ ] Revisar `<title>`, meta description e `og:locale` de cada página (SEO básico) — ver gaps atualizados abaixo
 - [x] Decidir se cada LP terá uma URL própria no site da Mary — feito, ver "Slugs/URLs definidos" abaixo
 - [x] Confirmar favicon — já existe no site (`icon-banaficios-04.svg`)
@@ -128,6 +128,12 @@ Resumindo: **5 conceitos de foto únicos** cobrem os 6 placeholders (retrato da 
 - Meta description é auto-gerada a partir do texto visível da página (dump de conteúdo), não um texto curado — afeta a qualidade do snippet em buscas e compartilhamentos.
 - `og:locale` está fixo em `pt_BR` em todas as páginas, inclusive nas em inglês/holandês — deveria refletir o idioma de cada página (`en_US`, `nl_NL`).
 - A classe `.btn-outline` existe no CSS da LP1 mas não é usada em nenhum botão — não é um problema, só uma sobra de código.
+
+### Teste visual/mobile e FAQ — resultado (30/06/2026)
+
+Testadas as 6 páginas publicadas (desktop ~1440px e mobile 375px) com navegador automatizado, simulando visitante real (sem login no wp-admin). Resultado: **sem bugs visuais ou funcionais** nas 6 páginas — layout correto em ambos os breakpoints, accordion do FAQ abre/fecha normalmente, mapa do Google carrega (lazy load — só renderiza ao rolar até a seção), botões de WhatsApp (incluindo os 3 cards extras da LP3) com texto pré-preenchido e encoding corretos em EN e NL, banner de cookies funcional.
+
+Um falso-alarme identificado durante o teste: ao visualizar a página **logado no wp-admin**, a barra de admin do WordPress empurra/sobrepõe o nav fixo da página no mobile, cortando o logo e o botão CTA. Isso **não afeta visitantes reais** (não logados) — confirmado comparando a mesma página em sessão sem login. Não requer ação.
 
 ### Publicação no WordPress — situação atual (levantada em acesso ao painel)
 
