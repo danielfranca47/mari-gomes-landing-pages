@@ -130,10 +130,17 @@ Resumindo: **5 conceitos de foto únicos** cobrem os 6 placeholders (retrato da 
 
 **Tema/builder confirmado:** Hello Elementor (tema ativo) + Elementor (page builder, v3.30.3). Outros temas instalados mas inativos: PopularFX, Twenty Twenty-Three/Four/Five.
 
-**Método de publicação já validado no próprio site** (existe uma prova de conceito real, página `/teste-html/`, que já tem a versão antiga da LP1 — com placeholders ilustrados — publicada e funcionando):
+**Método de publicação correto** (confirmado na prática em 30/06/2026, após um incidente — ver nota abaixo):
 1. Criar página nova → no painel lateral, campo **Modelo = "Tela do Elementor"** (Elementor Canvas — remove header/footer do tema, fica fiel ao design original da LP)
-2. Abrir o editor de blocos em **modo código** (menu "⋮" → "Editor de código" / "Editando o código") → colar o arquivo `.html` inteiro (de `<!DOCTYPE html>` até `</html>`, incluindo `<style>` e `<script>`) direto no conteúdo
-3. Publicar
+2. Abrir a página com **"Editar com Elementor"** (não o editor de blocos padrão do WordPress)
+3. Selecionar o widget "Editor de texto" no canvas → clicar em **"Código"** (alterna de Visual para HTML bruto) → colar o arquivo `.html` inteiro (de `<!DOCTYPE html>` até `</html>`, incluindo `<style>` e `<script>`)
+4. Clicar em **Publicar/Atualizar** dentro do Elementor
+
+⚠️ **Importante:** colar o HTML no editor de blocos padrão do WordPress (acessível via "Editar" / "Editando o código") **não publica nada visível** — essas páginas são renderizadas pelo Elementor, que guarda seu próprio conteúdo separado do `post_content` do WordPress. Editar só pelo editor de blocos deixa o conteúdo "órfão": parece salvo, mas o site continua servindo a versão antiga do Elementor.
+
+### Incidente resolvido — imagens quebradas nas 6 páginas (30/06/2026)
+
+As 12 imagens (2 por página × 6) apareciam quebradas no site publicado, mesmo com o `src` já corrigido nos arquivos `.html` do repositório (commit `3ee4c6c`). Causa: o conteúdo correto só tinha sido colado no editor de blocos do WordPress, não no Elementor (que é quem renderiza a página ao vivo — ver método de publicação acima). Corrigido recolando o HTML de cada página via Elementor → widget "Editor de texto" → "Código". Aproveitado para corrigir também o slug da página Couples Massage EN, que estava publicada em `/couples-massage/` em vez de `/couples-massage-en/` (causando 404 nos anúncios); o WordPress redireciona automaticamente o slug antigo para o novo.
 
 **Páginas existentes no site (3 no total):**
 | Página | URL | Papel |
