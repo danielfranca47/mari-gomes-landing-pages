@@ -38,7 +38,9 @@ Cada página tem **2 placeholders de imagem**, implementados como **SVG inline**
 
 Quando uma foto real for inserida, o padrão é **substituir o `<svg>...</svg>` inteiro por uma tag `<img>`** (ou `background-image`) com `object-fit: cover` para preencher o frame sem distorcer, mesmo que a proporção da imagem enviada não seja idêntica ao placeholder. Ver `IMPLEMENTACAO.md` Fase 2 para dimensões recomendadas por slot.
 
-Os 12 placeholders já foram substituídos (Fase 2 concluída). As imagens reais estão em `images/` no formato `.webp` (convertidas de PNG original — WebP reduz ~94% do peso do arquivo mantendo a qualidade, importante para velocidade de carregamento/SEO). Os `.png` originais ficaram guardados na mesma pasta como backup/fonte, mas não são referenciados pelo HTML.
+Os 12 placeholders já foram substituídos (Fase 2 concluída). As imagens reais foram convertidas de PNG para `.webp` (WebP reduz ~94% do peso do arquivo mantendo a qualidade, importante para velocidade de carregamento/SEO) e ficam guardadas localmente em `images/` (os `.png` originais também, como backup/fonte).
+
+**Importante — os `<img src>` dos 6 arquivos HTML apontam para URLs absolutas do WordPress** (`https://amarigomes.com/wp-content/uploads/2026/06/NomeDoArquivo.webp`), **não** para o caminho relativo `images/`. Isso porque as páginas são publicadas colando o HTML inteiro dentro do WordPress (ver seção "Publicação no WordPress" no `IMPLEMENTACAO.md`) — um caminho relativo `images/arquivo.webp` resolveria incorretamente contra a própria URL da página publicada (ex.: `amarigomes.com/holistic-energy-massage-en/images/...`, que não existe) e quebraria a imagem. Sempre que uma imagem for trocada/adicionada, fazer upload na Biblioteca de Mídia do WP primeiro, pegar a URL real (`wp-content/uploads/...`) e usar essa URL no `src` — nunca um caminho relativo.
 
 ## Contato / dados de negócio (usados em botões, footer, links de WhatsApp)
 
