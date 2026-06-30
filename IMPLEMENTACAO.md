@@ -152,4 +152,19 @@ As 6 LPs novas são páginas **adicionais e independentes** da homepage (uso pro
 - **Backuply** (backup) — site está sem nenhum backup desde a ativação do plugin; recomendo rodar um backup antes de publicarmos as 6 páginas
 - **Loginizer** (segurança de login/2FA)
 
-**Pendente de decisão:** definir os slugs/URLs finais das 6 páginas (ex.: `/holistic-energy-en/`, `/holistic-energy-nl/`, etc.) e se a página `/teste-html/` deve ser atualizada ou removida.
+### Contexto da campanha
+
+As 6 páginas são o destino de uma campanha de anúncios paga com **3 grupos de anúncios × 2 idiomas (EN/NL)** — cada LP corresponde a uma proposta/grupo de anúncios diferente. Por isso os slugs usam palavra-chave do serviço + idioma, para relevância percebida no Google Ads e consistência com o que a pessoa viu no anúncio.
+
+### Slugs/URLs definidos
+
+| Arquivo | URL final |
+|---|---|
+| `lp1-holistic-energy-en.html` | `/holistic-energy-massage-en/` |
+| `lp1-holistic-energy-nl.html` | `/holistic-energy-massage-nl/` |
+| `lp2-relaxation-en.html` | `/relaxation-massage-en/` |
+| `lp2-relaxation-nl.html` | `/relaxation-massage-nl/` |
+| `lp3-couples-en.html` | `/couples-massage-en/` |
+| `lp3-couples-nl.html` | `/couples-massage-nl/` |
+
+**Pendente de decisão:** o que fazer com a página `/teste-html/` (atualizar com a versão final da LP1 reaproveitando essa URL, ou criar a página nova em `/holistic-energy-massage-en/` e remover/redirecionar a de teste).
