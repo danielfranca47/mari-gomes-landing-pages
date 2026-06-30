@@ -111,19 +111,22 @@ Resumindo: **5 conceitos de foto únicos** cobrem os 6 placeholders (retrato da 
 
 ### Checklist de revisão (a ser percorrido ao final das Fases 1 e 2)
 
-- [ ] Todos os 19 links das 6 páginas (8+8+11 — ver Fase 1) apontam para os destinos finais corretos, sem nenhum link de placeholder esquecido
-- [ ] Todos os 6 placeholders de foto foram substituídos por imagens reais, em todas as 6 páginas
-- [ ] Conferir o texto pré-preenchido de cada link de WhatsApp (idioma certo, sem erro de digitação, encoding válido)
+**Status em 30/06/2026 — 6 de 9 itens concluídos, 3 pendentes:**
+
+- [x] Todos os 19 links das 6 páginas (8+8+11 — ver Fase 1) apontam para os destinos finais corretos, sem nenhum link de placeholder esquecido
+- [x] Todos os 6 placeholders de foto foram substituídos por imagens reais, em todas as 6 páginas
+- [x] Conferir o texto pré-preenchido de cada link de WhatsApp (idioma certo, sem erro de digitação, encoding válido)
 - [ ] Testar visualmente cada página no desktop e no mobile (breakpoint em 768px)
 - [ ] Testar o accordion do FAQ em todas as páginas
-- [ ] Revisar `<title>` e meta description de cada página (SEO básico) — hoje só LP1/LP2/LP3 têm `<title>`, não há meta description nem Open Graph (imagem/título para compartilhamento no WhatsApp/redes)
-- [ ] Decidir se cada LP terá uma URL própria no site da Mary (ex. `/holistic-energy`, `/relaxation`, `/couples`, cada uma em `/en/` e `/nl/`) — isso direciona como a Fase 3 de publicação será feita
-- [ ] Confirmar favicon (não há nenhum definido atualmente)
-- [ ] Confirmar se será adicionado algum pixel/script de analytics (Meta Pixel, Google Analytics) antes de publicar
+- [ ] Revisar `<title>`, meta description e `og:locale` de cada página (SEO básico) — ver gaps atualizados abaixo
+- [x] Decidir se cada LP terá uma URL própria no site da Mary — feito, ver "Slugs/URLs definidos" abaixo
+- [x] Confirmar favicon — já existe no site (`icon-banaficios-04.svg`)
+- [x] Confirmar se será adicionado algum pixel/script de analytics — Google Ads gtag (`AW-18036442650`) já está disparando nas páginas publicadas
 
-**Gaps já identificados nesta leitura inicial** (para sua decisão, não é bloqueio):
-- Não há meta description / Open Graph tags — afeta como o link aparece quando compartilhado.
-- Não há favicon.
+**Gaps identificados (verificação ao vivo em 30/06/2026, ex.: `holistic-energy-massage-en/`)** — atualiza a leitura inicial abaixo, que estava desatualizada quanto a favicon/analytics:
+- `<title>` duplicado no HTML: a página tem um `<title>` gerado pelo WordPress/SiteSEO **e** outro embutido no `<head>` do documento colado no Elementor — HTML inválido (dois `<title>` no mesmo documento).
+- Meta description é auto-gerada a partir do texto visível da página (dump de conteúdo), não um texto curado — afeta a qualidade do snippet em buscas e compartilhamentos.
+- `og:locale` está fixo em `pt_BR` em todas as páginas, inclusive nas em inglês/holandês — deveria refletir o idioma de cada página (`en_US`, `nl_NL`).
 - A classe `.btn-outline` existe no CSS da LP1 mas não é usada em nenhum botão — não é um problema, só uma sobra de código.
 
 ### Publicação no WordPress — situação atual (levantada em acesso ao painel)
