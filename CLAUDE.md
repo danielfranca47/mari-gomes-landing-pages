@@ -62,6 +62,19 @@ Mecanismo (3 partes, sempre juntas, dentro do `<nav>`):
 
 O script é carregado direto de `amarigomes.com` (mesmo arquivo que o resto do site usa) — funciona tanto localmente (abrindo o `.html` direto no navegador) quanto depois de publicado no WordPress, sem depender de a página estar hospedada lá.
 
+## Menu de navegação interno (âncoras)
+
+O `<nav>` de cada página tem 2 grupos lado a lado (`.nav-left` = logo + menu, `.nav-right` = bandeiras + CTA), com `justify-content: space-between` entre os dois grupos. O menu (`.nav-menu`) tem 4 links em âncora (`#id`) para seções da própria página — **escondido em mobile** (`max-width: 768px`) via `display: none`, já que não há menu hambúrguer implementado; no celular só ficam logo, bandeiras e botão de CTA.
+
+Cada seção-alvo recebeu um `id` (reaproveitando o nome da classe, ex. `class="about" id="about"`) e a regra global `section { ...; scroll-margin-top: Npx; }` foi ajustada para compensar a altura do nav fixo — sem isso, o scroll suave (`html { scroll-behavior: smooth; }`, já existente) deixaria o topo da seção escondido atrás do nav.
+
+Itens do menu por página (mesmas seções, label traduzido por idioma):
+- **LP1**: About/Over mij → `#about` · Therapies/Therapieën → `#therapies` · Reviews → `#testimonials` · FAQ/Vragen → `#faq`
+- **LP2**: Sessions/Sessies → `#sessions` · About/Over mij → `#about` · Reviews → `#testimonials` · FAQ/Vragen → `#faq`
+- **LP3**: Experience/Ervaring → `#experience-section` · Packages/Pakketten → `#options` · Reviews → `#testimonials` · FAQ/Vragen → `#faq`
+
+Ao adicionar uma seção nova a alguma LP que faça sentido entrar no menu, lembrar de: adicionar `id` na section, adicionar o link em `.nav-menu` (nos dois grupos `.nav-left`), e conferir que `scroll-margin-top` ainda cobre a altura do nav.
+
 ## Convenções ao editar
 
 - **Espelhar mudanças estruturais/de link entre o par EN/NL da mesma LP.** Texto (copy) muda por idioma, mas links, contatos e estrutura de seções devem ficar em sincronia entre `*-en.html` e `*-nl.html` da mesma página.

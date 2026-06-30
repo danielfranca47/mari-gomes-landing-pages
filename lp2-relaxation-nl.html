@@ -18,6 +18,11 @@
   .nav-cta:hover { background: var(--deep); }
   .gtranslate_wrapper { display: flex; align-items: center; gap: 6px; }
   .gtranslate_wrapper img { display: block; border-radius: 2px; }
+  .nav-left { display: flex; align-items: center; gap: 40px; }
+  .nav-menu { display: flex; align-items: center; gap: 22px; }
+  .nav-menu a { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s ease; }
+  .nav-menu a:hover { color: var(--moss); }
+  .nav-right { display: flex; align-items: center; gap: 22px; }
   .hero { min-height: 100vh; padding: 112px 0 0; display: flex; flex-direction: column; }
   .hero-top { flex: 1; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
   .hero-left { padding: 64px 64px 64px 48px; }
@@ -40,7 +45,7 @@
   .strip { background: var(--moss); color: var(--linen); padding: 20px 48px; display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; }
   .strip-item { font-size: 13px; display: flex; align-items: center; gap: 8px; }
   .strip-item::before { content: '✓'; font-weight: 600; }
-  section { padding: 88px 48px; }
+  section { padding: 88px 48px; scroll-margin-top: 90px; }
   .label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--moss); margin-bottom: 12px; }
   .title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.5vw, 44px); font-weight: 400; line-height: 1.25; margin-bottom: 20px; }
   .title em { font-style: italic; color: var(--moss); }
@@ -92,6 +97,7 @@
   footer .logo { color: var(--linen); }
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
+    .nav-menu { display: none; }
     .hero-top { grid-template-columns: 1fr; }
     .hero-left { padding: 48px 24px; }
     .hero-right { min-height: auto; padding: 32px 24px; }
@@ -114,14 +120,24 @@
 <body>
 
 <nav>
-  <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
-  <div class="gtranslate_wrapper" id="gt-wrapper-74519283"></div>
-  <script>
-    window.gtranslateSettings = window.gtranslateSettings || {};
-    window.gtranslateSettings['74519283'] = {"default_language":"nl","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-74519283","alt_flags":[],"horizontal_position":"inline","flags_location":"https://amarigomes.com/wp-content/plugins/gtranslate/flags/"}
-  </script>
-  <script src="https://amarigomes.com/wp-content/plugins/gtranslate/js/flags.js?ver=7.0" data-gt-widget-id="74519283"></script>
-  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20een%20ontspanningsmassage.%20Kun%20je%20me%20meer%20informatie%20sturen?" class="nav-cta" target="_blank">Sessie boeken</a>
+  <div class="nav-left">
+    <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
+    <div class="nav-menu">
+      <a href="#sessions">Sessies</a>
+      <a href="#about">Over mij</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faq">Vragen</a>
+    </div>
+  </div>
+  <div class="nav-right">
+    <div class="gtranslate_wrapper" id="gt-wrapper-74519283"></div>
+    <script>
+      window.gtranslateSettings = window.gtranslateSettings || {};
+      window.gtranslateSettings['74519283'] = {"default_language":"nl","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-74519283","alt_flags":[],"horizontal_position":"inline","flags_location":"https://amarigomes.com/wp-content/plugins/gtranslate/flags/"}
+    </script>
+    <script src="https://amarigomes.com/wp-content/plugins/gtranslate/js/flags.js?ver=7.0" data-gt-widget-id="74519283"></script>
+    <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20een%20ontspanningsmassage.%20Kun%20je%20me%20meer%20informatie%20sturen?" class="nav-cta" target="_blank">Sessie boeken</a>
+  </div>
 </nav>
 
 <div class="hero">
@@ -173,7 +189,7 @@
   </div>
 </section>
 
-<section class="sessions">
+<section class="sessions" id="sessions">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="label">Sessieopties</div>
     <h2 class="title">Kies de <em>juiste diepte</em> voor jou</h2>
@@ -192,7 +208,7 @@
   </div>
 </section>
 
-<section class="about">
+<section class="about" id="about">
   <div class="about-grid">
     <div class="about-portrait" style="background:transparent;overflow:hidden;"><img src="images/LP1_About.webp" alt="Interieur van de privé massagestudio van Mari Gomes in Amsterdam" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
     <div class="about-content">
@@ -206,7 +222,7 @@
   </div>
 </section>
 
-<section class="testimonials">
+<section class="testimonials" id="testimonials">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="label">Ervaringen van cliënten</div>
     <h2 class="title">Ze kwamen gestrest.<br><em>Ze vertrokken getransformeerd.</em></h2>
@@ -230,7 +246,7 @@
   </div>
 </section>
 
-<section class="faq">
+<section class="faq" id="faq">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="label">Vragen & antwoorden</div>
     <h2 class="title">Alles wat je moet weten<br><em>voor je boekt</em></h2>

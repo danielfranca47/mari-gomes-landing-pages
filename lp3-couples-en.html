@@ -29,6 +29,11 @@
   .nav-cta:hover { background: var(--ink); }
   .gtranslate_wrapper { display: flex; align-items: center; gap: 6px; }
   .gtranslate_wrapper img { display: block; border-radius: 2px; }
+  .nav-left { display: flex; align-items: center; gap: 40px; }
+  .nav-menu { display: flex; align-items: center; gap: 22px; }
+  .nav-menu a { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm-gray); text-decoration: none; transition: color 0.3s ease; }
+  .nav-menu a:hover { color: var(--rose); }
+  .nav-right { display: flex; align-items: center; gap: 22px; }
 
   /* HERO — romantic, warm */
   .hero {
@@ -98,7 +103,7 @@
   .promise-desc { font-size: 12px; color: rgba(248,244,239,0.55); line-height: 1.5; }
 
   /* SECTIONS */
-  section { padding: 96px 48px; }
+  section { padding: 96px 48px; scroll-margin-top: 100px; }
   .label { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
   .label::before { content: ''; width: 20px; height: 0.5px; background: var(--rose); }
   .title { font-family: 'Libre Baskerville', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 400; line-height: 1.25; margin-bottom: 20px; }
@@ -183,6 +188,7 @@
 
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
+    .nav-menu { display: none; }
     .hero { grid-template-columns: 1fr; }
     .hero-left { min-height: 240px; padding: 40px 24px; }
     .hero-number { display: none; }
@@ -206,14 +212,24 @@
 <body>
 
 <nav>
-  <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
-  <div class="gtranslate_wrapper" id="gt-wrapper-85027364"></div>
-  <script>
-    window.gtranslateSettings = window.gtranslateSettings || {};
-    window.gtranslateSettings['85027364'] = {"default_language":"en","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-85027364","alt_flags":[],"horizontal_position":"inline","flags_location":"https://amarigomes.com/wp-content/plugins/gtranslate/flags/"}
-  </script>
-  <script src="https://amarigomes.com/wp-content/plugins/gtranslate/js/flags.js?ver=7.0" data-gt-widget-id="85027364"></script>
-  <a href="https://wa.me/31634366008?text=Hi%20Mari!%20My%20partner%20and%20I%20are%20interested%20in%20a%20couples%20massage%20session.%20Could%20you%20please%20send%20us%20more%20details%20and%20a%20quote?" class="nav-cta" target="_blank">Book for two</a>
+  <div class="nav-left">
+    <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
+    <div class="nav-menu">
+      <a href="#experience-section">Experience</a>
+      <a href="#options">Packages</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+  <div class="nav-right">
+    <div class="gtranslate_wrapper" id="gt-wrapper-85027364"></div>
+    <script>
+      window.gtranslateSettings = window.gtranslateSettings || {};
+      window.gtranslateSettings['85027364'] = {"default_language":"en","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-85027364","alt_flags":[],"horizontal_position":"inline","flags_location":"https://amarigomes.com/wp-content/plugins/gtranslate/flags/"}
+    </script>
+    <script src="https://amarigomes.com/wp-content/plugins/gtranslate/js/flags.js?ver=7.0" data-gt-widget-id="85027364"></script>
+    <a href="https://wa.me/31634366008?text=Hi%20Mari!%20My%20partner%20and%20I%20are%20interested%20in%20a%20couples%20massage%20session.%20Could%20you%20please%20send%20us%20more%20details%20and%20a%20quote?" class="nav-cta" target="_blank">Book for two</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -284,7 +300,7 @@
 </section>
 
 <!-- EXPERIENCE -->
-<section class="experience-section">
+<section class="experience-section" id="experience-section">
   <div class="exp-layout">
     <div class="exp-visual" style="background:transparent;overflow:hidden;"><img src="images/LP3_Experience.webp" alt="Treatment room ambiance set up for a couples massage session at Mari Gomes' studio" style="width:100%;height:100%;object-fit:cover;display:block;">
       <div class="exp-visual-inner" style="display:none;">
@@ -318,7 +334,7 @@
 </section>
 
 <!-- OPTIONS -->
-<section class="options">
+<section class="options" id="options">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="label">Session formats</div>
     <h2 class="title">Choose the <em>depth</em> that suits you</h2>
@@ -347,7 +363,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials">
+<section class="testimonials" id="testimonials">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="label">What clients say</div>
     <h2 class="title">Experiences that<br><em>stay with you</em></h2>
@@ -372,7 +388,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="faq">
+<section class="faq" id="faq">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="label">Your questions, answered</div>
     <h2 class="title">Everything you need to know<br><em>before you book</em></h2>

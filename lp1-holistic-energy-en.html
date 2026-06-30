@@ -57,6 +57,11 @@
   .nav-cta:hover { background: var(--charcoal); color: var(--cream); }
   .gtranslate_wrapper { display: flex; align-items: center; gap: 6px; }
   .gtranslate_wrapper img { display: block; border-radius: 2px; }
+  .nav-left { display: flex; align-items: center; gap: 40px; }
+  .nav-menu { display: flex; align-items: center; gap: 24px; }
+  .nav-menu a { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone); text-decoration: none; transition: color 0.3s ease; }
+  .nav-menu a:hover { color: var(--gold); }
+  .nav-right { display: flex; align-items: center; gap: 24px; }
 
   /* HERO */
   .hero {
@@ -153,7 +158,7 @@
   .trust-item span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; }
 
   /* SECTION BASE */
-  section { padding: 96px 48px; }
+  section { padding: 96px 48px; scroll-margin-top: 100px; }
   .section-label {
     font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 16px;
@@ -316,6 +321,7 @@
   /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
+    .nav-menu { display: none; }
     .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
     .hero::before { width: 100%; top: 55%; height: 50%; }
     .hero-right { display: none; }
@@ -344,14 +350,24 @@
 <body>
 
 <nav>
-  <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
-  <div class="gtranslate_wrapper" id="gt-wrapper-41028573"></div>
-  <script>
-    window.gtranslateSettings = window.gtranslateSettings || {};
-    window.gtranslateSettings['41028573'] = {"default_language":"en","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-41028573","alt_flags":[],"horizontal_position":"inline","flags_location":"https://amarigomes.com/wp-content/plugins/gtranslate/flags/"}
-  </script>
-  <script src="https://amarigomes.com/wp-content/plugins/gtranslate/js/flags.js?ver=7.0" data-gt-widget-id="41028573"></script>
-  <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Holistic%20Energy%20Massage%20session.%20Could%20you%20provide%20more%20details?" class="nav-cta" target="_blank">Book a session</a>
+  <div class="nav-left">
+    <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
+    <div class="nav-menu">
+      <a href="#about">About</a>
+      <a href="#therapies">Therapies</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+  <div class="nav-right">
+    <div class="gtranslate_wrapper" id="gt-wrapper-41028573"></div>
+    <script>
+      window.gtranslateSettings = window.gtranslateSettings || {};
+      window.gtranslateSettings['41028573'] = {"default_language":"en","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-41028573","alt_flags":[],"horizontal_position":"inline","flags_location":"https://amarigomes.com/wp-content/plugins/gtranslate/flags/"}
+    </script>
+    <script src="https://amarigomes.com/wp-content/plugins/gtranslate/js/flags.js?ver=7.0" data-gt-widget-id="41028573"></script>
+    <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Holistic%20Energy%20Massage%20session.%20Could%20you%20provide%20more%20details?" class="nav-cta" target="_blank">Book a session</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -391,7 +407,7 @@
 </div>
 
 <!-- ABOUT PROMISE -->
-<section class="about">
+<section class="about" id="about">
   <div class="about-grid">
     <div class="about-img" style="background:transparent;overflow:hidden;min-height:400px;"><img src="images/LP1_About.webp" alt="Interior of Mari Gomes' private massage studio in Amsterdam" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
     <div class="about-text">
@@ -406,7 +422,7 @@
 </section>
 
 <!-- THERAPIES -->
-<section class="therapies">
+<section class="therapies" id="therapies">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="section-label">What we offer</div>
     <h2 class="section-title">Three paths to <em>energetic balance</em></h2>
@@ -470,7 +486,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials">
+<section class="testimonials" id="testimonials">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="section-label">What clients say</div>
     <h2 class="section-title">Real experiences,<br><em>real transformations</em></h2>
@@ -495,7 +511,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="faq">
+<section class="faq" id="faq">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="section-label">Questions</div>
     <h2 class="section-title">Everything you need<br>to know <em>before booking</em></h2>

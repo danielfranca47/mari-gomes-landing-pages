@@ -18,6 +18,11 @@
   .nav-cta:hover { background: var(--ink); }
   .gtranslate_wrapper { display: flex; align-items: center; gap: 6px; }
   .gtranslate_wrapper img { display: block; border-radius: 2px; }
+  .nav-left { display: flex; align-items: center; gap: 40px; }
+  .nav-menu { display: flex; align-items: center; gap: 22px; }
+  .nav-menu a { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm-gray); text-decoration: none; transition: color 0.3s ease; }
+  .nav-menu a:hover { color: var(--rose); }
+  .nav-right { display: flex; align-items: center; gap: 22px; }
   .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; background: var(--ivory); }
   .hero-left { background: var(--blush); display: flex; align-items: flex-end; padding: 64px 48px; min-height: 560px; position: relative; overflow: hidden; }
   .hero-left::before { content: '❧'; position: absolute; top: 40px; left: 48px; font-size: 48px; color: rgba(155,94,82,0.2); }
@@ -40,7 +45,7 @@
   .promise-icon { font-size: 22px; margin-bottom: 8px; }
   .promise-title { font-family: 'Libre Baskerville', serif; font-size: 16px; font-weight: 400; margin-bottom: 4px; }
   .promise-desc { font-size: 12px; color: rgba(248,244,239,0.55); line-height: 1.5; }
-  section { padding: 96px 48px; }
+  section { padding: 96px 48px; scroll-margin-top: 100px; }
   .label { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
   .label::before { content: ''; width: 20px; height: 0.5px; background: var(--rose); }
   .title { font-family: 'Libre Baskerville', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 400; line-height: 1.25; margin-bottom: 20px; }
@@ -101,6 +106,7 @@
   footer .logo { color: var(--ivory); }
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
+    .nav-menu { display: none; }
     .hero { grid-template-columns: 1fr; }
     .hero-left { min-height: 220px; padding: 40px 24px; }
     .hero-number { display: none; }
@@ -123,14 +129,24 @@
 <body>
 
 <nav>
-  <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
-  <div class="gtranslate_wrapper" id="gt-wrapper-96138475"></div>
-  <script>
-    window.gtranslateSettings = window.gtranslateSettings || {};
-    window.gtranslateSettings['96138475'] = {"default_language":"nl","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-96138475","alt_flags":[],"horizontal_position":"inline","flags_location":"https://amarigomes.com/wp-content/plugins/gtranslate/flags/"}
-  </script>
-  <script src="https://amarigomes.com/wp-content/plugins/gtranslate/js/flags.js?ver=7.0" data-gt-widget-id="96138475"></script>
-  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20meer%20informatie%20en%20een%20offerte%20sturen?" class="nav-cta" target="_blank">Boek voor twee</a>
+  <div class="nav-left">
+    <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
+    <div class="nav-menu">
+      <a href="#experience-section">Ervaring</a>
+      <a href="#options">Pakketten</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faq">Vragen</a>
+    </div>
+  </div>
+  <div class="nav-right">
+    <div class="gtranslate_wrapper" id="gt-wrapper-96138475"></div>
+    <script>
+      window.gtranslateSettings = window.gtranslateSettings || {};
+      window.gtranslateSettings['96138475'] = {"default_language":"nl","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-96138475","alt_flags":[],"horizontal_position":"inline","flags_location":"https://amarigomes.com/wp-content/plugins/gtranslate/flags/"}
+    </script>
+    <script src="https://amarigomes.com/wp-content/plugins/gtranslate/js/flags.js?ver=7.0" data-gt-widget-id="96138475"></script>
+    <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20meer%20informatie%20en%20een%20offerte%20sturen?" class="nav-cta" target="_blank">Boek voor twee</a>
+  </div>
 </nav>
 
 <div class="hero">
@@ -169,7 +185,7 @@
   </div>
 </section>
 
-<section class="experience-section">
+<section class="experience-section" id="experience-section">
   <div class="exp-layout">
     <div class="exp-visual" style="background:transparent;overflow:hidden;"><img src="images/LP3_Experience.webp" alt="Sfeer van de behandelkamer ingericht voor een koppelsessie in de studio van Mari Gomes" style="width:100%;height:100%;object-fit:cover;display:block;">
       <div class="exp-visual-inner" style="display:none;"><div class="big">voor<br>twee</div><p>Amsterdam · Studio · Privé</p></div></div>
@@ -186,7 +202,7 @@
   </div>
 </section>
 
-<section class="options">
+<section class="options" id="options">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="label">Sessieformaten</div>
     <h2 class="title">Kies de <em>diepte</em> die bij jullie past</h2>
@@ -214,7 +230,7 @@
   </div>
 </section>
 
-<section class="testimonials">
+<section class="testimonials" id="testimonials">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="label">Wat cliënten zeggen</div>
     <h2 class="title">Ervaringen die<br><em>bijblijven</em></h2>
@@ -226,7 +242,7 @@
   </div>
 </section>
 
-<section class="faq">
+<section class="faq" id="faq">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="label">Jullie vragen, beantwoord</div>
     <h2 class="title">Alles wat je moet weten<br><em>voor je boekt</em></h2>
