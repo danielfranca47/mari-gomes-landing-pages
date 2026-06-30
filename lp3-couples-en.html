@@ -87,6 +87,13 @@
   .hero-sub { font-size: 16px; color: var(--warm-gray); max-width: 400px; margin-bottom: 36px; line-height: 1.8; }
   .btn-rose { display: inline-block; background: var(--rose); color: var(--white); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 16px 36px; text-decoration: none; transition: background 0.3s; }
   .btn-rose:hover { background: var(--ink); }
+  .btn-outline { display: inline-block; background: transparent; color: var(--rose); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 34px; border: 1px solid var(--rose); text-decoration: none; transition: all 0.3s; }
+  .btn-outline:hover { background: var(--rose); color: var(--white); }
+  .location { background: var(--blush); }
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; }
+  .location-address { font-size: 16px; color: var(--warm-gray); line-height: 1.8; margin-bottom: 28px; }
+  .location-map { aspect-ratio: 4/3; overflow: hidden; border: 0.5px solid var(--border); }
+  .location-map iframe { width: 100%; height: 100%; display: block; }
   .hero-note { font-size: 12px; color: var(--warm-gray); margin-top: 12px; }
 
   /* PROMISE BAR */
@@ -196,7 +203,7 @@
     section { padding: 64px 24px; }
     .promise-bar { grid-template-columns: 1fr; gap: 20px; padding: 32px 24px; }
     .promise-item { border-right: none; border-bottom: 0.5px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
-    .for-grid, .options-grid, .testi-grid { grid-template-columns: 1fr; }
+    .for-grid, .options-grid, .testi-grid, .location-grid { grid-template-columns: 1fr; }
     .exp-layout { grid-template-columns: 1fr; }
     .exp-visual { display: none; }
     footer { flex-direction: column; text-align: center; padding: 28px 24px; }
@@ -219,6 +226,7 @@
       <a href="#options">Packages</a>
       <a href="#testimonials">Reviews</a>
       <a href="#faq">FAQ</a>
+      <a href="#location">Location</a>
     </div>
   </div>
   <div class="nav-right">
@@ -417,6 +425,21 @@
         <div class="faq-q" onclick="toggleFaq(this)">Can we give this as a gift?<span>+</span></div>
         <div class="faq-a">Yes. A couples session makes a thoughtful and meaningful gift. Contact Mari via WhatsApp and she can advise on the best option for the occasion.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="location-grid">
+    <div>
+      <div class="label">Visit Us</div>
+      <h2 class="title">Find our <em>studio</em> in Amsterdam</h2>
+      <p class="location-address">Brouwersgracht 270A<br>1013 HG Amsterdam<br>Netherlands</p>
+      <a href="https://www.google.com/maps/dir/Massagem+Amsterdam+-Mari+Gomes,+Brouwersgracht+270A,+1013+HG+Amsterdam,+Países+Baixos/Massagem+Amsterdam+-Mari+Gomes,+Brouwersgracht+270A,+1013+HG+Amsterdam,+Países+Baixos/@37.0311168,-7.8446592,14z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47c6095d24b054c5:0x1f0bbf12412e2877!2m2!1d4.8849098!2d52.3828845!1m5!1m1!1s0x47c6095d24b054c5:0x1f0bbf12412e2877!2m2!1d4.8849098!2d52.3828845?entry=ttu&amp;g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" class="btn-outline" target="_blank">Get Directions →</a>
+    </div>
+    <div class="location-map">
+      <iframe src="https://maps.google.com/maps?q=Massagem+Amsterdam+-+Mari+Gomes%2C+Brouwersgracht+270A%2C+1013+HG+Amsterdam&output=embed" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mari Gomes studio location on Google Maps"></iframe>
     </div>
   </div>
 </section>

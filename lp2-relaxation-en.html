@@ -57,6 +57,13 @@
   .hero-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
   .btn-moss { display: inline-block; background: var(--moss); color: var(--linen); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 32px; text-decoration: none; transition: background 0.3s; }
   .btn-moss:hover { background: var(--deep); }
+  .btn-outline { display: inline-block; background: transparent; color: var(--moss); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 30px; border: 1.5px solid var(--moss); text-decoration: none; transition: all 0.3s; }
+  .btn-outline:hover { background: var(--moss); color: var(--linen); }
+  .location { background: var(--linen); }
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; }
+  .location-address { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
+  .location-map { aspect-ratio: 4/3; overflow: hidden; border: 0.5px solid var(--border); }
+  .location-map iframe { width: 100%; height: 100%; display: block; }
   .hero-cta-note { font-size: 12px; color: var(--muted); }
   .hero-right { background: var(--sand); height: 100%; min-height: 460px; display: flex; align-items: center; justify-content: center; padding: 48px; }
   .hero-visual {
@@ -151,7 +158,7 @@
     section { padding: 56px 24px; }
     .steps { grid-template-columns: 1fr 1fr; }
     .steps::before { display: none; }
-    .session-grid, .testi-grid { grid-template-columns: 1fr; }
+    .session-grid, .testi-grid, .location-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; }
     .about-portrait { display: none; }
     .strip { gap: 24px; padding: 16px 24px; flex-direction: column; }
@@ -175,6 +182,7 @@
       <a href="#about">About</a>
       <a href="#testimonials">Reviews</a>
       <a href="#faq">FAQ</a>
+      <a href="#location">Location</a>
     </div>
   </div>
   <div class="nav-right">
@@ -342,6 +350,21 @@
         <div class="faq-q" onclick="toggleFaq(this)">How long is a session?<span>+</span></div>
         <div class="faq-a">Sessions are available in 60, 90, and 120-minute formats. Mari will recommend the best duration based on your goals when you get in touch.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="location-grid">
+    <div>
+      <div class="label">Visit Us</div>
+      <h2 class="title">Find our <em>studio</em> in Amsterdam</h2>
+      <p class="location-address">Brouwersgracht 270A<br>1013 HG Amsterdam<br>Netherlands</p>
+      <a href="https://www.google.com/maps/dir/Massagem+Amsterdam+-Mari+Gomes,+Brouwersgracht+270A,+1013+HG+Amsterdam,+Países+Baixos/Massagem+Amsterdam+-Mari+Gomes,+Brouwersgracht+270A,+1013+HG+Amsterdam,+Países+Baixos/@37.0311168,-7.8446592,14z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47c6095d24b054c5:0x1f0bbf12412e2877!2m2!1d4.8849098!2d52.3828845!1m5!1m1!1s0x47c6095d24b054c5:0x1f0bbf12412e2877!2m2!1d4.8849098!2d52.3828845?entry=ttu&amp;g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" class="btn-outline" target="_blank">Get Directions →</a>
+    </div>
+    <div class="location-map">
+      <iframe src="https://maps.google.com/maps?q=Massagem+Amsterdam+-+Mari+Gomes%2C+Brouwersgracht+270A%2C+1013+HG+Amsterdam&output=embed" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mari Gomes studio location on Google Maps"></iframe>
     </div>
   </div>
 </section>

@@ -75,6 +75,16 @@ Itens do menu por página (mesmas seções, label traduzido por idioma):
 
 Ao adicionar uma seção nova a alguma LP que faça sentido entrar no menu, lembrar de: adicionar `id` na section, adicionar o link em `.nav-menu` (nos dois grupos `.nav-left`), e conferir que `scroll-margin-top` ainda cobre a altura do nav.
 
+## Seção de localização (mapa)
+
+As 6 páginas têm uma seção `#location` (entre o FAQ e a CTA final) com endereço + mapa embed do Google Maps, apontando para o perfil público do Google Business da Mari ("Massagem Amsterdam - Mari Gomes", Brouwersgracht 270A, 1013 HG Amsterdam — 5,0★, 6 avaliações). Também está no menu de navegação (`#location`).
+
+- **Mapa**: `<iframe src="https://maps.google.com/maps?q=...&output=embed">` — embed público do Google, sem chave de API (mesmo princípio do GTranslate). Precisa estar dentro de uma tag `<iframe>` real; a URL sozinha fora de iframe retorna erro "must be used in an iframe".
+- **Botão "Get Directions"**: usa a URL de direções completa do Google Maps fornecida para o local (link direto, `target="_blank"`), reaproveitando/criando a classe `.btn-outline` de cada página (era CSS morto não-usado na LP1-EN; replicado nas outras 5 páginas com a cor de destaque de cada uma).
+- Layout: grid de 2 colunas (texto+botão / mapa), colapsa para 1 coluna em mobile via `.location-grid` adicionado às regras de grid responsivas existentes.
+
+**Nota de consistência:** o FAQ de cada página diz que "o endereço é compartilhado após a confirmação da reserva" — isso não foi alterado. Mostrar o mapa/endereço aqui não contradiz tecnicamente esse texto porque o local já é um perfil público do Google Maps (endereço já é descobrível via busca), mas vale avisar a Mary dessa pequena tensão de mensagem caso quase queira ajustar o texto do FAQ no futuro.
+
 ## Convenções ao editar
 
 - **Espelhar mudanças estruturais/de link entre o par EN/NL da mesma LP.** Texto (copy) muda por idioma, mas links, contatos e estrutura de seções devem ficar em sincronia entre `*-en.html` e `*-nl.html` da mesma página.

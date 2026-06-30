@@ -308,6 +308,13 @@
   .btn-outline:hover { background: var(--charcoal); color: var(--cream); }
   .cta-disclaimer { font-size: 12px; color: var(--stone); margin-top: 20px; opacity: 0.7; }
 
+  /* LOCATION */
+  .location { background: var(--cream); }
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; }
+  .location-address { font-size: 16px; color: var(--stone); line-height: 1.8; margin-bottom: 28px; }
+  .location-map { aspect-ratio: 4/3; overflow: hidden; border: 0.5px solid var(--border); }
+  .location-map iframe { width: 100%; height: 100%; display: block; }
+
   /* FOOTER */
   footer {
     background: var(--charcoal); color: rgba(253,250,247,0.6);
@@ -326,7 +333,7 @@
     .hero::before { width: 100%; top: 55%; height: 50%; }
     .hero-right { display: none; }
     section { padding: 64px 24px; }
-    .about-grid, .therapies-grid, .testi-grid { grid-template-columns: 1fr; }
+    .about-grid, .therapies-grid, .testi-grid, .location-grid { grid-template-columns: 1fr; }
     .exp-grid { grid-template-columns: 1fr; }
     .trust-bar { padding: 20px 24px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
@@ -357,6 +364,7 @@
       <a href="#therapies">Therapies</a>
       <a href="#testimonials">Reviews</a>
       <a href="#faq">FAQ</a>
+      <a href="#location">Location</a>
     </div>
   </div>
   <div class="nav-right">
@@ -558,6 +566,21 @@
         </div>
         <div class="faq-a">Sessions are not recommended for those with fever, deep vein thrombosis, fractures, severe osteoporosis, open wounds, or high-risk pregnancy. If you have any health concerns, please mention them when booking.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="location-grid">
+    <div>
+      <div class="section-label">Visit Us</div>
+      <h2 class="section-title">Find our <em>studio</em> in Amsterdam</h2>
+      <p class="location-address">Brouwersgracht 270A<br>1013 HG Amsterdam<br>Netherlands</p>
+      <a href="https://www.google.com/maps/dir/Massagem+Amsterdam+-Mari+Gomes,+Brouwersgracht+270A,+1013+HG+Amsterdam,+Países+Baixos/Massagem+Amsterdam+-Mari+Gomes,+Brouwersgracht+270A,+1013+HG+Amsterdam,+Países+Baixos/@37.0311168,-7.8446592,14z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47c6095d24b054c5:0x1f0bbf12412e2877!2m2!1d4.8849098!2d52.3828845!1m5!1m1!1s0x47c6095d24b054c5:0x1f0bbf12412e2877!2m2!1d4.8849098!2d52.3828845?entry=ttu&amp;g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" class="btn-outline" style="margin-left:0;" target="_blank">Get Directions →</a>
+    </div>
+    <div class="location-map">
+      <iframe src="https://maps.google.com/maps?q=Massagem+Amsterdam+-+Mari+Gomes%2C+Brouwersgracht+270A%2C+1013+HG+Amsterdam&output=embed" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mari Gomes studio location on Google Maps"></iframe>
     </div>
   </div>
 </section>
