@@ -126,11 +126,30 @@ Resumindo: **5 conceitos de foto únicos** cobrem os 6 placeholders (retrato da 
 - Não há favicon.
 - A classe `.btn-outline` existe no CSS da LP1 mas não é usada em nenhum botão — não é um problema, só uma sobra de código.
 
-### Publicação no WordPress (instruções a confirmar nesta fase)
+### Publicação no WordPress — situação atual (levantada em acesso ao painel)
 
-Como cada arquivo é HTML+CSS+JS autocontido em um único arquivo, a forma de publicar depende do que o WordPress da Mary usa para montar páginas. As opções mais comuns:
-- **Bloco de Código/HTML personalizado** (editor de blocos nativo do WordPress, bloco "HTML personalizado") — cola o conteúdo do `<body>` e o `<style>`/`<script>` em um bloco de HTML.
-- **Page builder** (Elementor, Divi, WPBakery) — usar o widget/módulo de "HTML bruto" para colar a página inteira.
-- **Página com template em branco** (se o tema permitir um template "Canvas"/"Blank") — mais fiel ao visual original, sem interferência do tema.
+**Tema/builder confirmado:** Hello Elementor (tema ativo) + Elementor (page builder, v3.30.3). Outros temas instalados mas inativos: PopularFX, Twenty Twenty-Three/Four/Five.
 
-Vou fechar a recomendação exata quando chegarmos na Fase 3, depois de saber qual construtor de página/tema a Mary usa no WordPress dela.
+**Método de publicação já validado no próprio site** (existe uma prova de conceito real, página `/teste-html/`, que já tem a versão antiga da LP1 — com placeholders ilustrados — publicada e funcionando):
+1. Criar página nova → no painel lateral, campo **Modelo = "Tela do Elementor"** (Elementor Canvas — remove header/footer do tema, fica fiel ao design original da LP)
+2. Abrir o editor de blocos em **modo código** (menu "⋮" → "Editor de código" / "Editando o código") → colar o arquivo `.html` inteiro (de `<!DOCTYPE html>` até `</html>`, incluindo `<style>` e `<script>`) direto no conteúdo
+3. Publicar
+
+**Páginas existentes no site (3 no total):**
+| Página | URL | Papel |
+|---|---|---|
+| Massage Amsterdam \| Mari Gomes | `/` (raiz) | Homepage real em produção — design diferente (tema terracota/tântrico), montada visualmente no Elementor, com menu próprio (Home, Pacotes, Tratamentos, Sobre, FAQ) |
+| Início | `/inicio/` | Existe mas não é a homepage ativa |
+| teste html | `/teste-html/` | Nossa LP1 antiga (prova de conceito) — precisa ser atualizada/substituída pela versão final, ou as 6 LPs publicadas em slugs próprios e essa página de teste removida |
+
+As 6 LPs novas são páginas **adicionais e independentes** da homepage (uso provável: campanhas/links diretos), não a substituem.
+
+**Plugins relevantes para a publicação:**
+- **SpeedyCache** (cache) — após publicar/atualizar cada página, limpar cache pelo link "Delete Cache" daquela página
+- **CookieAdmin** — banner de cookies já ativo no site (aparece em todas as páginas, inclusive nas novas)
+- **SiteSEO** — permite configurar title/meta description/Open Graph por página (cobre o gap de SEO identificado na Fase 3)
+- **GTranslate** — widget de bandeiras (NL/EN/IT/PT/ES) para tradução automática do Google. Como as versões NL das nossas LPs já são traduzidas profissionalmente, publicar como páginas nativas próprias (não depender da tradução automática do GTranslate para elas)
+- **Backuply** (backup) — site está sem nenhum backup desde a ativação do plugin; recomendo rodar um backup antes de publicarmos as 6 páginas
+- **Loginizer** (segurança de login/2FA)
+
+**Pendente de decisão:** definir os slugs/URLs finais das 6 páginas (ex.: `/holistic-energy-en/`, `/holistic-energy-nl/`, etc.) e se a página `/teste-html/` deve ser atualizada ou removida.
