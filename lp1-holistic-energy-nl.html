@@ -363,13 +363,19 @@
 function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 </script>
 <script>
-// Google Ads conversion tracking — WhatsApp click = lead
-// TODO: substituir SUBSTITUIR_ROTULO_AQUI pelo rótulo real (Google Ads → Objetivos → Conversões → ação de conversão → Configuração da tag → "Instalar você mesmo" → snippet de evento, formato AW-18036442650/XXXXXXXXXXXX)
+// Google Ads conversion tracking — WhatsApp click = lead (AW-18036442650/9rp5CIvso6QcEJqMuZhD)
 document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
   link.addEventListener('click', function () {
-    if (typeof gtag === 'function') {
-      gtag('event', 'conversion', { 'send_to': 'AW-18036442650/SUBSTITUIR_ROTULO_AQUI' });
+    if (typeof gtag !== 'function') {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      var gtagScript = document.createElement('script');
+      gtagScript.async = true;
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18036442650';
+      document.head.appendChild(gtagScript);
     }
+    gtag('event', 'conversion', { 'send_to': 'AW-18036442650/9rp5CIvso6QcEJqMuZhD' });
   });
 });
 </script>

@@ -84,6 +84,7 @@ A página `amarigomes.com/teste-html/` (protótipo inicial) foi **movida para ra
 | URLs definitivas publicadas conforme plano de campanha | ✅ |
 | Favicon do site presente | ✅ |
 | Tag de analytics (Google Ads `AW-18036442650`) ativa nas páginas | ✅ |
+| Tracking de conversão no clique do WhatsApp (para os anúncios) | ✅ |
 | Teste visual em desktop e mobile | ✅ |
 | FAQ accordion funcionando em todas as páginas | ✅ |
 | Meta description personalizada por página | ⏸️ Requer SiteSEO Pro |

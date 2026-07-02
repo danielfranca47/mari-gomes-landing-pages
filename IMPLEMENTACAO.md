@@ -135,13 +135,11 @@ Testadas as 6 páginas publicadas (desktop ~1440px e mobile 375px) com navegador
 
 Um falso-alarme identificado durante o teste: ao visualizar a página **logado no wp-admin**, a barra de admin do WordPress empurra/sobrepõe o nav fixo da página no mobile, cortando o logo e o botão CTA. Isso **não afeta visitantes reais** (não logados) — confirmado comparando a mesma página em sessão sem login. Não requer ação.
 
-### Tracking de conversão — clique no WhatsApp (02/07/2026)
+### Tracking de conversão — clique no WhatsApp (02/07/2026) — ✅ concluído
 
-A tag base do Google Ads (`AW-18036442650`) já dispara nas páginas publicadas (site tag global, instalada no WordPress — fora dos arquivos-fonte). O que faltava era o **evento de conversão** em si: até aqui nenhum clique no botão de WhatsApp (a ação de lead real dessas LPs, já que não há formulário) contava como conversão para o Google Ads.
+A tag base do Google Ads (`AW-18036442650`) já dispara nas páginas publicadas via **Google Tag Manager** (`GTM-NCBGPL6N`, instalado sitewide no WordPress — fora dos arquivos-fonte). O que faltava era o **evento de conversão** em si: até então nenhum clique no botão de WhatsApp (a ação de lead real dessas LPs, já que não há formulário) contava como conversão para o Google Ads.
 
-Adicionado nos 6 arquivos HTML um script (logo após `toggleFaq`) que escuta clique em qualquer link `a[href*="wa.me"]` da página (nav, hero, CTA final, cards extras da LP3, contato do footer) e dispara `gtag('event', 'conversion', {send_to: 'AW-18036442650/SUBSTITUIR_ROTULO_AQUI'})`, com guard `typeof gtag === 'function'` para não quebrar ao abrir o HTML localmente (onde a tag base do WP não existe).
-
-**Pendente:** trocar `SUBSTITUIR_ROTULO_AQUI` pelo rótulo real de conversão nos 6 arquivos. Como obter: Google Ads (conta com o ID `AW-18036442650`) → **Objetivos → Conversões → Resumo** → abrir a ação de conversão de clique no WhatsApp (se não existir, criar uma nova: Site → rastrear "Clique em um elemento da página") → **Configuração da tag → "Instalar você mesmo"** → snippet de evento, formato `AW-18036442650/AbC-D1efGhIjKlMnOp`.
+Adicionado nos 6 arquivos HTML um script (logo após `toggleFaq`) que escuta clique em qualquer link `a[href*="wa.me"]` da página (nav, hero, CTA final, cards extras da LP3, contato do footer) e dispara `gtag('event', 'conversion', {send_to: 'AW-18036442650/9rp5CIvso6QcEJqMuZhD'})` — rótulo obtido lendo diretamente a tag "Google Ads Conversion Tracking" dentro do container GTM público do site (mesma ação já usada na home, com histórico de conversões). Como não há garantia de que `window.gtag` exista globalmente na página (a base roda via GTM, não necessariamente expõe `gtag()`), o script carrega o `gtag.js` sob demanda (padrão oficial do Google, snippet de fila assíncrona) só se ele ainda não estiver presente — não duplica nada se a tag do WordPress já tiver carregado.
 
 ### SEO (title duplicado / meta description / og:locale) — pausado (30/06/2026)
 
