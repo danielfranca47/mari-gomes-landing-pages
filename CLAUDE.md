@@ -99,7 +99,54 @@ As 6 páginas têm uma seção `#location` (entre o FAQ e a CTA final) com ender
 
 ## Fluxo de trabalho deste projeto
 
-Ver `IMPLEMENTACAO.md` para o plano de fases (botões → imagens → QA e publicação no WordPress da Mary).
+Ver `IMPLEMENTACAO.md` para o plano de fases já concluído (botões → imagens → QA e publicação no WordPress da Mary). Para mudanças novas a partir de agora, ver "Workflow de Implementação de Features", abaixo.
+
+## Workflow de Implementação de Features
+
+Toda mudança não-trivial (nova seção, mudança que afeta as 6 páginas, correção de bug de layout) segue este ciclo. Os arquivos guia estão em `docs/implementations/`. Ajustes pequenos e óbvios (typo, cor pontual já especificada pelo usuário) podem pular direto pro commit.
+
+### Ciclo de vida
+
+```
+1. Plan Mode (obrigatório para mudanças não-triviais)
+   → ler docs/implementations/_guia-documentar-implementacao.md
+   → diagnóstico: já existe? quais dos 6 arquivos são afetados? riscos?
+   → aguardar aprovação do usuário
+
+2. Criar arquivo docs/implementations/<slug>.md
+   → preencher com template de _template-implementacao.md
+   → só criado APÓS aprovação do plano
+
+3. Implementar fase a fase
+   → cada fase = 1 commit
+   → registrar hash do commit no arquivo .md imediatamente após o commit
+   → escrever relatório da fase em linguagem simples + prompt de retomada
+
+4. Validar os checks
+   → abrir o(s) .html no navegador (ou Chrome DevTools MCP) e conferir
+   → marcar [x] com data e observação no arquivo
+
+5. Graduação (só quando TODOS os checks estão [x])
+   → seguir docs/implementations/_processo-graduacao-implementacao.md
+   → migrar convenção/comportamento relevante pro CLAUDE.md ou docs/architecture/
+   → git rm do arquivo de implementação
+   → commit único de graduação
+```
+
+### Regras críticas
+
+- **Nunca avançar para código sem plano aprovado**, exceto ajustes triviais.
+- **Nunca graduar com checks `[ ]` em aberto.**
+- **Espelhar sempre entre o par EN/NL da mesma LP** — cada fase que mexe numa LP mexe nos 2 arquivos.
+- **Cada fase tem exatamente 1 commit**, hash registrado no .md.
+
+### Arquivos de referência
+
+| Arquivo | Propósito |
+|---|---|
+| [`docs/implementations/_guia-documentar-implementacao.md`](docs/implementations/_guia-documentar-implementacao.md) | Processo completo passo a passo |
+| [`docs/implementations/_template-implementacao.md`](docs/implementations/_template-implementacao.md) | Template concreto preenchido |
+| [`docs/implementations/_processo-graduacao-implementacao.md`](docs/implementations/_processo-graduacao-implementacao.md) | Como graduar |
 
 ## Git
 
