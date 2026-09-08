@@ -1,6 +1,15 @@
-# Mari Gomes — Landing Pages
+# Mari Gomes — Landing Pages & Site
 
-## O que é este projeto
+## Escopo do repositório (a partir de 2026-09-08)
+
+Este repositório cobre **dois produtos distintos** da mesma cliente (Mari Gomes), que coexistem mas não devem ser confundidos:
+
+1. **Funil de campanha (LPs)** — as 3 landing pages × 2 idiomas descritas na seção abaixo. **Estável e entregue** (ver `ENTREGA.md`). Estão publicadas no WordPress da Mary e recebendo tráfego pago ativo (Google Ads) — **não mexer nelas sem pedido explícito do usuário**, mesmo que uma mudança feita no site institucional pareça "fazer sentido" replicar lá também.
+2. **Site institucional (home)** — projeto novo, iniciado em 2026-09-08, para substituir a home atual em WordPress (`amarigomes.com`, tema terracota/tântrico feito no Elementor). Ao contrário das LPs, é standalone (HTML autocontido, fora do WordPress) e cobre a primeira impressão/marca da Mari, não uma oferta de campanha específica. Direção estratégica: reposicionar a identidade da home para algo mais alinhado a massagem tântrica/holística (a home atual não converte — ver diagnóstico em `docs/implementations/` quando o plano for criado). Referências de estrutura/conteúdo: `latantra.nl` e `tantricmuses.com`. Direção visual: partir das fotos que melhor performam no Google Business da Mari (tatame em sala escura com velas; retrato dela vestida de preto) — tom quente, penumbra, spa de luxo discreto — em vez do tom espiritual-abstrato do site atual.
+
+Ao trabalhar em qualquer um dos dois produtos, verificar primeiro qual escopo a tarefa pertence antes de aplicar convenções — eles têm arquivos, identidade visual e workflow de publicação próprios (as seções abaixo, salvo indicação contrária, descrevem o **funil de LPs**; o site institucional terá sua própria seção conforme for implementado).
+
+## O que é este projeto (funil de LPs)
 
 Três landing pages de vendas para a terapeuta **Mari Gomes** (massagem holística/energética em Amsterdã), cada uma em **2 idiomas** (Inglês e Holandês) = **6 arquivos HTML** no total. Cliente final que vai publicar no ar: **Mary** (WordPress dela).
 
