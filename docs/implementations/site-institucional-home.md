@@ -122,7 +122,7 @@ LP1/LP2/LP3.
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 1 | `<a registrar>` | seção "isso é pra você se..." (4 itens de qualificação) + 3 cards de modalidade linkando pras LPs correspondentes no idioma certo |
+| 1 | `ddb227a` | seção "isso é pra você se..." (4 itens de qualificação) + 3 cards de modalidade linkando pras LPs correspondentes no idioma certo |
 
 ### Relatório da Fase 2 — o que mudou na prática
 
