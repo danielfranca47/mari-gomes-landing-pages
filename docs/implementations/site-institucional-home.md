@@ -202,6 +202,31 @@ Confirmado abrindo direto na âncora `#location` (desktop e mobile): pin correto
 | `home-en.html` | Seção `#faq`, CTA final, script de tracking WhatsApp → Google Ads |
 | `home-nl.html` | Espelhado |
 
+### Commits Fase 5
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `<a registrar>` | FAQ (6 perguntas — a maioria reaproveitada/adaptada do LP1, incluindo a de legitimidade "é serviço sexual?") + CTA final + scripts de toggleFaq e tracking WhatsApp → Google Ads |
+
+### Relatório da Fase 5 — o que mudou na prática
+
+**Antes:** a âncora `#faq` estava vazia e não havia CTA final, `toggleFaq` nem
+tracking de conversão na home.
+**Agora:** a home tem um FAQ de 6 perguntas (a de legitimidade "é serviço sexual ou
+de acompanhante?" logo na primeira posição, "qual massagem escolher?" direcionando
+pra seção de modalidades/WhatsApp, e as demais reaproveitadas quase literalmente do
+LP1 — preço, local, o que vestir, contraindicações), uma seção de CTA final, e os
+mesmos dois scripts finais das 6 LPs: `toggleFaq` (accordion) e o tracking de
+conversão do Google Ads no clique de qualquer link `wa.me`.
+**Para validar:** Cenário 3, abaixo.
+
+**Testado:** accordion abre/fecha (confirmado via clique simulado), o script de
+tracking carrega o `gtag.js` sob demanda e dispara o evento de conversão no clique
+(confirmado inspecionando `window.dataLayer` após o clique), 4 links `wa.me` na
+página (nav, hero, footer, CTA final — a home não tem os CTAs de WhatsApp por card
+como a LP3, já que os cards de modalidade linkam pras LPs). Testado em EN e NL,
+desktop e mobile, sem erros de console.
+
 ### Fase 6 — Fotos reais + revisão responsiva
 
 Inserir as 2 fotos já disponíveis (tatame, retrato), avaliar reaproveitamento de
@@ -219,20 +244,29 @@ DNS de `amarigomes.com`.
 ## Checks de Validação
 
 ### Cenário 1 — Fase 1 renderiza e é responsiva
-- [ ] Abrir `home-en.html` e `home-nl.html` no navegador
-- [ ] Confirmar: paleta/tipografia nova aplicada, nav fixo funciona, bandeiras
+- [x] Abrir `home-en.html` e `home-nl.html` no navegador
+- [x] Confirmar: paleta/tipografia nova aplicada, nav fixo funciona, bandeiras
       GTranslate aparecem, footer com dados corretos
-- [ ] Redimensionar pra mobile (768px) e confirmar nav/footer responsivos
+- [x] Redimensionar pra mobile (768px) e confirmar nav/footer responsivos
+- **Validado em:** 2026-09-08 — via Chrome DevTools MCP (desktop 1440px e mobile
+      ~375-390px), EN e NL, sem erros de console.
 
 ### Cenário 2 — Navegação e links de modalidade (Fase 2+)
-- [ ] Cada card de modalidade abre a LP certa, no idioma certo
-- [ ] Menu âncora rola até a seção certa, sem esconder atrás do nav fixo
+- [x] Cada card de modalidade abre a LP certa, no idioma certo
+- [x] Menu âncora rola até a seção certa, sem esconder atrás do nav fixo
+- **Validado em:** 2026-09-08 — hrefs conferidos (lp1/lp2/lp3-en/nl.html), âncoras
+      testadas via navegação direta (`#location`, `#faq`) sem sobreposição do nav.
 
 ### Cenário 3 — FAQ, mapa, WhatsApp (Fase 4/5)
-- [ ] Accordion do FAQ abre/fecha
-- [ ] Mapa carrega sem erro "must be used in an iframe"
-- [ ] Links de WhatsApp com texto pré-preenchido e encoding corretos em EN e NL
-- [ ] Clique no WhatsApp dispara evento de conversão (mesmo mecanismo das LPs)
+- [x] Accordion do FAQ abre/fecha
+- [x] Mapa carrega sem erro "must be used in an iframe"
+- [x] Links de WhatsApp com texto pré-preenchido e encoding corretos em EN e NL
+- [x] Clique no WhatsApp dispara evento de conversão (mesmo mecanismo das LPs)
+- **Validado em:** 2026-09-08 — accordion testado via clique simulado (classe `open`
+      aplicada corretamente); mapa conferido abrindo direto em `#location` (pin real
+      da Mari aparece); tracking conferido inspecionando `window.dataLayer` após
+      clique num link `wa.me` (gtag.js carregado sob demanda + evento de conversão
+      disparado).
 
 ---
 

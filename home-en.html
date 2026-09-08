@@ -275,6 +275,26 @@
   .location-map { aspect-ratio: 4/3; overflow: hidden; border: 0.5px solid var(--border); }
   .location-map iframe { width: 100%; height: 100%; display: block; }
 
+  /* FAQ */
+  .faq { background: var(--warm-white); padding: 96px 48px; }
+  .faq-grid { max-width: 720px; margin: 48px auto 0; }
+  .faq-item { border-bottom: 0.5px solid var(--border); padding: 24px 0; }
+  .faq-q {
+    font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400;
+    color: var(--ink); cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq-q span { font-size: 20px; color: var(--amber); flex-shrink: 0; transition: transform 0.3s; }
+  .faq-a { font-size: 15px; color: var(--taupe); line-height: 1.8; padding-top: 16px; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q span { transform: rotate(45deg); }
+
+  /* CTA FINAL */
+  .cta-section { background: #EFE3D1; text-align: center; padding: 96px 48px; }
+  .cta-section .section-title { margin-bottom: 16px; }
+  .cta-section p { font-size: 16px; color: var(--taupe); max-width: 480px; margin: 0 auto 40px; line-height: 1.8; }
+  .cta-disclaimer { font-size: 12px; color: var(--taupe); margin-top: 20px; opacity: 0.7; }
+
   /* FOOTER */
   footer {
     background: var(--ember); color: rgba(243,233,218,0.6);
@@ -296,7 +316,7 @@
     .audience, .services, .differentiators, .about { padding: 64px 24px; }
     .audience-grid, .services-grid, .diff-grid, .testi-grid, .location-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .testimonials, .location { padding: 64px 24px; }
+    .testimonials, .location, .faq, .cta-section { padding: 64px 24px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
   }
 
@@ -521,7 +541,64 @@
     </div>
   </div>
 </section>
-<section id="faq"></section>
+<section class="faq" id="faq">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">Questions</div>
+    <h2 class="section-title">Everything you need<br>to know <em>before booking</em></h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is this a sexual or escort service?
+          <span>+</span>
+        </div>
+        <div class="faq-a">No. All sessions are strictly therapeutic — bodywork and energy work focused on releasing tension and restoring wellbeing. The studio is professional, private, and respectful at all times.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Which massage should I choose?
+          <span>+</span>
+        </div>
+        <div class="faq-a">It depends on what you're looking for: Holistic Energy Massage works with physical tension and energy together, Relaxation &amp; Stress Relief is more grounding and calming, and Couples Massage is a shared session for two. Not sure? Send a message on WhatsApp and Mari will help you decide.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How does pricing work? Can I get a quote?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Pricing depends on the therapy and duration you choose. Send a message via WhatsApp for a personalised quote with all the details.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Where do sessions take place?
+          <span>+</span>
+        </div>
+        <div class="faq-a">All sessions take place in Mari's private studio in Amsterdam. The address and exact directions are shared upon booking confirmation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What should I wear to a session?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Wear comfortable, easy-to-remove clothing such as loose trousers and a simple top. Please arrive already showered if possible — a shower is available on-site as well.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Are there any contraindications?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Sessions are not recommended for those with fever, deep vein thrombosis, fractures, severe osteoporosis, open wounds, or high-risk pregnancy. If you have any health concerns, please mention them when booking.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="section-label" style="justify-content: center;">Ready to Begin</div>
+  <h2 class="section-title">Your body <em>deserves</em><br>to feel at home again</h2>
+  <p>Send a message on WhatsApp and Mari will help you find the right session, answer your questions, and share availability.</p>
+  <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20your%20tantric%20%26%20holistic%20massage%20sessions." class="btn-primary" target="_blank">Book a session on WhatsApp &rarr;</a>
+  <p class="cta-disclaimer">Quick response &middot; Studio in Amsterdam &middot; Sessions by appointment</p>
+</section>
 
 <footer>
   <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
@@ -532,6 +609,27 @@
   </div>
   <p style="font-size:12px;">&copy; 2026 Mari Gomes</p>
 </footer>
+
+<script>
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+</script>
+<script>
+// Google Ads conversion tracking — WhatsApp click = lead (AW-18036442650/9rp5CIvso6QcEJqMuZhD)
+document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    if (typeof gtag !== 'function') {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      var gtagScript = document.createElement('script');
+      gtagScript.async = true;
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18036442650';
+      document.head.appendChild(gtagScript);
+    }
+    gtag('event', 'conversion', { 'send_to': 'AW-18036442650/9rp5CIvso6QcEJqMuZhD' });
+  });
+});
+</script>
 
 </body>
 </html>
