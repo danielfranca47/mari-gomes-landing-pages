@@ -206,7 +206,7 @@ Confirmado abrindo direto na âncora `#location` (desktop e mobile): pin correto
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 1 | `<a registrar>` | FAQ (6 perguntas — a maioria reaproveitada/adaptada do LP1, incluindo a de legitimidade "é serviço sexual?") + CTA final + scripts de toggleFaq e tracking WhatsApp → Google Ads |
+| 1 | `ea1b44f` | FAQ (6 perguntas — a maioria reaproveitada/adaptada do LP1, incluindo a de legitimidade "é serviço sexual?") + CTA final + scripts de toggleFaq e tracking WhatsApp → Google Ads |
 
 ### Relatório da Fase 5 — o que mudou na prática
 
