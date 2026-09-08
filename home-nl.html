@@ -207,6 +207,43 @@
   }
   .service-link:hover { color: var(--ink); }
 
+  /* DIFFERENTIATORS */
+  .differentiators { background: var(--ember); color: var(--parchment); padding: 96px 48px; }
+  .differentiators .section-label { color: var(--amber-light); }
+  .differentiators .section-label::before { background: var(--amber-light); }
+  .differentiators .section-title { color: var(--parchment); }
+  .diff-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+    max-width: 900px; margin: 48px auto 0;
+  }
+  .diff-item {
+    padding: 28px; border: 0.5px solid rgba(243,233,218,0.14);
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .diff-icon {
+    width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(185,121,62,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--amber-light);
+  }
+  .diff-item h3 { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 400; margin-bottom: 8px; color: var(--parchment); }
+  .diff-item p { font-size: 14px; color: rgba(243,233,218,0.72); line-height: 1.7; }
+
+  /* ABOUT */
+  .about { background: var(--warm-white); padding: 96px 48px; }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .about-img { aspect-ratio: 3/4; background: var(--ember); position: relative; overflow: hidden; }
+  .about-img::before {
+    content: ''; position: absolute; top: -16px; left: -16px;
+    width: 100%; height: 100%; border: 0.5px solid var(--amber); z-index: -1;
+  }
+  .about-photo { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .about-text p { font-size: 16px; color: var(--taupe); margin-bottom: 20px; line-height: 1.8; }
+  .about-sig { font-family: 'Fraunces', serif; font-size: 26px; font-style: italic; color: var(--ink); margin-top: 24px; }
+
   /* FOOTER */
   footer {
     background: var(--ember); color: rgba(243,233,218,0.6);
@@ -225,8 +262,9 @@
     .hero { grid-template-columns: 1fr; padding: 150px 24px 72px; }
     .hero::before { width: 100%; top: 55%; height: 50%; }
     .hero-right { display: none; }
-    .audience, .services { padding: 64px 24px; }
-    .audience-grid, .services-grid { grid-template-columns: 1fr; }
+    .audience, .services, .differentiators, .about { padding: 64px 24px; }
+    .audience-grid, .services-grid, .diff-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
   }
 
@@ -350,8 +388,70 @@
     </div>
   </div>
 </section>
-<section id="differentiators"></section>
-<section id="about"></section>
+<section class="differentiators" id="differentiators">
+  <div class="section-head">
+    <div class="section-label">Wat Dit Anders Maakt</div>
+    <h2 class="section-title">Een praktijk geworteld in <em>aanwezigheid</em>, niet prestatie</h2>
+  </div>
+  <div class="diff-grid">
+    <div class="diff-item">
+      <div class="diff-icon">&#10022;</div>
+      <div>
+        <h3>Traumasensitieve aanraking</h3>
+        <p>Elke sessie gaat in jouw tempo — jij bepaalt altijd wat er gebeurt, en wanneer.</p>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-icon">&#9673;</div>
+      <div>
+        <h3>Met discretie begeleid</h3>
+        <p>Een priv&eacute;, professionele studio. Dit is lichaamswerk en energiewerk — geen seksuele dienst of escortservice.</p>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-icon">&#9671;</div>
+      <div>
+        <h3>Persoonlijk, niet generiek</h3>
+        <p>&Eacute;&eacute;n-op-&eacute;&eacute;n sessies met Mari, afgestemd op wat jouw lichaam die dag nodig heeft — geen vast script.</p>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-icon">&#9675;</div>
+      <div>
+        <h3>Echte reviews, echte studio</h3>
+        <p>5,0&#9733; op Google, een vast adres in Amsterdam — geen anonieme advertenties.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img">
+      <!-- PHOTO REFERENCE: retrato da Mari vestida de preto, segurando uma vela (perfil do Google Business dela) — tom íntimo e presente -->
+      <svg class="about-photo" viewBox="0 0 900 1200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Portret van Mari Gomes">
+        <defs>
+          <radialGradient id="aboutGlowNl" cx="50%" cy="38%" r="80%">
+            <stop offset="0%" stop-color="#4A3624"/>
+            <stop offset="55%" stop-color="#2A1F16"/>
+            <stop offset="100%" stop-color="#160F0A"/>
+          </radialGradient>
+        </defs>
+        <rect width="900" height="1200" fill="url(#aboutGlowNl)"/>
+        <text x="450" y="600" text-anchor="middle" font-family="sans-serif" font-size="28" fill="#C9B69C" opacity="0.6">FOTO &#183; retrato da Mari</text>
+        <text x="450" y="640" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#C9B69C" opacity="0.5">vestida de preto / substituir por foto real</text>
+      </svg>
+    </div>
+    <div class="about-text">
+      <div class="section-label">Over Mari</div>
+      <h2 class="section-title">Hoi, ik ben <em>Mari</em></h2>
+      <!-- COPY DRAFT: confirmar com a Mary tempo de atuação e formação/certificações antes de publicar -->
+      <p>Ik beoefen holistische en tantrische massage in Amsterdam, en werk met individuen en stellen die willen vertragen, loslaten wat ze vasthouden, en weer verbinding maken met hun eigen lichaam door middel van veilige, intentionele aanraking.</p>
+      <p>Mijn aanpak combineert holistisch lichaamswerk, energiewerk en tantrische praktijk — sessie voor sessie afgestemd op wat jij nodig hebt, geen vast recept.</p>
+      <p class="about-sig">&mdash; Mari</p>
+    </div>
+  </div>
+</section>
 <section id="testimonials"></section>
 <section id="location"></section>
 <section id="faq"></section>

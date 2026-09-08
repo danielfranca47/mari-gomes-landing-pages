@@ -142,6 +142,31 @@ erros de console; grid de 2/3 colunas colapsa para 1 coluna no mobile. — Difer
 | `home-en.html` | Seções `#differentiators` e `#about` |
 | `home-nl.html` | Espelhado |
 
+### Commits Fase 3
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `<a registrar>` | seção de diferenciais (4 itens, banda escura contida — mesmo ritmo de alternância que o LP1 já usa) + seção "Sobre a Mari" (retrato placeholder + texto) |
+
+### Relatório da Fase 3 — o que mudou na prática
+
+**Antes:** as âncoras `#differentiators` e `#about` existiam mas estavam vazias.
+**Agora:** a home tem uma seção de diferenciais (banda escura contida, mesmo padrão
+de alternância de ritmo que o LP1 já usa entre suas seções — não é o mesmo problema
+do hero full-bleed da Fase 1) com 4 pontos: toque no ritmo do cliente, discrição
+(inclui uma frase deixando claro que não é serviço sexual/escort — inspirado no
+disclaimer do Tantric Muses), atendimento personalizado, e prova social concreta
+(5.0★ Google, endereço fixo). Logo depois, a seção "Sobre a Mari" com retrato
+(placeholder) e um texto de apresentação pessoal.
+**Para validar:** Cenário 1 (visual) e conferir se o texto de "Sobre a Mari" está OK
+pra manter como rascunho.
+
+**Pendência marcada no próprio código** (comentário `COPY DRAFT` acima do texto em
+`.about-text`, nos dois arquivos): o texto sobre a Mari é propositalmente genérico —
+não inventei tempo de atuação, formação ou certificações específicas, porque não
+tenho esse dado confirmado. Precisa da Mary pra fechar esse texto antes de publicar
+de verdade (mesma pendência já registrada na seção "Pendências" deste arquivo).
+
 ### Fase 4 — Depoimentos + Location/mapa
 
 | Arquivo | O que muda |
