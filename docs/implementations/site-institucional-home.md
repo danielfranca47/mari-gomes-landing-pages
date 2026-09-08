@@ -244,7 +244,7 @@ todas as seções.
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 1 | `<a registrar>` | fotos reais do hero e do about (substituem os 2 placeholders SVG) + revisão de responsivo extra (320/768/1024px) |
+| 1 | `af9cb33` | fotos reais do hero e do about (substituem os 2 placeholders SVG) + revisão de responsivo extra (320/768/1024px) |
 
 ### Relatório da Fase 6 — o que mudou na prática
 
