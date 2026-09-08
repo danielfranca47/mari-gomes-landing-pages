@@ -96,6 +96,17 @@ já acontece nas 6 LPs), o padding-top do hero foi aumentado de 110px para 150px
 garantir folga entre o nav e o texto do hero — testado em ~375-750px de largura sem
 sobreposição.
 
+**Ajuste de paleta (feedback do usuário, mesmo dia):** a primeira versão do hero era
+full-bleed escuro (fundo quase preto em 100vh) e destoava demais do restante do
+projeto — as 6 LPs são todas de fundo claro/creme. Refeito para o mesmo padrão de
+hero das LPs (esquerda clara com texto, direita com o retrato/foto emoldurado, como
+no LP1): fundo geral voltou a ser um creme quente (`--parchment`), nav ficou clara e
+translúcida (era escura opaca), e o tom escuro/penumbra ficou contido só dentro do
+frame da foto (que já é o placeholder da foto do tatame) e no footer — mesmo padrão
+de footer escuro que as 3 LPs já usam. Mantido: paleta própria (âmbar como accent),
+tipografia própria (Fraunces + Manrope), sem reaproveitar as variáveis exatas de
+LP1/LP2/LP3.
+
 ### Fase 2 — Qualificação de público + Modalidades
 
 **Objetivo:** seção "isso é pra você se..." + 3 cards de modalidade linkando pras LPs.
