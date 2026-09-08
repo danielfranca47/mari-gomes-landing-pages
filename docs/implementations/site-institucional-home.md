@@ -77,7 +77,7 @@ nav funcional (GTranslate + âncoras) e footer padrão.
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 1 | *(a registrar após o commit)* | esqueleto técnico da home (paleta/tipografia nova, nav+GTranslate, hero full-bleed com placeholder SVG, footer, seções vazias) + correção do Instagram no CLAUDE.md |
+| 1 | `579bc7d` | esqueleto técnico da home (paleta/tipografia nova, nav+GTranslate, hero full-bleed com placeholder SVG, footer, seções vazias) + correção do Instagram no CLAUDE.md |
 
 ### Relatório da Fase 1 — o que mudou na prática
 
