@@ -78,6 +78,8 @@ nav funcional (GTranslate + âncoras) e footer padrão.
 | # | Commit | O que foi implementado |
 |---|---|---|
 | 1 | `579bc7d` | esqueleto técnico da home (paleta/tipografia nova, nav+GTranslate, hero full-bleed com placeholder SVG, footer, seções vazias) + correção do Instagram no CLAUDE.md |
+| 2 | `78b56ac` | registra hash do commit 1 neste arquivo |
+| 3 | `99a900b` | refaz o hero para fundo claro (harmoniza com as LPs) — ver "Ajuste de paleta" abaixo |
 
 ### Relatório da Fase 1 — o que mudou na prática
 
