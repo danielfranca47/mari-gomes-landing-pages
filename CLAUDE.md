@@ -55,7 +55,7 @@ Os 12 placeholders já foram substituídos (Fase 2 concluída). As imagens reais
 
 - WhatsApp: `+31 634 366 008` → `https://wa.me/31634366008?text=...` (texto pré-preenchido, URL-encoded, varia por página e idioma)
 - E-mail: `marycontato@gmail.com`
-- Instagram: `@kirakundalini` → `https://www.instagram.com/kirakundalini/`
+- Instagram: `@massage.tantric.therapy` → `https://www.instagram.com/massage.tantric.therapy/` (handle atualizado; `@kirakundalini` era o valor original e não está mais em uso em nenhum dos 6 arquivos)
 - Site/logo: `https://amarigomes.com`
 
 Esses 4 destinos se repetem em nav, hero, seções de CTA e footer em todas as 6 páginas. Ver `IMPLEMENTACAO.md` Fase 1 para o mapeamento completo de cada botão.
