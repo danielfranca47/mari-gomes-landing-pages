@@ -266,6 +266,25 @@ tendem a ser mais longos que o EN.
 **Para validar:** Cenário 1 (visual, ambas as fotos aparecem corretamente e cobrem o
 frame sem distorcer, em desktop e mobile).
 
+### Fase 6.1 — Troca pelas fotos em maior resolução já existentes no projeto
+
+O usuário apontou que as imagens já usadas nas LPs (`images/LP3_Experience.png` —
+mesma sala/tatame com velas, resolução 1254×1254 — e `images/LP1_hero.png` —
+retrato da Mari em estúdio, mesma sessão de fotos da imagem original, resolução
+1086×1448) têm qualidade melhor que os `.webp` enviados por fora do projeto
+(originais provavelmente recomprimidos por app de mensagem antes de chegar aqui).
+
+Reconvertidos com Pillow (`quality=85`, mesmo padrão das LPs) para os mesmos nomes de
+arquivo já referenciados no HTML — não precisou mexer em `home-en.html`/`home-nl.html`:
+
+| Arquivo | Antes | Depois |
+|---|---|---|
+| `images/Home_Hero_Tatame.webp` | 306 KB (fonte externa) | 197 KB, gerado a partir de `LP3_Experience.png` |
+| `images/Home_About_Mari.webp` | 31 KB (fonte externa) | 115 KB, gerado a partir de `LP1_hero.png` |
+
+**Testado:** desktop e mobile, EN e NL, console limpo — nítida melhora de definição
+em ambas as fotos.
+
 ### Fase 7 — Hospedagem fora do WordPress (pendência de infraestrutura)
 
 Não bloqueia as fases 1–6. Precisa de decisão da Mary sobre onde hospedar e ajuste de
