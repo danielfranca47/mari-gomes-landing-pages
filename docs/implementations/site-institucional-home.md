@@ -178,7 +178,7 @@ de verdade (mesma pendência já registrada na seção "Pendências" deste arqui
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 1 | `<a registrar>` | seção de depoimentos (3 reviews reais, reaproveitadas do LP1) + seção de localização/mapa (reuso exato do padrão das LPs: endereço, iframe do Google Maps, botão Get Directions) |
+| 1 | `09b1b13` | seção de depoimentos (3 reviews reais, reaproveitadas do LP1) + seção de localização/mapa (reuso exato do padrão das LPs: endereço, iframe do Google Maps, botão Get Directions) |
 
 ### Relatório da Fase 4 — o que mudou na prática
 
