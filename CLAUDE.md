@@ -9,6 +9,8 @@ Este repositório cobre **dois produtos distintos** da mesma cliente (Mari Gomes
 
 Ao trabalhar em qualquer um dos dois produtos, verificar primeiro qual escopo a tarefa pertence antes de aplicar convenções — eles têm arquivos, identidade visual e workflow de publicação próprios (as seções abaixo, salvo indicação contrária, descrevem o **funil de LPs**; o site institucional terá sua própria seção conforme for implementado).
 
+**Gaps de conteúdo/informação que só a Mary pode fechar** (dado factual não confirmado, decisão de negócio, credencial, etc.) não travam a implementação — registrar em [`docs/pendencias-mary.md`](docs/pendencias-mary.md) (contexto + pergunta exata) e seguir em frente com um rascunho razoável ou placeholder (mesmo padrão de comentário `COPY DRAFT`/`PHOTO REFERENCE` já usado no código). Esse arquivo é a lista central a encaminhar pra ela; não duplicar as perguntas espalhadas nos arquivos de `docs/implementations/`.
+
 ## O que é este projeto (funil de LPs)
 
 Três landing pages de vendas para a terapeuta **Mari Gomes** (massagem holística/energética em Amsterdã), cada uma em **2 idiomas** (Inglês e Holandês) = **6 arquivos HTML** no total. Cliente final que vai publicar no ar: **Mary** (WordPress dela).

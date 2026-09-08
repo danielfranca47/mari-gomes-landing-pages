@@ -217,6 +217,7 @@ DNS de `amarigomes.com`.
 
 ## Ajustes Possíveis Pós-Implementação
 
-- Hospedagem/DNS (Fase 7) fica como pendência explícita até a Mary decidir.
-- Copy de "Sobre a Mari" (Fase 3) é rascunho até confirmação de dados factuais
-  (formação, tempo de atuação, certificações).
+Gaps que dependem de resposta da Mary (hospedagem/DNS, copy de "Sobre a Mari", etc.)
+estão centralizados em [`docs/pendencias-mary.md`](../pendencias-mary.md) — não
+repetir a lista aqui, só linkar. Atualizar aquele arquivo sempre que surgir um gap
+novo nas próximas fases.
