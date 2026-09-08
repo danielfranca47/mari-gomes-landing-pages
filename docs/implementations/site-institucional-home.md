@@ -234,6 +234,38 @@ fotos já existentes em `images/` (das LPs) nos slots restantes, placeholder SVG
 padrão já usado nas LPs) onde não houver foto ainda. Revisão de responsivo 768px em
 todas as seções.
 
+| Arquivo | O que muda |
+|---|---|
+| `home-en.html` / `home-nl.html` | placeholders SVG do hero e do about substituídos por `<img>` real, `object-fit: cover` |
+| `images/Home_Hero_Tatame.webp` | novo — foto do tatame em sala escura com velas (fornecida pelo usuário) |
+| `images/Home_About_Mari.webp` | novo — retrato da Mari de preto (fornecido pelo usuário) |
+
+### Commits Fase 6
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `<a registrar>` | fotos reais do hero e do about (substituem os 2 placeholders SVG) + revisão de responsivo extra (320/768/1024px) |
+
+### Relatório da Fase 6 — o que mudou na prática
+
+**Antes:** hero e about tinham ilustrações SVG de placeholder ("FOTO · ... /
+substituir por foto real").
+**Agora:** as 2 fotos reais que o usuário forneceu (copiadas pra `images/` como
+`Home_Hero_Tatame.webp` e `Home_About_Mari.webp`) substituem os placeholders — mesmo
+padrão já usado nas 6 LPs (`<img>` com `object-fit: cover`, preenchendo o frame sem
+distorcer). Diferente das LPs, o `src` aqui é caminho relativo (`images/...`), não URL
+absoluta do WordPress — correto porque a home não vai ser colada no WordPress, é
+standalone (ver decisão de arquitetura no topo deste arquivo).
+
+Também: revisão de responsivo extra em 320px, 768px (breakpoint exato) e 1024px
+(tablet, acima do breakpoint — nav volta a mostrar o menu completo), além dos
+375-390px já testados nas fases anteriores. Em nenhum dos casos há scroll horizontal
+(`document.documentElement.scrollWidth` bate exatamente com `clientWidth` em todos os
+tamanhos testados) e nenhuma seção quebra visualmente — inclusive em NL, cujos textos
+tendem a ser mais longos que o EN.
+**Para validar:** Cenário 1 (visual, ambas as fotos aparecem corretamente e cobrem o
+frame sem distorcer, em desktop e mobile).
+
 ### Fase 7 — Hospedagem fora do WordPress (pendência de infraestrutura)
 
 Não bloqueia as fases 1–6. Precisa de decisão da Mary sobre onde hospedar e ajuste de
@@ -267,6 +299,14 @@ DNS de `amarigomes.com`.
       da Mari aparece); tracking conferido inspecionando `window.dataLayer` após
       clique num link `wa.me` (gtag.js carregado sob demanda + evento de conversão
       disparado).
+
+### Cenário 4 — Fotos reais e responsivo extra (Fase 6)
+- [x] Foto do hero (tatame) aparece corretamente, cobrindo o frame sem distorcer
+- [x] Foto do about (retrato) aparece corretamente, cobrindo o frame sem distorcer
+- [x] Sem scroll horizontal em 320px, 768px e 1024px
+- **Validado em:** 2026-09-08 — via Chrome DevTools MCP, EN e NL, desktop e mobile,
+      `scrollWidth` = `clientWidth` em todos os tamanhos testados, sem erros de
+      console.
 
 ---
 

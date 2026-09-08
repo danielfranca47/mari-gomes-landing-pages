@@ -130,7 +130,7 @@
     position: relative;
     overflow: hidden;
   }
-  .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .hero-badges {
     position: absolute; bottom: -20px; left: -20px;
     background: var(--warm-white); border: 0.5px solid var(--border);
@@ -240,7 +240,7 @@
     content: ''; position: absolute; top: -16px; left: -16px;
     width: 100%; height: 100%; border: 0.5px solid var(--amber); z-index: -1;
   }
-  .about-photo { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .about-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .about-text p { font-size: 16px; color: var(--taupe); margin-bottom: 20px; line-height: 1.8; }
   .about-sig { font-family: 'Fraunces', serif; font-size: 26px; font-style: italic; color: var(--ink); margin-top: 24px; }
 
@@ -363,24 +363,7 @@
   </div>
   <div class="hero-right">
     <div class="hero-img-frame">
-      <!-- PHOTO REFERENCE: tatame em sala escura com velas acesas (perfil do Google Business da Mari) — tom quente/penumbra -->
-      <svg class="hero-photo" viewBox="0 0 900 1200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Candlelit studio space for tantric and holistic massage">
-        <defs>
-          <radialGradient id="heroGlowEn" cx="50%" cy="60%" r="80%">
-            <stop offset="0%" stop-color="#4A3624"/>
-            <stop offset="55%" stop-color="#2A1F16"/>
-            <stop offset="100%" stop-color="#160F0A"/>
-          </radialGradient>
-        </defs>
-        <rect width="900" height="1200" fill="url(#heroGlowEn)"/>
-        <circle cx="260" cy="920" r="7" fill="#E3C08A" opacity="0.85"/>
-        <circle cx="320" cy="945" r="5" fill="#E3C08A" opacity="0.6"/>
-        <circle cx="620" cy="880" r="7" fill="#E3C08A" opacity="0.8"/>
-        <circle cx="560" cy="1000" r="5" fill="#E3C08A" opacity="0.55"/>
-        <circle cx="440" cy="820" r="6" fill="#E3C08A" opacity="0.65"/>
-        <text x="450" y="580" text-anchor="middle" font-family="sans-serif" font-size="28" fill="#C9B69C" opacity="0.6">FOTO &#183; tatame em sala escura</text>
-        <text x="450" y="620" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#C9B69C" opacity="0.5">com velas / substituir por foto real</text>
-      </svg>
+      <img class="hero-photo" src="images/Home_Hero_Tatame.webp" alt="Candlelit massage studio with tatami platform in Amsterdam">
       <div class="hero-badges">
         <p>Google Reviews</p>
         <strong>5.0 &#9733;</strong>
@@ -480,19 +463,7 @@
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-img">
-      <!-- PHOTO REFERENCE: retrato da Mari vestida de preto, segurando uma vela (perfil do Google Business dela) — tom íntimo e presente -->
-      <svg class="about-photo" viewBox="0 0 900 1200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Portrait of Mari Gomes">
-        <defs>
-          <radialGradient id="aboutGlowEn" cx="50%" cy="38%" r="80%">
-            <stop offset="0%" stop-color="#4A3624"/>
-            <stop offset="55%" stop-color="#2A1F16"/>
-            <stop offset="100%" stop-color="#160F0A"/>
-          </radialGradient>
-        </defs>
-        <rect width="900" height="1200" fill="url(#aboutGlowEn)"/>
-        <text x="450" y="600" text-anchor="middle" font-family="sans-serif" font-size="28" fill="#C9B69C" opacity="0.6">FOTO &#183; retrato da Mari</text>
-        <text x="450" y="640" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#C9B69C" opacity="0.5">vestida de preto / substituir por foto real</text>
-      </svg>
+      <img class="about-photo" src="images/Home_About_Mari.webp" alt="Portrait of Mari Gomes" loading="lazy">
     </div>
     <div class="about-text">
       <div class="section-label">About Mari</div>
