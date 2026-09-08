@@ -174,6 +174,27 @@ de verdade (mesma pendência já registrada na seção "Pendências" deste arqui
 | `home-en.html` | Seções `#testimonials` e `#location` (reuso do padrão de mapa das LPs) |
 | `home-nl.html` | Espelhado |
 
+### Commits Fase 4
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `<a registrar>` | seção de depoimentos (3 reviews reais, reaproveitadas do LP1) + seção de localização/mapa (reuso exato do padrão das LPs: endereço, iframe do Google Maps, botão Get Directions) |
+
+### Relatório da Fase 4 — o que mudou na prática
+
+**Antes:** as âncoras `#testimonials` e `#location` existiam mas estavam vazias.
+**Agora:** a home tem os mesmos 3 depoimentos reais já usados no LP1 (Fernão O.,
+Kinuthia, Larissa G. — reaproveitados, não inventados) e a seção de localização com
+o mesmo endereço, mapa embed e botão "Get Directions" que as 6 LPs já usam
+(`.location-map`, `.btn-outline` — mesma URL de direções e mesmo iframe público do
+Google Maps, sem chave de API).
+**Para validar:** Cenário 3, abaixo.
+
+**Nota de validação:** o mapa carrega via lazy-load (`loading="lazy"`) — só renderiza
+quando a seção entra na viewport, mesmo comportamento já documentado nas 6 LPs.
+Confirmado abrindo direto na âncora `#location` (desktop e mobile): pin correto
+("Massage Amsterdam - Mari Gomes", Brouwersgracht 270A) aparece no mapa.
+
 ### Fase 5 — FAQ + CTA final + tracking
 
 | Arquivo | O que muda |

@@ -244,6 +244,37 @@
   .about-text p { font-size: 16px; color: var(--taupe); margin-bottom: 20px; line-height: 1.8; }
   .about-sig { font-family: 'Fraunces', serif; font-size: 26px; font-style: italic; color: var(--ink); margin-top: 24px; }
 
+  /* TESTIMONIALS */
+  .testimonials { background: var(--warm-white); padding: 96px 48px; }
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    max-width: 1100px; margin: 48px auto 0;
+  }
+  .testi-card { background: var(--parchment); border: 0.5px solid var(--border); padding: 32px; }
+  .testi-stars { color: var(--amber); font-size: 14px; margin-bottom: 16px; letter-spacing: 3px; }
+  .testi-text {
+    font-family: 'Fraunces', serif; font-size: 17px; font-style: italic;
+    line-height: 1.7; color: var(--ink); margin-bottom: 20px;
+  }
+  .testi-name { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--taupe); }
+
+  /* LOCATION */
+  .location { background: var(--parchment); padding: 96px 48px; }
+  .location-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .location-address { font-size: 16px; color: var(--taupe); line-height: 1.8; margin-bottom: 28px; }
+  .btn-outline {
+    display: inline-block; color: var(--ink);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 16px 36px; border: 0.5px solid var(--ink);
+    text-decoration: none; transition: all 0.3s ease;
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--parchment); }
+  .location-map { aspect-ratio: 4/3; overflow: hidden; border: 0.5px solid var(--border); }
+  .location-map iframe { width: 100%; height: 100%; display: block; }
+
   /* FOOTER */
   footer {
     background: var(--ember); color: rgba(243,233,218,0.6);
@@ -263,8 +294,9 @@
     .hero::before { width: 100%; top: 55%; height: 50%; }
     .hero-right { display: none; }
     .audience, .services, .differentiators, .about { padding: 64px 24px; }
-    .audience-grid, .services-grid, .diff-grid { grid-template-columns: 1fr; }
+    .audience-grid, .services-grid, .diff-grid, .testi-grid, .location-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .testimonials, .location { padding: 64px 24px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
   }
 
@@ -452,8 +484,43 @@
     </div>
   </div>
 </section>
-<section id="testimonials"></section>
-<section id="location"></section>
+<section class="testimonials" id="testimonials">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">What Clients Say</div>
+    <h2 class="section-title">Real experiences,<br><em>real transformations</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">"The dedication she puts into her work, her presence, and the focus she maintains throughout the entire session are extraordinary."</p>
+        <p class="testi-name">Fern&atilde;o O.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">"Everything from the decor to the lighting and music was thoughtfully curated. I left feeling relaxed and rejuvenated — like a new person."</p>
+        <p class="testi-name">Kinuthia</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">"She makes you feel like you're floating with her incredible relaxation and energy balance techniques. The environment is professional and very welcoming."</p>
+        <p class="testi-name">Larissa G.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="location">
+  <div class="location-grid">
+    <div>
+      <div class="section-label">Visit Us</div>
+      <h2 class="section-title">Find our <em>studio</em> in Amsterdam</h2>
+      <p class="location-address">Brouwersgracht 270A<br>1013 HG Amsterdam<br>Netherlands</p>
+      <a href="https://www.google.com/maps/dir/Massagem+Amsterdam+-Mari+Gomes,+Brouwersgracht+270A,+1013+HG+Amsterdam,+Países+Baixos/Massagem+Amsterdam+-Mari+Gomes,+Brouwersgracht+270A,+1013+HG+Amsterdam,+Países+Baixos/@37.0311168,-7.8446592,14z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47c6095d24b054c5:0x1f0bbf12412e2877!2m2!1d4.8849098!2d52.3828845!1m5!1m1!1s0x47c6095d24b054c5:0x1f0bbf12412e2877!2m2!1d4.8849098!2d52.3828845?entry=ttu&amp;g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" class="btn-outline" style="margin-left:0;" target="_blank">Get Directions &rarr;</a>
+    </div>
+    <div class="location-map">
+      <iframe src="https://maps.google.com/maps?q=Massagem+Amsterdam+-+Mari+Gomes%2C+Brouwersgracht+270A%2C+1013+HG+Amsterdam&output=embed" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mari Gomes studio location on Google Maps"></iframe>
+    </div>
+  </div>
+</section>
 <section id="faq"></section>
 
 <footer>
