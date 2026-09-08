@@ -118,7 +118,24 @@ LP1/LP2/LP3.
 | `home-en.html` | Seções `#audience` e `#services` |
 | `home-nl.html` | Espelhado |
 
-### Fase 3 — Diferenciais + Sobre a Mari
+### Commits Fase 2
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `<a registrar>` | seção "isso é pra você se..." (4 itens de qualificação) + 3 cards de modalidade linkando pras LPs correspondentes no idioma certo |
+
+### Relatório da Fase 2 — o que mudou na prática
+
+**Antes:** as âncoras `#audience` e `#services` existiam mas estavam vazias.
+**Agora:** a home tem uma seção que qualifica o visitante (4 frases "isso é pra você
+se...", direto no problema que o site atual não resolvia — falta de segmentação) e
+uma seção com os 3 cards de terapia (Holistic Energy, Relaxation, Couples), cada um
+com uma frase curta e um link "Learn more & book" que leva pra LP correspondente no
+idioma certo — a home funciona como hub, sem duplicar o discurso de venda das LPs.
+**Para validar:** Cenário 2, abaixo (menu âncora + links de modalidade).
+
+**Nota:** testado no Chrome DevTools (desktop 1440px e mobile 390px, EN e NL), sem
+erros de console; grid de 2/3 colunas colapsa para 1 coluna no mobile. — Diferenciais + Sobre a Mari
 
 | Arquivo | O que muda |
 |---|---|
