@@ -146,7 +146,7 @@ erros de console; grid de 2/3 colunas colapsa para 1 coluna no mobile. — Difer
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 1 | `<a registrar>` | seção de diferenciais (4 itens, banda escura contida — mesmo ritmo de alternância que o LP1 já usa) + seção "Sobre a Mari" (retrato placeholder + texto) |
+| 1 | `524c8f8` | seção de diferenciais (4 itens, banda escura contida — mesmo ritmo de alternância que o LP1 já usa) + seção "Sobre a Mari" (retrato placeholder + texto) |
 
 ### Relatório da Fase 3 — o que mudou na prática
 
