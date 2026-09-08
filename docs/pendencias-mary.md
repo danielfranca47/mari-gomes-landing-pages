@@ -30,25 +30,7 @@ comentário `<!-- COPY DRAFT -->`).
 
 ---
 
-### 2. Hospedagem / DNS da nova home (fora do WordPress)
-
-**Contexto:** decisão já tomada com o usuário de tirar a home do WordPress — os
-arquivos são HTML autocontido, como as LPs, mas isso precisa de um lugar pra morar.
-
-**Perguntar pra Mary:**
-- Onde ela quer hospedar a home nova (ex.: Netlify, Vercel, outro)?
-- A home nova vai assumir a raiz do domínio (`amarigomes.com/`)? Se sim, como fica o
-  DNS considerando que as 6 LPs de campanha continuam publicadas dentro do WordPress
-  atual (`amarigomes.com/holistic-energy-massage-en/` etc.)?
-
-**Onde é usado:** Fase 7 do plano de implementação (publicação), ainda não iniciada —
-não bloqueia a construção do HTML.
-
-**Registrado em:** 2026-09-08 (Fase 1).
-
----
-
-### 3. Instagram handle
+### 2. Instagram handle
 
 **Contexto:** o `CLAUDE.md` tinha `@kirakundalini` registrado como o Instagram da
 Mari, mas o `href` real usado nas 6 LPs publicadas é `@massage.tantric.therapy`. Usei
@@ -64,4 +46,11 @@ o handle real (o que está de fato no ar) na home nova e corrigi o `CLAUDE.md`.
 
 ## Resolvidas
 
-*(nenhuma ainda)*
+### Hospedagem / DNS da nova home (fora do WordPress)
+
+**Não era uma pergunta pra Mary** — o Daniel decidiu e vai operar pessoalmente: sair
+da TurboCloud, migrar `amarigomes.com` inteiro (home + as 6 LPs) pra GitHub Pages com
+Cloudflare, eliminando o custo de hospedagem. Passo a passo completo em
+[`docs/hospedagem-github-pages-cloudflare.md`](hospedagem-github-pages-cloudflare.md).
+
+**Resolvido em:** 2026-09-08.

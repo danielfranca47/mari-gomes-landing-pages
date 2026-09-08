@@ -287,8 +287,13 @@ em ambas as fotos.
 
 ### Fase 7 — Hospedagem fora do WordPress (pendência de infraestrutura)
 
-Não bloqueia as fases 1–6. Precisa de decisão da Mary sobre onde hospedar e ajuste de
-DNS de `amarigomes.com`.
+Não bloqueia as fases 1–6. Decisão tomada pelo usuário (2026-09-08): sair da
+TurboCloud, migrar `amarigomes.com` inteiro (home **e** as 6 LPs) pra GitHub Pages
+com Cloudflare na frente — mesmo padrão de outros projetos do Daniel, elimina o custo
+de hospedagem. Passo a passo completo (quem faz o quê, e os prompts prontos pra cada
+etapa que precisa de mim) em
+[`docs/hospedagem-github-pages-cloudflare.md`](../hospedagem-github-pages-cloudflare.md).
+Operada pelo próprio Daniel; eu entro só nas etapas marcadas "Eu faço" nesse doc.
 
 ---
 
