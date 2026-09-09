@@ -50,23 +50,7 @@ comentário `COPY DRAFT` acima de cada card novo).
 
 ---
 
-### 3. Preços reais por tratamento/duração
-
-**Contexto:** a página nova `prices/index.html`/`nl/prices/index.html` mostra uma
-tabela com os 7 itens (6 tratamentos + workshop) e duração, mas a coluna de preço
-usa "On request"/"Op aanvraag" (abre WhatsApp com mensagem pré-preenchida) em vez de
-um valor — não inventei números pra um negócio real.
-
-**Perguntar pra Mary:** qual o preço de cada tratamento por duração? Fixo ou varia?
-
-**Onde é usado:** `prices/index.html` / `nl/prices/index.html` (comentário
-`PRICE DRAFT` no HTML).
-
-**Registrado em:** 2026-09-09.
-
----
-
-### 4. Formato do workshop
+### 3. Formato do workshop
 
 **Contexto:** a Mary confirmou que também faz workshop (como o
 `tantra-massage-workshop-for-couples-singles-in-amsterdam` da referência), mas o
@@ -90,15 +74,17 @@ confirmar o formato real.
 
 ---
 
-### 5. Taxa de deslocamento (outcall pra hotel)
+### 4. Taxa de deslocamento (outcall pra hotel)
 
 **Contexto:** a Mary confirmou que atende em hotel ("deslocação em hotel"). A
-referência (`tantrana.nl`) cobra uma taxa adicional pra atendimento noturno. As
-páginas novas (`treatments/`, `prices/`) mencionam que deslocamento está disponível
-"a pedido", sem citar taxa — não inventei valor.
+taxa **noturna** da referência (`tantrana.nl`, €100/€150 após 21h) já foi copiada
+pra `prices/index.html`/`nl/prices/index.html` (ver pendência resolvida "Preços
+reais", abaixo) — mas a referência não tinha um valor específico de taxa de
+**deslocamento/distância** pro hotel, só a taxa por horário. As páginas novas ainda
+dizem que deslocamento está disponível "a pedido", sem citar taxa de viagem.
 
-**Perguntar pra Mary:** cobra alguma taxa adicional pra deslocamento/hotel? Fixa ou
-por distância/horário?
+**Perguntar pra Mary:** além da taxa noturna (já copiada), cobra algo a mais
+especificamente pelo deslocamento até o hotel? Fixo ou por distância?
 
 **Onde é usado:** `treatments/index.html`, `prices/index.html` (+ variantes `nl/`).
 
@@ -106,7 +92,7 @@ por distância/horário?
 
 ---
 
-### 6. Instagram handle
+### 5. Instagram handle
 
 **Contexto:** o `CLAUDE.md` tinha `@kirakundalini` registrado como o Instagram da
 Mari, mas o `href` real usado nas 6 LPs publicadas é `@massage.tantric.therapy`. Usei
@@ -121,6 +107,27 @@ o handle real (o que está de fato no ar) na home nova e corrigi o `CLAUDE.md`.
 ---
 
 ## Resolvidas
+
+### Preços reais por tratamento/duração
+
+**Contexto:** a página `prices/index.html`/`nl/prices/index.html` estava com "On
+request"/"Op aanvraag" no lugar do preço (sem números inventados pra um negócio
+real). O Daniel confirmou que a Mary autorizou copiar diretamente a tabela de
+preços da referência `tantrana.nl` ("podemos copiar todos os preços").
+
+**Resolução:** preços copiados da tabela por duração da referência — €300 (60min),
+€350 (90min), taxa noturna de €100 (60min)/€150 (90min+) após 21h, workshop "From
+€275 pp" (valor early-bird da referência). **Importante:** são os preços da
+concorrente adotados como os da Mari, não calculados por ela — não é 100% o mesmo
+que a Mary ter fornecido valores próprios, então vale uma confirmação final se são
+esses os números que ela quer manter publicados (ou se prefere ajustar depois de
+ver como ficou).
+
+**Onde foi aplicado:** `prices/index.html` / `nl/prices/index.html`.
+
+**Resolvido em:** 2026-09-09.
+
+---
 
 ### Hospedagem / DNS da nova home (fora do WordPress)
 
