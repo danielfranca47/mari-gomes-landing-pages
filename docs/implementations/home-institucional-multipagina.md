@@ -94,7 +94,7 @@ apontando pra elas.
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 1 | `PENDENTE` | esqueleto das 4 páginas novas (EN/NL) + nav atualizado na home |
+| 1 | `2cc7f54` | esqueleto das 4 páginas novas (EN/NL) + nav atualizado na home |
 
 ### Relatório da Fase 1 — o que mudou na prática
 
