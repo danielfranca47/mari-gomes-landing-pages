@@ -333,11 +333,11 @@ WordPress) pro banner de consentimento, em vez de aceitar o risco de compliance.
 do Tag Manager — destino "Fluxo da web do Google Analytics" dentro do container
 `GTM-NCBGPL6N`). Já aplicado nos dois arquivos, placeholder `G-XXXXXXXXXX` removido.
 
-**Ainda não testado no navegador:** o Chrome DevTools MCP está desconectado nesta
-sessão. Validei estruturalmente (parser HTML, contagem de tags/ids, scripts
-balanceados — tudo OK), mas falta o teste visual/funcional real (banner aparece,
-botões funcionam, consent mode dispara certo) assim que o MCP reconectar ou o usuário
-puder abrir localmente.
+**Validado visualmente pelo usuário** (2026-09-09), abrindo os arquivos direto no
+navegador — banner aparece e funciona. Chrome DevTools MCP seguiu indisponível nesta
+sessão (não foi usado); a validação estrutural anterior (parser HTML, contagem de
+tags/ids, scripts balanceados) mais essa conferência visual do usuário cobrem o
+Cenário 5, abaixo.
 
 **Nota para a Fase C da migração de hospedagem:** quando as 6 LPs forem
 reestruturadas pro GitHub Pages, elas vão perder o Site Kit/CookieAdmin do WordPress
@@ -381,6 +381,15 @@ enquanto).
 - **Validado em:** 2026-09-08 — via Chrome DevTools MCP, EN e NL, desktop e mobile,
       `scrollWidth` = `clientWidth` em todos os tamanhos testados, sem erros de
       console.
+
+### Cenário 5 — Consent Mode, GA4 e banner de cookies (Fase 7.1)
+- [x] Banner de cookies aparece no primeiro acesso
+- [x] Botões "Accept"/"Essential only" funcionam e o banner some após a escolha
+- [x] Measurement ID do GA4 (`G-EBY5JJD27V`) aplicado, sem placeholder sobrando
+- **Validado em:** 2026-09-09 — checagem estrutural feita por mim (parser HTML,
+      contagem de tags/ids, scripts balanceados, `grep` confirmando ausência do
+      placeholder) + validação visual feita pelo usuário direto no navegador
+      (Chrome DevTools MCP indisponível nesta sessão, não foi usado).
 
 ---
 
