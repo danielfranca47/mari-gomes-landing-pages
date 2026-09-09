@@ -203,7 +203,7 @@ novas, e registro formal das pendências de conteúdo pra Mary.
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 1 | `PENDENTE` | QA final + atualização de docs/pendencias-mary.md |
+| 1 | `5f2011c` | QA final + atualização de docs/pendencias-mary.md |
 
 ### Relatório da Fase 6 — o que mudou na prática
 
