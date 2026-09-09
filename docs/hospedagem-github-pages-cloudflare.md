@@ -134,7 +134,7 @@ O que essa fase envolve (do meu lado):
 > cookies que já existe na home (Fase 7.1 do arquivo de implementação da home), cria
 > `CNAME` (`amarigomes.com`) e `.nojekyll` na raiz, e commita tudo.
 
-### Fase C — concluída (commit: `PENDENTE`)
+### Fase C — concluída (commit: `be55425`)
 
 Estrutura criada: `holistic-energy-massage-{en,nl}/`, `relaxation-massage-{en,nl}/`,
 `couples-massage-{en,nl}/` e `nl/`, cada uma com um `index.html` (cópia do `.html`
