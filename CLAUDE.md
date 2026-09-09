@@ -64,16 +64,29 @@ Esses 4 destinos se repetem em nav, hero, seções de CTA e footer em todas as 6
 
 ## Seletor de idiomas (GTranslate)
 
-As 6 páginas têm o widget de bandeiras do GTranslate no `<nav>` (entre o logo e o botão de CTA), replicando exatamente a configuração já usada no resto do site `amarigomes.com` (plugin GTranslate, gratuito/público — sem chave de API paga). Idiomas: NL, EN, FR, PT, ES. Cada página define `default_language` como o idioma do próprio arquivo (`en` ou `nl`).
+Todas as páginas do projeto (as 6 LPs + a home + as 4 páginas institucionais novas,
+EN/NL) têm o widget de bandeiras do GTranslate no `<nav>` (entre o logo e o botão de
+CTA). Idiomas: NL, EN, FR, PT, ES. Cada página define `default_language` como o
+idioma do próprio arquivo (`en` ou `nl`).
 
 Mecanismo (3 partes, sempre juntas, dentro do `<nav>`):
 1. `<div class="gtranslate_wrapper" id="gt-wrapper-XXXXXXXX"></div>` — onde as bandeiras são injetadas
 2. `<script>window.gtranslateSettings['XXXXXXXX'] = {...}</script>` — config inline (idiomas, estilo de bandeira, etc.)
-3. `<script src="https://amarigomes.com/wp-content/plugins/gtranslate/js/flags.js?ver=7.0" data-gt-widget-id="XXXXXXXX"></script>` — script que lê a config e renderiza
+3. `<script src="https://cdn.gtranslate.net/widgets/latest/flags.js" data-gt-widget-id="XXXXXXXX"></script>` — script que lê a config e renderiza
 
 **Importante:** o atributo `data-gt-widget-id` na tag `<script src="...flags.js">` é obrigatório e precisa bater com a chave usada em `window.gtranslateSettings['XXXXXXXX']` e com o `id` do wrapper — sem ele, o script roda mas não renderiza nada (silenciosamente, só loga no console "gtranslateSettings is not properly initialized"). Cada página tem um ID de 8 dígitos próprio (não há necessidade de ser globalmente único, mas evite reusar o mesmo ID em duas páginas que possam coexistir na mesma sessão de navegação).
 
-O script é carregado direto de `amarigomes.com` (mesmo arquivo que o resto do site usa) — funciona tanto localmente (abrindo o `.html` direto no navegador) quanto depois de publicado no WordPress, sem depender de a página estar hospedada lá.
+**O script vem do CDN público oficial da GTranslate** (`cdn.gtranslate.net`), não mais
+de `amarigomes.com/wp-content/...` — esse caminho apontava pro plugin instalado no
+WordPress e funcionava enquanto o domínio resolvia pra lá. Depois da migração de
+hospedagem (`docs/hospedagem-github-pages-cloudflare.md`, Fase F: DNS de
+`amarigomes.com` movido pro GitHub Pages via Cloudflare), esse caminho passou a
+retornar 404 nas 24 páginas do projeto — corrigido trocando pela URL do CDN, que usa
+o mesmo mecanismo (`data-gt-widget-id` + `window.gtranslateSettings`), então foi só
+troca de `src`, sem mudar mais nada. **Não usar mais `amarigomes.com/wp-content/...`
+como fonte deste script daqui pra frente**, mesmo que o WordPress/TurboCloud ainda
+esteja tecnicamente ativo (Fase H de cancelamento pendente) — o domínio já não aponta
+pra lá.
 
 ## Menu de navegação interno (âncoras)
 
