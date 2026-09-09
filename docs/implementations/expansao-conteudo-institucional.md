@@ -92,6 +92,22 @@ inventar fatos específicos da Mari.
 | `about/index.html` | Substituir 1º parágrafo por 2 novos (jornada `COPY DRAFT` + educativo); manter os 3 parágrafos seguintes |
 | `nl/about/index.html` | Idem, espelhado em holandês |
 
+### Commits Fase 1
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `d4c886f` | jornada pessoal (draft) + parágrafo educativo na página About (EN+NL) |
+
+### Relatório da Fase 1 — o que mudou na prática
+
+**Antes:** a página About abria com uma frase genérica de apresentação, sem
+nenhuma narrativa pessoal e sem explicar o que é o trabalho energético/tântrico.
+**Agora:** abre com um parágrafo de jornada (deliberadamente genérico — sem
+anos, formação ou tradição específicos, `COPY DRAFT`) seguido de um parágrafo
+educativo sobre a modalidade, mantendo os 3 parágrafos de abordagem já
+existentes.
+**Para validar:** Cenário 1, abaixo.
+
 ### Fase 2 — Prices: níveis de duração
 
 **Objetivo:** tabela de preços com granularidade de duração igual à
@@ -101,6 +117,24 @@ referência, usando os números já autorizados pela Mary.
 |---|---|
 | `prices/index.html` | Linhas por duração pros 5 tratamentos individuais + Couples/Coaching (2h-4h); nota de formas de pagamento |
 | `nl/prices/index.html` | Idem |
+
+### Commits Fase 2
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `PENDENTE` | níveis de duração na tabela de preços (EN+NL) |
+
+### Relatório da Fase 2 — o que mudou na prática
+
+**Antes:** cada tratamento tinha uma faixa única de duração/preço (ex.
+"60–90 min" / "€300–350"), sem detalhar o preço de cada duração.
+**Agora:** cada linha mostra os preços por duração individualmente — mesma
+granularidade da referência (60/90/120min para os 5 tratamentos individuais;
+2h/2.5h/3h/4h para Couples Massage e Tantra Coaching), com os mesmos valores
+já autorizados pela Mary. Não foi adicionada nota de formas de pagamento nem
+opções novas (4-Hands, 2 terapeutas) — ficam como pendência pra Fase 4, por
+dependerem de confirmação da Mary.
+**Para validar:** Cenário 2, abaixo.
 
 ### Fase 3 — Workshop: estrutura de cronograma/currículo
 
