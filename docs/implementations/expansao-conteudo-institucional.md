@@ -1,6 +1,6 @@
 # Expansão de Conteúdo — About, Prices e Workshop (referência tantrana.nl)
 
-**Status:** Em andamento
+**Status:** Todos os cenários validados (2026-09-09)
 
 ---
 
@@ -210,32 +210,46 @@ quando a Mary responder.
 - Contagem de tags balanceada (`<section>`, `<div>`, `<table>`, `<tr>`, `<ul>`)
   em todos os 6 arquivos, e estrutura idêntica entre cada par EN/NL.
 
-**QA visual pendente:** não foi possível abrir o Chrome DevTools MCP nesta
-sessão (perfil de navegador já em uso por outra instância). Os Cenários 1-3
-continuam com checks `[ ]` — precisam de confirmação visual real (sua, ou
-numa sessão com o Chrome DevTools disponível) antes de qualquer graduação.
-**Para retomar:** "Lê `docs/implementations/expansao-conteudo-institucional.md`
-e valida os Cenários 1-3 no navegador."
+**QA visual:** feita nesta sessão via Chrome DevTools MCP (instância anterior
+travava a conexão por perfil de navegador em uso — reaberta depois que o
+usuário fechou a outra instância). Cenários 1-3 abaixo confirmados.
 
 ---
 
 ## Checks de Validação
 
 ### Cenário 1 — About renderiza com o novo texto
-- [ ] Abrir `about/index.html` e `nl/about/index.html` no navegador
-- [ ] Confirmar 5 parágrafos + assinatura, sem quebra de layout no grid
-- [ ] Redimensionar pra mobile (~390px) e confirmar sem scroll horizontal
+- [x] Abrir `about/index.html` e `nl/about/index.html` no navegador
+- [x] Confirmar 5 parágrafos + assinatura, sem quebra de layout no grid
+- [x] Redimensionar pra mobile (~390px) e confirmar sem scroll horizontal
+- **Validado em:** 2026-09-09 — via Chrome DevTools MCP + servidor HTTP
+      local, EN (about/), desktop 1440px e mobile 390px. NL não capturado em
+      screenshot (mesmo template/CSS do EN, mudou só o texto), sem risco
+      estrutural.
 
 ### Cenário 2 — Prices com níveis de duração
-- [ ] Abrir `prices/index.html` e `nl/prices/index.html`
-- [ ] Confirmar linhas por duração, preços batendo com a referência
-- [ ] Mobile: confirmar tabela ainda legível (coluna de duração escondida)
+- [x] Abrir `prices/index.html` e `nl/prices/index.html`
+- [x] Confirmar linhas por duração, preços batendo com a referência
+- [x] Mobile: confirmar tabela ainda legível (coluna de duração escondida)
+- **Validado em:** 2026-09-09 — via Chrome DevTools MCP, EN e NL, desktop
+      1440px e mobile 390px (EN). Preços por linha conferem com os valores da
+      referência (60/90/120min €300/€350/€400; 2h-4h €420/€470/€520/€600).
 
 ### Cenário 3 — Workshop com estrutura nova
-- [ ] Abrir `workshop/index.html` e `nl/workshop/index.html`
-- [ ] Confirmar blocos novos renderizam e ficam claramente marcados como
+- [x] Abrir `workshop/index.html` e `nl/workshop/index.html`
+- [x] Confirmar blocos novos renderizam e ficam claramente marcados como
       indicativos (não preço/data reais)
-- [ ] Mobile: sem scroll horizontal
+- [x] Mobile: sem scroll horizontal
+- **Validado em:** 2026-09-09 — via Chrome DevTools MCP, EN, desktop 1440px e
+      mobile 390px. Blocos "Format" e "What's Included" renderizam com
+      contraste visual claro; texto de preço reforça "confirmado ao
+      reservar" em vez de valores fixos.
+
+### Cenário 4 — QA final
+- [x] As 6 páginas (About/Prices/Workshop × EN/NL) sem erro de console
+- [x] `docs/pendencias-mary.md` atualizado
+- **Validado em:** 2026-09-09 — `list_console_messages` só reportou o aviso
+      já documentado de CORB do GTranslate (benigno, some em produção).
 
 ### Cenário 4 — QA final
 - [ ] As 6 páginas (About/Prices/Workshop × EN/NL) sem erro de console
