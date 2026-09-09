@@ -391,6 +391,19 @@ enquanto).
       placeholder) + validação visual feita pelo usuário direto no navegador
       (Chrome DevTools MCP indisponível nesta sessão, não foi usado).
 
+**Correção posterior (2026-09-09, durante a Fase C da migração de hospedagem):**
+usando o Chrome DevTools MCP (ficou disponível numa sessão seguinte), percebi que o
+banner na verdade **não** desaparecia visualmente após clicar "Accept"/"Essential
+only" — o atributo `hidden` era corretamente setado no DOM (`banner.hidden = true`),
+mas a regra `.cookie-banner { display: flex; ... }` no CSS tem a mesma prioridade de
+origem (author) que a UA stylesheet usa pra `[hidden]`, então o `display: flex`
+sempre vencia e o banner ficava visível pra sempre depois da primeira escolha. Fix:
+adicionada a regra `.cookie-banner[hidden] { display: none; }` (maior especificidade,
+resolve o empate) em `home-en.html`/`home-nl.html` — e, como o mesmo padrão de CSS
+tinha acabado de ser replicado nas 6 LPs nesta mesma Fase C, corrigido lá também antes
+do commit. Reconfirmado no DevTools: `getComputedStyle(banner).display` vai de
+`"flex"` pra `"none"` corretamente após o clique, em EN e NL, desktop e mobile.
+
 ---
 
 ## Ajustes Possíveis Pós-Implementação

@@ -172,8 +172,21 @@ mantidos intactos na raiz, sem remoção.
   `<style>`/`</style>`, `<html>`/`</html>`) balanceada nos 14 arquivos tocados/criados;
   diff de conteúdo (ignorando line-ending) confirmando que só as linhas esperadas
   mudaram em `index.html`/`nl/index.html`; subpastas das LPs conferidas byte-a-byte
-  idênticas ao `.html` de origem. Falta validação visual no navegador (abrir os 8
-  `index.html` novos e as 6 LPs originais) antes da Fase D.
+  idênticas ao `.html` de origem.
+- **Validação visual feita** (Chrome DevTools MCP, que nesta sessão ficou disponível):
+  abertos `index.html`, `nl/index.html`, `holistic-energy-massage-en/index.html`,
+  `relaxation-massage-en/index.html` e `couples-massage-nl/index.html` — layout e
+  paleta corretos, sem erros de console reais (só o aviso benigno de CORB/`file:`
+  esperado ao testar via `file://` local, que não ocorre em produção via `https://`).
+  Nesse processo, **encontrado e corrigido um bug real** herdado da home (Fase 7.1):
+  o banner de cookies nunca desaparecia visualmente após "Accept"/"Essential only"
+  (a regra `.cookie-banner { display: flex }` empatava em prioridade com o
+  `[hidden]` da UA stylesheet e vencia). Corrigido com
+  `.cookie-banner[hidden] { display: none; }` em `home-en.html`, `home-nl.html` e
+  nas 6 LPs (detalhe completo em
+  [`docs/implementations/site-institucional-home.md`](implementations/site-institucional-home.md),
+  Cenário 5). Reconfirmado no DevTools que o banner some de verdade após a escolha,
+  em desktop e mobile (390×844).
 
 ---
 
