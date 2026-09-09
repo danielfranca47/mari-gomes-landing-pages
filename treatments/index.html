@@ -117,12 +117,58 @@
   .section-title em { font-style: italic; color: var(--amber); }
   .section-head { max-width: 900px; margin: 0 auto; }
 
-  /* PLACEHOLDER (Fase 1 only — removida quando o conteúdo real entrar) */
-  .content-placeholder {
-    max-width: 640px; margin: 0 auto; padding: 0 48px 120px;
-    text-align: center;
+  /* BUTTONS */
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink); color: var(--parchment);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 16px 36px; text-decoration: none;
+    transition: all 0.3s ease;
   }
-  .content-placeholder p { font-size: 14px; color: var(--taupe); border: 0.5px dashed var(--border); padding: 24px; }
+  .btn-primary:hover { background: var(--amber); }
+
+  /* TREATMENTS INTRO + GRID */
+  .treatments-intro { max-width: 640px; margin: 0 auto 48px; text-align: center; padding: 0 48px; }
+  .treatments-intro p { font-size: 16px; color: var(--taupe); line-height: 1.8; }
+  .treatments { background: var(--parchment); padding: 0 48px 96px; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .service-card {
+    background: var(--warm-white); padding: 40px 32px;
+    border: 0.5px solid var(--border);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: all 0.3s ease;
+  }
+  .service-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 3px; background: var(--amber);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-num {
+    font-family: 'Fraunces', serif; font-size: 44px; font-weight: 300;
+    color: rgba(185,121,62,0.22); line-height: 1; margin-bottom: 16px;
+  }
+  .service-name {
+    font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400;
+    color: var(--ink); margin-bottom: 12px;
+  }
+  .service-desc { font-size: 14px; color: var(--taupe); line-height: 1.7; margin-bottom: 24px; flex-grow: 1; }
+  .service-link {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber); text-decoration: none;
+  }
+  .service-link:hover { color: var(--ink); }
+
+  /* OUTCALL NOTE */
+  .outcall-note { max-width: 640px; margin: 0 auto; text-align: center; padding: 0 48px 64px; }
+  .outcall-note p { font-size: 14px; color: var(--taupe); border: 0.5px solid var(--border); background: var(--warm-white); padding: 20px 24px; }
+
+  .treatments-cta { text-align: center; padding: 0 48px 96px; }
 
   /* COOKIE BANNER */
   .cookie-banner {
@@ -164,7 +210,11 @@
     nav { padding: 16px 24px; }
     .nav-menu { display: none; }
     .page-hero { padding: 130px 24px 48px; }
-    .content-placeholder { padding: 0 24px 80px; }
+    .treatments-intro { padding: 0 24px; }
+    .treatments { padding: 0 24px 64px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .outcall-note { padding: 0 24px 48px; }
+    .treatments-cta { padding: 0 24px 64px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; flex-direction: column; align-items: stretch; }
     .cookie-actions { justify-content: stretch; }
@@ -209,8 +259,57 @@
   <div class="section-label">Explore the Therapies</div>
   <h1 class="section-title">Every session, <em>tailored</em> to you</h1>
 </section>
-<section class="content-placeholder">
-  <p>Content for this page is being drafted — check back soon, or message Mari directly on WhatsApp for details.</p>
+<section class="treatments-intro">
+  <p>Each session is shaped around what you need that day — from full-body relaxation to more focused energy and tension work. Not sure where to start? Message Mari on WhatsApp and she'll help you choose.</p>
+</section>
+<section class="treatments">
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <h3 class="service-name">Holistic Energy Massage</h3>
+      <p class="service-desc">A full-body session working with physical tension and subtle energy together.</p>
+      <a href="/holistic-energy-massage-en/" class="service-link">Learn more &amp; book &rarr;</a>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <h3 class="service-name">Relaxation &amp; Stress Relief</h3>
+      <p class="service-desc">A slower, grounding massage to release stress and quiet an overactive mind.</p>
+      <a href="/relaxation-massage-en/" class="service-link">Learn more &amp; book &rarr;</a>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <h3 class="service-name">Couples Massage</h3>
+      <p class="service-desc">A shared session for partners to relax, connect, and be present together.</p>
+      <a href="/couples-massage-en/" class="service-link">Learn more &amp; book &rarr;</a>
+    </div>
+    <div class="service-card">
+      <!-- COPY DRAFT: nome/descrição adaptados do serviço "dearmouring" citado como referência pela Mary; confirmar enquadramento exato com ela -->
+      <span class="service-num">04</span>
+      <h3 class="service-name">Tension Release Massage</h3>
+      <p class="service-desc">Targeted work with breath and pressure points to release tension the body has been holding onto, sometimes for years.</p>
+      <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20the%20Tension%20Release%20Massage." class="service-link" target="_blank">Ask Mari &amp; book &rarr;</a>
+    </div>
+    <div class="service-card">
+      <!-- COPY DRAFT: nome/descrição adaptados do serviço "chakra balancing" citado como referência pela Mary; confirmar enquadramento exato com ela -->
+      <span class="service-num">05</span>
+      <h3 class="service-name">Chakra &amp; Energy Balancing</h3>
+      <p class="service-desc">A session focused on the body's energy centers, helping restore a sense of balance and flow.</p>
+      <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20Chakra%20%26%20Energy%20Balancing." class="service-link" target="_blank">Ask Mari &amp; book &rarr;</a>
+    </div>
+    <div class="service-card">
+      <!-- COPY DRAFT: nome/descrição adaptados do serviço "coaching" pra casais citado como referência pela Mary; confirmar enquadramento exato com ela -->
+      <span class="service-num">06</span>
+      <h3 class="service-name">Tantra Coaching for Couples</h3>
+      <p class="service-desc">A guided session where partners learn conscious touch techniques to bring into their own relationship.</p>
+      <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20Tantra%20Coaching%20for%20Couples." class="service-link" target="_blank">Ask Mari &amp; book &rarr;</a>
+    </div>
+  </div>
+</section>
+<section class="outcall-note">
+  <p>Sessions usually take place at Mari's private studio in Amsterdam. Outcall to your hotel is also available on request.</p>
+</section>
+<section class="treatments-cta">
+  <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20your%20treatments." class="btn-primary" target="_blank">Ask Mari which session fits you &rarr;</a>
 </section>
 
 <footer>
