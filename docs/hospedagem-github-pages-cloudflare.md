@@ -120,8 +120,8 @@ O que essa fase envolve (do meu lado):
   `docs/implementations/site-institucional-home.md`) — hoje as LPs ainda são
   servidas pelo WordPress e dependem do Site Kit + CookieAdmin Pro de lá pra isso;
   sem esse bloco, sair do WordPress mata o GA4 e o banner de consentimento nas LPs
-  também, não só na home. Precisa do Measurement ID real do GA4 (`G-XXXXXXXXXX`)
-  antes de replicar — ver pendência na Fase 7.1.
+  também, não só na home. Measurement ID do GA4 já resolvido (`G-EBY5JJD27V`, ver
+  Fase 7.1) — é só reaproveitar o mesmo bloco.
 - Commitar tudo.
 
 ### Prompt pra colar aqui

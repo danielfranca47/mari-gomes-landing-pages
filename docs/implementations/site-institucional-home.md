@@ -303,7 +303,10 @@ via plugin **Site Kit (Google)**, 3 coisas que não existem em lugar nenhum do n
 código: (1) um container do Google Tag Manager (`GTM-NCBGPL6N`), (2) uma tag Google
 direta (`GT-55XJZX3L`) amarrando GA4 + Ads, e (3) o **Google Consent Mode v2**
 alimentado pelo banner de cookies do plugin **CookieAdmin Pro** via `wp-consent-api`.
-Nenhuma dessas 3 coisas sobrevive à saída do WordPress (Fase 7). O evento de
+Nenhuma dessas 3 coisas sobrevive à saída do WordPress (Fase 7). *(Atualização: o
+Daniel confirmou no painel do Tag Manager que o `GTM-NCBGPL6N` tem pelo menos um
+destino "Fluxo da web do Google Analytics" — `G-EBY5JJD27V` — o que também responde a
+dúvida original sobre o conteúdo desse container.)* O evento de
 conversão do WhatsApp em si (o que mais importa pro Ads) já estava seguro — foi
 adicionado ao código antes desta sessão especificamente como rede de segurança pra
 esse cenário — e o usuário confirmou que os números de conversão no Google Ads batem
@@ -326,10 +329,9 @@ WordPress) pro banner de consentimento, em vez de aceitar o risco de compliance.
 - Script de conversão do WhatsApp simplificado (não precisa mais do fallback de
   carregar o gtag sob demanda, já que ele carrega sempre agora).
 
-**Pendência bloqueante:** as duas ocorrências de `G-XXXXXXXXXX` (marcadas com
-comentário `TODO` no código) precisam do **Measurement ID real do GA4**, que só o
-Daniel tem acesso (painel do Site Kit ou analytics.google.com) — não é pergunta pra
-Mary, por isso não entra em `docs/pendencias-mary.md`.
+**Measurement ID do GA4 resolvido:** `G-EBY5JJD27V` (confirmado pelo Daniel no painel
+do Tag Manager — destino "Fluxo da web do Google Analytics" dentro do container
+`GTM-NCBGPL6N`). Já aplicado nos dois arquivos, placeholder `G-XXXXXXXXXX` removido.
 
 **Ainda não testado no navegador:** o Chrome DevTools MCP está desconectado nesta
 sessão. Validei estruturalmente (parser HTML, contagem de tags/ids, scripts
