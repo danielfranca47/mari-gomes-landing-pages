@@ -117,12 +117,38 @@
   .section-title em { font-style: italic; color: var(--amber); }
   .section-head { max-width: 900px; margin: 0 auto; }
 
-  /* PLACEHOLDER (Fase 1 only — removida quando o conteúdo real entrar) */
-  .content-placeholder {
-    max-width: 640px; margin: 0 auto; padding: 0 48px 120px;
-    text-align: center;
+  /* BUTTONS */
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink); color: var(--parchment);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 16px 36px; text-decoration: none;
+    transition: all 0.3s ease;
   }
-  .content-placeholder p { font-size: 14px; color: var(--taupe); border: 0.5px dashed var(--border); padding: 24px; }
+  .btn-primary:hover { background: var(--amber); }
+
+  /* WORKSHOP */
+  .workshop-intro { max-width: 640px; margin: 0 auto 64px; text-align: center; padding: 0 48px; }
+  .workshop-intro p { font-size: 16px; color: var(--taupe); line-height: 1.8; }
+  .workshop-points { background: var(--warm-white); padding: 80px 48px; }
+  .points-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .point-item { padding: 28px; border: 0.5px solid var(--border); display: flex; gap: 20px; align-items: flex-start; }
+  .point-icon {
+    width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(185,121,62,0.14);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--amber);
+  }
+  .point-item h3 { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 400; margin-bottom: 8px; color: var(--ink); }
+  .point-item p { font-size: 14px; color: var(--taupe); line-height: 1.7; }
+
+  .workshop-details { max-width: 640px; margin: 64px auto 0; text-align: center; padding: 0 48px; }
+  .workshop-details p { font-size: 14px; color: var(--taupe); border: 0.5px solid var(--border); padding: 20px 24px; line-height: 1.8; }
+
+  .workshop-cta { text-align: center; padding: 64px 48px 96px; }
 
   /* COOKIE BANNER */
   .cookie-banner {
@@ -164,7 +190,11 @@
     nav { padding: 16px 24px; }
     .nav-menu { display: none; }
     .page-hero { padding: 130px 24px 48px; }
-    .content-placeholder { padding: 0 24px 80px; }
+    .workshop-intro { padding: 0 24px; }
+    .workshop-points { padding: 56px 24px; }
+    .points-grid { grid-template-columns: 1fr; }
+    .workshop-details { padding: 0 24px; }
+    .workshop-cta { padding: 48px 24px 64px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; flex-direction: column; align-items: stretch; }
     .cookie-actions { justify-content: stretch; }
@@ -209,8 +239,47 @@
   <div class="section-label">Leer samen</div>
   <h1 class="section-title">Een begeleide ruimte om <em>te leren en verbinden</em></h1>
 </section>
-<section class="content-placeholder">
-  <p>De inhoud van deze pagina wordt nog uitgewerkt — kom snel terug, of stuur Mari direct een bericht op WhatsApp voor details.</p>
+<section class="workshop-intro">
+  <p>Een begeleide ruimte om samen tantra massage te ontdekken — of je nu als koppel komt of alleen. Via ademhaling, bewuste aanraking en eenvoudige oefeningen ga je naar huis met tools die je blijft gebruiken.</p>
+</section>
+<section class="workshop-points">
+  <div class="points-grid">
+    <div class="point-item">
+      <div class="point-icon">&#10022;</div>
+      <div>
+        <h3>Lichaamsbewustzijn</h3>
+        <p>Vertragen en aansluiten bij sensatie, zonder naar een doel toe te haasten.</p>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-icon">&#9673;</div>
+      <div>
+        <h3>Bewuste aanraking</h3>
+        <p>Eenvoudige technieken die je met een partner kunt oefenen, op je eigen tempo.</p>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-icon">&#9671;</div>
+      <div>
+        <h3>Ademhaling</h3>
+        <p>Ademhaling gebruiken om aanwezig te blijven en het zenuwstelsel tot rust te brengen.</p>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-icon">&#9675;</div>
+      <div>
+        <h3>Communicatie</h3>
+        <p>Benoemen wat goed voelt — en wat niet — tijdens de workshop en daarna.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- COPY DRAFT: formato exato (duração, data, tamanho do grupo, currículo detalhado) ainda não confirmado pela Mary — ver docs/pendencias-mary.md -->
+<section class="workshop-details">
+  <p>Open voor koppels en voor individuen die alleen komen. Het exacte format, data en groepsgrootte worden nog afgestemd met Mari — stuur haar een bericht op WhatsApp om te vragen naar de eerstvolgende datum en prijs.</p>
+</section>
+<section class="workshop-cta">
+  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20meer%20weten%20over%20de%20Tantra%20Massage%20Workshop%20%E2%80%94%20volgende%20data%20en%20prijs%3F" class="btn-primary" target="_blank">Vraag naar de volgende workshop &rarr;</a>
 </section>
 
 <footer>
