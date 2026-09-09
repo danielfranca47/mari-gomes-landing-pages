@@ -139,11 +139,12 @@
   }
   .prices-table td:first-child { font-family: 'Fraunces', serif; font-size: 17px; color: var(--ink); }
   .prices-table td.duration { color: var(--taupe); font-size: 14px; }
-  .prices-table td.price a {
+  .prices-table td.price { color: var(--ink); font-size: 15px; font-weight: 500; }
+  .prices-table td.book a {
     font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
     color: var(--amber); text-decoration: none;
   }
-  .prices-table td.price a:hover { color: var(--ink); }
+  .prices-table td.book a:hover { color: var(--ink); }
 
   .prices-note { max-width: 640px; margin: 32px auto 0; text-align: center; padding: 0 48px; }
   .prices-note p { font-size: 14px; color: var(--taupe); line-height: 1.8; }
@@ -192,8 +193,10 @@
     .page-hero { padding: 130px 24px 48px; }
     .prices-intro { padding: 0 24px; }
     .prices-table-wrap { padding: 0 24px; }
-    .prices-table th, .prices-table td { padding: 14px 12px; font-size: 13px; }
-    .prices-table td:first-child { font-size: 15px; }
+    .prices-table th, .prices-table td { padding: 12px 8px; font-size: 12px; }
+    .prices-table td:first-child { font-size: 14px; }
+    .prices-table .duration { display: none; }
+    .prices-table th:nth-child(2) { display: none; }
     .prices-note { padding: 0 24px; }
     .prices-cta { padding: 48px 24px 64px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
@@ -241,58 +244,66 @@
   <h1 class="section-title">Heldere prijzen, <em>geen verrassingen</em></h1>
 </section>
 <section class="prices-intro">
-  <p>De prijs hangt af van de behandeling en de duur van de sessie die je kiest. Tik op "Op aanvraag" naast een sessie voor een persoonlijke offerte via WhatsApp.</p>
+  <p>Hieronder vind je de prijzen per sessie. Stuur Mari een bericht op WhatsApp om beschikbaarheid te checken en te boeken.</p>
 </section>
-<!-- PRICE DRAFT: valores reais pendentes da Mary (ver docs/pendencias-mary.md) — "Op aanvraag" fica em vez de número inventado até ela confirmar -->
+<!-- PRICE DRAFT: valores copiados da referência tantrana.nl a pedido explícito da Mary ("podemos copiar todos os preços") — não são preços calculados pela Mari, e sim os da concorrente adotados como os dela. Ver docs/pendencias-mary.md. -->
 <section class="prices-table-wrap">
   <table class="prices-table">
     <thead>
-      <tr><th>Sessie</th><th>Duur</th><th>Prijs</th></tr>
+      <tr><th>Sessie</th><th>Duur</th><th>Prijs</th><th></th></tr>
     </thead>
     <tbody>
       <tr>
         <td>Holistische Energiemassage</td>
         <td class="duration">60&ndash;90 min</td>
-        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20een%20Holistische%20Energiemassage%3F" target="_blank">Op aanvraag &rarr;</a></td>
+        <td class="price">&euro;300&ndash;350</td>
+        <td class="book"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20een%20Holistische%20Energiemassage%20boeken." target="_blank">Boek &rarr;</a></td>
       </tr>
       <tr>
         <td>Ontspanning &amp; Stressverlichting</td>
         <td class="duration">60&ndash;90 min</td>
-        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20een%20Ontspanning%20%26%20Stressverlichting%20massage%3F" target="_blank">Op aanvraag &rarr;</a></td>
+        <td class="price">&euro;300&ndash;350</td>
+        <td class="book"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20een%20Ontspanning%20%26%20Stressverlichting%20massage%20boeken." target="_blank">Boek &rarr;</a></td>
       </tr>
       <tr>
         <td>Koppelsmassage</td>
         <td class="duration">90 min</td>
-        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20een%20Koppelsmassage%3F" target="_blank">Op aanvraag &rarr;</a></td>
+        <td class="price">&euro;350</td>
+        <td class="book"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20een%20Koppelsmassage%20boeken." target="_blank">Boek &rarr;</a></td>
       </tr>
       <tr>
         <td>Spanningsverlichtende Massage</td>
         <td class="duration">60 min</td>
-        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20een%20Spanningsverlichtende%20Massage%3F" target="_blank">Op aanvraag &rarr;</a></td>
+        <td class="price">&euro;300</td>
+        <td class="book"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20een%20Spanningsverlichtende%20Massage%20boeken." target="_blank">Boek &rarr;</a></td>
       </tr>
       <tr>
         <td>Chakra- en Energiebalans</td>
         <td class="duration">60 min</td>
-        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20Chakra-%20en%20Energiebalans%3F" target="_blank">Op aanvraag &rarr;</a></td>
+        <td class="price">&euro;300</td>
+        <td class="book"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20Chakra-%20en%20Energiebalans%20boeken." target="_blank">Boek &rarr;</a></td>
       </tr>
       <tr>
         <td>Tantra Coaching voor Koppels</td>
         <td class="duration">90 min</td>
-        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20Tantra%20Coaching%20voor%20Koppels%3F" target="_blank">Op aanvraag &rarr;</a></td>
+        <td class="price">&euro;350</td>
+        <td class="book"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20Tantra%20Coaching%20voor%20Koppels%20boeken." target="_blank">Boek &rarr;</a></td>
       </tr>
       <tr>
         <td>Tantra Massage Workshop</td>
         <td class="duration">Zie workshop-pagina</td>
-        <td class="price"><a href="/nl/workshop/">Details &rarr;</a></td>
+        <td class="price">Vanaf &euro;275 p.p.</td>
+        <td class="book"><a href="/nl/workshop/">Details &rarr;</a></td>
       </tr>
     </tbody>
   </table>
 </section>
 <section class="prices-note">
-  <p>Sessies vinden plaats in Mari's privéstudio in Amsterdam. Op aanvraag is ook een bezoek aan je hotel mogelijk — hier kunnen reiskosten voor gelden, afhankelijk van de locatie.</p>
+  <p>Voor sessies die na 21:00 uur beginnen geldt een avondtoeslag (&euro;100 voor 60&nbsp;min, &euro;150 voor 90&nbsp;min of langer). Eerste keer? Een sessie van 90 minuten wordt aanbevolen, zodat je de tijd hebt om volledig in de ervaring te zakken.</p>
+  <p style="margin-top: 12px;">Sessies vinden plaats in Mari's privéstudio in Amsterdam. Op aanvraag is ook een bezoek aan je hotel mogelijk — hier kunnen reiskosten voor gelden, afhankelijk van de locatie.</p>
 </section>
 <section class="prices-cta">
-  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20een%20offerte%20voor%20een%20sessie." class="btn-primary" target="_blank">Vraag een persoonlijke offerte aan &rarr;</a>
+  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20een%20sessie%20boeken." class="btn-primary" target="_blank">Boek je sessie via WhatsApp &rarr;</a>
 </section>
 
 <footer>
