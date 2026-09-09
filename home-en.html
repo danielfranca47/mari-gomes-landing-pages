@@ -72,11 +72,12 @@
     text-decoration: none;
   }
   .logo span { color: var(--amber); font-style: italic; }
-  .nav-menu { display: flex; align-items: center; gap: 24px; }
+  .nav-menu { display: flex; align-items: center; gap: 20px; }
   .nav-menu a {
-    font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--taupe); text-decoration: none;
     transition: color 0.3s ease;
+    white-space: nowrap;
   }
   .nav-menu a:hover { color: var(--amber); }
   .gtranslate_wrapper { display: flex; align-items: center; gap: 6px; }
@@ -380,8 +381,10 @@
   <div class="nav-left">
     <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
     <div class="nav-menu">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
+      <a href="/about/">About</a>
+      <a href="/treatments/">Treatments</a>
+      <a href="/prices/">Prices</a>
+      <a href="/workshop/">Workshop</a>
       <a href="#testimonials">Reviews</a>
       <a href="#faq">FAQ</a>
       <a href="#location">Location</a>
