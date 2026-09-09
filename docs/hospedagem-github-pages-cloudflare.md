@@ -134,6 +134,47 @@ O que essa fase envolve (do meu lado):
 > cookies que já existe na home (Fase 7.1 do arquivo de implementação da home), cria
 > `CNAME` (`amarigomes.com`) e `.nojekyll` na raiz, e commita tudo.
 
+### Fase C — concluída (commit: `PENDENTE`)
+
+Estrutura criada: `holistic-energy-massage-{en,nl}/`, `relaxation-massage-{en,nl}/`,
+`couples-massage-{en,nl}/` e `nl/`, cada uma com um `index.html` (cópia do `.html`
+correspondente). `CNAME` (`amarigomes.com`) e `.nojekyll` criados na raiz. Arquivos
+originais (`lp1-holistic-energy-en.html` etc., `home-en.html`, `home-nl.html`)
+mantidos intactos na raiz, sem remoção.
+
+- **Imagens:** as 6 LPs já usavam URLs absolutas do WordPress
+  (`https://amarigomes.com/wp-content/uploads/...`) — não precisaram de ajuste. Só
+  `nl/index.html` precisou (era `images/...` relativo a partir de `home-nl.html` na
+  raiz; virou `../images/...` pra resolver de dentro da subpasta).
+- **Links internos home → LPs:** `index.html` e `nl/index.html` tiveram os 3 links de
+  modalidade (`lp1-holistic-energy-{en,nl}.html` etc.) trocados pelas URLs de produção
+  (`/holistic-energy-massage-{en,nl}/` etc.) — caminho absoluto, resolve igual em `/`
+  e em `/nl/`. Os arquivos originais `home-en.html`/`home-nl.html` na raiz **não**
+  foram alterados (mantêm os links antigos por filename, já que não são o que fica no
+  ar).
+- **Consent Mode v2 + GA4 + banner de cookies replicado nas 6 LPs** (editadas
+  diretamente nos arquivos `.html` originais na raiz, depois copiadas pras subpastas —
+  então tanto a URL antiga quanto a nova ficam com tracking funcionando):
+  - Bloco de `<head>` (Consent Mode default `denied` + `gtag.js` + config GA4/Ads)
+    idêntico ao da home, inserido logo após `<title>`.
+  - CSS do banner **adaptado à paleta de cada LP** (não copiado literal da home,
+    que tem sua própria 4ª identidade) — cores do botão "Accept" e do link seguem a
+    convenção de contraste já usada em cada página (ex.: LP2/LP3 usam texto claro
+    sobre o accent, como o `.nav-cta` já fazia; LP1 usa texto escuro sobre o dourado).
+  - Banner HTML + os 2 scripts finais (conversão WhatsApp simplificada + lógica de
+    consentimento) substituindo o script antigo de conversão (que carregava o
+    `gtag.js` sob demanda no clique — agora carrega sempre, via o bloco do `<head>`).
+    Texto do banner em inglês nas 3 LPs `-en`, em holandês nas 3 `-nl` (mesmas frases
+    já usadas na home).
+  - Regra de mobile do banner (`left/right/bottom: 12px`, empilha os botões)
+    adicionada dentro do `@media (max-width: 768px)` já existente de cada LP.
+- **Validação estrutural feita:** contagem de tags (`<script>`/`</script>`,
+  `<style>`/`</style>`, `<html>`/`</html>`) balanceada nos 14 arquivos tocados/criados;
+  diff de conteúdo (ignorando line-ending) confirmando que só as linhas esperadas
+  mudaram em `index.html`/`nl/index.html`; subpastas das LPs conferidas byte-a-byte
+  idênticas ao `.html` de origem. Falta validação visual no navegador (abrir os 8
+  `index.html` novos e as 6 LPs originais) antes da Fase D.
+
 ---
 
 ## Fase D — Ativar o GitHub Pages (você)
