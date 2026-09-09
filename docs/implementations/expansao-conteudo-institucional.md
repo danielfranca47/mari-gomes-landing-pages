@@ -192,7 +192,7 @@ atualizar `docs/pendencias-mary.md` com os itens novos (formas de pagamento,
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 1 | `PENDENTE` | pendências novas em docs/pendencias-mary.md |
+| 1 | `644cc99` | pendências novas em docs/pendencias-mary.md |
 
 ### Relatório da Fase 4 — o que mudou na prática
 
