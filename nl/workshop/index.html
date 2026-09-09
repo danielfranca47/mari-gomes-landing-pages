@@ -148,6 +148,33 @@
   .workshop-details { max-width: 640px; margin: 64px auto 0; text-align: center; padding: 0 48px; }
   .workshop-details p { font-size: 14px; color: var(--taupe); border: 0.5px solid var(--border); padding: 20px 24px; line-height: 1.8; }
 
+  /* WORKSHOP FORMAT */
+  .workshop-format { padding: 80px 48px; }
+  .format-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .format-item { padding: 28px 24px; border: 0.5px solid var(--border); background: var(--warm-white); text-align: center; }
+  .format-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 10px;
+  }
+  .format-value { font-family: 'Fraunces', serif; font-size: 20px; color: var(--ink); margin-bottom: 8px; }
+  .format-note { font-size: 13px; color: var(--taupe); line-height: 1.6; }
+
+  /* WORKSHOP INCLUDED */
+  .workshop-included { max-width: 640px; margin: 0 auto; padding: 80px 48px 64px; background: var(--warm-white); }
+  .included-list { list-style: none; }
+  .included-list li {
+    font-size: 15px; color: var(--taupe); line-height: 1.7;
+    padding: 14px 0 14px 32px; border-bottom: 0.5px solid var(--border);
+    position: relative;
+  }
+  .included-list li::before {
+    content: '\2713'; position: absolute; left: 0; top: 14px;
+    color: var(--amber); font-weight: 600;
+  }
+
   .workshop-cta { text-align: center; padding: 64px 48px 96px; }
 
   /* COOKIE BANNER */
@@ -194,6 +221,9 @@
     .workshop-points { padding: 56px 24px; }
     .points-grid { grid-template-columns: 1fr; }
     .workshop-details { padding: 0 24px; }
+    .workshop-format { padding: 56px 24px; }
+    .format-grid { grid-template-columns: 1fr; }
+    .workshop-included { padding: 56px 24px 48px; }
     .workshop-cta { padding: 48px 24px 64px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; flex-direction: column; align-items: stretch; }
@@ -274,9 +304,43 @@
     </div>
   </div>
 </section>
-<!-- COPY DRAFT: formato exato (duração, data, tamanho do grupo, currículo detalhado) ainda não confirmado pela Mary — ver docs/pendencias-mary.md -->
+<!-- COPY DRAFT: valores abaixo (duração, tamanho do grupo) são indicativos, não confirmados pela Mary — ver docs/pendencias-mary.md -->
+<section class="workshop-format">
+  <div class="section-head" style="text-align:center; max-width:640px; margin:0 auto 40px;">
+    <div class="section-label" style="justify-content:center;">Format</div>
+    <h2 class="section-title">Wat je kunt <em>verwachten die dag</em></h2>
+  </div>
+  <div class="format-grid">
+    <div class="format-item">
+      <div class="format-label">Duur</div>
+      <div class="format-value">Hele dag</div>
+      <p class="format-note">Exacte tijden worden met Mari afgestemd</p>
+    </div>
+    <div class="format-item">
+      <div class="format-label">Groepsgrootte</div>
+      <div class="format-value">Klein &amp; intiem</div>
+      <p class="format-note">Bewust klein gehouden, zodat iedereen aandacht krijgt</p>
+    </div>
+    <div class="format-item">
+      <div class="format-label">Voor wie</div>
+      <div class="format-value">Koppels &amp; alleenstaanden</div>
+      <p class="format-note">Geen ervaring nodig</p>
+    </div>
+  </div>
+</section>
+<section class="workshop-included">
+  <div class="section-head" style="text-align:center; max-width:560px; margin:0 auto 24px;">
+    <div class="section-label" style="justify-content:center;">Inbegrepen</div>
+    <h2 class="section-title">Alles wat je <em>die dag nodig hebt</em></h2>
+  </div>
+  <ul class="included-list">
+    <li>Begeleide instructie en praktijkoefening de hele dag door</li>
+    <li>Een comfortabele, private ruimte, klaar om te oefenen</li>
+    <li>Lichte drankjes en snacks tijdens de pauzes</li>
+  </ul>
+</section>
 <section class="workshop-details">
-  <p>Open voor koppels en voor individuen die alleen komen. Het exacte format, data en groepsgrootte worden nog afgestemd met Mari — stuur haar een bericht op WhatsApp om te vragen naar de eerstvolgende datum en prijs.</p>
+  <p>De prijs hangt af van het exacte format en de groepsgrootte, en wordt bevestigd bij het boeken — tarieven voor individuen en koppels beschikbaar. Stuur Mari een bericht op WhatsApp om te vragen naar de eerstvolgende datum en prijs.</p>
 </section>
 <section class="workshop-cta">
   <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20meer%20weten%20over%20de%20Tantra%20Massage%20Workshop%20%E2%80%94%20volgende%20data%20en%20prijs%3F" class="btn-primary" target="_blank">Vraag naar de volgende workshop &rarr;</a>

@@ -122,7 +122,7 @@ referência, usando os números já autorizados pela Mary.
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 1 | `PENDENTE` | níveis de duração na tabela de preços (EN+NL) |
+| 1 | `d2f3188` | níveis de duração na tabela de preços (EN+NL) |
 
 ### Relatório da Fase 2 — o que mudou na prática
 
@@ -145,6 +145,41 @@ mantendo os dados reais como `COPY DRAFT`/CTA até a Mary confirmar.
 |---|---|
 | `workshop/index.html` | Bloco "o que está incluso", moldura de 2 níveis de preço, bloco de formato/currículo — tudo `COPY DRAFT` |
 | `nl/workshop/index.html` | Idem |
+
+### Commits Fase 3
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+
+### Decisão descartada
+
+O plano original previa uma "moldura de 2 níveis de preço" (early-bird vs.
+preço cheio, como na referência). Descartado na implementação: a referência
+tem 2 níveis porque o formato dela (datas/early-bird) já está confirmado; a
+Mary ainda não confirmou se o workshop dela segue esse modelo (pendência #3
+já aberta), e apresentar 2 níveis de preço fixos seria inventar uma estrutura
+de negócio que ela pode não usar. Optei por manter o CTA de preço único
+("depende do formato, confirmado ao reservar") e focar a expansão em blocos
+que são seguros de generalizar: formato (duração/grupo/público, marcados como
+indicativos) e o que está incluso.
+
+### Relatório da Fase 3 — o que mudou na prática
+
+**Antes:** a página tinha só a intro + 4 "pontos" abstratos do que é
+ensinado, sem nenhuma estrutura de formato/inclusões.
+**Agora:** ganhou 2 seções novas — "Format" (3 cards: duração, tamanho do
+grupo, público-alvo, todos marcados como indicativos/`COPY DRAFT`) e "What's
+Included" (lista de 3 itens genéricos: instrução guiada, espaço privado,
+bebidas/snacks) — antes do bloco final de preço/CTA, que foi reescrito pra
+focar em "preço confirmado ao reservar" em vez da frase anterior só sobre
+formato ainda não definido.
+**Para validar:** Cenário 3, abaixo.
+
+**Nota de validação:** não consegui abrir o Chrome DevTools MCP nesta sessão
+(erro de perfil de navegador já em uso por outra instância) — validei só por
+inspeção estática (contagem de tags balanceadas, HTML idêntico em estrutura
+entre EN/NL). Cenário 3 continua com checks `[ ]` em aberto até confirmação
+visual (sua ou numa sessão com o Chrome DevTools disponível).
 
 ### Fase 4 — QA + pendências
 
