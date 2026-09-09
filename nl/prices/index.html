@@ -117,12 +117,38 @@
   .section-title em { font-style: italic; color: var(--amber); }
   .section-head { max-width: 900px; margin: 0 auto; }
 
-  /* PLACEHOLDER (Fase 1 only — removida quando o conteúdo real entrar) */
-  .content-placeholder {
-    max-width: 640px; margin: 0 auto; padding: 0 48px 120px;
-    text-align: center;
+  /* BUTTONS */
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink); color: var(--parchment);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 16px 36px; text-decoration: none;
+    transition: all 0.3s ease;
   }
-  .content-placeholder p { font-size: 14px; color: var(--taupe); border: 0.5px dashed var(--border); padding: 24px; }
+  .btn-primary:hover { background: var(--amber); }
+
+  /* PRICES */
+  .prices-intro { max-width: 640px; margin: 0 auto 48px; text-align: center; padding: 0 48px; }
+  .prices-intro p { font-size: 16px; color: var(--taupe); line-height: 1.8; }
+  .prices-table-wrap { max-width: 800px; margin: 0 auto; padding: 0 48px; }
+  .prices-table { width: 100%; border-collapse: collapse; background: var(--warm-white); }
+  .prices-table th, .prices-table td { text-align: left; padding: 20px 24px; border-bottom: 0.5px solid var(--border); }
+  .prices-table th {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--taupe);
+  }
+  .prices-table td:first-child { font-family: 'Fraunces', serif; font-size: 17px; color: var(--ink); }
+  .prices-table td.duration { color: var(--taupe); font-size: 14px; }
+  .prices-table td.price a {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--amber); text-decoration: none;
+  }
+  .prices-table td.price a:hover { color: var(--ink); }
+
+  .prices-note { max-width: 640px; margin: 32px auto 0; text-align: center; padding: 0 48px; }
+  .prices-note p { font-size: 14px; color: var(--taupe); line-height: 1.8; }
+
+  .prices-cta { text-align: center; padding: 64px 48px 96px; }
 
   /* COOKIE BANNER */
   .cookie-banner {
@@ -164,7 +190,12 @@
     nav { padding: 16px 24px; }
     .nav-menu { display: none; }
     .page-hero { padding: 130px 24px 48px; }
-    .content-placeholder { padding: 0 24px 80px; }
+    .prices-intro { padding: 0 24px; }
+    .prices-table-wrap { padding: 0 24px; }
+    .prices-table th, .prices-table td { padding: 14px 12px; font-size: 13px; }
+    .prices-table td:first-child { font-size: 15px; }
+    .prices-note { padding: 0 24px; }
+    .prices-cta { padding: 48px 24px 64px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; flex-direction: column; align-items: stretch; }
     .cookie-actions { justify-content: stretch; }
@@ -209,8 +240,59 @@
   <div class="section-label">Investering</div>
   <h1 class="section-title">Heldere prijzen, <em>geen verrassingen</em></h1>
 </section>
-<section class="content-placeholder">
-  <p>De inhoud van deze pagina wordt nog uitgewerkt — kom snel terug, of stuur Mari direct een bericht op WhatsApp voor details.</p>
+<section class="prices-intro">
+  <p>De prijs hangt af van de behandeling en de duur van de sessie die je kiest. Tik op "Op aanvraag" naast een sessie voor een persoonlijke offerte via WhatsApp.</p>
+</section>
+<!-- PRICE DRAFT: valores reais pendentes da Mary (ver docs/pendencias-mary.md) — "Op aanvraag" fica em vez de número inventado até ela confirmar -->
+<section class="prices-table-wrap">
+  <table class="prices-table">
+    <thead>
+      <tr><th>Sessie</th><th>Duur</th><th>Prijs</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Holistische Energiemassage</td>
+        <td class="duration">60&ndash;90 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20een%20Holistische%20Energiemassage%3F" target="_blank">Op aanvraag &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Ontspanning &amp; Stressverlichting</td>
+        <td class="duration">60&ndash;90 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20een%20Ontspanning%20%26%20Stressverlichting%20massage%3F" target="_blank">Op aanvraag &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Koppelsmassage</td>
+        <td class="duration">90 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20een%20Koppelsmassage%3F" target="_blank">Op aanvraag &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Spanningsverlichtende Massage</td>
+        <td class="duration">60 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20een%20Spanningsverlichtende%20Massage%3F" target="_blank">Op aanvraag &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Chakra- en Energiebalans</td>
+        <td class="duration">60 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20Chakra-%20en%20Energiebalans%3F" target="_blank">Op aanvraag &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Tantra Coaching voor Koppels</td>
+        <td class="duration">90 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Wat%20is%20de%20prijs%20voor%20Tantra%20Coaching%20voor%20Koppels%3F" target="_blank">Op aanvraag &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Tantra Massage Workshop</td>
+        <td class="duration">Zie workshop-pagina</td>
+        <td class="price"><a href="/nl/workshop/">Details &rarr;</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="prices-note">
+  <p>Sessies vinden plaats in Mari's privéstudio in Amsterdam. Op aanvraag is ook een bezoek aan je hotel mogelijk — hier kunnen reiskosten voor gelden, afhankelijk van de locatie.</p>
+</section>
+<section class="prices-cta">
+  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20een%20offerte%20voor%20een%20sessie." class="btn-primary" target="_blank">Vraag een persoonlijke offerte aan &rarr;</a>
 </section>
 
 <footer>

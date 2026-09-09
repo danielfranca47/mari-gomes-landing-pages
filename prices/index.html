@@ -117,12 +117,38 @@
   .section-title em { font-style: italic; color: var(--amber); }
   .section-head { max-width: 900px; margin: 0 auto; }
 
-  /* PLACEHOLDER (Fase 1 only — removida quando o conteúdo real entrar) */
-  .content-placeholder {
-    max-width: 640px; margin: 0 auto; padding: 0 48px 120px;
-    text-align: center;
+  /* BUTTONS */
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink); color: var(--parchment);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 16px 36px; text-decoration: none;
+    transition: all 0.3s ease;
   }
-  .content-placeholder p { font-size: 14px; color: var(--taupe); border: 0.5px dashed var(--border); padding: 24px; }
+  .btn-primary:hover { background: var(--amber); }
+
+  /* PRICES */
+  .prices-intro { max-width: 640px; margin: 0 auto 48px; text-align: center; padding: 0 48px; }
+  .prices-intro p { font-size: 16px; color: var(--taupe); line-height: 1.8; }
+  .prices-table-wrap { max-width: 800px; margin: 0 auto; padding: 0 48px; }
+  .prices-table { width: 100%; border-collapse: collapse; background: var(--warm-white); }
+  .prices-table th, .prices-table td { text-align: left; padding: 20px 24px; border-bottom: 0.5px solid var(--border); }
+  .prices-table th {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--taupe);
+  }
+  .prices-table td:first-child { font-family: 'Fraunces', serif; font-size: 17px; color: var(--ink); }
+  .prices-table td.duration { color: var(--taupe); font-size: 14px; }
+  .prices-table td.price a {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--amber); text-decoration: none;
+  }
+  .prices-table td.price a:hover { color: var(--ink); }
+
+  .prices-note { max-width: 640px; margin: 32px auto 0; text-align: center; padding: 0 48px; }
+  .prices-note p { font-size: 14px; color: var(--taupe); line-height: 1.8; }
+
+  .prices-cta { text-align: center; padding: 64px 48px 96px; }
 
   /* COOKIE BANNER */
   .cookie-banner {
@@ -164,7 +190,12 @@
     nav { padding: 16px 24px; }
     .nav-menu { display: none; }
     .page-hero { padding: 130px 24px 48px; }
-    .content-placeholder { padding: 0 24px 80px; }
+    .prices-intro { padding: 0 24px; }
+    .prices-table-wrap { padding: 0 24px; }
+    .prices-table th, .prices-table td { padding: 14px 12px; font-size: 13px; }
+    .prices-table td:first-child { font-size: 15px; }
+    .prices-note { padding: 0 24px; }
+    .prices-cta { padding: 48px 24px 64px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; flex-direction: column; align-items: stretch; }
     .cookie-actions { justify-content: stretch; }
@@ -209,8 +240,59 @@
   <div class="section-label">Investment</div>
   <h1 class="section-title">Clear pricing, <em>no surprises</em></h1>
 </section>
-<section class="content-placeholder">
-  <p>Content for this page is being drafted — check back soon, or message Mari directly on WhatsApp for details.</p>
+<section class="prices-intro">
+  <p>Pricing depends on the treatment and session length you choose. Tap "On request" next to any session for a personalised quote on WhatsApp.</p>
+</section>
+<!-- PRICE DRAFT: valores reais pendentes da Mary (ver docs/pendencias-mary.md) — "On request" fica em vez de número inventado até ela confirmar -->
+<section class="prices-table-wrap">
+  <table class="prices-table">
+    <thead>
+      <tr><th>Session</th><th>Duration</th><th>Price</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Holistic Energy Massage</td>
+        <td class="duration">60&ndash;90 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hi%20Mari!%20What%27s%20the%20price%20for%20a%20Holistic%20Energy%20Massage%3F" target="_blank">On request &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Relaxation &amp; Stress Relief</td>
+        <td class="duration">60&ndash;90 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hi%20Mari!%20What%27s%20the%20price%20for%20a%20Relaxation%20%26%20Stress%20Relief%20massage%3F" target="_blank">On request &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Couples Massage</td>
+        <td class="duration">90 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hi%20Mari!%20What%27s%20the%20price%20for%20a%20Couples%20Massage%3F" target="_blank">On request &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Tension Release Massage</td>
+        <td class="duration">60 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hi%20Mari!%20What%27s%20the%20price%20for%20a%20Tension%20Release%20Massage%3F" target="_blank">On request &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Chakra &amp; Energy Balancing</td>
+        <td class="duration">60 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hi%20Mari!%20What%27s%20the%20price%20for%20Chakra%20%26%20Energy%20Balancing%3F" target="_blank">On request &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Tantra Coaching for Couples</td>
+        <td class="duration">90 min</td>
+        <td class="price"><a href="https://wa.me/31634366008?text=Hi%20Mari!%20What%27s%20the%20price%20for%20Tantra%20Coaching%20for%20Couples%3F" target="_blank">On request &rarr;</a></td>
+      </tr>
+      <tr>
+        <td>Tantra Massage Workshop</td>
+        <td class="duration">See workshop page</td>
+        <td class="price"><a href="/workshop/">Details &rarr;</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section class="prices-note">
+  <p>Sessions take place at Mari's private studio in Amsterdam. Outcall to your hotel is available on request — a travel fee may apply depending on location.</p>
+</section>
+<section class="prices-cta">
+  <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20a%20quote%20for%20a%20session." class="btn-primary" target="_blank">Get a personalised quote &rarr;</a>
 </section>
 
 <footer>
