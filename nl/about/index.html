@@ -117,12 +117,32 @@
   .section-title em { font-style: italic; color: var(--amber); }
   .section-head { max-width: 900px; margin: 0 auto; }
 
-  /* PLACEHOLDER (Fase 1 only — removida quando o conteúdo real entrar) */
-  .content-placeholder {
-    max-width: 640px; margin: 0 auto; padding: 0 48px 120px;
-    text-align: center;
+  /* BUTTONS */
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink); color: var(--parchment);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 16px 36px; text-decoration: none;
+    transition: all 0.3s ease;
   }
-  .content-placeholder p { font-size: 14px; color: var(--taupe); border: 0.5px dashed var(--border); padding: 24px; }
+  .btn-primary:hover { background: var(--amber); }
+
+  /* ABOUT DETAIL */
+  .about-detail { background: var(--warm-white); padding: 96px 48px; }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .about-img { aspect-ratio: 3/4; background: var(--ember); position: relative; overflow: hidden; }
+  .about-img::before {
+    content: ''; position: absolute; top: -16px; left: -16px;
+    width: 100%; height: 100%; border: 0.5px solid var(--amber); z-index: -1;
+  }
+  .about-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .about-text p { font-size: 16px; color: var(--taupe); margin-bottom: 20px; line-height: 1.8; }
+  .about-sig { font-family: 'Fraunces', serif; font-size: 26px; font-style: italic; color: var(--ink); margin-top: 8px; }
+
+  .about-cta { text-align: center; padding: 0 48px 96px; background: var(--warm-white); }
 
   /* COOKIE BANNER */
   .cookie-banner {
@@ -164,7 +184,9 @@
     nav { padding: 16px 24px; }
     .nav-menu { display: none; }
     .page-hero { padding: 130px 24px 48px; }
-    .content-placeholder { padding: 0 24px 80px; }
+    .about-detail { padding: 64px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-cta { padding: 0 24px 64px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; flex-direction: column; align-items: stretch; }
     .cookie-actions { justify-content: stretch; }
@@ -209,8 +231,23 @@
   <div class="section-label">Maak kennis met je therapeut</div>
   <h1 class="section-title">Het verhaal <em>achter</em> de praktijk</h1>
 </section>
-<section class="content-placeholder">
-  <p>De inhoud van deze pagina wordt nog uitgewerkt — kom snel terug, of stuur Mari direct een bericht op WhatsApp voor details.</p>
+<section class="about-detail">
+  <div class="about-grid">
+    <div class="about-img">
+      <img class="about-photo" src="/images/Home_About_Mari.webp" alt="Portret van Mari Gomes" loading="lazy">
+    </div>
+    <div class="about-text">
+      <!-- COPY DRAFT: confirmar com a Mary tempo de atuação, formação/certificações e tradição/escola antes de publicar -->
+      <p>Ik beoefen holistische en tantrische massage in Amsterdam, en werk met individuen en stellen die willen vertragen, loslaten wat ze vasthouden, en weer verbinding maken met hun eigen lichaam door middel van veilige, intentionele aanraking.</p>
+      <p>Mijn aanpak combineert holistisch lichaamswerk, energiewerk en tantrische praktijk — sessie voor sessie afgestemd op wat jij nodig hebt, geen vast recept. Elke sessie begint met een kort gesprek, zodat de aanraking die volgt echt aansluit bij waar je die dag staat.</p>
+      <p>Wat mijn werk stuurt is geen script — het is aanwezigheid. Ik leerde het lichaam te lezen, niet alleen een routine te volgen, en die aandacht breng ik in elke sessie: tempo, druk en ritme reageren allemaal op jou, in het moment zelf.</p>
+      <p>Buiten de studio vind ik het belangrijk om een ruimte te creëren waarin mensen zich veilig genoeg voelen om echt te ontvangen — geen uitvoering, geen haast, alleen toestemming om weer in je lichaam te zijn.</p>
+      <p class="about-sig">&mdash; Mari</p>
+    </div>
+  </div>
+</section>
+<section class="about-cta">
+  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20meer%20weten%20over%20je%20tantra%20en%20holistische%20massagesessies." class="btn-primary" target="_blank">Boek een sessie bij Mari &rarr;</a>
 </section>
 
 <footer>
