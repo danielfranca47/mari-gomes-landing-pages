@@ -115,6 +115,13 @@ O que essa fase envolve (do meu lado):
   site como um projeto Jekyll (não é o caso; sem isso, arquivos/pastas com `_` no
   nome, como as que já temos em `docs/implementations/`, seriam ignorados ou dariam
   erro de build).
+- **Adicionar às 6 LPs o mesmo bloco de Consent Mode v2 + GA4 + banner de cookies que
+  já existe em `home-en.html`/`home-nl.html`** (ver Fase 7.1 do arquivo
+  `docs/implementations/site-institucional-home.md`) — hoje as LPs ainda são
+  servidas pelo WordPress e dependem do Site Kit + CookieAdmin Pro de lá pra isso;
+  sem esse bloco, sair do WordPress mata o GA4 e o banner de consentimento nas LPs
+  também, não só na home. Precisa do Measurement ID real do GA4 (`G-XXXXXXXXXX`)
+  antes de replicar — ver pendência na Fase 7.1.
 - Commitar tudo.
 
 ### Prompt pra colar aqui
@@ -123,8 +130,9 @@ O que essa fase envolve (do meu lado):
 > `docs/hospedagem-github-pages-cloudflare.md` e reestrutura o repositório pra
 > publicar no GitHub Pages: cria uma pasta por página (as 6 LPs + a home, EN e NL)
 > com `index.html` dentro de cada uma, nas URLs listadas na Fase B, ajusta os
-> caminhos de imagem, cria `CNAME` (`amarigomes.com`) e `.nojekyll` na raiz, e
-> commita tudo.
+> caminhos de imagem, replica nas 6 LPs o bloco de Consent Mode + GA4 + banner de
+> cookies que já existe na home (Fase 7.1 do arquivo de implementação da home), cria
+> `CNAME` (`amarigomes.com`) e `.nojekyll` na raiz, e commita tudo.
 
 ---
 

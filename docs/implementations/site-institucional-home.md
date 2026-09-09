@@ -295,6 +295,54 @@ etapa que precisa de mim) em
 [`docs/hospedagem-github-pages-cloudflare.md`](../hospedagem-github-pages-cloudflare.md).
 Operada pelo próprio Daniel; eu entro só nas etapas marcadas "Eu faço" nesse doc.
 
+### Fase 7.1 — Paridade de tracking (Consent Mode + GA4), descoberta durante a Fase 7
+
+**Diagnóstico:** inspecionando o HTML publicado ao vivo (`curl` em
+`amarigomes.com/holistic-energy-massage-en/`), identifiquei que o WordPress injeta,
+via plugin **Site Kit (Google)**, 3 coisas que não existem em lugar nenhum do nosso
+código: (1) um container do Google Tag Manager (`GTM-NCBGPL6N`), (2) uma tag Google
+direta (`GT-55XJZX3L`) amarrando GA4 + Ads, e (3) o **Google Consent Mode v2**
+alimentado pelo banner de cookies do plugin **CookieAdmin Pro** via `wp-consent-api`.
+Nenhuma dessas 3 coisas sobrevive à saída do WordPress (Fase 7). O evento de
+conversão do WhatsApp em si (o que mais importa pro Ads) já estava seguro — foi
+adicionado ao código antes desta sessão especificamente como rede de segurança pra
+esse cenário — e o usuário confirmou que os números de conversão no Google Ads batem
+com o esperado (sem contagem duplicada).
+
+**Decisão do usuário:** manter GA4 e implementar um substituto leve (sem depender de
+WordPress) pro banner de consentimento, em vez de aceitar o risco de compliance.
+
+**O que foi implementado** (`home-en.html` / `home-nl.html`):
+- Bloco de **Google Consent Mode v2** no topo do `<head>` — estado padrão `denied`
+  pra tudo até o visitante escolher.
+- **Google tag (gtag.js)** carregando GA4 + Ads (`AW-18036442650`) já no carregamento
+  da página (antes: o script de conversão só carregava o gtag sob demanda, no clique
+  do WhatsApp — agora carrega sempre, porque o GA4 precisa disso pra registrar
+  pageview).
+- **Banner de cookies** próprio (HTML + CSS + JS vanilla, sem biblioteca externa,
+  seguindo a convenção do projeto de não introduzir dependências) — "Accept" chama
+  `gtag('consent','update', {...granted})`, "Essential only" mantém tudo negado,
+  escolha salva em `localStorage` pra não perguntar de novo.
+- Script de conversão do WhatsApp simplificado (não precisa mais do fallback de
+  carregar o gtag sob demanda, já que ele carrega sempre agora).
+
+**Pendência bloqueante:** as duas ocorrências de `G-XXXXXXXXXX` (marcadas com
+comentário `TODO` no código) precisam do **Measurement ID real do GA4**, que só o
+Daniel tem acesso (painel do Site Kit ou analytics.google.com) — não é pergunta pra
+Mary, por isso não entra em `docs/pendencias-mary.md`.
+
+**Ainda não testado no navegador:** o Chrome DevTools MCP está desconectado nesta
+sessão. Validei estruturalmente (parser HTML, contagem de tags/ids, scripts
+balanceados — tudo OK), mas falta o teste visual/funcional real (banner aparece,
+botões funcionam, consent mode dispara certo) assim que o MCP reconectar ou o usuário
+puder abrir localmente.
+
+**Nota para a Fase C da migração de hospedagem:** quando as 6 LPs forem
+reestruturadas pro GitHub Pages, elas vão perder o Site Kit/CookieAdmin do WordPress
+do mesmo jeito — o mesmo bloco de Consent Mode + banner + GA4 precisa ser replicado
+nelas também nesse momento (ainda não feito, WordPress ainda as serve normalmente por
+enquanto).
+
 ---
 
 ## Checks de Validação
