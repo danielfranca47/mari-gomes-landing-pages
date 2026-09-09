@@ -131,6 +131,110 @@ funcionaram corretamente. Isso é uma limitação só do teste local; em produç
       aviso benigno de CORB do GTranslate, que desaparece em produção por virar
       mesma origem).
 
+### Fase 2 — About Mari
+
+| Arquivo | O que muda |
+|---|---|
+| `about/index.html`, `nl/about/index.html` | Bio expandida (4 parágrafos, COPY DRAFT) + CTA WhatsApp |
+| `home-en.html`, `home-nl.html` | `#about` trimado pra teaser curto + link "Read my full story →" / "Lees mijn volledige verhaal →" |
+| `index.html`, `nl/index.html` | Recopiados |
+
+### Commits Fase 2
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `04416ca` | conteúdo da página About + teaser trimado na home |
+
+### Fase 3 — Treatments
+
+| Arquivo | O que muda |
+|---|---|
+| `treatments/index.html`, `nl/treatments/index.html` | 6 cards (3 já existentes linkando pras LPs + 3 novos, COPY DRAFT, linkando pro WhatsApp) + nota de deslocamento + CTA |
+
+### Commits Fase 3
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `dec77db` | conteúdo da página Treatments |
+
+### Fase 4 — Prices
+
+| Arquivo | O que muda |
+|---|---|
+| `prices/index.html`, `nl/prices/index.html` | Tabela de 7 itens (6 tratamentos + link workshop), duração, "On request"/"Op aanvraag" clicável (WhatsApp) em vez de preço inventado (PRICE DRAFT) |
+
+### Commits Fase 4
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `4f23fbb` | conteúdo da página Prices |
+
+### Fase 5 — Workshop
+
+| Arquivo | O que muda |
+|---|---|
+| `workshop/index.html`, `nl/workshop/index.html` | Intro + 4 pontos do que é ensinado (genérico, sem técnicas específicas não confirmadas) + nota COPY DRAFT sobre formato/data/preço + CTA |
+
+### Commits Fase 5
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `3527e4e` | conteúdo da página Workshop |
+
+### Relatório das Fases 2-5 — o que mudou na prática
+
+**Antes:** as 4 páginas novas tinham só esqueleto (nav/footer/tracking) e um
+placeholder "content is being drafted".
+**Agora:** as 4 têm conteúdo real (About: bio expandida; Treatments: 6 tratamentos;
+Prices: tabela com 7 itens; Workshop: o que é ensinado + como perguntar por
+data/preço). Nada foi inventado onde a Mary não confirmou — preços e formato do
+workshop usam CTA de WhatsApp em vez de números/datas fictícios, e os 3 tratamentos
+novos (Tension Release, Chakra & Energy Balancing, Tantra Coaching) estão marcados
+`COPY DRAFT` pra ela revisar nome/descrição. A home ganhou um teaser mais curto de
+"About" com link pra página cheia.
+**Para validar:** Cenário 2, abaixo.
+
+### Fase 6 — QA, responsivo, pendências
+
+**Objetivo:** revisão cruzada de todos os links, responsivo em todas as páginas
+novas, e registro formal das pendências de conteúdo pra Mary.
+
+### Commits Fase 6
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `PENDENTE` | QA final + atualização de docs/pendencias-mary.md |
+
+### Relatório da Fase 6 — o que mudou na prática
+
+**Antes:** conteúdo das 4 páginas novas ainda não tinha sido testado em conjunto
+(links cruzados, todas as 10 URLs, mobile em todas).
+**Agora:** as 10 páginas (home + 4 páginas × EN/NL) foram testadas servidas
+localmente — todas retornam 200, sem scroll horizontal em mobile (390px), sem erros
+de console reais, e os links cruzados (Prices → Workshop, Treatments → LPs, home →
+About) resolvem certo. `docs/pendencias-mary.md` recebeu 4 itens novos: nomes/
+descrições dos 3 tratamentos novos, preços reais, formato do workshop, e taxa de
+deslocamento — cada um com a pergunta exata a mandar pra Mary.
+**Para validar:** Cenário 2, abaixo.
+
+---
+
+### Cenário 2 — Conteúdo, links cruzados e QA final (Fases 2-6)
+- [x] Abrir as 10 páginas (home + about/treatments/prices/workshop × EN/NL) servidas
+      localmente e confirmar todas retornam 200
+- [x] Home → About: clicar "Read my full story" / "Lees mijn volledige verhaal" e
+      confirmar que abre a página certa
+- [x] Treatments → LPs: os 3 primeiros cards linkam pra LP1/LP2/LP3 no idioma certo
+- [x] Prices → Workshop: o link "Details" na última linha da tabela abre a página
+      de workshop
+- [x] Nenhum preço ou dado factual inventado — preços e formato do workshop usam
+      CTA de WhatsApp, não número/data fictícios
+- [x] Redimensionar pra mobile (390px) em todas as 10 páginas e confirmar
+      `scrollWidth === clientWidth` (sem scroll horizontal)
+- [x] `docs/pendencias-mary.md` atualizado com os 4 itens novos
+- **Validado em:** 2026-09-09 — via Chrome DevTools MCP + servidor HTTP local, EN e
+      NL, desktop e mobile, sem erros de console reais.
+
 ---
 
 ## Ajustes Possíveis Pós-Implementação
