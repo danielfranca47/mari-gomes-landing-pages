@@ -150,6 +150,7 @@ mantendo os dados reais como `COPY DRAFT`/CTA até a Mary confirmar.
 
 | # | Commit | O que foi implementado |
 |---|---|---|
+| 1 | `603e93f` | blocos "Format" e "What's Included" na página Workshop (EN+NL) |
 
 ### Decisão descartada
 
@@ -186,6 +187,35 @@ visual (sua ou numa sessão com o Chrome DevTools disponível).
 **Objetivo:** conferir as 6 páginas (3 × EN/NL) responsivas, sem regressão, e
 atualizar `docs/pendencias-mary.md` com os itens novos (formas de pagamento,
 4-Hands/2 terapeutas, currículo do workshop).
+
+### Commits Fase 4
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `PENDENTE` | pendências novas em docs/pendencias-mary.md |
+
+### Relatório da Fase 4 — o que mudou na prática
+
+**Antes:** `docs/pendencias-mary.md` não tinha os itens gerados pela expansão
+de conteúdo (formas de pagamento, 4-Hands/2 terapeutas); o item #3 (workshop)
+não refletia que a página já ganhou estrutura visual indicativa.
+**Agora:** dois itens novos registrados (4b formas de pagamento, 4c serviços
+adicionais da referência) e o item #3 atualizado notando que os valores
+"Full day"/"Small & intimate" no bloco Format são placeholders a trocar
+quando a Mary responder.
+
+**QA técnica feita nesta sessão (sem navegador):**
+- As 6 páginas (about/prices/workshop × EN/NL) servidas localmente
+  (`python -m http.server`) retornam HTTP 200.
+- Contagem de tags balanceada (`<section>`, `<div>`, `<table>`, `<tr>`, `<ul>`)
+  em todos os 6 arquivos, e estrutura idêntica entre cada par EN/NL.
+
+**QA visual pendente:** não foi possível abrir o Chrome DevTools MCP nesta
+sessão (perfil de navegador já em uso por outra instância). Os Cenários 1-3
+continuam com checks `[ ]` — precisam de confirmação visual real (sua, ou
+numa sessão com o Chrome DevTools disponível) antes de qualquer graduação.
+**Para retomar:** "Lê `docs/implementations/expansao-conteudo-institucional.md`
+e valida os Cenários 1-3 no navegador."
 
 ---
 

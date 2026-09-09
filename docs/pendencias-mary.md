@@ -70,7 +70,45 @@ confirmar o formato real.
 **Onde é usado:** `workshop/index.html` / `nl/workshop/index.html` (comentário
 `COPY DRAFT`).
 
+**Atualização (2026-09-09, expansão de conteúdo Fase 3):** a página ganhou
+blocos visuais de "Format" (duração/tamanho de grupo/público) e "What's
+Included", mas os valores mostrados ("Full day", "Small & intimate") são só
+indicativos — precisam ser trocados pelos valores reais assim que a Mary
+responder as perguntas acima.
+
 **Registrado em:** 2026-09-09.
+
+---
+
+### 4b. Formas de pagamento aceitas
+
+**Contexto:** a referência `tantrana.nl` aceita cartão, dinheiro e BTC. A
+`prices/index.html`/`nl/prices/index.html` (expansão de conteúdo, Fase 2) não
+menciona formas de pagamento — não copiei isso da referência porque é decisão
+de negócio, não só formatação de preço.
+
+**Perguntar pra Mary:** quais formas de pagamento você aceita (cartão,
+dinheiro, transferência, cripto)? Quer que isso apareça na página de preços?
+
+**Onde seria usado:** `prices/index.html` / `nl/prices/index.html`.
+
+**Registrado em:** 2026-09-09 (expansão de conteúdo, Fase 2).
+
+---
+
+### 4c. Serviços adicionais da referência (4-Hands, sessão com 2 terapeutas)
+
+**Contexto:** a referência `tantrana.nl` também lista "4-Hands Tantra
+Massage" (€700, 75-90min) e "Couple Tantra Massage with 2 Therapists"
+simultâneo (€600-750). Não foram adicionados às nossas páginas — são serviços
+novos, não só preço, e a Mary não confirmou se oferece.
+
+**Perguntar pra Mary:** você oferece massagem a 4 mãos ou sessão de casal com
+2 terapeutas simultâneos? Se sim, quero adicionar à Treatments/Prices.
+
+**Onde seria usado:** `treatments/index.html`, `prices/index.html` (+ `nl/`).
+
+**Registrado em:** 2026-09-09 (expansão de conteúdo, Fase 2).
 
 ---
 
