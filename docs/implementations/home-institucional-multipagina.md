@@ -168,6 +168,7 @@ funcionaram corretamente. Isso é uma limitação só do teste local; em produç
 | # | Commit | O que foi implementado |
 |---|---|---|
 | 1 | `4f23fbb` | conteúdo da página Prices |
+| 2 | `e993216` | preços reais copiados da tantrana.nl, a pedido explícito da Mary — ver pendência resolvida em `docs/pendencias-mary.md` |
 
 ### Fase 5 — Workshop
 
