@@ -264,6 +264,29 @@
   .about-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .about-text p { font-size: 16px; color: var(--taupe); margin-bottom: 20px; line-height: 1.8; }
   .about-sig { font-family: 'Fraunces', serif; font-size: 26px; font-style: italic; color: var(--ink); margin-top: 24px; }
+  .about-stats { display: flex; gap: 40px; margin: 8px 0 28px; flex-wrap: wrap; }
+  .about-stat-num { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 400; color: var(--amber); line-height: 1; }
+  .about-stat-label { font-size: 11px; color: var(--taupe); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 6px; }
+
+  /* MY SERVICES (outcall/incall) */
+  .my-services { background: var(--warm-white); padding: 96px 48px; }
+  .my-services .section-head p { font-size: 16px; color: var(--taupe); max-width: 720px; margin: 20px auto 0; line-height: 1.8; }
+  .service-detail-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    max-width: 1000px; margin: 48px auto 0;
+  }
+  .service-detail { background: var(--parchment); border: 0.5px solid var(--border); padding: 32px; }
+  .service-detail h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--ink); margin-bottom: 12px; }
+  .service-detail p { font-size: 14px; color: var(--taupe); line-height: 1.8; }
+  .service-detail p + p { margin-top: 12px; }
+
+  /* TANTRA MASSAGE EXPLAINER */
+  .tantra-explainer { background: var(--parchment); padding: 96px 48px; }
+  .explainer-block { max-width: 760px; margin: 0 auto 40px; }
+  .explainer-block:last-child { margin-bottom: 0; }
+  .explainer-block h3 { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 400; color: var(--ink); margin-bottom: 12px; }
+  .explainer-block p { font-size: 15px; color: var(--taupe); line-height: 1.8; margin-bottom: 12px; }
+  .explainer-block p:last-child { margin-bottom: 0; }
 
   /* TESTIMONIALS */
   .testimonials { background: var(--warm-white); padding: 96px 48px; }
@@ -358,9 +381,10 @@
     .hero { grid-template-columns: 1fr; padding: 150px 24px 72px; }
     .hero::before { width: 100%; top: 55%; height: 50%; }
     .hero-right { display: none; }
-    .audience, .services, .differentiators, .about { padding: 64px 24px; }
-    .audience-grid, .services-grid, .diff-grid, .testi-grid, .location-grid { grid-template-columns: 1fr; }
+    .audience, .services, .differentiators, .about, .my-services, .tantra-explainer { padding: 64px 24px; }
+    .audience-grid, .services-grid, .diff-grid, .testi-grid, .location-grid, .service-detail-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-stats { gap: 28px; }
     .testimonials, .location, .faq, .cta-section { padding: 64px 24px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; flex-direction: column; align-items: stretch; }
@@ -385,6 +409,7 @@
       <a href="/treatments/">Treatments</a>
       <a href="/prices/">Prices</a>
       <a href="/workshop/">Workshop</a>
+      <a href="/fly-me-in/">Fly Me In</a>
       <a href="#testimonials">Reviews</a>
       <a href="#faq">FAQ</a>
       <a href="#location">Location</a>
@@ -473,38 +498,77 @@
     </div>
   </div>
 </section>
+
+<section class="my-services" id="my-services">
+  <div class="section-head">
+    <div class="section-label">My Services</div>
+    <h2 class="section-title">Experience Deep Relaxation and Connection <em>in the Comfort of Your or My Space</em></h2>
+    <p>I offer Outcall and Incall Tantra Massages in Amsterdam and Outcall Tantra Massages in other locations across the Netherlands, for example Utrecht, The Hague, and Rotterdam.</p>
+  </div>
+  <div class="service-detail-grid">
+    <div class="service-detail">
+      <h3>Outcall Tantra Massage</h3>
+      <p>My Outcall Tantra Massage service offers a unique, personalized experience where ancient authentic tantra techniques meet modern relaxation. I bring the transformative power of tantra directly to you, allowing you to experience profound relaxation, rejuvenation, and connection in the privacy and comfort of your own home, hotel, or another chosen location.</p>
+    </div>
+    <div class="service-detail">
+      <h3>Incall Tantra Massage</h3>
+      <p>My Incall Tantra Massage service is offered at a massage studio in Amsterdam (address provided upon request).</p>
+    </div>
+  </div>
+</section>
+
+<section class="tantra-explainer" id="tantra-explainer">
+  <div class="section-head">
+    <div class="section-label">Tantra Massage</div>
+    <h2 class="section-title">Experience The Transformative Power <em>of Tantra Massage</em></h2>
+  </div>
+  <div class="explainer-block">
+    <h3>What is Tantra Massage?</h3>
+    <p>Tantra massage is a holistic approach to healing and wellness, deeply rooted in ancient spiritual traditions. It focuses on the integration of body, mind, and spirit, promoting a heightened sense of awareness, intimacy, and self-connection. Through intuitive touch, energy balancing, and deep relaxation techniques, tantra massage invites you to explore and release physical, emotional, and energetic blockages, awakening a new sense of vitality and inner peace.</p>
+  </div>
+  <div class="explainer-block">
+    <h3>What to Expect from Your Outcall Session</h3>
+    <p>The massage itself incorporates a combination of gentle, mindful strokes, energy work, and breathing exercises designed to guide you into a deep state of relaxation and heightened awareness. Every session is customized to your individual needs, ensuring a fully tailored experience that nurtures your body, mind, and soul.</p>
+    <p>Hot or warm coconut oil of high quality is used.</p>
+  </div>
+  <div class="explainer-block">
+    <h3>What to Expect from Your Incall Session</h3>
+    <p>Upon arriving at the massage studio, you will be welcomed into a serene and inviting space designed for your complete relaxation. The room features soft lighting and soothing music, creating a tranquil atmosphere. You will enjoy a heavenly touch with warm coconut oil.</p>
+  </div>
+</section>
+
 <section class="differentiators" id="differentiators">
   <div class="section-head">
-    <div class="section-label">What Makes It Different</div>
-    <h2 class="section-title">A practice rooted in <em>presence</em>, not performance</h2>
+    <div class="section-label">Why Choose Me</div>
+    <h2 class="section-title">Why Choose <em>My Services?</em></h2>
   </div>
   <div class="diff-grid">
     <div class="diff-item">
       <div class="diff-icon">&#10022;</div>
       <div>
-        <h3>Trauma-informed touch</h3>
-        <p>Every session is paced to your comfort — you're always in control of what happens, and when.</p>
+        <h3>Convenience</h3>
+        <p>Enjoy the full tantra experience without the need to travel. My mobile service brings relaxation to your doorstep. No place to enjoy our tantra treatments? We are happy to welcome you to our studio.</p>
       </div>
     </div>
     <div class="diff-item">
       <div class="diff-icon">&#9673;</div>
       <div>
-        <h3>Held with discretion</h3>
-        <p>A private, professional studio. This is bodywork and energy work — not a sexual or escort service.</p>
+        <h3>Privacy &amp; Discretion</h3>
+        <p>Feel at ease in your own space or at my massage studio, allowing for a more personal experience.</p>
       </div>
     </div>
     <div class="diff-item">
       <div class="diff-icon">&#9671;</div>
       <div>
-        <h3>Personal, not generic</h3>
-        <p>One-on-one sessions with Mari, shaped around what your body needs that day — not a fixed script.</p>
+        <h3>Professional Practitioners</h3>
+        <p>Me and my colleague therapists are trained in the art of tantra, with a deep understanding of energy work, mindful touch, and healing practices.</p>
       </div>
     </div>
     <div class="diff-item">
       <div class="diff-icon">&#9675;</div>
       <div>
-        <h3>Real reviews, real studio</h3>
-        <p>5.0&#9733; on Google, a fixed address in Amsterdam — no anonymous listings.</p>
+        <h3>Holistic Wellness</h3>
+        <p>Beyond physical relaxation, tantra massage encourages emotional release, energy balancing, and spiritual awakening, offering a comprehensive approach to wellness.</p>
       </div>
     </div>
   </div>
@@ -517,8 +581,25 @@
     </div>
     <div class="about-text">
       <div class="section-label">About Mari</div>
-      <h2 class="section-title">Hi, I'm <em>Mari</em></h2>
-      <p>I practice holistic and tantric massage in Amsterdam, working with individuals and couples who want to slow down, release what they're holding onto, and reconnect with their own body through safe, intentional touch.</p>
+      <h2 class="section-title">Bring More Joy, Balance, <em>and Empowerment</em> into Your Life</h2>
+      <p>My passion for yoga and tantra began at a young age, leading me to study in India. During this time, I immersed myself in yoga, tantra, meditation, and the connection between mind, body, and spirit.</p>
+      <p>Through tantra massage, I experienced profound personal transformation, which inspired me to become a tantra massage specialist. I began by focusing on women and later expanded my practice to men and couples. I believe in exploring life energy, using it to heal, and fostering deeper connection.</p>
+      <p>My intuitive massages are designed to release blockages, awaken kundalini energy, and bring more joy, balance, and empowerment into your life.</p>
+      <!-- COPY DRAFT: números não fornecidos pela Mary — ver docs/pendencias-mary.md -->
+      <div class="about-stats">
+        <div>
+          <div class="about-stat-num">X+</div>
+          <div class="about-stat-label">Years Studying in India</div>
+        </div>
+        <div>
+          <div class="about-stat-num">X+</div>
+          <div class="about-stat-label">Years of Experience</div>
+        </div>
+        <div>
+          <div class="about-stat-num">X+</div>
+          <div class="about-stat-label">Satisfied Customers</div>
+        </div>
+      </div>
       <a href="/about/" class="service-link">Read my full story &rarr;</a>
     </div>
   </div>
