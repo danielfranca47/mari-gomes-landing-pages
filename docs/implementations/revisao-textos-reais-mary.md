@@ -76,7 +76,7 @@ Validação visual das 12 páginas (6 existentes + 1 nova × EN/NL), atualizar
 | 1 | `a2bbcea` | conteúdo real da Mary na Home (About, My Services, Tantra Massage) EN+NL |
 | 2 | `b3e29e2` | nomes reais dos 3 tratamentos + card novo 4-Hands Tantra Massage (EN+NL) |
 | 3 | `68f279f` | preços reais (10 linhas, 2 novas: 4-Hands e 2 terapeutas) + pagamento (EN+NL) |
-| 4 | _(pendente)_ | |
+| 4 | `1539ce1` | reescrita completa do Workshop com datas/preços/currículo reais (EN+NL) |
 | 5 | _(pendente)_ | |
 | 6 | _(pendente)_ | |
 
@@ -110,9 +110,14 @@ Validação visual das 12 páginas (6 existentes + 1 nova × EN/NL), atualizar
       sem scroll horizontal, console só com o CORB benigno.
 
 ### Cenário 4 — Workshop reescrito
-- [ ] Abrir `workshop/index.html` e `nl/workshop/index.html`
-- [ ] Conferir datas/preços/currículo batendo com `workshop.txt`
-- [ ] Contato real (não tantrana.nl)
+- [x] Abrir `workshop/index.html` e `nl/workshop/index.html`
+- [x] Conferir datas/preços/currículo batendo com `workshop.txt`
+- [x] Contato real (não tantrana.nl)
+- **Validado em:** 2026-09-12 — Chrome DevTools MCP, EN e NL, desktop 1440px
+      e mobile 390px (sem scroll horizontal). FAQ accordion testado (abre/
+      fecha corretamente). Contato no footer e nos CTAs confirmado como
+      +31 634 366 008 / marycontato@gmail.com nas duas páginas. Console só
+      com o CORB benigno.
 
 ### Cenário 5 — Fly Me In nova página
 - [ ] Abrir `fly-me-in/index.html` e `nl/fly-me-in/index.html`
