@@ -172,6 +172,27 @@ Toda mudança não-trivial (nova seção, mudança que afeta as 6 páginas, corr
 | [`docs/implementations/_template-implementacao.md`](docs/implementations/_template-implementacao.md) | Template concreto preenchido |
 | [`docs/implementations/_processo-graduacao-implementacao.md`](docs/implementations/_processo-graduacao-implementacao.md) | Como graduar |
 
+## Site institucional (home)
+
+Site novo, standalone (fora do WordPress), publicado via GitHub Pages + Cloudflare (ver [`docs/hospedagem-github-pages-cloudflare.md`](docs/hospedagem-github-pages-cloudflare.md)). Estrutura multi-página, cada página com sua própria pasta (`index.html` dentro = convenção do GitHub Pages, "pasta = URL"):
+
+| Página | Arquivo EN (raiz) | Arquivo NL |
+|---|---|---|
+| Home | `index.html` | `nl/index.html` |
+| About | `about/index.html` | `nl/about/index.html` |
+| Treatments | `treatments/index.html` | `nl/treatments/index.html` |
+| Prices | `prices/index.html` | `nl/prices/index.html` |
+| Workshop | `workshop/index.html` | `nl/workshop/index.html` |
+| Fly Me In | `fly-me-in/index.html` | `nl/fly-me-in/index.html` |
+
+**Atenção — `home-en.html` e `home-nl.html` na raiz NÃO são a home publicada.** São cópias legadas de antes da migração pro GitHub Pages, mantidas por referência/histórico. Os arquivos que o GitHub Pages realmente serve em `/` e `/nl/` são `index.html` e `nl/index.html`. As duas únicas diferenças intencionais entre cada par são: (1) os 3 links das LPs (`index.html` usa caminho limpo `/holistic-energy-massage-en/`; `home-en.html` usa o nome de arquivo `lp1-holistic-energy-en.html`) e (2) caminho de imagem (`nl/index.html` usa `../images/...`, `home-nl.html` usa `images/...`). Fora essas duas diferenças, **qualquer mudança de conteúdo na Home precisa ser aplicada nos dois arquivos** (`index.html` E `home-en.html`, idem NL) — já aconteceu de uma fase de implementação atualizar só o arquivo legado e não refletir no site publicado (ver `docs/implementations/revisao-textos-reais-mary.md`, Fase 1 vs. Fase 5). Antes de considerar uma mudança de Home "no ar", confirmar que tocou `index.html`/`nl/index.html`.
+
+Cada página segue o mesmo template visual (paleta parchment/amber/ember, Fraunces + Manrope) com `<style>` próprio por arquivo (sem CSS compartilhado, mesma lógica das LPs), nav fixo com GTranslate (widget ID de 8 dígitos único por página — conferir que não repete nenhum já usado antes de criar página nova), cookie banner + Consent Mode v2 + GA4, footer padrão. Convenções de nav/FAQ/localização seguem o mesmo padrão documentado acima pras LPs (menu com link por página, accordion `toggleFaq`, `scroll-margin-top` compensando o nav fixo).
+
+O conteúdo (Home, Treatments, Prices, Workshop, Fly Me In) vem dos textos reais que a Mary mandou em `docs/texto-do-site/` (ver `docs/implementations/revisao-textos-reais-mary.md`) — não é mais texto indicativo/`COPY DRAFT` da referência `tantrana.nl`, exceto onde marcado (números de anos de experiência/clientes na Home; regiões de viagem do Fly Me In). Pendências abertas com a Mary ficam em [`docs/pendencias-mary.md`](docs/pendencias-mary.md).
+
+**Nota de conteúdo:** o texto real da Mary é mais explícito que o anterior em vários pontos (estrutura outcall/incall, sobretaxa noturna, currículo do Workshop incluindo massagem lingam/yoni e possibilidade de parear participantes solteiros). Isso foi mantido fiel ao pedido dela, mas existe uma pendência aberta sobre risco de política de conteúdo adulto do Google Ads (a conta de Ads é ativa nas 6 LPs) — ver pendência #8 em `docs/pendencias-mary.md` antes de expandir tráfego pago pras páginas novas.
+
 ## Git
 
 Este projeto tem repositório no GitHub: `danielfranca47/mari-gomes-landing-pages` (público).
