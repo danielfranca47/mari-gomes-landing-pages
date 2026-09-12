@@ -30,7 +30,7 @@ comentário `<!-- COPY DRAFT -->`).
 
 ---
 
-### 2. Nomes/descrições reais dos tratamentos
+### 2. Nomes/descrições reais dos tratamentos — RESOLVIDA
 
 **Contexto:** a página nova `treatments/index.html`/`nl/treatments/index.html`
 (reestruturação multi-página, referência `tantrana.nl`) lista 6 tratamentos: os 3
@@ -40,17 +40,18 @@ Chakra & Energy Balancing, Tantra Coaching for Couples). A Mary confirmou por
 WhatsApp que oferece "todos esses serviços", mas os nomes/descrições dos 3 novos são
 uma adaptação minha da referência, não texto dela.
 
-**Perguntar pra Mary:** os nomes e descrições desses 3 tratamentos batem com como
-ela realmente os chama/descreve? Quer ajustar algum?
+**Resolução:** `treatments.txt` (texto real da Mary, 2026-09-12) confirma os
+nomes exatos: Dearmouring Tantra Massage, Chakra Balancing Tantra Massage,
+Couple Tantra Massage Ritual, Coaching Tantra Massage Couple Session — e
+inclui um serviço a mais (4-Hands Tantra Massage) que não estava na página.
+Aplicado em `treatments/index.html`/`nl/` (Fase 2 de
+`docs/implementations/revisao-textos-reais-mary.md`).
 
-**Onde é usado:** `treatments/index.html` / `nl/treatments/index.html` (marcado com
-comentário `COPY DRAFT` acima de cada card novo).
-
-**Registrado em:** 2026-09-09.
+**Registrado em:** 2026-09-09. **Resolvido em:** 2026-09-12.
 
 ---
 
-### 3. Formato do workshop
+### 3. Formato do workshop — RESOLVIDA
 
 **Contexto:** a Mary confirmou que também faz workshop (como o
 `tantra-massage-workshop-for-couples-singles-in-amsterdam` da referência), mas o
@@ -60,23 +61,23 @@ ficou deliberadamente genérica (o que é ensinado, em termos amplos — sem cit
 técnicas específicas, datas, tamanho de grupo ou preço da referência) até ela
 confirmar o formato real.
 
-**Perguntar pra Mary:**
-- Formato: duração, quantos turnos, dia da semana?
-- Tamanho máximo do grupo?
-- Currículo: o que exatamente é ensinado?
-- Preço (por pessoa / por casal, com ou sem desconto antecipado)?
-- Igual à estrutura da `tantrana.nl` ou diferente?
-
-**Onde é usado:** `workshop/index.html` / `nl/workshop/index.html` (comentário
-`COPY DRAFT`).
-
 **Atualização (2026-09-09, expansão de conteúdo Fase 3):** a página ganhou
 blocos visuais de "Format" (duração/tamanho de grupo/público) e "What's
-Included", mas os valores mostrados ("Full day", "Small & intimate") são só
-indicativos — precisam ser trocados pelos valores reais assim que a Mary
-responder as perguntas acima.
+Included", mas os valores mostrados ("Full day", "Small & intimate") eram só
+indicativos.
 
-**Registrado em:** 2026-09-09.
+**Resolução:** `workshop.txt` (texto real da Mary, 2026-09-12) confirma
+tudo: datas (10 jan / 14 fev 2027), horários (10h–15h manhã, 17h–22h noite),
+tamanho do grupo (máx. 12, 6 casais), preços (early bird €275pp/€525 casal
+até 1 nov; cheio €325pp/€595 casal), e currículo completo (manhã: mulheres;
+noite: homens, incl. massagem lingam). Reescrito integralmente em
+`workshop/index.html`/`nl/` (Fase 4 de
+`docs/implementations/revisao-textos-reais-mary.md`). O contato de reserva
+usado é o real da Mari Gomes (`+31 634 366 008` / `marycontato@gmail.com`),
+não o `bookings@tantrana.nl`/`0031 645 28 2608` que aparecia no texto
+enviado (resíduo de cópia do site de referência).
+
+**Registrado em:** 2026-09-09. **Resolvido em:** 2026-09-12.
 
 ---
 

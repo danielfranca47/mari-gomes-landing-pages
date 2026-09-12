@@ -151,7 +151,7 @@
   /* WORKSHOP FORMAT */
   .workshop-format { padding: 80px 48px; }
   .format-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px;
     max-width: 900px; margin: 0 auto;
   }
   .format-item { padding: 28px 24px; border: 0.5px solid var(--border); background: var(--warm-white); text-align: center; }
@@ -176,6 +176,33 @@
   }
 
   .workshop-cta { text-align: center; padding: 64px 48px 96px; }
+
+  /* WORKSHOP NOTE BLOCK (couples & singles, small copy blocks) */
+  .workshop-note { max-width: 720px; margin: 0 auto; text-align: center; padding: 64px 48px; }
+  .workshop-note p { font-size: 16px; color: var(--taupe); line-height: 1.8; margin-top: 20px; }
+
+  /* CURRICULUM (morning/evening explainer) */
+  .tantra-explainer { background: var(--warm-white); padding: 96px 48px; }
+  .explainer-block { max-width: 760px; margin: 0 auto 40px; }
+  .explainer-block:last-child { margin-bottom: 0; }
+  .explainer-block h3 { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 400; color: var(--ink); margin-bottom: 16px; }
+  .explainer-block p { font-size: 15px; color: var(--taupe); line-height: 1.8; margin-bottom: 14px; }
+  .explainer-block p:last-child { margin-bottom: 0; }
+  .explainer-block strong { color: var(--ink); font-weight: 500; }
+
+  /* FAQ */
+  .faq { background: var(--parchment); padding: 96px 48px; }
+  .faq-grid { max-width: 720px; margin: 48px auto 0; }
+  .faq-item { border-bottom: 0.5px solid var(--border); padding: 24px 0; }
+  .faq-q {
+    font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400;
+    color: var(--ink); cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq-q span { font-size: 20px; color: var(--amber); flex-shrink: 0; transition: transform 0.3s; }
+  .faq-a { font-size: 15px; color: var(--taupe); line-height: 1.8; padding-top: 16px; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q span { transform: rotate(45deg); }
 
   /* COOKIE BANNER */
   .cookie-banner {
@@ -225,6 +252,9 @@
     .format-grid { grid-template-columns: 1fr; }
     .workshop-included { padding: 56px 24px 48px; }
     .workshop-cta { padding: 48px 24px 64px; }
+    .workshop-note { padding: 56px 24px; }
+    .tantra-explainer { padding: 56px 24px; }
+    .faq { padding: 56px 24px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; flex-direction: column; align-items: stretch; }
     .cookie-actions { justify-content: stretch; }
@@ -266,11 +296,13 @@
 </nav>
 
 <section class="page-hero">
-  <div class="section-label">Leer samen</div>
-  <h1 class="section-title">Een begeleide ruimte om <em>te leren en verbinden</em></h1>
+  <div class="section-label">Tantra Massage Workshop</div>
+  <h1 class="section-title">Een Dag van Bewuste Aanraking, <em>Verbinding</em> &amp; Tantra</h1>
+  <p>Ontdek de kunst van bewuste aanraking tijdens een intieme dag voor koppels en alleenstaanden in Amsterdam.</p>
 </section>
 <section class="workshop-intro">
-  <p>Een begeleide ruimte om samen tantra massage te ontdekken — of je nu als koppel komt of alleen. Via ademhaling, bewuste aanraking en eenvoudige oefeningen ga je naar huis met tools die je blijft gebruiken.</p>
+  <p>Deze intieme workshop is een uitnodiging om te vertragen, meer aanwezig te worden, en te ontdekken hoe aanraking diepere verbinding kan cre&euml;ren. Gedurende de dag leer je de basisprincipes van Tantra massage door een combinatie van begeleide instructie, meditatie, muziekmeditatie, ritueel, bewuste aanraking en praktijkervaring.</p>
+  <p style="margin-top:16px;">Je hebt geen eerdere ervaring met Tantra of massage nodig &mdash; maar als je al ervaring hebt, leer je nog steeds veel. Je hebt alleen nieuwsgierigheid, openheid en bereidheid nodig om bewuste aanraking te verkennen. De groep wordt klein gehouden zodat ik persoonlijk betrokken kan zijn bij de oefeningen en iedereen individuele begeleiding kan geven.</p>
 </section>
 <section class="workshop-points">
   <div class="points-grid">
@@ -304,45 +336,168 @@
     </div>
   </div>
 </section>
-<!-- COPY DRAFT: valores abaixo (duração, tamanho do grupo) são indicativos, não confirmados pela Mary — ver docs/pendencias-mary.md -->
 <section class="workshop-format">
   <div class="section-head" style="text-align:center; max-width:640px; margin:0 auto 40px;">
-    <div class="section-label" style="justify-content:center;">Format</div>
+    <div class="section-label" style="justify-content:center;">Data &amp; Investering</div>
     <h2 class="section-title">Wat je kunt <em>verwachten die dag</em></h2>
   </div>
   <div class="format-grid">
     <div class="format-item">
-      <div class="format-label">Duur</div>
-      <div class="format-value">Hele dag</div>
-      <p class="format-note">Exacte tijden worden met Mari afgestemd</p>
+      <div class="format-label">Data</div>
+      <div class="format-value">10 jan / 14 feb 2027</div>
+      <p class="format-note">Amsterdam &middot; 10:00&ndash;15:00 &amp; 17:00&ndash;22:00</p>
     </div>
     <div class="format-item">
       <div class="format-label">Groepsgrootte</div>
-      <div class="format-value">Klein &amp; intiem</div>
-      <p class="format-note">Bewust klein gehouden, zodat iedereen aandacht krijgt</p>
+      <div class="format-value">Max. 12</div>
+      <p class="format-note">Beperkt tot 6 koppels</p>
     </div>
     <div class="format-item">
-      <div class="format-label">Voor wie</div>
-      <div class="format-value">Koppels &amp; alleenstaanden</div>
-      <p class="format-note">Geen ervaring nodig</p>
+      <div class="format-label">Vroegboekprijs</div>
+      <div class="format-value">&euro;275 p.p. / &euro;525 per koppel</div>
+      <p class="format-note">Boek v&oacute;&oacute;r 1 november</p>
+    </div>
+    <div class="format-item">
+      <div class="format-label">Volledige Prijs</div>
+      <div class="format-value">&euro;325 p.p. / &euro;595 per koppel</div>
+      <p class="format-note">Na 1 november</p>
     </div>
   </div>
 </section>
+
+<section class="workshop-note">
+  <div class="section-label" style="justify-content:center;">Koppels &amp; Alleenstaanden</div>
+  <h2 class="section-title">Iedereen Is <em>Welkom</em></h2>
+  <p>Je kunt de workshop volgen met je partner of alleen komen. Ben je alleenstaand? Dan kun je nog steeds volledig deelnemen &mdash; we kunnen je mogelijk koppelen aan een andere geschikte deelnemer, of waar mogelijk iemand uit de vertrouwde kring regelen om mee te leren en oefenen. De workshop is ontworpen om een respectvolle en comfortabele omgeving voor iedereen te cre&euml;ren.</p>
+</section>
+
+<section class="tantra-explainer" id="curriculum">
+  <div class="section-head">
+    <div class="section-label">Programma</div>
+    <h2 class="section-title">Wat Er Gebeurt <em>op de Dag</em></h2>
+  </div>
+  <div class="explainer-block">
+    <h3>Ochtendsessie &mdash; Bewuste Aanraking &amp; Tantra Massage voor Vrouwen</h3>
+    <p><strong>Welkom &amp; Openingsritueel.</strong> We beginnen met aankomen in de ruimte en elkaar leren kennen. Via muziek, meditatie en een Tantrische transfiguratiepraktijk cre&euml;ren we een ontspannen en verbonden sfeer, voordat we overgaan naar het educatieve deel van de workshop.</p>
+    <p><strong>De Kunst van Bewuste Aanraking.</strong> Aanraking is veel meer dan techniek. Je leert hoe je meer aanwezig kunt zijn met je handen, hoe je kunt vertragen, hoe je druk en beweging kunt vari&euml;ren, en hoe je attenter kunt worden op de reacties van je partner &mdash; het verschil tussen simpelweg het lichaam aanraken en &eacute;cht luisteren door aanraking.</p>
+    <p><strong>Tantra Massage voor Vrouwen.</strong> De ochtendlezing introduceert de basisprincipes van Tantra massage voor vrouwen &mdash; basisanatomie, gevoeligheid, en hoe individuele vrouwen aanraking verschillend kunnen ervaren &mdash; met de focus op bewustzijn, communicatie, aanwezigheid en het reageren op de persoon voor je in plaats van een vaste techniek te volgen.</p>
+    <p><strong>Begeleide Oefening.</strong> Vrouwen ontvangen een begeleide Tantra massage van hun partner, terwijl ik door de ruimte beweeg en instructie, ondersteuning en individuele begeleiding bied. Je hoeft niet alles perfect te onthouden &mdash; ik begeleid je stap voor stap.</p>
+  </div>
+  <div class="explainer-block">
+    <h3>Avondsessie &mdash; Bewuste Aanraking &amp; Tantra Massage voor Mannen</h3>
+    <p><strong>Tantra Massage voor Mannen.</strong> We gaan verder met een lezing gericht op Tantra massage voor mannen &mdash; mannelijke anatomie, gevoeligheid, bewuste aanraking, communicatie en de basisprincipes van een Tantrische benadering van massage, inclusief een introductie tot lingammassage. De nadruk ligt op aanwezigheid en verbinding, niet op het simpelweg aanleren van een reeks technieken.</p>
+    <p><strong>Begeleide Oefening.</strong> De mannen ontvangen vervolgens een begeleide Tantra massage van hun vrouwelijke partner. Ik blijf gedurende de hele oefening aanwezig, bied begeleiding en help je begrijpen hoe je kunt luisteren naar het lichaam en de reacties van je partner.</p>
+  </div>
+</section>
+
 <section class="workshop-included">
   <div class="section-head" style="text-align:center; max-width:560px; margin:0 auto 24px;">
-    <div class="section-label" style="justify-content:center;">Inbegrepen</div>
-    <h2 class="section-title">Alles wat je <em>die dag nodig hebt</em></h2>
+    <div class="section-label" style="justify-content:center;">Wat Je Meeneemt</div>
+    <h2 class="section-title">Aan het einde <em>van de dag</em></h2>
   </div>
   <ul class="included-list">
-    <li>Begeleide instructie en praktijkoefening de hele dag door</li>
-    <li>Een comfortabele, private ruimte, klaar om te oefenen</li>
-    <li>Lichte drankjes en snacks tijdens de pauzes</li>
+    <li>De basisprincipes van Tantra massage</li>
+    <li>Bewuste en aanwezige aanraking</li>
+    <li>Verschillende kwaliteiten van aanraking en druk</li>
+    <li>Basale lichaamsbewustzijn en anatomie</li>
+    <li>Communicatie door aanraking</li>
+    <li>Hoe te luisteren naar de reacties van je partner</li>
+    <li>Tantra massage geven en ontvangen</li>
+    <li>Een dieper bewustzijn van je eigen lichaam en dat van je partner</li>
+    <li>Yoni- en lingammassage</li>
+    <li>Erogene zones op het lichaam van je partner en hoe je ze herkent</li>
   </ul>
 </section>
-<section class="workshop-details">
-  <p>De prijs hangt af van het exacte format en de groepsgrootte, en wordt bevestigd bij het boeken — tarieven voor individuen en koppels beschikbaar. Stuur Mari een bericht op WhatsApp om te vragen naar de eerstvolgende datum en prijs.</p>
+
+<section class="workshop-points">
+  <div class="section-head" style="text-align:center; max-width:640px; margin:0 auto 40px;">
+    <div class="section-label" style="justify-content:center;">Voor Wie Is Dit</div>
+    <h2 class="section-title">Is Deze Workshop <em>voor Jou?</em></h2>
+  </div>
+  <div class="points-grid">
+    <div class="point-item">
+      <div class="point-icon">&#10022;</div>
+      <div>
+        <h3>Verdiep de intimiteit met je partner</h3>
+        <p>Ontdek nieuwe manieren om zonder woorden te communiceren.</p>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-icon">&#9673;</div>
+      <div>
+        <h3>Word zelfverzekerder met aanraking</h3>
+        <p>Leer aanraken met meer bewustzijn en aanwezigheid.</p>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-icon">&#9671;</div>
+      <div>
+        <h3>Begrijp het lichaam van je partner</h3>
+        <p>Word attenter op subtiele reacties en individuele behoeften.</p>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-icon">&#9675;</div>
+      <div>
+        <h3>Vertraag en herverbind</h3>
+        <p>Cre&euml;er ruimte voor aanwezigheid, ontspanning en oprechte verbinding.</p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<section class="workshop-details">
+  <p>Inbegrepen: drankjes, lichte snacks, stoelen en comfortabele zitplaatsen, een massagebed en verwarmde olie, en alle begeleiding en instructie tijdens de workshop. Lunch is niet inbegrepen &mdash; je regelt je eigen lunch tijdens de pauze van twee uur, en er zijn opties in de buurt. Als je van buiten Nederland naar Amsterdam reist, moet je je accommodatie apart regelen.</p>
+</section>
+
+<section class="faq" id="faq">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">Vragen</div>
+    <h2 class="section-title">Alles wat je moet weten<br><em>voor je boekt</em></h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Hoe regel ik mijn accommodatie?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Als je van buiten Nederland naar Amsterdam reist, moet je je accommodatie apart regelen. Reis je met een beperkt budget? Neem dan contact met me op via e-mail &mdash; ik help je graag een geschikte en betaalbare optie te vinden.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Wanneer is de workshop?
+          <span>+</span>
+        </div>
+        <div class="faq-a">We organiseren twee workshops: zondag 10 januari 2027 en zondag 14 februari 2027.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Wat is de locatie van de workshop?
+          <span>+</span>
+        </div>
+        <div class="faq-a">De workshop vindt plaats in een priv&eacute; yogaruimte in Amsterdam, alleen voor ons. Vanwege privacy en het intieme karakter van de workshop wordt het exacte adres per privébericht gedeeld na bevestiging van je boeking.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Wat is het programma?
+          <span>+</span>
+        </div>
+        <div class="faq-a">10:00&ndash;15:00 ochtendsessie &middot; 15:00&ndash;17:00 lunch &amp; persoonlijke pauze &middot; 17:00&ndash;22:00 avondsessie.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is lunch inbegrepen?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Lunch is niet inbegrepen &mdash; je regelt je eigen lunch tijdens de pauze, en er zijn opties in de buurt. Drankjes en lichte snacks worden gedurende de hele workshop verzorgd.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="workshop-cta">
+  <div class="section-label" style="justify-content: center;">Boek Je Plek</div>
+  <h2 class="section-title">Als Je Je Geroepen Voelt <em>om te Verkennen</em></h2>
+  <p style="max-width:520px; margin: 0 auto 32px; color: var(--taupe);">Als je je geroepen voelt om bewuste aanraking, diepere verbinding en Tantra te verkennen in een kleine en intieme groep, verwelkom ik je graag. Kies je datum en reserveer je plek &mdash; voor vragen over de workshop, alleen komen, reizen vanuit het buitenland, of accommodatie, neem rechtstreeks contact met me op via WhatsApp of e-mail.</p>
   <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20meer%20weten%20over%20de%20Tantra%20Massage%20Workshop%20%E2%80%94%20volgende%20data%20en%20prijs%3F" class="btn-primary" target="_blank">Vraag naar de volgende workshop &rarr;</a>
 </section>
 

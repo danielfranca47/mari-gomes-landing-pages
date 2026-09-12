@@ -151,7 +151,7 @@
   /* WORKSHOP FORMAT */
   .workshop-format { padding: 80px 48px; }
   .format-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px;
     max-width: 900px; margin: 0 auto;
   }
   .format-item { padding: 28px 24px; border: 0.5px solid var(--border); background: var(--warm-white); text-align: center; }
@@ -176,6 +176,33 @@
   }
 
   .workshop-cta { text-align: center; padding: 64px 48px 96px; }
+
+  /* WORKSHOP NOTE BLOCK (couples & singles, small copy blocks) */
+  .workshop-note { max-width: 720px; margin: 0 auto; text-align: center; padding: 64px 48px; }
+  .workshop-note p { font-size: 16px; color: var(--taupe); line-height: 1.8; margin-top: 20px; }
+
+  /* CURRICULUM (morning/evening explainer) */
+  .tantra-explainer { background: var(--warm-white); padding: 96px 48px; }
+  .explainer-block { max-width: 760px; margin: 0 auto 40px; }
+  .explainer-block:last-child { margin-bottom: 0; }
+  .explainer-block h3 { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 400; color: var(--ink); margin-bottom: 16px; }
+  .explainer-block p { font-size: 15px; color: var(--taupe); line-height: 1.8; margin-bottom: 14px; }
+  .explainer-block p:last-child { margin-bottom: 0; }
+  .explainer-block strong { color: var(--ink); font-weight: 500; }
+
+  /* FAQ */
+  .faq { background: var(--parchment); padding: 96px 48px; }
+  .faq-grid { max-width: 720px; margin: 48px auto 0; }
+  .faq-item { border-bottom: 0.5px solid var(--border); padding: 24px 0; }
+  .faq-q {
+    font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400;
+    color: var(--ink); cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq-q span { font-size: 20px; color: var(--amber); flex-shrink: 0; transition: transform 0.3s; }
+  .faq-a { font-size: 15px; color: var(--taupe); line-height: 1.8; padding-top: 16px; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q span { transform: rotate(45deg); }
 
   /* COOKIE BANNER */
   .cookie-banner {
@@ -225,6 +252,9 @@
     .format-grid { grid-template-columns: 1fr; }
     .workshop-included { padding: 56px 24px 48px; }
     .workshop-cta { padding: 48px 24px 64px; }
+    .workshop-note { padding: 56px 24px; }
+    .tantra-explainer { padding: 56px 24px; }
+    .faq { padding: 56px 24px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; flex-direction: column; align-items: stretch; }
     .cookie-actions { justify-content: stretch; }
@@ -266,11 +296,13 @@
 </nav>
 
 <section class="page-hero">
-  <div class="section-label">Learn Together</div>
-  <h1 class="section-title">A guided space to <em>learn and connect</em></h1>
+  <div class="section-label">Tantra Massage Workshop</div>
+  <h1 class="section-title">A Day of Conscious Touch, <em>Connection</em> &amp; Tantra</h1>
+  <p>Discover the art of conscious touch in an intimate day for couples and singles in Amsterdam.</p>
 </section>
 <section class="workshop-intro">
-  <p>A guided space to explore tantra massage together — whether you come as a couple or on your own. Through breath, conscious touch, and simple exercises, you'll leave with tools you can keep bringing home.</p>
+  <p>This intimate workshop is an invitation to slow down, become more present, and discover how touch can create deeper connection. Throughout the day, you will learn the foundations of Tantra massage through a combination of guided teaching, meditation, music meditation, ritual, conscious touch, and practical experience.</p>
+  <p style="margin-top:16px;">You don't need previous experience with Tantra or massage — but if you are experienced, you will still learn a lot. You simply need curiosity, openness, and a willingness to explore conscious touch. The group is kept small so I can be personally involved in the practices and give everyone individual guidance.</p>
 </section>
 <section class="workshop-points">
   <div class="points-grid">
@@ -304,45 +336,168 @@
     </div>
   </div>
 </section>
-<!-- COPY DRAFT: valores abaixo (duração, tamanho do grupo) são indicativos, não confirmados pela Mary — ver docs/pendencias-mary.md -->
 <section class="workshop-format">
   <div class="section-head" style="text-align:center; max-width:640px; margin:0 auto 40px;">
-    <div class="section-label" style="justify-content:center;">Format</div>
+    <div class="section-label" style="justify-content:center;">Dates &amp; Investment</div>
     <h2 class="section-title">What to expect <em>on the day</em></h2>
   </div>
   <div class="format-grid">
     <div class="format-item">
-      <div class="format-label">Duration</div>
-      <div class="format-value">Full day</div>
-      <p class="format-note">Exact hours confirmed with Mari</p>
+      <div class="format-label">Dates</div>
+      <div class="format-value">10 Jan / 14 Feb 2027</div>
+      <p class="format-note">Amsterdam &middot; 10:00&ndash;15:00 &amp; 17:00&ndash;22:00</p>
     </div>
     <div class="format-item">
-      <div class="format-label">Group size</div>
-      <div class="format-value">Small &amp; intimate</div>
-      <p class="format-note">Kept small so everyone gets attention</p>
+      <div class="format-label">Group Size</div>
+      <div class="format-value">Max 12</div>
+      <p class="format-note">Limited to 6 couples</p>
     </div>
     <div class="format-item">
-      <div class="format-label">Who it's for</div>
-      <div class="format-value">Couples &amp; singles</div>
-      <p class="format-note">No previous experience needed</p>
+      <div class="format-label">Early Bird</div>
+      <div class="format-value">&euro;275 pp / &euro;525 couple</div>
+      <p class="format-note">Book by 1 November</p>
+    </div>
+    <div class="format-item">
+      <div class="format-label">Full Price</div>
+      <div class="format-value">&euro;325 pp / &euro;595 couple</div>
+      <p class="format-note">After 1 November</p>
     </div>
   </div>
 </section>
+
+<section class="workshop-note">
+  <div class="section-label" style="justify-content:center;">Couples &amp; Singles</div>
+  <h2 class="section-title">Everyone Is <em>Welcome</em></h2>
+  <p>You can join the workshop with your partner or come on your own. If you are single, you can still fully participate — we can potentially pair you with another suitable participant or, where possible, arrange someone from the trusted circle for you to learn and practice with. The workshop is designed to create a respectful and comfortable environment for everyone.</p>
+</section>
+
+<section class="tantra-explainer" id="curriculum">
+  <div class="section-head">
+    <div class="section-label">Program</div>
+    <h2 class="section-title">What Happens <em>on the Day</em></h2>
+  </div>
+  <div class="explainer-block">
+    <h3>Morning Session &mdash; Conscious Touch &amp; Tantra Massage for Women</h3>
+    <p><strong>Welcome &amp; Opening Ritual.</strong> We begin by arriving in the space and getting to know one another. Through music, meditation, and a Tantric transfiguration practice, we create a relaxed and connected atmosphere before moving into the educational part of the workshop.</p>
+    <p><strong>The Art of Conscious Touch.</strong> Touch is much more than technique. You will learn how to become more present with your hands, how to slow down, how to vary pressure and movement, and how to become more attentive to your partner's responses — the difference between simply touching the body and truly listening through touch.</p>
+    <p><strong>Tantra Massage for Women.</strong> The morning lecture introduces the foundations of Tantra massage for women — basic anatomy, sensitivity, and how individual women can experience touch differently — with a focus on awareness, communication, presence, and responding to the person in front of you rather than following a fixed technique.</p>
+    <p><strong>Guided Practice.</strong> Women receive a guided Tantra massage from their partners while I move through the space, offering instruction, support, and individual guidance. You don't need to remember everything perfectly — I will guide you step by step.</p>
+  </div>
+  <div class="explainer-block">
+    <h3>Evening Session &mdash; Conscious Touch &amp; Tantra Massage for Men</h3>
+    <p><strong>Tantra Massage for Men.</strong> We continue with a lecture focused on Tantra massage for men — male anatomy, sensitivity, conscious touch, communication, and the foundations of a Tantric approach to massage, including an introduction to lingam massage. The emphasis is on presence and connection rather than simply learning a sequence of techniques.</p>
+    <p><strong>Guided Practice.</strong> The men then receive a guided Tantra massage from their female partners. I remain present throughout the practice, offering guidance and helping you understand how to listen to your partner's body and responses.</p>
+  </div>
+</section>
+
 <section class="workshop-included">
   <div class="section-head" style="text-align:center; max-width:560px; margin:0 auto 24px;">
-    <div class="section-label" style="justify-content:center;">What's Included</div>
-    <h2 class="section-title">Everything you <em>need for the day</em></h2>
+    <div class="section-label" style="justify-content:center;">What You'll Take Away</div>
+    <h2 class="section-title">By the end <em>of the day</em></h2>
   </div>
   <ul class="included-list">
-    <li>Guided teaching and hands-on practice throughout the day</li>
-    <li>A comfortable, private space set up for practice</li>
-    <li>Light drinks and snacks during breaks</li>
+    <li>The foundations of Tantra massage</li>
+    <li>Conscious and present touch</li>
+    <li>Different qualities of touch and pressure</li>
+    <li>Basic body awareness and anatomy</li>
+    <li>Communication through touch</li>
+    <li>How to listen to your partner's responses</li>
+    <li>Giving and receiving Tantra massage</li>
+    <li>A deeper awareness of your own body and your partner's body</li>
+    <li>Yoni and lingam massage</li>
+    <li>Erogenous zones on your partner's body and how to detect them</li>
   </ul>
 </section>
-<section class="workshop-details">
-  <p>Pricing depends on the exact format and group size, and is confirmed when you book — individual and couple rates available. Message Mari on WhatsApp to ask about the next available date and price.</p>
+
+<section class="workshop-points">
+  <div class="section-head" style="text-align:center; max-width:640px; margin:0 auto 40px;">
+    <div class="section-label" style="justify-content:center;">Who Is This For</div>
+    <h2 class="section-title">Is This Workshop <em>for You?</em></h2>
+  </div>
+  <div class="points-grid">
+    <div class="point-item">
+      <div class="point-icon">&#10022;</div>
+      <div>
+        <h3>Deepen intimacy with your partner</h3>
+        <p>Explore new ways of communicating without words.</p>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-icon">&#9673;</div>
+      <div>
+        <h3>Become more confident with touch</h3>
+        <p>Learn to touch with greater awareness and presence.</p>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-icon">&#9671;</div>
+      <div>
+        <h3>Understand your partner's body</h3>
+        <p>Become more attentive to subtle responses and individual needs.</p>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-icon">&#9675;</div>
+      <div>
+        <h3>Slow down and reconnect</h3>
+        <p>Create space for presence, relaxation, and genuine connection.</p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<section class="workshop-details">
+  <p>What's provided: drinks, light snacks, chairs and comfortable seating, a massage bed and heated oil, and all workshop teaching and guidance. Lunch is not included — you can arrange your own during the two-hour break, and there are options nearby. If you are travelling to Amsterdam from another country, accommodation needs to be arranged separately.</p>
+</section>
+
+<section class="faq" id="faq">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">Questions</div>
+    <h2 class="section-title">Everything you need<br>to know <em>before booking</em></h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How do I arrange my accommodation?
+          <span>+</span>
+        </div>
+        <div class="faq-a">If you are travelling to Amsterdam from another country, accommodation needs to be arranged separately. If you are travelling on a limited budget, please contact me by email and I'll do my best to help you find a suitable and affordable option.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          When is the workshop?
+          <span>+</span>
+        </div>
+        <div class="faq-a">We are organising two workshops: Sunday, 10 January 2027 and Sunday, 14 February 2027.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What is the location of the workshop?
+          <span>+</span>
+        </div>
+        <div class="faq-a">The workshop is held at a private yoga space in Amsterdam, only for us. For privacy and the intimate nature of the workshop, the exact address is shared by private message after your booking is confirmed.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What is the schedule?
+          <span>+</span>
+        </div>
+        <div class="faq-a">10:00&ndash;15:00 morning session &middot; 15:00&ndash;17:00 lunch &amp; personal break &middot; 17:00&ndash;22:00 evening session.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is lunch included?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Lunch is not included — you can arrange your own during the break, and there are options nearby. Drinks and light snacks are provided throughout the workshop.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="workshop-cta">
+  <div class="section-label" style="justify-content: center;">Book Your Place</div>
+  <h2 class="section-title">If You Feel Called <em>to Explore</em></h2>
+  <p style="max-width:520px; margin: 0 auto 32px; color: var(--taupe);">If you feel called to explore conscious touch, deeper connection, and Tantra in a small and intimate group, I would love to welcome you. Choose your date and reserve your place — for questions about the workshop, coming alone, travelling from abroad, or accommodation, contact me directly on WhatsApp or by email.</p>
   <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20the%20Tantra%20Massage%20Workshop%20%E2%80%94%20next%20dates%20and%20price%3F" class="btn-primary" target="_blank">Ask about the next workshop &rarr;</a>
 </section>
 
