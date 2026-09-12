@@ -1,6 +1,6 @@
 # Revisão de Conteúdo — Textos Reais da Mary (Home, Treatments, Prices, Workshop, Fly Me In)
 
-**Status:** Em andamento
+**Status:** Todos os cenários validados (2026-09-12)
 
 ---
 
@@ -135,8 +135,20 @@ Validação visual das 12 páginas (6 existentes + 1 nova × EN/NL), atualizar
       que são cópias legadas) receberam o mesmo conteúdo novo da Home.
 
 ### Cenário 6 — QA final
-- [ ] 12 páginas sem erro de console
-- [ ] `docs/pendencias-mary.md` atualizado
+- [x] 12 páginas sem erro de console
+- [x] `docs/pendencias-mary.md` atualizado
+- **Validado em:** 2026-09-12 — Chrome DevTools MCP em todas as páginas
+      tocadas nesta implementação (`index.html`, `nl/index.html`,
+      `home-en.html`, `about/index.html`, `nl/about/index.html`,
+      `treatments/index.html`, `nl/treatments/index.html`,
+      `prices/index.html`, `nl/prices/index.html`, `workshop/index.html`,
+      `nl/workshop/index.html`, `fly-me-in/index.html`,
+      `nl/fly-me-in/index.html`). Único console message em todas: o CORB
+      benigno do GTranslate já documentado no projeto. `docs/pendencias-mary.md`
+      atualizado com 4 pendências novas (#6 regiões Fly Me In, #7 números da
+      Home, #8 risco Google Ads, #9 book.txt) e 3 marcadas como resolvidas
+      (#2 nomes dos tratamentos, #3 formato do workshop, 4b/4c pagamento e
+      serviços novos).
 
 ---
 
