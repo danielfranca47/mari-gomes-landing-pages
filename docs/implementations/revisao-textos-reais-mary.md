@@ -77,7 +77,7 @@ Validação visual das 12 páginas (6 existentes + 1 nova × EN/NL), atualizar
 | 2 | `b3e29e2` | nomes reais dos 3 tratamentos + card novo 4-Hands Tantra Massage (EN+NL) |
 | 3 | `68f279f` | preços reais (10 linhas, 2 novas: 4-Hands e 2 terapeutas) + pagamento (EN+NL) |
 | 4 | `1539ce1` | reescrita completa do Workshop com datas/preços/currículo reais (EN+NL) |
-| 5 | _(pendente)_ | |
+| 5 | `b1dd049` | página Fly Me In nova (EN+NL) + link no nav das 10 páginas + correção de mirroring (index.html/nl/index.html não estavam sincronizados com a Fase 1) |
 | 6 | _(pendente)_ | |
 
 ---
@@ -120,9 +120,19 @@ Validação visual das 12 páginas (6 existentes + 1 nova × EN/NL), atualizar
       com o CORB benigno.
 
 ### Cenário 5 — Fly Me In nova página
-- [ ] Abrir `fly-me-in/index.html` e `nl/fly-me-in/index.html`
-- [ ] Nav das 10 páginas existentes com link novo
-- [ ] `data-gt-widget-id` únicos (não reaproveitados)
+- [x] Abrir `fly-me-in/index.html` e `nl/fly-me-in/index.html`
+- [x] Nav das 10 páginas existentes com link novo
+- [x] `data-gt-widget-id` únicos (não reaproveitados)
+- **Validado em:** 2026-09-12 — Chrome DevTools MCP, EN e NL, desktop 1440px
+      e mobile 390px (sem scroll horizontal). 4 cards de oferta, 4 cards de
+      preço e 11 itens de FAQ confirmados via DOM nas duas páginas. Nav
+      verificado via snapshot em `about/index.html` — link "Fly Me In"
+      aparece na posição certa, entre Workshop e Reviews. IDs GTranslate
+      92847561 (EN) e 15937284 (NL) conferidos como não usados em nenhuma
+      outra página. **Também corrigido nesta fase:** `index.html` e
+      `nl/index.html` (arquivos realmente publicados pelo GitHub Pages na
+      raiz do domínio — a Fase 1 só tinha tocado `home-en.html`/`home-nl.html`,
+      que são cópias legadas) receberam o mesmo conteúdo novo da Home.
 
 ### Cenário 6 — QA final
 - [ ] 12 páginas sem erro de console

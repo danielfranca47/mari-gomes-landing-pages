@@ -13,6 +13,95 @@ mudança no código correspondente.
 
 ## Em aberto
 
+### 6. Regiões/países do Fly Me In
+
+**Contexto:** `fly-me-in-service.txt` (texto real da Mary, 2026-09-12) tem a
+pergunta de FAQ "Which locations do you travel to?" listada, mas sem
+resposta no texto enviado. Coloquei uma resposta genérica placeholder
+("worldwide, subject to availability") pra não deixar a pergunta sem
+resposta na página.
+
+**Perguntar pra Mary:** quais países/regiões específicas você viaja pro Fly
+Me In? Tem alguma restrição (ex.: só Europa, só com aviso de X semanas)?
+
+**Onde é usado:** `fly-me-in/index.html` / `nl/fly-me-in/index.html`
+(comentário `COPY DRAFT` acima do item de FAQ).
+
+**Registrado em:** 2026-09-12 (Fase 5 de
+`docs/implementations/revisao-textos-reais-mary.md`).
+
+---
+
+### 7. Números da Home (anos de experiência/estudo, clientes satisfeitos)
+
+**Contexto:** `home.txt` (texto real da Mary, 2026-09-12) pede stats de
+confiança ("years of studying in India", "years of experience", "satisfied
+customers") mas não veio com os números — só os rótulos.
+
+**Perguntar pra Mary:** quantos anos ela estudou na Índia, quantos anos de
+experiência tem, e quantos clientes atendidos (ou outro número que prefira
+mostrar)?
+
+**Onde é usado:** `index.html` / `nl/index.html` (as páginas reais da Home
+publicadas — ver nota abaixo) e `home-en.html`/`home-nl.html` (cópias
+legadas), seção About, marcado com `COPY DRAFT` (placeholder "X+").
+
+**Registrado em:** 2026-09-12 (Fase 1 de
+`docs/implementations/revisao-textos-reais-mary.md`).
+
+---
+
+### 8. Risco de política de conteúdo adulto no Google Ads
+
+**Contexto:** a revisão de conteúdo desta rodada (textos reais da Mary,
+2026-09-12) tornou o site mais explícito em vários pontos: estrutura
+outcall/incall detalhada na Home, sobretaxa noturna e recomendação de
+duração mínima nos Preços, e principalmente o Workshop — que agora descreve
+massagem lingam/yoni e menciona que participantes solteiros podem ser
+pareados com outro participante ou alguém do "trusted circle" pra praticar
+juntos. Isso é bem mais explícito que o texto anterior (que tinha uma seção
+inteira na Home dizendo "not a sexual or escort service").
+
+**Por que importa:** o site roda Google Ads pago ativo nas 6 LPs. A
+política de conteúdo adulto do Google Ads é restritiva — depender de como o
+conteúdo for lido numa revisão manual, pode gerar rejeição de anúncio ou até
+suspensão de conta.
+
+**Perguntar pra Mary (ou decidir você com ela):** ela está ciente/confortável
+com esse nível de detalhe no site enquanto ele também é o destino de tráfego
+pago? Prefere manter assim, suavizar, ou usar tom mais explícito só nas
+páginas sem tráfego de Ads (Workshop/Fly Me In não estão nas 6 LPs
+anunciadas, mas estão linkadas a partir da Home, que também não recebe Ads
+diretamente hoje — verificar se isso muda com a expansão do site
+institucional).
+
+**Onde é usado:** `index.html`/`home-en.html` (+ `nl/`), `workshop/index.html`
+(+ `nl/`), `fly-me-in/index.html` (+ `nl/`).
+
+**Registrado em:** 2026-09-12 (Fase 6 de
+`docs/implementations/revisao-textos-reais-mary.md`).
+
+---
+
+### 9. Página de agendamento (book.txt) — próximo passo, fora deste ciclo
+
+**Contexto:** `book.txt` descreve uma página de reserva com formulário
+(nome, e-mail, telefone, tipo de sessão, data, local) e uma nota sobre
+sincronizar disponibilidade com o Google Agenda da Mary. Ficou fora do
+escopo desta revisão de conteúdo por ser uma feature nova (formulário +
+possível integração de agenda), não uma atualização de texto de página já
+existente.
+
+**Perguntar pra Mary:** confirma que quer essa página de agendamento com
+formulário? A sincronização com Google Agenda é um passo futuro maior (app
+própria, como o texto menciona) ou só quer o formulário simples por
+enquanto (sem integração, e a Mary confirma manualmente por WhatsApp)?
+
+**Onde seria usado:** página nova, ex. `/book/` (+ `nl/book/`).
+
+**Registrado em:** 2026-09-12 (Fase 6 de
+`docs/implementations/revisao-textos-reais-mary.md`).
+
 ### 1. Texto "Sobre a Mari" — dados factuais
 
 **Contexto:** a seção `#about` da home (Fase 3, commit `524c8f8`) tem um texto de
