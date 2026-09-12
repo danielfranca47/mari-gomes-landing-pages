@@ -80,35 +80,38 @@ responder as perguntas acima.
 
 ---
 
-### 4b. Formas de pagamento aceitas
+### 4b. Formas de pagamento aceitas — RESOLVIDA
 
 **Contexto:** a referência `tantrana.nl` aceita cartão, dinheiro e BTC. A
 `prices/index.html`/`nl/prices/index.html` (expansão de conteúdo, Fase 2) não
 menciona formas de pagamento — não copiei isso da referência porque é decisão
 de negócio, não só formatação de preço.
 
-**Perguntar pra Mary:** quais formas de pagamento você aceita (cartão,
-dinheiro, transferência, cripto)? Quer que isso apareça na página de preços?
+**Resolução:** `Prices.txt` (texto real da Mary, 2026-09-12) confirma
+"Payment options: card, cash or BTC." — adicionado à nota de preços em
+`prices/index.html`/`nl/prices/index.html` (Fase 3 de
+`docs/implementations/revisao-textos-reais-mary.md`).
 
-**Onde seria usado:** `prices/index.html` / `nl/prices/index.html`.
-
-**Registrado em:** 2026-09-09 (expansão de conteúdo, Fase 2).
+**Registrado em:** 2026-09-09 (expansão de conteúdo, Fase 2). **Resolvido em:**
+2026-09-12.
 
 ---
 
-### 4c. Serviços adicionais da referência (4-Hands, sessão com 2 terapeutas)
+### 4c. Serviços adicionais da referência (4-Hands, sessão com 2 terapeutas) — RESOLVIDA
 
 **Contexto:** a referência `tantrana.nl` também lista "4-Hands Tantra
 Massage" (€700, 75-90min) e "Couple Tantra Massage with 2 Therapists"
 simultâneo (€600-750). Não foram adicionados às nossas páginas — são serviços
 novos, não só preço, e a Mary não confirmou se oferece.
 
-**Perguntar pra Mary:** você oferece massagem a 4 mãos ou sessão de casal com
-2 terapeutas simultâneos? Se sim, quero adicionar à Treatments/Prices.
+**Resolução:** `treatments.txt` e `Prices.txt` (textos reais da Mary,
+2026-09-12) confirmam os dois serviços com os mesmos valores da referência.
+Adicionados como card novo em `treatments/index.html`/`nl/` (Fase 2) e linhas
+novas em `prices/index.html`/`nl/` (Fase 3) de
+`docs/implementations/revisao-textos-reais-mary.md`.
 
-**Onde seria usado:** `treatments/index.html`, `prices/index.html` (+ `nl/`).
-
-**Registrado em:** 2026-09-09 (expansão de conteúdo, Fase 2).
+**Registrado em:** 2026-09-09 (expansão de conteúdo, Fase 2). **Resolvido em:**
+2026-09-12.
 
 ---
 
