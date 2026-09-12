@@ -73,7 +73,7 @@ Validação visual das 12 páginas (6 existentes + 1 nova × EN/NL), atualizar
 
 | Fase | Commit | O que foi implementado |
 |---|---|---|
-| 1 | _(pendente)_ | |
+| 1 | `a2bbcea` | conteúdo real da Mary na Home (About, My Services, Tantra Massage) EN+NL |
 | 2 | _(pendente)_ | |
 | 3 | _(pendente)_ | |
 | 4 | _(pendente)_ | |
@@ -85,9 +85,13 @@ Validação visual das 12 páginas (6 existentes + 1 nova × EN/NL), atualizar
 ## Checks de Validação
 
 ### Cenário 1 — Home renderiza com conteúdo novo
-- [ ] Abrir `home-en.html` e `home-nl.html`, conferir novas seções, sem quebra de layout
-- [ ] Mobile ~390px sem scroll horizontal
-- [ ] Console sem erros novos
+- [x] Abrir `home-en.html` e `home-nl.html`, conferir novas seções, sem quebra de layout
+- [x] Mobile ~390px sem scroll horizontal
+- [x] Console sem erros novos
+- **Validado em:** 2026-09-12 — via Chrome DevTools MCP + servidor HTTP local
+      (`python -m http.server`), EN e NL, desktop 1440px e mobile 390px.
+      Único console message é o CORB do GTranslate, já documentado como benigno.
+      DOM confirmado sem duplicação (1 `.hero`, 11 `<section>`).
 
 ### Cenário 2 — Treatments com nomes reais
 - [ ] Abrir `treatments/index.html` e `nl/treatments/index.html`
