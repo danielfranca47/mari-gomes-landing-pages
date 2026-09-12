@@ -191,6 +191,7 @@
      tantrana.nl/tantric-sessions-worldwide */
   .mock-photo-frame { background: var(--ember); position: relative; overflow: hidden; border: 0.5px solid var(--border); }
   .mock-photo-frame svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .mock-photo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .offering-img { aspect-ratio: 4/3; margin-bottom: 20px; }
   .fmi-closing-visual { aspect-ratio: 21/9; max-width: 1100px; margin: 64px auto 0; }
 
@@ -252,13 +253,8 @@
 
 <section class="page-hero">
   <div class="mock-photo-frame page-hero-bg">
-    <!-- PHOTO REFERENCE: capa temática do site — mesma foto usada no hero da Home, reaproveitada aqui como banner atrás do título -->
-    <svg viewBox="0 0 1600 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sitewide cover photo, reused across pages">
-      <defs><radialGradient id="gradCover" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-      <rect width="1600" height="500" fill="url(#gradCover)"/>
-      <text x="800" y="120" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#C9B69C" opacity="0.45">FOTO &#183; capa temática (mesma em todas as páginas)</text>
-      <text x="800" y="150" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.4">substituir por foto real</text>
-    </svg>
+    <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+    <img src="images-pinterest/cover/sitewide-cover.jpg" alt="Sitewide cover photo, reused across pages">
   </div>
   <div class="page-hero-content">
     <div class="section-label">Fly Me In &middot; Tantric Sessions Worldwide</div>
@@ -279,13 +275,8 @@
   <div class="offerings-grid">
     <div class="offering-card">
       <div class="mock-photo-frame offering-img">
-        <!-- PHOTO REFERENCE: sessão individual em hotel/quarto de viagem, sem rosto identificável -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Individual Tantra Session in a travel setting">
-          <defs><radialGradient id="gradF01" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradF01)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; sessão individual</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/fly-me-in/01-individual.jpg" alt="Individual Tantra Session in a travel setting">
       </div>
       <span class="offering-num">01</span>
       <h3 class="offering-name">Individual Tantra Sessions</h3>
@@ -293,13 +284,8 @@
     </div>
     <div class="offering-card">
       <div class="mock-photo-frame offering-img">
-        <!-- PHOTO REFERENCE: casal em sessão privada, ambiente acolhedor -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Couples session in a private setting">
-          <defs><radialGradient id="gradF02" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradF02)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; sessão para casais</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/fly-me-in/02-couples.jpg" alt="Couples session in a private setting">
       </div>
       <span class="offering-num">02</span>
       <h3 class="offering-name">Couples Sessions</h3>
@@ -307,13 +293,8 @@
     </div>
     <div class="offering-card">
       <div class="mock-photo-frame offering-img">
-        <!-- PHOTO REFERENCE: grupo em workshop, ambiente amplo e acolhedor -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Group workshop training">
-          <defs><radialGradient id="gradF03" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradF03)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; workshop em grupo</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/fly-me-in/03-group-workshop.jpg" alt="Group workshop training">
       </div>
       <span class="offering-num">03</span>
       <h3 class="offering-name">Group Workshops &amp; Trainings</h3>
@@ -321,13 +302,8 @@
     </div>
     <div class="offering-card">
       <div class="mock-photo-frame offering-img">
-        <!-- PHOTO REFERENCE: treinamento em grupo, mãos em prática guiada -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Group Tantra Massage Training">
-          <defs><radialGradient id="gradF04" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradF04)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; treinamento em grupo</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/fly-me-in/04-group-training.jpg" alt="Group Tantra Massage Training">
       </div>
       <span class="offering-num">04</span>
       <h3 class="offering-name">Group Tantra Massage Trainings</h3>
@@ -336,13 +312,8 @@
   </div>
   <!-- MOCKUP: foto de fechamento inspirada na última imagem da página tantric-sessions-worldwide do tantrana.nl -->
   <div class="mock-photo-frame fmi-closing-visual">
-    <!-- PHOTO REFERENCE: ambiente geral do serviço Fly Me In — mala/viagem combinada com elementos de toque/spa, sem rosto identificável -->
-    <svg viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fly Me In general ambiance">
-      <defs><radialGradient id="gradFClose" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-      <rect width="1200" height="500" fill="url(#gradFClose)"/>
-      <text x="600" y="236" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#C9B69C" opacity="0.6">FOTO &#183; ambiente Fly Me In</text>
-      <text x="600" y="270" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-    </svg>
+    <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md. GAP: não achei foto gratuita combinando mala/viagem com elementos de toque/spa — placeholder mais fraco (ver sugestão de prompt de IA no sources.md) -->
+    <img src="images-pinterest/fly-me-in/closing.jpg" alt="Fly Me In general ambiance">
   </div>
 </section>
 

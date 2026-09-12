@@ -156,3 +156,92 @@ Treatments, Prices, Workshop, Fly Me In) — só precisa de **uma** imagem.
 
 21 imagens no total: 6 (Home) + 7 (Treatments) + 2 (Workshop) + 5 (Fly Me In) +
 1 (capa temática compartilhada).
+
+---
+
+## Relatório da execução (2026-09-12)
+
+**Status: concluído.** As 21 imagens foram buscadas, baixadas, organizadas em
+`docs/mockups/images-pinterest/` e já aplicadas nos 6 arquivos de mockup
+(`docs/mockups/*.html`, substituindo os placeholders SVG por `<img>`). Fontes
+completas, com uma linha por imagem, em
+[`docs/mockups/images-pinterest/sources.md`](mockups/images-pinterest/sources.md).
+
+### Mudança de abordagem: Pinterest → Unsplash
+
+O plano original era pesquisar no Pinterest usando o Chrome já logado da
+Ayde. Na prática, a automação de navegador (Chrome DevTools MCP) abre uma
+instância própria do Chrome, sem acesso à sessão/cookies do Chrome pessoal
+já aberto no PC — então a pesquisa no Pinterest rodou de forma anônima (sem
+login). Isso por si só não bloqueou a pesquisa (Pinterest permite navegar
+sem conta), mas os resultados de busca vinham quase todos em recorte
+retrato, incompatíveis com as proporções pedidas no briefing (4:3, 1:1,
+panorâmicas) — e boa parte das imagens de spa/massagem no Pinterest e no
+próprio Unsplash eram do banco pago "Unsplash+", que foi descartado.
+
+Pivotei para pesquisar **direto no Unsplash** (ainda dentro das regras deste
+arquivo, que já listava Unsplash como fonte preferencial): a URL de imagem
+do Unsplash aceita parâmetros de recorte (`w`, `h`, `fit=crop`), o que
+permitiu pedir exatamente a proporção de cada campo em vez de recortar
+manualmente depois. Todas as 21 imagens finais vêm do Unsplash (licença
+livre, sem crédito obrigatório).
+
+### Como cada imagem foi escolhida
+
+Para cada campo: busquei por 2-4 termos em inglês relacionados à descrição
+do briefing, extraí as fotos candidatas direto do DOM da página de busca
+(evitando abrir cada pin/foto individualmente), baixei prévias das 2-3 mais
+promissoras já no recorte/proporção final pedido, e avaliei visualmente
+antes de decidir — aplicando as 2 regras de conteúdo do briefing (sem
+nudez/insinuação explícita; sem rosto identificável de "cliente") a cada
+candidata antes de salvar.
+
+3 pares de campos reaproveitam a mesma foto original (recortada diferente
+para cada proporção/página) em vez de 21 fotos totalmente distintas —
+listado com detalhe em `sources.md`.
+
+### Os 2 gaps (placeholders mais fracos)
+
+Não encontrei foto gratuita batendo exatamente com o briefing para:
+
+- **`treatments/07-four-hands.jpg`** — o briefing pede 2 terapeutas em
+  sessão simultânea de 4 mãos; não existe isso como foto de banco gratuito
+  (Unsplash/Pexels). Usei a aproximação mais próxima que achei (2 mãos de 1
+  terapeuta aplicando pedras quentes, rosto oculto).
+- **`fly-me-in/closing.jpg`** — o briefing pede mala/viagem combinada com
+  elementos de toque/spa no mesmo enquadramento; as fotos com mala que achei
+  tinham marca de produto visível ou rosto em destaque. Usei uma foto só de
+  ambiente (luz quente atrás da cabeceira da cama, sem mala).
+
+Sugestões de prompt para gerar essas 2 imagens via IA (Gemini) estão em
+`sources.md`, seção "Prompts sugeridos para IA (gaps)".
+
+### Aplicação nos mockups
+
+Nos 6 arquivos de `docs/mockups/*.html`, cada `<svg>...</svg>` de
+placeholder foi substituído por uma tag `<img src="images-pinterest/...">`
+(caminho relativo à pasta `docs/mockups/`), mantendo o `<div
+class="mock-photo-frame ...">` ao redor — cada arquivo ganhou uma regra CSS
+`.mock-photo-frame img { position: absolute; inset: 0; width: 100%; height:
+100%; object-fit: cover; display: block; }` ao lado da regra já existente
+para `svg`, mesmo padrão (`object-fit: cover`) já usado nas 6 LPs reais e no
+site institucional publicado. O comentário `PHOTO REFERENCE` de cada
+placeholder foi trocado por um comentário apontando para `sources.md`; os 2
+campos em gap mantiveram uma nota extra sinalizando isso no próprio HTML.
+
+**Lembrete importante:** essas são fotos de pesquisa/prototipagem, não
+licenciadas para publicação real (ver aviso no topo deste arquivo e em
+`docs/mockups/README.md` — "Não publicar nenhum arquivo desta pasta"). Antes
+de qualquer uma delas ir pro site institucional de verdade, precisa: (a)
+confirmar/comprar a licença de uso comercial no Unsplash (o termo "gratuito,
+sem crédito" cobre a maioria dos casos, mas vale conferir caso a caso), (b)
+trocar por fotos reais da Mari, ou (c) gerar versões customizadas via IA.
+
+### Próximos passos
+
+- Usuário abre os 6 `.html` de `docs/mockups/` no navegador para avaliar o
+  resultado visual.
+- Se aprovado, decidir por LP/campo: manter a foto do Unsplash (checando
+  licença), trocar por foto real da Mari, ou gerar via IA — especialmente
+  nos 2 gaps sinalizados acima, onde a foto de banco ficou como aproximação
+  fraca.

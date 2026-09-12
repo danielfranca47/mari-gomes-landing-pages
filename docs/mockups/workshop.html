@@ -212,6 +212,7 @@
   /* MOCKUP: 1 imagem por sessão (morning/evening), inspirado no tantrana.nl/workshop */
   .mock-photo-frame { background: var(--ember); position: relative; overflow: hidden; border: 0.5px solid var(--border); }
   .mock-photo-frame svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .mock-photo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .explainer-img { aspect-ratio: 16/9; margin-bottom: 24px; }
 
   /* MOCKUP: capa temática reaproveitada em todas as subpáginas */
@@ -275,13 +276,8 @@
 
 <section class="page-hero">
   <div class="mock-photo-frame page-hero-bg">
-    <!-- PHOTO REFERENCE: capa temática do site — mesma foto usada no hero da Home, reaproveitada aqui como banner atrás do título -->
-    <svg viewBox="0 0 1600 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sitewide cover photo, reused across pages">
-      <defs><radialGradient id="gradCover" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-      <rect width="1600" height="500" fill="url(#gradCover)"/>
-      <text x="800" y="120" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#C9B69C" opacity="0.45">FOTO &#183; capa temática (mesma em todas as páginas)</text>
-      <text x="800" y="150" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.4">substituir por foto real</text>
-    </svg>
+    <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+    <img src="images-pinterest/cover/sitewide-cover.jpg" alt="Sitewide cover photo, reused across pages">
   </div>
   <div class="page-hero-content">
     <div class="section-label">Tantra Massage Workshop</div>
@@ -367,13 +363,8 @@
   </div>
   <div class="explainer-block">
     <div class="mock-photo-frame explainer-img">
-      <!-- PHOTO REFERENCE: prática matinal em grupo, ambiente com luz natural, sem rosto identificável -->
-      <svg viewBox="0 0 1200 675" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Morning session group practice">
-        <defs><radialGradient id="gradW01" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-        <rect width="1200" height="675" fill="url(#gradW01)"/>
-        <text x="600" y="322" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#C9B69C" opacity="0.6">FOTO &#183; prática matinal</text>
-        <text x="600" y="356" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-      </svg>
+      <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+      <img src="images-pinterest/workshop/morning-session.jpg" alt="Morning session group practice">
     </div>
     <h3>Morning Session &mdash; Conscious Touch &amp; Tantra Massage for Women</h3>
     <p><strong>Welcome &amp; Opening Ritual.</strong> We begin by arriving in the space and getting to know one another. Through music, meditation, and a Tantric transfiguration practice, we create a relaxed and connected atmosphere before moving into the educational part of the workshop.</p>
@@ -383,13 +374,8 @@
   </div>
   <div class="explainer-block">
     <div class="mock-photo-frame explainer-img">
-      <!-- PHOTO REFERENCE: prática noturna, luz baixa e velas, ambiente mais intimista -->
-      <svg viewBox="0 0 1200 675" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Evening session candlelit practice">
-        <defs><radialGradient id="gradW02" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-        <rect width="1200" height="675" fill="url(#gradW02)"/>
-        <text x="600" y="322" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#C9B69C" opacity="0.6">FOTO &#183; prática noturna</text>
-        <text x="600" y="356" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-      </svg>
+      <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+      <img src="images-pinterest/workshop/evening-session.jpg" alt="Evening session candlelit practice">
     </div>
     <h3>Evening Session &mdash; Conscious Touch &amp; Tantra Massage for Men</h3>
     <p><strong>Tantra Massage for Men.</strong> We continue with a lecture focused on Tantra massage for men — male anatomy, sensitivity, conscious touch, communication, and the foundations of a Tantric approach to massage, including an introduction to lingam massage. The emphasis is on presence and connection rather than simply learning a sequence of techniques.</p>

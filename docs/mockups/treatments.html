@@ -178,6 +178,7 @@
   /* MOCKUP: 1 imagem por card, inspirado no tantrana.nl/massage-service */
   .mock-photo-frame { background: var(--ember); position: relative; overflow: hidden; border: 0.5px solid var(--border); }
   .mock-photo-frame svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .mock-photo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .service-card-img { aspect-ratio: 4/3; margin-bottom: 20px; }
 
   /* MOCKUP: capa temática reaproveitada em todas as subpáginas */
@@ -235,13 +236,8 @@
 
 <section class="page-hero">
   <div class="mock-photo-frame page-hero-bg">
-    <!-- PHOTO REFERENCE: capa temática do site — mesma foto usada no hero da Home, reaproveitada aqui como banner atrás do título -->
-    <svg viewBox="0 0 1600 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sitewide cover photo, reused across pages">
-      <defs><radialGradient id="gradCover" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-      <rect width="1600" height="500" fill="url(#gradCover)"/>
-      <text x="800" y="120" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#C9B69C" opacity="0.45">FOTO &#183; capa temática (mesma em todas as páginas)</text>
-      <text x="800" y="150" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.4">substituir por foto real</text>
-    </svg>
+    <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+    <img src="images-pinterest/cover/sitewide-cover.jpg" alt="Sitewide cover photo, reused across pages">
   </div>
   <div class="page-hero-content">
     <div class="section-label">Explore the Therapies</div>
@@ -255,13 +251,8 @@
   <div class="services-grid">
     <div class="service-card">
       <div class="mock-photo-frame service-card-img">
-        <!-- PHOTO REFERENCE: sessão de massagem energética, foco em técnica holística/tântrica, sem rosto identificável -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Holistic Energy Massage session">
-          <defs><radialGradient id="gradT01" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradT01)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; energia holística</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/treatments/01-holistic-energy.jpg" alt="Holistic Energy Massage session">
       </div>
       <span class="service-num">01</span>
       <h3 class="service-name">Holistic Energy Massage</h3>
@@ -270,13 +261,8 @@
     </div>
     <div class="service-card">
       <div class="mock-photo-frame service-card-img">
-        <!-- PHOTO REFERENCE: ambiente relaxante com luz baixa, tecidos naturais, clima calmo -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Relaxation and stress relief ambiance">
-          <defs><radialGradient id="gradT02" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradT02)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; relaxamento</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/treatments/02-relaxation.jpg" alt="Relaxation and stress relief ambiance">
       </div>
       <span class="service-num">02</span>
       <h3 class="service-name">Relaxation &amp; Stress Relief</h3>
@@ -285,13 +271,8 @@
     </div>
     <div class="service-card">
       <div class="mock-photo-frame service-card-img">
-        <!-- PHOTO REFERENCE: casal em sessão conjunta — foco em mãos/tecidos, sem rosto identificável -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Couples massage session">
-          <defs><radialGradient id="gradT03" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradT03)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; casal em sessão</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/treatments/03-couples.jpg" alt="Couples massage session">
       </div>
       <span class="service-num">03</span>
       <h3 class="service-name">Couples Massage</h3>
@@ -300,13 +281,8 @@
     </div>
     <div class="service-card">
       <div class="mock-photo-frame service-card-img">
-        <!-- PHOTO REFERENCE: detalhe de toque terapêutico nas costas/ombros, técnica de dearmouring -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dearmouring Tantra Massage detail">
-          <defs><radialGradient id="gradT04" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradT04)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; dearmouring</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/treatments/04-dearmouring.jpg" alt="Dearmouring Tantra Massage detail">
       </div>
       <span class="service-num">04</span>
       <h3 class="service-name">Dearmouring Tantra Massage</h3>
@@ -315,13 +291,8 @@
     </div>
     <div class="service-card">
       <div class="mock-photo-frame service-card-img">
-        <!-- PHOTO REFERENCE: velas e cristais, simbolismo de energia/chakras -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chakra Balancing Tantra Massage symbolism">
-          <defs><radialGradient id="gradT05" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradT05)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; chakra balancing</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/treatments/05-chakra-balancing.jpg" alt="Chakra Balancing Tantra Massage symbolism">
       </div>
       <span class="service-num">05</span>
       <h3 class="service-name">Chakra Balancing Tantra Massage</h3>
@@ -330,13 +301,8 @@
     </div>
     <div class="service-card">
       <div class="mock-photo-frame service-card-img">
-        <!-- PHOTO REFERENCE: casal em prática guiada, comunicação através do toque -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Coaching Tantra Massage Couple Session">
-          <defs><radialGradient id="gradT07" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradT07)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; sessão coaching casal</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/treatments/06-coaching-couple.jpg" alt="Coaching Tantra Massage Couple Session">
       </div>
       <span class="service-num">06</span>
       <h3 class="service-name">Coaching Tantra Massage Couple Session</h3>
@@ -345,13 +311,8 @@
     </div>
     <div class="service-card">
       <div class="mock-photo-frame service-card-img">
-        <!-- PHOTO REFERENCE: duas terapeutas em sessão de 4 mãos, sincronizadas -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="4-Hands Tantra Massage session">
-          <defs><radialGradient id="gradT08" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradT08)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; 4-hands massage</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md. GAP: não achei foto gratuita de 2 terapeutas em 4-hands — placeholder mais fraco (ver sugestão de prompt de IA no sources.md) -->
+        <img src="images-pinterest/treatments/07-four-hands.jpg" alt="4-Hands Tantra Massage session">
       </div>
       <span class="service-num">07</span>
       <h3 class="service-name">4-Hands Tantra Massage</h3>

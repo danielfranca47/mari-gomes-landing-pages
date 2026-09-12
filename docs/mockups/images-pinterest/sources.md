@@ -54,3 +54,41 @@ mesma foto original em recortes/proporções diferentes para páginas diferentes
 placeholder mais fraco por falta de foto gratuita que batesse exatamente com o
 briefing — sinalizado em cada linha acima, considerar revisar com banco pago ou
 foto própria da Mari antes de publicar de verdade.
+
+## Prompts sugeridos para IA (gaps)
+
+Para os 2 campos em gap, sugestão de prompt em inglês (Gemini/Imagen costuma
+responder melhor em inglês) caso o usuário opte por gerar uma versão
+customizada em vez de usar o placeholder do Unsplash. Os dois já pedem
+"no text/watermark/logo" e reforçam as regras de conteúdo do projeto (sem
+rosto identificável, sem nudez/insinuação) e a paleta parchment/amber/ember
+já definida para o site.
+
+### treatments/07-four-hands.jpg (4:3, mínimo 1200×900)
+
+> Photorealistic editorial spa photography, close-up of two massage
+> therapists' hands — four hands total, working in synchronized harmony —
+> on a client's bare back and shoulders. Warm amber candlelight, dim moody
+> lighting, soft natural linen sheets on a massage table, subtle oil sheen
+> on skin. No visible faces: crop above the neck, or the client's head
+> turned away and hair covering the face. Warm terracotta, amber and ember
+> color palette, discreet luxury spa atmosphere, shallow depth of field,
+> shot on a 50mm lens. 4:3 aspect ratio. No text, no watermark, no logos,
+> no visible tattoos or jewelry that could identify a real person.
+
+### fly-me-in/closing.jpg (~2.4:1 panorâmica, mínimo 1800×750)
+
+> Photorealistic wide panoramic photo of a warm, dimly lit hotel suite at
+> dusk. An open leather suitcase rests on a neatly made bed, next to a few
+> softly lit candles, small amber glass bottles of massage oil, and a
+> rolled natural linen towel. Golden ambient lamp light, tantric spa travel
+> concept. No people, no visible faces. Warm ember and amber color palette,
+> cozy discreet luxury atmosphere, generous empty/negative space on the
+> left or right third of the frame for a white text title to be overlaid.
+> 2.4:1 wide aspect ratio. No text, no watermark, no logos, no visible
+> brand names on any product.
+
+Depois de gerar, salvar substituindo o arquivo correspondente nesta pasta
+(mesmo nome) e atualizar a linha correspondente acima trocando a URL do
+Unsplash por uma nota indicando que a imagem foi gerada via IA (data +
+ferramenta usada), para manter o histórico de proveniência.

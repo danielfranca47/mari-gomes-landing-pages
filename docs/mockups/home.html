@@ -355,6 +355,7 @@
   /* MOCKUP: novos campos de imagem inspirados no tantrana.nl */
   .mock-photo-frame { background: var(--ember); position: relative; overflow: hidden; border: 0.5px solid var(--border); }
   .mock-photo-frame svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .mock-photo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .service-detail-img { aspect-ratio: 4/3; margin-bottom: 20px; }
   .explainer-gallery {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
@@ -515,38 +516,16 @@
   <div class="service-detail-grid">
     <div class="service-detail">
       <div class="mock-photo-frame service-detail-img">
-        <!-- PHOTO REFERENCE: ambiente de sessão outcall — quarto de hotel ou casa com luz baixa, tecido natural, sem rosto identificável -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Outcall tantra massage setting">
-          <defs>
-            <radialGradient id="gradOutcall" cx="50%" cy="45%" r="80%">
-              <stop offset="0%" stop-color="#4A3624"/>
-              <stop offset="55%" stop-color="#2A1F16"/>
-              <stop offset="100%" stop-color="#160F0A"/>
-            </radialGradient>
-          </defs>
-          <rect width="800" height="600" fill="url(#gradOutcall)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#C9B69C" opacity="0.6">FOTO &#183; ambiente outcall</text>
-          <text x="400" y="320" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/home/services-outcall.jpg" alt="Outcall tantra massage setting">
       </div>
       <h3>Outcall Tantra Massage</h3>
       <p>My Outcall Tantra Massage service offers a unique, personalized experience where ancient authentic tantra techniques meet modern relaxation. I bring the transformative power of tantra directly to you, allowing you to experience profound relaxation, rejuvenation, and connection in the privacy and comfort of your own home, hotel, or another chosen location.</p>
     </div>
     <div class="service-detail">
       <div class="mock-photo-frame service-detail-img">
-        <!-- PHOTO REFERENCE: interior do estúdio de Mari em Amsterdã — maca, velas, decoração acolhedora -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Incall studio interior in Amsterdam">
-          <defs>
-            <radialGradient id="gradIncall" cx="50%" cy="45%" r="80%">
-              <stop offset="0%" stop-color="#4A3624"/>
-              <stop offset="55%" stop-color="#2A1F16"/>
-              <stop offset="100%" stop-color="#160F0A"/>
-            </radialGradient>
-          </defs>
-          <rect width="800" height="600" fill="url(#gradIncall)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#C9B69C" opacity="0.6">FOTO &#183; estúdio incall</text>
-          <text x="400" y="320" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
+        <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+        <img src="images-pinterest/home/services-incall.jpg" alt="Incall studio interior in Amsterdam">
       </div>
       <h3>Incall Tantra Massage</h3>
       <p>My Incall Tantra Massage service is offered at a massage studio in Amsterdam (address provided upon request).</p>
@@ -575,49 +554,16 @@
   <!-- MOCKUP: faixa de galeria inspirada na seção "Experience the transformative power" do tantrana.nl (4 fotos em grid) -->
   <div class="explainer-gallery">
     <div class="mock-photo-frame">
-      <!-- PHOTO REFERENCE: detalhe de velas acesas e óleo quente, close-up -->
-      <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Candles and warm oil detail">
-        <defs>
-          <radialGradient id="gradGallery1" cx="50%" cy="45%" r="80%">
-            <stop offset="0%" stop-color="#4A3624"/>
-            <stop offset="55%" stop-color="#2A1F16"/>
-            <stop offset="100%" stop-color="#160F0A"/>
-          </radialGradient>
-        </defs>
-        <rect width="600" height="600" fill="url(#gradGallery1)"/>
-        <text x="300" y="278" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#C9B69C" opacity="0.6">FOTO &#183; velas / óleo</text>
-        <text x="300" y="306" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-      </svg>
+      <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+      <img src="images-pinterest/home/gallery-candles.jpg" alt="Candles and warm oil detail">
     </div>
     <div class="mock-photo-frame">
-      <!-- PHOTO REFERENCE: mãos em prática de toque consciente, sem rosto identificável -->
-      <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hands in conscious touch practice">
-        <defs>
-          <radialGradient id="gradGallery2" cx="50%" cy="45%" r="80%">
-            <stop offset="0%" stop-color="#4A3624"/>
-            <stop offset="55%" stop-color="#2A1F16"/>
-            <stop offset="100%" stop-color="#160F0A"/>
-          </radialGradient>
-        </defs>
-        <rect width="600" height="600" fill="url(#gradGallery2)"/>
-        <text x="300" y="278" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#C9B69C" opacity="0.6">FOTO &#183; toque consciente</text>
-        <text x="300" y="306" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-      </svg>
+      <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+      <img src="images-pinterest/home/gallery-touch.jpg" alt="Hands in conscious touch practice">
     </div>
     <div class="mock-photo-frame">
-      <!-- PHOTO REFERENCE: ambiente geral do estúdio (tatame, tecidos, penumbra) -->
-      <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="General studio ambiance">
-        <defs>
-          <radialGradient id="gradGallery3" cx="50%" cy="45%" r="80%">
-            <stop offset="0%" stop-color="#4A3624"/>
-            <stop offset="55%" stop-color="#2A1F16"/>
-            <stop offset="100%" stop-color="#160F0A"/>
-          </radialGradient>
-        </defs>
-        <rect width="600" height="600" fill="url(#gradGallery3)"/>
-        <text x="300" y="278" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#C9B69C" opacity="0.6">FOTO &#183; ambiente do estúdio</text>
-        <text x="300" y="306" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-      </svg>
+      <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+      <img src="images-pinterest/home/gallery-studio.jpg" alt="General studio ambiance">
     </div>
   </div>
 </section>
@@ -694,19 +640,8 @@
     <h2 class="section-title">Real experiences,<br><em>real transformations</em></h2>
     <!-- MOCKUP: foto de ambiente inspirada no bloco de depoimento do tantrana.nl — sem retrato de cliente (evitar fabricar rosto de review) -->
     <div class="mock-photo-frame testi-visual">
-      <!-- PHOTO REFERENCE: ambiente do estúdio durante uma sessão, mãos/tecidos, sem rosto identificável -->
-      <svg viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Studio ambiance during a session">
-        <defs>
-          <radialGradient id="gradTesti" cx="50%" cy="45%" r="80%">
-            <stop offset="0%" stop-color="#4A3624"/>
-            <stop offset="55%" stop-color="#2A1F16"/>
-            <stop offset="100%" stop-color="#160F0A"/>
-          </radialGradient>
-        </defs>
-        <rect width="1200" height="500" fill="url(#gradTesti)"/>
-        <text x="600" y="236" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#C9B69C" opacity="0.6">FOTO &#183; ambiente durante sessão</text>
-        <text x="600" y="270" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-      </svg>
+      <!-- Unsplash de pesquisa (não licenciado para publicação) — ver docs/mockups/images-pinterest/sources.md -->
+      <img src="images-pinterest/home/testimonials-ambiance.jpg" alt="Studio ambiance during a session">
     </div>
     <div class="testi-grid">
       <div class="testi-card">
