@@ -32,15 +32,23 @@ implementação real (com fotos de verdade, nas páginas reais) segue esse ciclo
 ## O que foi replicado em cada mockup
 
 - **home.html** — hero e about já têm foto real (mantidos); adicionados 2 placeholders em `.my-services` (outcall/incall), 3 em `.tantra-explainer` (galeria), 1 em `.testimonials` (ambiente, sem retrato de cliente).
-- **about.html** — cópia direta, sem placeholders novos (já bate com o padrão do modelo: 1 foto só).
-- **treatments.html** — 1 placeholder por `.service-card` (8 cards).
-- **prices.html** — cópia direta, sem imagens (decisão consciente, replicando o modelo).
-- **workshop.html** — 1 placeholder em cada `.explainer-block` (Morning/Evening Session).
-- **fly-me-in.html** — 1 placeholder por `.offering-card` (4 cards) + 1 foto de fechamento antes do FAQ.
+- **about.html** — sem placeholder na seção de conteúdo (já bate com o padrão do modelo: 1 foto só); ganhou o banner de capa temática do `.page-hero` (ver abaixo).
+- **treatments.html** — 1 placeholder por `.service-card` (7 cards, após o merge dos cards 03/06 — ver `docs/pendencias-mary.md`/histórico de commits) + banner de capa temática no `.page-hero`.
+- **prices.html** — sem imagens no conteúdo (decisão consciente, replicando o modelo); ganhou o banner de capa temática no `.page-hero`.
+- **workshop.html** — 1 placeholder em cada `.explainer-block` (Morning/Evening Session) + banner de capa temática no `.page-hero`.
+- **fly-me-in.html** — 1 placeholder por `.offering-card` (4 cards) + 1 foto de fechamento antes do FAQ + banner de capa temática no `.page-hero`.
 
 Observação: o "avatar" de cliente usado no bloco de depoimento do tantrana.nl é uma
 foto de banco de imagens associada a um review — não foi replicado (evitar fabricar
 retrato de cliente); usamos uma foto de ambiente sem rosto no lugar.
+
+### Capa temática (banner atrás do título)
+
+As 5 subpáginas (About, Treatments, Prices, Workshop, Fly Me In) ganharam um
+placeholder de imagem full-bleed atrás do título do `.page-hero`, reaproveitando a
+mesma foto em todas — inspirado no tantrana.nl, que reutiliza a mesma imagem do
+hero da Home como banner na página About. Só nos mockups; as páginas reais ainda
+não têm esse mecanismo (CSS/HTML) implementado.
 
 ## Como visualizar
 

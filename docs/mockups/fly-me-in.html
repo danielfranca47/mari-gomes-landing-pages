@@ -87,8 +87,8 @@
   /* PAGE HERO (subpages, not the home hero) */
   .page-hero {
     padding: 196px 48px 64px;
-    max-width: 900px; margin: 0 auto;
     text-align: center;
+    position: relative; overflow: hidden;
   }
   .page-hero .section-label { justify-content: center; }
   .page-hero .section-title { margin-bottom: 0; }
@@ -194,6 +194,15 @@
   .offering-img { aspect-ratio: 4/3; margin-bottom: 20px; }
   .fmi-closing-visual { aspect-ratio: 21/9; max-width: 1100px; margin: 64px auto 0; }
 
+  /* MOCKUP: capa temática reaproveitada em todas as subpáginas */
+  .page-hero-bg { position: absolute; inset: 0; z-index: 0; border: none; }
+  .page-hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .page-hero .section-label { color: var(--amber-light); }
+  .page-hero .section-label::before { background: var(--amber-light); }
+  .page-hero .section-title { color: var(--warm-white); }
+  .page-hero .section-title em { color: var(--amber-light); }
+  .page-hero p { color: rgba(243,233,218,0.82); }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     .mockup-banner { font-size: 10px; padding: 8px; }
@@ -242,9 +251,20 @@
 </nav>
 
 <section class="page-hero">
-  <div class="section-label">Fly Me In &middot; Tantric Sessions Worldwide</div>
-  <h1 class="section-title">The Art of Tantra, <em>Wherever You Are</em></h1>
-  <p>Experience the art of Tantra wherever you are — where sensuality meets serenity. Through my exclusive Fly Me In service, I bring the essence of Tantra directly to your private space.</p>
+  <div class="mock-photo-frame page-hero-bg">
+    <!-- PHOTO REFERENCE: capa temática do site — mesma foto usada no hero da Home, reaproveitada aqui como banner atrás do título -->
+    <svg viewBox="0 0 1600 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sitewide cover photo, reused across pages">
+      <defs><radialGradient id="gradCover" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
+      <rect width="1600" height="500" fill="url(#gradCover)"/>
+      <text x="800" y="120" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#C9B69C" opacity="0.45">FOTO &#183; capa temática (mesma em todas as páginas)</text>
+      <text x="800" y="150" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.4">substituir por foto real</text>
+    </svg>
+  </div>
+  <div class="page-hero-content">
+    <div class="section-label">Fly Me In &middot; Tantric Sessions Worldwide</div>
+    <h1 class="section-title">The Art of Tantra, <em>Wherever You Are</em></h1>
+    <p>Experience the art of Tantra wherever you are — where sensuality meets serenity. Through my exclusive Fly Me In service, I bring the essence of Tantra directly to your private space.</p>
+  </div>
 </section>
 <section class="fmi-intro">
   <p>Whether you desire a deeply personal journey, an intimate couples experience, or a private workshop, each session is designed to awaken your senses and reconnect you with presence, pleasure, and heart.</p>

@@ -87,8 +87,8 @@
   /* PAGE HERO (subpages, not the home hero) */
   .page-hero {
     padding: 196px 48px 64px;
-    max-width: 900px; margin: 0 auto;
     text-align: center;
+    position: relative; overflow: hidden;
   }
   .page-hero .section-label { justify-content: center; }
   .page-hero .section-title { margin-bottom: 0; }
@@ -180,6 +180,15 @@
   .mock-photo-frame svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .service-card-img { aspect-ratio: 4/3; margin-bottom: 20px; }
 
+  /* MOCKUP: capa temática reaproveitada em todas as subpáginas */
+  .page-hero-bg { position: absolute; inset: 0; z-index: 0; border: none; }
+  .page-hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .page-hero .section-label { color: var(--amber-light); }
+  .page-hero .section-label::before { background: var(--amber-light); }
+  .page-hero .section-title { color: var(--warm-white); }
+  .page-hero .section-title em { color: var(--amber-light); }
+  .page-hero p { color: rgba(243,233,218,0.82); }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     .mockup-banner { font-size: 10px; padding: 8px; }
@@ -225,8 +234,19 @@
 </nav>
 
 <section class="page-hero">
-  <div class="section-label">Explore the Therapies</div>
-  <h1 class="section-title">Every session, <em>tailored</em> to you</h1>
+  <div class="mock-photo-frame page-hero-bg">
+    <!-- PHOTO REFERENCE: capa temática do site — mesma foto usada no hero da Home, reaproveitada aqui como banner atrás do título -->
+    <svg viewBox="0 0 1600 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sitewide cover photo, reused across pages">
+      <defs><radialGradient id="gradCover" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
+      <rect width="1600" height="500" fill="url(#gradCover)"/>
+      <text x="800" y="120" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#C9B69C" opacity="0.45">FOTO &#183; capa temática (mesma em todas as páginas)</text>
+      <text x="800" y="150" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.4">substituir por foto real</text>
+    </svg>
+  </div>
+  <div class="page-hero-content">
+    <div class="section-label">Explore the Therapies</div>
+    <h1 class="section-title">Every session, <em>tailored</em> to you</h1>
+  </div>
 </section>
 <section class="treatments-intro">
   <p>Each session is shaped around what you need that day — from full-body relaxation to more focused energy and tension work. Not sure where to start? Message Mari on WhatsApp and she'll help you choose.</p>
@@ -275,7 +295,7 @@
       </div>
       <span class="service-num">03</span>
       <h3 class="service-name">Couples Massage</h3>
-      <p class="service-desc">A shared session for partners to relax, connect, and be present together.</p>
+      <p class="service-desc">Luxurious treatment for couples to experience more connection, nurture intimacy, harmony, and shared presence.</p>
       <a href="/couples-massage-en/" class="service-link">Learn more &amp; book &rarr;</a>
     </div>
     <div class="service-card">
@@ -310,21 +330,6 @@
     </div>
     <div class="service-card">
       <div class="mock-photo-frame service-card-img">
-        <!-- PHOTO REFERENCE: ambiente romântico para casais, tons quentes -->
-        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Couple Tantra Massage Ritual setting">
-          <defs><radialGradient id="gradT06" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
-          <rect width="800" height="600" fill="url(#gradT06)"/>
-          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#C9B69C" opacity="0.6">FOTO &#183; ritual para casais</text>
-          <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
-        </svg>
-      </div>
-      <span class="service-num">06</span>
-      <h3 class="service-name">Couple Tantra Massage Ritual</h3>
-      <p class="service-desc">Luxurious treatment for couples to experience more connection, nurture intimacy, harmony, and shared presence.</p>
-      <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20the%20Couple%20Tantra%20Massage%20Ritual." class="service-link" target="_blank">Ask Mari &amp; book &rarr;</a>
-    </div>
-    <div class="service-card">
-      <div class="mock-photo-frame service-card-img">
         <!-- PHOTO REFERENCE: casal em prática guiada, comunicação através do toque -->
         <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Coaching Tantra Massage Couple Session">
           <defs><radialGradient id="gradT07" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#4A3624"/><stop offset="55%" stop-color="#2A1F16"/><stop offset="100%" stop-color="#160F0A"/></radialGradient></defs>
@@ -333,7 +338,7 @@
           <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
         </svg>
       </div>
-      <span class="service-num">07</span>
+      <span class="service-num">06</span>
       <h3 class="service-name">Coaching Tantra Massage Couple Session</h3>
       <p class="service-desc">You will learn how to connect with your partner through mindful touch, explore new ways of nurturing each other, and strengthen your bond.</p>
       <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20the%20Coaching%20Tantra%20Massage%20Couple%20Session." class="service-link" target="_blank">Ask Mari &amp; book &rarr;</a>
@@ -348,7 +353,7 @@
           <text x="400" y="318" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
         </svg>
       </div>
-      <span class="service-num">08</span>
+      <span class="service-num">07</span>
       <h3 class="service-name">4-Hands Tantra Massage</h3>
       <p class="service-desc">Four-hand massage offers a unique and luxurious experience that goes beyond the capabilities of a two-hand massage.</p>
       <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20the%204-Hands%20Tantra%20Massage." class="service-link" target="_blank">Ask Mari &amp; book &rarr;</a>
