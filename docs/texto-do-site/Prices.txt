@@ -1,4 +1,4 @@
-Título: Prices - Tantrana
+Título: Prices
 URL: /prices/
 
 
