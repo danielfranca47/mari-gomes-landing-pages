@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<!-- MOCKUP PROVISÓRIO — não publicar. Réplica da Home real (index.html) só para
+     mapear onde entrariam campos de imagem novos, inspirados no site de referência
+     tantrana.nl. Ver docs/mockups/README.md. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[MOCKUP] Tantric &amp; Holistic Massage in Amsterdam | Mari Gomes</title>
+
+<!-- Google Consent Mode v2 — default state (denied until the visitor chooses via the cookie banner below) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+</script>
+<link rel="icon" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23241B14'/%3E%3Ccircle cx='16' cy='19' r='7' fill='%23B9793E'/%3E%3Cpath d='M16 5c2.5 4 -2 5.5 -2 8.5a2 2 0 0 0 4 0c0 -2 -1 -3.5 0 -5.5' fill='%23E3C08A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #F3E9DA;
+    --warm-white: #FBF6EE;
+    --ink: #241B14;
+    --taupe: #7C6E5F;
+    --amber: #B9793E;
+    --amber-light: #E3C08A;
+    --ember: #241811;
+    --border: rgba(36,27,20,0.1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--parchment);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  section { scroll-margin-top: 136px; }
+
+  /* MOCKUP BANNER */
+  .mockup-banner {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+    background: #7A2323; color: #fff;
+    text-align: center;
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 10px 12px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 36px; left: 0; right: 0; z-index: 100;
+    padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(243,233,218,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-left { display: flex; align-items: center; gap: 40px; }
+  .nav-right { display: flex; align-items: center; gap: 24px; }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 20px; font-weight: 400; letter-spacing: 0.06em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .logo span { color: var(--amber); font-style: italic; }
+  .nav-menu { display: flex; align-items: center; gap: 20px; }
+  .nav-menu a {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--taupe); text-decoration: none;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+  }
+  .nav-menu a:hover { color: var(--amber); }
+  .gtranslate_wrapper { display: flex; align-items: center; gap: 6px; }
+  .gtranslate_wrapper img { display: block; border-radius: 2px; }
+  .nav-cta {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    padding: 10px 24px; border: 0.5px solid var(--ink);
+    transition: all 0.3s ease;
+  }
+  .nav-cta:hover { background: var(--ink); color: var(--parchment); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding: 156px 48px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: var(--warm-white);
+    z-index: 0;
+  }
+  .hero-left { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before { content: ''; width: 32px; height: 0.5px; background: var(--amber); }
+  .hero-headline {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(38px, 5.5vw, 64px);
+    font-weight: 300; line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .hero-headline em { font-style: italic; color: var(--amber); }
+  .hero-sub {
+    font-size: 16px; font-weight: 300;
+    color: var(--taupe);
+    max-width: 420px; margin-bottom: 40px;
+    line-height: 1.8;
+  }
+  .hero-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink); color: var(--parchment);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 16px 36px; text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover { background: var(--amber); }
+  .hero-note { font-size: 12px; color: var(--taupe); letter-spacing: 0.04em; }
+  .hero-right { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; }
+  .hero-img-frame {
+    width: 100%; max-width: 420px;
+    aspect-ratio: 3/4;
+    background: var(--ember);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-badges {
+    position: absolute; bottom: -20px; left: -20px;
+    background: var(--warm-white); border: 0.5px solid var(--border);
+    padding: 20px 24px;
+  }
+  .hero-badges p { font-size: 11px; color: var(--taupe); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .hero-badges strong { font-size: 22px; font-weight: 400; font-family: 'Fraunces', serif; color: var(--ink); }
+
+  /* SECTION BASE */
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before { content: ''; width: 24px; height: 0.5px; background: var(--amber); }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 300; line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--amber); }
+  .section-head { max-width: 900px; margin: 0 auto; }
+
+  /* AUDIENCE */
+  .audience { background: var(--warm-white); padding: 96px 48px; }
+  .audience-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    max-width: 900px; margin: 48px auto 0;
+  }
+  .audience-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 24px; border: 0.5px solid var(--border); background: var(--parchment);
+  }
+  .audience-num {
+    font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300;
+    color: var(--amber); line-height: 1; flex-shrink: 0;
+  }
+  .audience-item p { font-size: 15px; color: var(--ink); line-height: 1.7; }
+
+  /* SERVICES */
+  .services { background: var(--parchment); padding: 96px 48px; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    max-width: 1100px; margin: 48px auto 0;
+  }
+  .service-card {
+    background: var(--warm-white); padding: 40px 32px;
+    border: 0.5px solid var(--border);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: all 0.3s ease;
+  }
+  .service-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 3px; background: var(--amber);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-num {
+    font-family: 'Fraunces', serif; font-size: 44px; font-weight: 300;
+    color: rgba(185,121,62,0.22); line-height: 1; margin-bottom: 16px;
+  }
+  .service-name {
+    font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400;
+    color: var(--ink); margin-bottom: 12px;
+  }
+  .service-desc { font-size: 14px; color: var(--taupe); line-height: 1.7; margin-bottom: 24px; flex-grow: 1; }
+  .service-link {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber); text-decoration: none;
+  }
+  .service-link:hover { color: var(--ink); }
+
+  /* DIFFERENTIATORS */
+  .differentiators { background: var(--ember); color: var(--parchment); padding: 96px 48px; }
+  .differentiators .section-label { color: var(--amber-light); }
+  .differentiators .section-label::before { background: var(--amber-light); }
+  .differentiators .section-title { color: var(--parchment); }
+  .diff-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+    max-width: 900px; margin: 48px auto 0;
+  }
+  .diff-item {
+    padding: 28px; border: 0.5px solid rgba(243,233,218,0.14);
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .diff-icon {
+    width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(185,121,62,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--amber-light);
+  }
+  .diff-item h3 { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 400; margin-bottom: 8px; color: var(--parchment); }
+  .diff-item p { font-size: 14px; color: rgba(243,233,218,0.72); line-height: 1.7; }
+
+  /* ABOUT */
+  .about { background: var(--warm-white); padding: 96px 48px; }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .about-img { aspect-ratio: 3/4; background: var(--ember); position: relative; overflow: hidden; }
+  .about-img::before {
+    content: ''; position: absolute; top: -16px; left: -16px;
+    width: 100%; height: 100%; border: 0.5px solid var(--amber); z-index: -1;
+  }
+  .about-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .about-text p { font-size: 16px; color: var(--taupe); margin-bottom: 20px; line-height: 1.8; }
+  .about-sig { font-family: 'Fraunces', serif; font-size: 26px; font-style: italic; color: var(--ink); margin-top: 24px; }
+  .about-stats { display: flex; gap: 40px; margin: 8px 0 28px; flex-wrap: wrap; }
+  .about-stat-num { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 400; color: var(--amber); line-height: 1; }
+  .about-stat-label { font-size: 11px; color: var(--taupe); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 6px; }
+
+  /* MY SERVICES (outcall/incall) */
+  .my-services { background: var(--warm-white); padding: 96px 48px; }
+  .my-services .section-head p { font-size: 16px; color: var(--taupe); max-width: 720px; margin: 20px auto 0; line-height: 1.8; }
+  .service-detail-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    max-width: 1000px; margin: 48px auto 0;
+  }
+  .service-detail { background: var(--parchment); border: 0.5px solid var(--border); padding: 32px; }
+  .service-detail h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--ink); margin-bottom: 12px; }
+  .service-detail p { font-size: 14px; color: var(--taupe); line-height: 1.8; }
+  .service-detail p + p { margin-top: 12px; }
+
+  /* TANTRA MASSAGE EXPLAINER */
+  .tantra-explainer { background: var(--parchment); padding: 96px 48px; }
+  .explainer-block { max-width: 760px; margin: 0 auto 40px; }
+  .explainer-block:last-child { margin-bottom: 0; }
+  .explainer-block h3 { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 400; color: var(--ink); margin-bottom: 12px; }
+  .explainer-block p { font-size: 15px; color: var(--taupe); line-height: 1.8; margin-bottom: 12px; }
+  .explainer-block p:last-child { margin-bottom: 0; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--warm-white); padding: 96px 48px; }
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    max-width: 1100px; margin: 48px auto 0;
+  }
+  .testi-card { background: var(--parchment); border: 0.5px solid var(--border); padding: 32px; }
+  .testi-stars { color: var(--amber); font-size: 14px; margin-bottom: 16px; letter-spacing: 3px; }
+  .testi-text {
+    font-family: 'Fraunces', serif; font-size: 17px; font-style: italic;
+    line-height: 1.7; color: var(--ink); margin-bottom: 20px;
+  }
+  .testi-name { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--taupe); }
+
+  /* LOCATION */
+  .location { background: var(--parchment); padding: 96px 48px; }
+  .location-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .location-address { font-size: 16px; color: var(--taupe); line-height: 1.8; margin-bottom: 28px; }
+  .btn-outline {
+    display: inline-block; color: var(--ink);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 16px 36px; border: 0.5px solid var(--ink);
+    text-decoration: none; transition: all 0.3s ease;
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--parchment); }
+  .location-map { aspect-ratio: 4/3; overflow: hidden; border: 0.5px solid var(--border); }
+  .location-map iframe { width: 100%; height: 100%; display: block; }
+
+  /* FAQ */
+  .faq { background: var(--warm-white); padding: 96px 48px; }
+  .faq-grid { max-width: 720px; margin: 48px auto 0; }
+  .faq-item { border-bottom: 0.5px solid var(--border); padding: 24px 0; }
+  .faq-q {
+    font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400;
+    color: var(--ink); cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq-q span { font-size: 20px; color: var(--amber); flex-shrink: 0; transition: transform 0.3s; }
+  .faq-a { font-size: 15px; color: var(--taupe); line-height: 1.8; padding-top: 16px; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q span { transform: rotate(45deg); }
+
+  /* CTA FINAL */
+  .cta-section { background: #EFE3D1; text-align: center; padding: 96px 48px; }
+  .cta-section .section-title { margin-bottom: 16px; }
+  .cta-section p { font-size: 16px; color: var(--taupe); max-width: 480px; margin: 0 auto 40px; line-height: 1.8; }
+  .cta-disclaimer { font-size: 12px; color: var(--taupe); margin-top: 20px; opacity: 0.7; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ember); color: rgba(243,233,218,0.6);
+    padding: 40px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  footer a { color: inherit; text-decoration: none; font-size: 13px; }
+  footer .logo { color: var(--parchment); }
+  footer .logo span { color: var(--amber-light); }
+
+  /* MOCKUP: novos campos de imagem inspirados no tantrana.nl */
+  .mock-photo-frame { background: var(--ember); position: relative; overflow: hidden; border: 0.5px solid var(--border); }
+  .mock-photo-frame svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .service-detail-img { aspect-ratio: 4/3; margin-bottom: 20px; }
+  .explainer-gallery {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    max-width: 900px; margin: 48px auto 0;
+  }
+  .explainer-gallery .mock-photo-frame { aspect-ratio: 1/1; }
+  .testi-visual { aspect-ratio: 21/9; max-width: 1100px; margin: 0 auto 40px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .mockup-banner { font-size: 10px; padding: 8px; }
+    nav { top: 30px; padding: 16px 24px; }
+    .nav-menu { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 186px 24px 72px; }
+    .hero::before { width: 100%; top: 55%; height: 50%; }
+    .hero-right { display: none; }
+    .audience, .services, .differentiators, .about, .my-services, .tantra-explainer { padding: 64px 24px; }
+    .audience-grid, .services-grid, .diff-grid, .testi-grid, .location-grid, .service-detail-grid, .explainer-gallery { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-stats { gap: 28px; }
+    .testimonials, .location, .faq, .cta-section { padding: 64px 24px; }
+    footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">Mockup provisório — campos de imagem simulados, não publicar</div>
+
+<nav>
+  <div class="nav-left">
+    <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
+    <div class="nav-menu">
+      <a href="/about/">About</a>
+      <a href="/treatments/">Treatments</a>
+      <a href="/prices/">Prices</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/fly-me-in/">Fly Me In</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#location">Location</a>
+    </div>
+  </div>
+  <div class="nav-right">
+    <div class="gtranslate_wrapper" id="gt-wrapper-10293847"></div>
+    <script>
+      window.gtranslateSettings = window.gtranslateSettings || {};
+      window.gtranslateSettings['10293847'] = {"default_language":"en","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-10293847","alt_flags":[],"horizontal_position":"inline","flags_location":"https://cdn.gtranslate.net/flags/"}
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/flags.js" data-gt-widget-id="10293847"></script>
+    <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20your%20tantric%20%26%20holistic%20massage%20sessions." class="nav-cta" target="_blank">Book a session</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Amsterdam &middot; Tantric &amp; Holistic Massage</div>
+    <h1 class="hero-headline">Come home to <em>your body</em>.</h1>
+    <p class="hero-sub">Tantric and holistic massage for individuals and couples in Amsterdam — a slow, safe space to release tension, reconnect with touch, and feel present again.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20your%20tantric%20%26%20holistic%20massage%20sessions." class="btn-primary" target="_blank">Book a session &rarr;</a>
+      <span class="hero-note">Sessions by appointment &middot; Studio in Amsterdam &middot; Reply via WhatsApp</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-frame">
+      <img class="hero-photo" src="../../images/Home_Hero_Tatame.webp" alt="Candlelit massage studio with tatami platform in Amsterdam">
+      <div class="hero-badges">
+        <p>Google Reviews</p>
+        <strong>5.0 &#9733;</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="audience" id="audience">
+  <div class="section-head">
+    <div class="section-label">Who This Is For</div>
+    <h2 class="section-title">This is for you if&hellip;</h2>
+  </div>
+  <div class="audience-grid">
+    <div class="audience-item">
+      <span class="audience-num">01</span>
+      <p>You carry tension in your body that talk alone can't reach.</p>
+    </div>
+    <div class="audience-item">
+      <span class="audience-num">02</span>
+      <p>You want to slow down and feel safe in your own skin again.</p>
+    </div>
+    <div class="audience-item">
+      <span class="audience-num">03</span>
+      <p>You and your partner are looking for a shared, intimate experience.</p>
+    </div>
+    <div class="audience-item">
+      <span class="audience-num">04</span>
+      <p>You're curious about tantra as a practice of presence — not performance.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-head">
+    <div class="section-label">Explore the Therapies</div>
+    <h2 class="section-title">Three ways to <em>reconnect</em></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <h3 class="service-name">Holistic Energy Massage</h3>
+      <p class="service-desc">A full-body session working with physical tension and subtle energy together.</p>
+      <a href="/holistic-energy-massage-en/" class="service-link">Learn more &amp; book &rarr;</a>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <h3 class="service-name">Relaxation &amp; Stress Relief</h3>
+      <p class="service-desc">A slower, grounding massage to release stress and quiet an overactive mind.</p>
+      <a href="/relaxation-massage-en/" class="service-link">Learn more &amp; book &rarr;</a>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <h3 class="service-name">Couples Massage</h3>
+      <p class="service-desc">A shared session for partners to relax, connect, and be present together.</p>
+      <a href="/couples-massage-en/" class="service-link">Learn more &amp; book &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="my-services" id="my-services">
+  <div class="section-head">
+    <div class="section-label">My Services</div>
+    <h2 class="section-title">Experience Deep Relaxation and Connection <em>in the Comfort of Your or My Space</em></h2>
+    <p>I offer Outcall and Incall Tantra Massages in Amsterdam and Outcall Tantra Massages in other locations across the Netherlands, for example Utrecht, The Hague, and Rotterdam.</p>
+  </div>
+  <div class="service-detail-grid">
+    <div class="service-detail">
+      <div class="mock-photo-frame service-detail-img">
+        <!-- PHOTO REFERENCE: ambiente de sessão outcall — quarto de hotel ou casa com luz baixa, tecido natural, sem rosto identificável -->
+        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Outcall tantra massage setting">
+          <defs>
+            <radialGradient id="gradOutcall" cx="50%" cy="45%" r="80%">
+              <stop offset="0%" stop-color="#4A3624"/>
+              <stop offset="55%" stop-color="#2A1F16"/>
+              <stop offset="100%" stop-color="#160F0A"/>
+            </radialGradient>
+          </defs>
+          <rect width="800" height="600" fill="url(#gradOutcall)"/>
+          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#C9B69C" opacity="0.6">FOTO &#183; ambiente outcall</text>
+          <text x="400" y="320" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
+        </svg>
+      </div>
+      <h3>Outcall Tantra Massage</h3>
+      <p>My Outcall Tantra Massage service offers a unique, personalized experience where ancient authentic tantra techniques meet modern relaxation. I bring the transformative power of tantra directly to you, allowing you to experience profound relaxation, rejuvenation, and connection in the privacy and comfort of your own home, hotel, or another chosen location.</p>
+    </div>
+    <div class="service-detail">
+      <div class="mock-photo-frame service-detail-img">
+        <!-- PHOTO REFERENCE: interior do estúdio de Mari em Amsterdã — maca, velas, decoração acolhedora -->
+        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Incall studio interior in Amsterdam">
+          <defs>
+            <radialGradient id="gradIncall" cx="50%" cy="45%" r="80%">
+              <stop offset="0%" stop-color="#4A3624"/>
+              <stop offset="55%" stop-color="#2A1F16"/>
+              <stop offset="100%" stop-color="#160F0A"/>
+            </radialGradient>
+          </defs>
+          <rect width="800" height="600" fill="url(#gradIncall)"/>
+          <text x="400" y="288" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#C9B69C" opacity="0.6">FOTO &#183; estúdio incall</text>
+          <text x="400" y="320" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
+        </svg>
+      </div>
+      <h3>Incall Tantra Massage</h3>
+      <p>My Incall Tantra Massage service is offered at a massage studio in Amsterdam (address provided upon request).</p>
+    </div>
+  </div>
+</section>
+
+<section class="tantra-explainer" id="tantra-explainer">
+  <div class="section-head">
+    <div class="section-label">Tantra Massage</div>
+    <h2 class="section-title">Experience The Transformative Power <em>of Tantra Massage</em></h2>
+  </div>
+  <div class="explainer-block">
+    <h3>What is Tantra Massage?</h3>
+    <p>Tantra massage is a holistic approach to healing and wellness, deeply rooted in ancient spiritual traditions. It focuses on the integration of body, mind, and spirit, promoting a heightened sense of awareness, intimacy, and self-connection. Through intuitive touch, energy balancing, and deep relaxation techniques, tantra massage invites you to explore and release physical, emotional, and energetic blockages, awakening a new sense of vitality and inner peace.</p>
+  </div>
+  <div class="explainer-block">
+    <h3>What to Expect from Your Outcall Session</h3>
+    <p>The massage itself incorporates a combination of gentle, mindful strokes, energy work, and breathing exercises designed to guide you into a deep state of relaxation and heightened awareness. Every session is customized to your individual needs, ensuring a fully tailored experience that nurtures your body, mind, and soul.</p>
+    <p>Hot or warm coconut oil of high quality is used.</p>
+  </div>
+  <div class="explainer-block">
+    <h3>What to Expect from Your Incall Session</h3>
+    <p>Upon arriving at the massage studio, you will be welcomed into a serene and inviting space designed for your complete relaxation. The room features soft lighting and soothing music, creating a tranquil atmosphere. You will enjoy a heavenly touch with warm coconut oil.</p>
+  </div>
+  <!-- MOCKUP: faixa de galeria inspirada na seção "Experience the transformative power" do tantrana.nl (4 fotos em grid) -->
+  <div class="explainer-gallery">
+    <div class="mock-photo-frame">
+      <!-- PHOTO REFERENCE: detalhe de velas acesas e óleo quente, close-up -->
+      <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Candles and warm oil detail">
+        <defs>
+          <radialGradient id="gradGallery1" cx="50%" cy="45%" r="80%">
+            <stop offset="0%" stop-color="#4A3624"/>
+            <stop offset="55%" stop-color="#2A1F16"/>
+            <stop offset="100%" stop-color="#160F0A"/>
+          </radialGradient>
+        </defs>
+        <rect width="600" height="600" fill="url(#gradGallery1)"/>
+        <text x="300" y="278" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#C9B69C" opacity="0.6">FOTO &#183; velas / óleo</text>
+        <text x="300" y="306" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
+      </svg>
+    </div>
+    <div class="mock-photo-frame">
+      <!-- PHOTO REFERENCE: mãos em prática de toque consciente, sem rosto identificável -->
+      <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hands in conscious touch practice">
+        <defs>
+          <radialGradient id="gradGallery2" cx="50%" cy="45%" r="80%">
+            <stop offset="0%" stop-color="#4A3624"/>
+            <stop offset="55%" stop-color="#2A1F16"/>
+            <stop offset="100%" stop-color="#160F0A"/>
+          </radialGradient>
+        </defs>
+        <rect width="600" height="600" fill="url(#gradGallery2)"/>
+        <text x="300" y="278" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#C9B69C" opacity="0.6">FOTO &#183; toque consciente</text>
+        <text x="300" y="306" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
+      </svg>
+    </div>
+    <div class="mock-photo-frame">
+      <!-- PHOTO REFERENCE: ambiente geral do estúdio (tatame, tecidos, penumbra) -->
+      <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="General studio ambiance">
+        <defs>
+          <radialGradient id="gradGallery3" cx="50%" cy="45%" r="80%">
+            <stop offset="0%" stop-color="#4A3624"/>
+            <stop offset="55%" stop-color="#2A1F16"/>
+            <stop offset="100%" stop-color="#160F0A"/>
+          </radialGradient>
+        </defs>
+        <rect width="600" height="600" fill="url(#gradGallery3)"/>
+        <text x="300" y="278" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#C9B69C" opacity="0.6">FOTO &#183; ambiente do estúdio</text>
+        <text x="300" y="306" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="differentiators" id="differentiators">
+  <div class="section-head">
+    <div class="section-label">Why Choose Me</div>
+    <h2 class="section-title">Why Choose <em>My Services?</em></h2>
+  </div>
+  <div class="diff-grid">
+    <div class="diff-item">
+      <div class="diff-icon">&#10022;</div>
+      <div>
+        <h3>Convenience</h3>
+        <p>Enjoy the full tantra experience without the need to travel. My mobile service brings relaxation to your doorstep. No place to enjoy our tantra treatments? We are happy to welcome you to our studio.</p>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-icon">&#9673;</div>
+      <div>
+        <h3>Privacy &amp; Discretion</h3>
+        <p>Feel at ease in your own space or at my massage studio, allowing for a more personal experience.</p>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-icon">&#9671;</div>
+      <div>
+        <h3>Professional Practitioners</h3>
+        <p>Me and my colleague therapists are trained in the art of tantra, with a deep understanding of energy work, mindful touch, and healing practices.</p>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-icon">&#9675;</div>
+      <div>
+        <h3>Holistic Wellness</h3>
+        <p>Beyond physical relaxation, tantra massage encourages emotional release, energy balancing, and spiritual awakening, offering a comprehensive approach to wellness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img">
+      <img class="about-photo" src="../../images/Home_About_Mari.webp" alt="Portrait of Mari Gomes" loading="lazy">
+    </div>
+    <div class="about-text">
+      <div class="section-label">About Mari</div>
+      <h2 class="section-title">Bring More Joy, Balance, <em>and Empowerment</em> into Your Life</h2>
+      <p>My passion for yoga and tantra began at a young age, leading me to study in India. During this time, I immersed myself in yoga, tantra, meditation, and the connection between mind, body, and spirit.</p>
+      <p>Through tantra massage, I experienced profound personal transformation, which inspired me to become a tantra massage specialist. I began by focusing on women and later expanded my practice to men and couples. I believe in exploring life energy, using it to heal, and fostering deeper connection.</p>
+      <p>My intuitive massages are designed to release blockages, awaken kundalini energy, and bring more joy, balance, and empowerment into your life.</p>
+      <div class="about-stats">
+        <div>
+          <div class="about-stat-num">X+</div>
+          <div class="about-stat-label">Years Studying in India</div>
+        </div>
+        <div>
+          <div class="about-stat-num">X+</div>
+          <div class="about-stat-label">Years of Experience</div>
+        </div>
+        <div>
+          <div class="about-stat-num">X+</div>
+          <div class="about-stat-label">Satisfied Customers</div>
+        </div>
+      </div>
+      <a href="/about/" class="service-link">Read my full story &rarr;</a>
+    </div>
+  </div>
+</section>
+<section class="testimonials" id="testimonials">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">What Clients Say</div>
+    <h2 class="section-title">Real experiences,<br><em>real transformations</em></h2>
+    <!-- MOCKUP: foto de ambiente inspirada no bloco de depoimento do tantrana.nl — sem retrato de cliente (evitar fabricar rosto de review) -->
+    <div class="mock-photo-frame testi-visual">
+      <!-- PHOTO REFERENCE: ambiente do estúdio durante uma sessão, mãos/tecidos, sem rosto identificável -->
+      <svg viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Studio ambiance during a session">
+        <defs>
+          <radialGradient id="gradTesti" cx="50%" cy="45%" r="80%">
+            <stop offset="0%" stop-color="#4A3624"/>
+            <stop offset="55%" stop-color="#2A1F16"/>
+            <stop offset="100%" stop-color="#160F0A"/>
+          </radialGradient>
+        </defs>
+        <rect width="1200" height="500" fill="url(#gradTesti)"/>
+        <text x="600" y="236" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#C9B69C" opacity="0.6">FOTO &#183; ambiente durante sessão</text>
+        <text x="600" y="270" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#C9B69C" opacity="0.5">substituir por foto real</text>
+      </svg>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">"The dedication she puts into her work, her presence, and the focus she maintains throughout the entire session are extraordinary."</p>
+        <p class="testi-name">Fern&atilde;o O.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">"Everything from the decor to the lighting and music was thoughtfully curated. I left feeling relaxed and rejuvenated — like a new person."</p>
+        <p class="testi-name">Kinuthia</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">"She makes you feel like you're floating with her incredible relaxation and energy balance techniques. The environment is professional and very welcoming."</p>
+        <p class="testi-name">Larissa G.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="location">
+  <div class="location-grid">
+    <div>
+      <div class="section-label">Visit Us</div>
+      <h2 class="section-title">Find our <em>studio</em> in Amsterdam</h2>
+      <p class="location-address">Brouwersgracht 270A<br>1013 HG Amsterdam<br>Netherlands</p>
+      <a href="https://www.google.com/maps/dir/Massagem+Amsterdam+-Mari+Gomes,+Brouwersgracht+270A,+1013+HG+Amsterdam,+Países+Baixos/Massagem+Amsterdam+-Mari+Gomes,+Brouwersgracht+270A,+1013+HG+Amsterdam,+Países+Baixos/@37.0311168,-7.8446592,14z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47c6095d24b054c5:0x1f0bbf12412e2877!2m2!1d4.8849098!2d52.3828845!1m5!1m1!1s0x47c6095d24b054c5:0x1f0bbf12412e2877!2m2!1d4.8849098!2d52.3828845?entry=ttu&amp;g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" class="btn-outline" style="margin-left:0;" target="_blank">Get Directions &rarr;</a>
+    </div>
+    <div class="location-map">
+      <iframe src="https://maps.google.com/maps?q=Massagem+Amsterdam+-+Mari+Gomes%2C+Brouwersgracht+270A%2C+1013+HG+Amsterdam&output=embed" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mari Gomes studio location on Google Maps"></iframe>
+    </div>
+  </div>
+</section>
+<section class="faq" id="faq">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">Questions</div>
+    <h2 class="section-title">Everything you need<br>to know <em>before booking</em></h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is this a sexual or escort service?
+          <span>+</span>
+        </div>
+        <div class="faq-a">No. All sessions are strictly therapeutic — bodywork and energy work focused on releasing tension and restoring wellbeing. The studio is professional, private, and respectful at all times.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Which massage should I choose?
+          <span>+</span>
+        </div>
+        <div class="faq-a">It depends on what you're looking for: Holistic Energy Massage works with physical tension and energy together, Relaxation &amp; Stress Relief is more grounding and calming, and Couples Massage is a shared session for two. Not sure? Send a message on WhatsApp and Mari will help you decide.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How does pricing work? Can I get a quote?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Pricing depends on the therapy and duration you choose. Send a message via WhatsApp for a personalised quote with all the details.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Where do sessions take place?
+          <span>+</span>
+        </div>
+        <div class="faq-a">All sessions take place in Mari's private studio in Amsterdam. The address and exact directions are shared upon booking confirmation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What should I wear to a session?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Wear comfortable, easy-to-remove clothing such as loose trousers and a simple top. Please arrive already showered if possible — a shower is available on-site as well.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Are there any contraindications?
+          <span>+</span>
+        </div>
+        <div class="faq-a">Sessions are not recommended for those with fever, deep vein thrombosis, fractures, severe osteoporosis, open wounds, or high-risk pregnancy. If you have any health concerns, please mention them when booking.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="section-label" style="justify-content: center;">Ready to Begin</div>
+  <h2 class="section-title">Your body <em>deserves</em><br>to feel at home again</h2>
+  <p>Send a message on WhatsApp and Mari will help you find the right session, answer your questions, and share availability.</p>
+  <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27d%20like%20to%20know%20more%20about%20your%20tantric%20%26%20holistic%20massage%20sessions." class="btn-primary" target="_blank">Book a session on WhatsApp &rarr;</a>
+  <p class="cta-disclaimer">Quick response &middot; Studio in Amsterdam &middot; Sessions by appointment</p>
+</section>
+
+<footer>
+  <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
+  <div style="display:flex; gap:24px; flex-wrap:wrap;">
+    <a href="mailto:marycontato@gmail.com">marycontato@gmail.com</a>
+    <a href="https://wa.me/31634366008" target="_blank">+31 634 366 008</a>
+    <a href="https://www.instagram.com/massage.tantric.therapy/" target="_blank">@massage.tantric.therapy</a>
+  </div>
+  <p style="font-size:12px;">&copy; 2026 Mari Gomes</p>
+</footer>
+
+<script>
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+</script>
+
+</body>
+</html>
