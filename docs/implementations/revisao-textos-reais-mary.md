@@ -75,7 +75,7 @@ Validação visual das 12 páginas (6 existentes + 1 nova × EN/NL), atualizar
 |---|---|---|
 | 1 | `a2bbcea` | conteúdo real da Mary na Home (About, My Services, Tantra Massage) EN+NL |
 | 2 | `b3e29e2` | nomes reais dos 3 tratamentos + card novo 4-Hands Tantra Massage (EN+NL) |
-| 3 | _(pendente)_ | |
+| 3 | `68f279f` | preços reais (10 linhas, 2 novas: 4-Hands e 2 terapeutas) + pagamento (EN+NL) |
 | 4 | _(pendente)_ | |
 | 5 | _(pendente)_ | |
 | 6 | _(pendente)_ | |
@@ -102,9 +102,12 @@ Validação visual das 12 páginas (6 existentes + 1 nova × EN/NL), atualizar
       via DOM nas duas páginas. Console só com o CORB benigno do GTranslate.
 
 ### Cenário 3 — Prices reestruturado
-- [ ] Abrir `prices/index.html` e `nl/prices/index.html`
-- [ ] Conferir números batendo exatamente com `Prices.txt`
-- [ ] Mobile: tabela legível
+- [x] Abrir `prices/index.html` e `nl/prices/index.html`
+- [x] Conferir números batendo exatamente com `Prices.txt`
+- [x] Mobile: tabela legível
+- **Validado em:** 2026-09-12 — Chrome DevTools MCP, EN e NL, desktop 1440px
+      e mobile 390px (EN). 10 linhas confirmadas via DOM nas duas páginas,
+      sem scroll horizontal, console só com o CORB benigno.
 
 ### Cenário 4 — Workshop reescrito
 - [ ] Abrir `workshop/index.html` e `nl/workshop/index.html`
