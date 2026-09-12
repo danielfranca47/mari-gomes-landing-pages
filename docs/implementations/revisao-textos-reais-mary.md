@@ -74,7 +74,7 @@ Validação visual das 12 páginas (6 existentes + 1 nova × EN/NL), atualizar
 | Fase | Commit | O que foi implementado |
 |---|---|---|
 | 1 | `a2bbcea` | conteúdo real da Mary na Home (About, My Services, Tantra Massage) EN+NL |
-| 2 | _(pendente)_ | |
+| 2 | `b3e29e2` | nomes reais dos 3 tratamentos + card novo 4-Hands Tantra Massage (EN+NL) |
 | 3 | _(pendente)_ | |
 | 4 | _(pendente)_ | |
 | 5 | _(pendente)_ | |
@@ -94,8 +94,12 @@ Validação visual das 12 páginas (6 existentes + 1 nova × EN/NL), atualizar
       DOM confirmado sem duplicação (1 `.hero`, 11 `<section>`).
 
 ### Cenário 2 — Treatments com nomes reais
-- [ ] Abrir `treatments/index.html` e `nl/treatments/index.html`
-- [ ] Confirmar 7 cards (3 LP + 3 renomeados + 4-Hands novo)
+- [x] Abrir `treatments/index.html` e `nl/treatments/index.html`
+- [x] Confirmar 8 cards (3 LP + 5 reais: Dearmouring, Chakra Balancing, Couple
+      Ritual, Coaching Couple Session, 4-Hands)
+- **Validado em:** 2026-09-12 — Chrome DevTools MCP, EN e NL, desktop 1440px
+      e mobile 390px (EN, sem scroll horizontal). 8 `.service-card` confirmados
+      via DOM nas duas páginas. Console só com o CORB benigno do GTranslate.
 
 ### Cenário 3 — Prices reestruturado
 - [ ] Abrir `prices/index.html` e `nl/prices/index.html`
