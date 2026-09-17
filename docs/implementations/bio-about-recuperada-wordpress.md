@@ -54,6 +54,22 @@ recuperada.
 | `about/index.html` | Parágrafo genérico → 2 parágrafos adaptados (EN) da bio recuperada |
 | `nl/about/index.html` | Idem, tradução NL (espelhado) |
 
+### Commits Fase 1
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `1fefe2a` | Reescreve `.about-detail` de `about/index.html` + `nl/about/index.html` |
+
+### Relatório da Fase 1 — o que mudou na prática
+
+**Antes:** a página About tinha um parágrafo de abertura genérico, sem
+nenhum fato específico da Mari.
+**Agora:** o parágrafo de abertura usa a bio real recuperada do WordPress
+antigo, adaptada em 1ª pessoa (especialista em massagem energética, técnica
++ sensibilidade, "luxo da presença", massagens próprias que também ensina —
+essa última marcada como pendente de confirmação).
+**Para validar:** Cenário 1, abaixo.
+
 ### Fase 2 — Teaser `.about` da Home (4 arquivos)
 
 **Objetivo:** mesclar 1 frase da bio recuperada no teaser existente, sem
@@ -66,6 +82,20 @@ remover o texto real de `home.txt`.
 | `home-en.html` | Idem, espelha `index.html` |
 | `home-nl.html` | Idem, espelha `nl/index.html` |
 
+### Commits Fase 2
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `e11d810` | Mescla frase da bio recuperada no teaser `.about` da Home (4 arquivos) |
+
+### Relatório da Fase 2 — o que mudou na prática
+
+**Antes:** o teaser About da Home não mencionava que a Mari desenvolveu
+massagens próprias que também ensina.
+**Agora:** 1 frase nova foi inserida entre o parágrafo existente (real, de
+`home.txt`) e o bloco de stats, sem remover nada do texto já em uso.
+**Para validar:** Cenário 2, abaixo.
+
 ### Fase 3 — Atualizar `docs/pendencias-mary.md`
 
 **Objetivo:** refletir nos 6 arquivos onde a bio recuperada já foi aplicada
@@ -74,6 +104,19 @@ como rascunho, mantendo a pendência de confirmação aberta.
 | Arquivo | O que muda |
 |---|---|
 | `docs/pendencias-mary.md` | Pendência #1 atualizada ("Onde é usado" + nota de status) |
+
+### Commits Fase 3
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `2bf52b1` | Atualiza pendência #1 com nota de aplicação nos 6 arquivos |
+
+### Relatório da Fase 3 — o que mudou na prática
+
+**Antes:** a pendência #1 não refletia que o texto já tinha sido aplicado.
+**Agora:** a pendência lista onde o rascunho foi aplicado e segue aberta até
+resposta da Mary sobre anos/certificação/confirmação do método próprio.
+**Para validar:** não há check visual — é atualização de documentação.
 
 ---
 
