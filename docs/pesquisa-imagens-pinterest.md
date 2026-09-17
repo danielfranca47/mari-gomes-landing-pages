@@ -386,3 +386,108 @@ quente, discreto, específico da prática dela — o oposto de estoque genérico
 Toda foto nova escolhida na Rodada 2 deveria ser comparada contra essa foto
 antes de salvar: "isso parece tão específico/intencional quanto o retrato da
 Mari, ou parece que veio de um banco de imagens qualquer de spa?"
+
+---
+
+## Relatório da execução (Rodada 2) — 2026-09-17
+
+**Status: concluído.** Refeita a busca no Unsplash (mesma fonte da Rodada 1,
+por ser a que rende recortes de proporção exata via parâmetros de URL) para
+os campos listados na tarefa, seguindo as 5 regras da seção "Regras
+importantes" (as 3 originais + as 2 novas pós-Rodada-1) e o ajuste de
+"Identidade visual a seguir" sobre simbolismo autêntico de budismo/tantra.
+Os arquivos foram sobrescritos em `docs/mockups/images-pinterest/` mantendo
+exatamente os mesmos nomes/caminhos — nenhum `.html` precisou ser editado.
+Fontes completas, incluindo o motivo de cada troca,
+em [`docs/mockups/images-pinterest/sources.md`](mockups/images-pinterest/sources.md).
+
+### As 11 imagens trocadas
+
+`home/services-outcall.jpg`, `home/gallery-studio.jpg`,
+`treatments/02-relaxation.jpg`, `treatments/03-couples.jpg`,
+`treatments/05-chakra-balancing.jpg`, `treatments/06-coaching-couple.jpg`,
+`workshop/evening-session.jpg`, `fly-me-in/01-individual.jpg`,
+`fly-me-in/02-couples.jpg`, `fly-me-in/04-group-training.jpg` e
+`cover/sitewide-cover.jpg`. As 6 aprovadas na avaliação (`home/gallery-candles.jpg`,
+`home/gallery-touch.jpg`, `treatments/01-holistic-energy.jpg`,
+`treatments/04-dearmouring.jpg`, `treatments/07-four-hands.jpg`,
+`workshop/morning-session.jpg`) e as demais não sinalizadas como problema
+foram mantidas sem alteração.
+
+### Como os 5 problemas da avaliação foram endereçados
+
+**1. Foto reaproveitada em 7 lugares — resolvido.** `home/services-outcall.jpg`,
+`fly-me-in/01-individual.jpg` e `cover/sitewide-cover.jpg` agora são 3 fotos
+distintas (antes eram a mesma). A foto de `home/gallery-studio.jpg` também
+era reaproveitada em `treatments/02-relaxation.jpg` e
+`workshop/evening-session.jpg` — as 3 agora têm fotos próprias. Depois da
+Rodada 2, nenhuma foto aparece em mais de 2 campos e a foto do banner
+compartilhado (`cover/sitewide-cover.jpg`) não se repete em nenhum outro
+campo, como pede a Regra 4.
+
+**2. Fotos sem relação com o serviço — resolvido nos 4 campos apontados,
+com 2 ressalvas novas.** `treatments/02-relaxation.jpg` trocou a sala de
+estar sem pessoa por uma mesa de massagem clara e identificável (toalhas
+dobradas, frasco de óleo). `treatments/05-chakra-balancing.jpg` trocou a
+pedra solta por tigelas tibetanas sendo tocadas — resolve este item **e** o
+item 4 ao mesmo tempo. Para `treatments/03-couples.jpg` e
+`treatments/06-coaching-couple.jpg` (que também caem neste problema), a
+correção **não foi completa**: não encontrei, em nenhuma busca no
+Unsplash/Pexels, uma foto gratuita de "casal em massagem/prática guiada"
+que ao mesmo tempo (a) mostrasse claramente a cena de casal e (b) não
+tivesse aliança de casamento ou rosto em destaque — as séries de "couples
+massage" gratuitas disponíveis (conferidas em detalhe, inclusive uma
+tentativa no Pexels que esbarrou em verificação anti-bot) são todas
+ensaios fotográficos posados com os dois rostos visíveis. Troquei essas
+duas por composições simbólicas mais seguras (par de toalhas estilizadas;
+mãos de terapeuta em técnica de toque) que resolvem o problema original
+(não parecem mais foto de casamento/aperto de mão corporativo) mas não
+mostram literalmente duas pessoas em sessão conjunta — registrado como novo
+gap em `sources.md`, com sugestão de prompt de IA ao final do arquivo, mesmo
+tratamento dado aos gaps do `07-four-hands.jpg`/`closing.jpg` na Rodada 1.
+
+**3. Rosto identificável em `fly-me-in/02-couples.jpg` — resolvido.** A foto
+do casal com os dois rostos visíveis foi trocada por uma silhueta completa
+de casal se abraçando contra uma janela iluminada — zero traço de rosto
+identificável, mantendo a leitura de "casal em momento privado" pedida pelo
+campo.
+
+**4. Falta de simbolismo autêntico de budismo/tantra — endereçado
+principalmente via `treatments/05-chakra-balancing.jpg`.** A nova foto
+mostra tigelas tibetanas com mantras gravados sendo tocadas, com pulseiras
+de miçangas (mala) no pulso, sobre tecido natural — integrado a uma prática
+real (mãos em movimento, pernas cruzadas visíveis), não como still-life
+isolado. Testei também opções com estátua de Buda (várias buscas com
+"buddha statue candles/altar/meditation room"), mas a maioria dos
+resultados gratuitos lia como foto de templo turístico (dourado, ornamentado,
+bandeiras de oração) ou como still-life escuro tipo produto — nenhuma bateu
+melhor com a paleta parchment/amber do que a opção das tigelas tibetanas, que
+foi a escolhida. Os outros campos continuam com o tom "spa" mais genérico já
+sinalizado como aceitável (mãos, tecidos, velas) — não foi possível adicionar
+mais uma camada de simbolismo específico em todos os campos sem forçar
+elementos soltos, o que era exatamente o erro a evitar.
+
+**5. Os 2 gaps antigos (`07-four-hands.jpg`, `closing.jpg`) — mantidos sem
+solução melhor, como já era esperado.** Refiz buscas rápidas para os dois,
+sem achar nada superior à aproximação já registrada na Rodada 1. Continuam
+com os prompts de IA sugeridos em `sources.md` como próximo passo, caso o
+usuário quera gerar uma versão customizada.
+
+### Novo gap registrado nesta rodada
+
+`treatments/03-couples.jpg` e `treatments/06-coaching-couple.jpg` (ver item 2
+acima) — escassez de fotos gratuitas de "casal em prática" sem aliança/rosto
+visível. Prompt de IA sugerido adicionado em `sources.md`.
+
+### Próximos passos
+
+- Usuário abre os 6 `.html` de `docs/mockups/` no navegador para conferir o
+  resultado visual da Rodada 2 (nenhum HTML foi alterado, então basta
+  recarregar a página — os arquivos de imagem foram sobrescritos nos mesmos
+  caminhos).
+- Decidir se os 2 novos placeholders simbólicos (`03-couples.jpg`,
+  `06-coaching-couple.jpg`) são aceitáveis para prototipagem ou se vale gerar
+  uma versão via IA usando o prompt sugerido antes de seguir adiante.
+- Lembrete de licença continua valendo (ver aviso no topo do arquivo e em
+  `docs/mockups/README.md`): estas são fotos de pesquisa/prototipagem, não
+  licenciadas para publicação real.
