@@ -102,20 +102,32 @@ enquanto (sem integração, e a Mary confirma manualmente por WhatsApp)?
 **Registrado em:** 2026-09-12 (Fase 6 de
 `docs/implementations/revisao-textos-reais-mary.md`).
 
-### 1. Texto "Sobre a Mari" — dados factuais
+### 1. Texto "Sobre a Mari" — dados factuais — PARCIALMENTE RESOLVIDA
 
-**Contexto:** a seção `#about` da home (Fase 3, commit `524c8f8`) tem um texto de
-apresentação propositalmente genérico — não inventei números nem fatos específicos.
+**Contexto:** a seção `#about` da home (Fase 3, commit `524c8f8`) e a página
+`about/index.html` têm um texto de apresentação propositalmente genérico — não
+inventei números nem fatos específicos.
+
+**Atualização (2026-09-17):** recuperada uma bio real que esteve publicada no
+WordPress antigo (antes da migração), via export Elementor da página HOME —
+ver `docs/texto-do-site/about.txt`. É texto de terceira pessoa escrito pelo
+antigo designer/agência, não placeholder inventado, e traz um dado novo (Mari
+desenvolveu massagens próprias que ensina, além de aplicar). Ainda assim **não
+cita números exatos de anos de experiência nem certificação/escola** — a
+pergunta original pra Mary continua valendo:
 
 **Perguntar pra Mary:**
 - Há quanto tempo você atua com massagem holística/tântrica em Amsterdã?
 - Tem alguma formação, certificação ou tradição/escola específica que queira citar
   no texto (ou prefere manter mais enxuto, sem citar isso)?
+- Confirma que quer manter a menção de que desenvolveu massagens próprias que
+  também ensina (dado do texto recuperado, não estava nas versões atuais)?
 
-**Onde é usado:** `home-en.html` / `home-nl.html`, seção About (marcado no código com
+**Onde é usado:** `home-en.html` / `home-nl.html` / `index.html` / `nl/index.html`,
+seção About, e `about/index.html` / `nl/about/index.html` (marcado no código com
 comentário `<!-- COPY DRAFT -->`).
 
-**Registrado em:** 2026-09-08 (Fase 3).
+**Registrado em:** 2026-09-08 (Fase 3). Atualizado 2026-09-17.
 
 ---
 

@@ -1,0 +1,21 @@
+Título: Bio "Sobre a Mari" — recuperada do WordPress original (Elementor)
+Fonte: paginas elementor mari.zip → elementor-1167-2026-09-17.json (página "HOME EN", seção About), baixado do servidor TurboCloud em 2026-09-17 antes do cancelamento da hospedagem.
+Texto original (inglês, como estava publicado no wordpress/Elementor):
+
+============================================================
+
+Mari Gomes is a Specialist Therapist in Energy Massage techniques. With extensive experience in the holistic health field, and an expert in body therapies and vital energy studies, she has been standing out as the professional who makes a difference in her sessions.
+Mari combines technique and sensitivity in work recognized for its precision and depth.
+Her method guides each person to experience the luxury of presence — the state where body, mind, and energy vibrate in harmony.
+As a lover of healing techniques and the restoration of physical, emotional, mental, and spiritual balance, using her long experience, she developed her own massages which she not only performs but also teaches.
+
+============================================================
+
+Nota: este texto é em terceira pessoa (escrito pelo antigo designer/agência),
+diferente do tom em primeira pessoa já usado em home.txt. Ainda não cita
+números exatos de anos de experiência nem certificações/escola específica —
+ver pendência #1 em docs/pendencias-mary.md, que continua parcialmente aberta
+quanto a esses dados factuais. Mas é texto real que esteve publicado (não
+placeholder inventado), incluindo o dado novo de que "developed her own
+massages which she not only performs but also teaches" — vale confirmar com a
+Mary se esse dado (método/técnica autoral) deve entrar no texto novo do About.
