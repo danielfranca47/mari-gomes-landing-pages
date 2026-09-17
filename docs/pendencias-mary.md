@@ -123,6 +123,16 @@ pergunta original pra Mary continua valendo:
 - Confirma que quer manter a menção de que desenvolveu massagens próprias que
   também ensina (dado do texto recuperado, não estava nas versões atuais)?
 
+**Atualização (2026-09-17, aplicação):** o texto adaptado da bio recuperada já
+foi aplicado nos 6 arquivos como rascunho (ver
+`docs/implementations/bio-about-recuperada-wordpress.md`) — em
+`about/index.html`/`nl/about/index.html` como o novo parágrafo de abertura da
+`.about-detail`, e em `home-en.html`/`home-nl.html`/`index.html`/`nl/index.html`
+como 1 frase mesclada no teaser existente (que continua usando o texto real de
+`home.txt`, não substituído). A frase "massagens próprias que também ensina"
+está marcada com comentário `COPY DRAFT` em todos os 6 arquivos, ainda sem
+confirmação. Pendência segue aberta até resposta da Mary.
+
 **Onde é usado:** `home-en.html` / `home-nl.html` / `index.html` / `nl/index.html`,
 seção About, e `about/index.html` / `nl/about/index.html` (marcado no código com
 comentário `<!-- COPY DRAFT -->`).
