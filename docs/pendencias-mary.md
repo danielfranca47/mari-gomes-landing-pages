@@ -32,19 +32,21 @@ Me In? Tem alguma restrição (ex.: só Europa, só com aviso de X semanas)?
 
 ---
 
-### 7. Números da Home (anos de experiência/estudo, clientes satisfeitos)
+### 7. Números da Home (anos de experiência, clientes satisfeitos)
 
-**Contexto:** `home.txt` (texto real da Mary, 2026-09-12) pede stats de
-confiança ("years of studying in India", "years of experience", "satisfied
-customers") mas não veio com os números — só os rótulos.
+**Contexto:** o `home.txt` (2026-09-12) trazia stats de confiança ("years of
+studying in India", "years of experience", "satisfied customers") sem
+números. **Atualização (2026-09-20):** esse texto era cópia da Tantrana, então
+o bloco de stats (incluindo "Years Studying in India", que descrevia a
+trajetória de outra pessoa) foi **removido** da Home. O CSS `.about-stats`
+segue nos arquivos, sem uso, caso a Mary forneça números próprios.
 
-**Perguntar pra Mary:** quantos anos ela estudou na Índia, quantos anos de
-experiência tem, e quantos clientes atendidos (ou outro número que prefira
-mostrar)?
+**Perguntar pra Mary:** quantos anos de experiência tem e quantos clientes
+atendidos (ou outro número/prova social que prefira mostrar)? Estudou na
+Índia ou em outro lugar que queira citar?
 
-**Onde é usado:** `index.html` / `nl/index.html` (as páginas reais da Home
-publicadas — ver nota abaixo) e `home-en.html`/`home-nl.html` (cópias
-legadas), seção About, marcado com `COPY DRAFT` (placeholder "X+").
+**Onde seria usado:** `index.html` / `nl/index.html` (e as cópias legadas
+`home-en.html`/`home-nl.html`), seção About.
 
 **Registrado em:** 2026-09-12 (Fase 1 de
 `docs/implementations/revisao-textos-reais-mary.md`).
@@ -80,6 +82,27 @@ institucional).
 
 **Registrado em:** 2026-09-12 (Fase 6 de
 `docs/implementations/revisao-textos-reais-mary.md`).
+
+---
+
+### 10. Auditoria: texto copiado da Tantrana nos demais arquivos de `texto-do-site/`
+
+**Contexto:** em 2026-09-20 confirmamos que o About do `home.txt` é cópia
+verbatim de tantrana.nl (o arquivo até traz a assinatura "Tantrana").
+`workshop.txt` também cita "Tantrana workshop" e o e-mail/telefone deles.
+Suspeitos ainda não auditados: o resto do `home.txt` (blocos "My Services",
+"Why Choose My Services?", depoimento "Tim, USA"), `treatments.txt`,
+`Prices.txt`, `workshop.txt`, `fly-me-in-service.txt`. Risco: copiar texto de
+concorrente direto e publicar afirmações (ex.: "me and my colleague
+therapists", currículo do workshop, preços) que não são da Mari.
+
+**Perguntar pra Mary:** quais desses textos ela de fato escreveu/aprova como
+seus? O depoimento do "Tim, USA" é de cliente dela? Ela tem colegas
+terapeutas e workshops próprios com esse currículo?
+
+**Onde é usado:** Home, Treatments, Prices, Workshop, Fly Me In (+ `nl/`).
+
+**Registrado em:** 2026-09-20.
 
 ---
 
@@ -124,14 +147,20 @@ pergunta original pra Mary continua valendo:
   também ensina (dado do texto recuperado, não estava nas versões atuais)?
 
 **Atualização (2026-09-17, aplicação):** o texto adaptado da bio recuperada já
-foi aplicado nos 6 arquivos como rascunho (ver
+foi aplicado como rascunho (ver
 `docs/implementations/bio-about-recuperada-wordpress.md`) — em
 `about/index.html`/`nl/about/index.html` como o novo parágrafo de abertura da
-`.about-detail`, e em `home-en.html`/`home-nl.html`/`index.html`/`nl/index.html`
-como 1 frase mesclada no teaser existente (que continua usando o texto real de
-`home.txt`, não substituído). A frase "massagens próprias que também ensina"
-está marcada com comentário `COPY DRAFT` em todos os 6 arquivos, ainda sem
-confirmação. Pendência segue aberta até resposta da Mary.
+`.about-detail`.
+
+**Correção (2026-09-20):** o teaser About da Home (`index.html`,
+`nl/index.html`, `home-en.html`, `home-nl.html`) usava o texto do `home.txt`,
+que na verdade é cópia verbatim do About da Tantrana (tantrana.nl) — "estudou
+na Índia", "tornou-se especialista", stats "Years Studying in India" etc.
+Não é da Mari. Substituído pela bio recuperada (mesmo texto-base da página
+About, versão curta) e o bloco de stats foi removido (ver pendência #7). A
+frase "massagens próprias que também ensina" está marcada com comentário
+`COPY DRAFT` nos 6 arquivos, ainda sem confirmação. Pendência segue aberta
+até resposta da Mary.
 
 **Onde é usado:** `home-en.html` / `home-nl.html` / `index.html` / `nl/index.html`,
 seção About, e `about/index.html` / `nl/about/index.html` (marcado no código com

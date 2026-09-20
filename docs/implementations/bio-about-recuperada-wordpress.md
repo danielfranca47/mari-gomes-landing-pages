@@ -120,6 +120,30 @@ resposta da Mary sobre anos/certificação/confirmação do método próprio.
 
 ---
 
+## Fase 4 — Diagnóstico + Correção (2026-09-20)
+
+### Problema identificado
+
+O teaser About da Home usava o texto do `home.txt`, tratado como "texto real
+da Mary". Na verdade é cópia verbatim do About de tantrana.nl (história da
+Índia, stats "Years Studying in India", etc.; o arquivo tem até a assinatura
+"Tantrana"). A Fase 2 preservou esse texto e colou uma frase da bio real logo
+depois dele. Causa raiz: o `home.txt` nunca foi verificado contra a fonte.
+
+### Correção
+
+| Arquivo | Mudança |
+|---|---|
+| `index.html`, `nl/index.html`, `home-en.html`, `home-nl.html` | Título, parágrafos e bloco de stats do About substituídos por versão curta da bio recuperada (2 parágrafos, sem números) |
+| `CLAUDE.md` | Aviso de que `docs/texto-do-site/` contém texto copiado da Tantrana; regra de não afirmar fatos biográficos sem confirmação |
+| `docs/pendencias-mary.md` | #1 e #7 corrigidas; nova #10 (auditar o resto do conteúdo contra tantrana.nl) |
+
+### Commits Fase 4
+
+Ver `git log` (mensagem "corrige About da Home: remove texto copiado da Tantrana").
+
+---
+
 ## Checks de Validação
 
 ### Cenário 1 — About page (EN/NL)
@@ -129,7 +153,7 @@ resposta da Mary sobre anos/certificação/confirmação do método próprio.
 
 ### Cenário 2 — Teaser da Home (4 arquivos)
 - [ ] Abrir `index.html`, `nl/index.html`, `home-en.html`, `home-nl.html`
-- [ ] Confirmar que a nova frase aparece entre o parágrafo existente e o bloco de stats
+- [ ] Confirmar que o About mostra só os 2 parágrafos da bio recuperada, sem bloco de stats nem menção à Índia
 - [ ] Confirmar que EN e NL dizem a mesma coisa (par espelhado)
 
 ---
