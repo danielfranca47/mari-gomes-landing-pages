@@ -1,6 +1,6 @@
 # Preços visíveis nas 3 LPs (versão v2 provisória)
 
-**Status:** Em andamento — v2 em construção, aguardando aprovação da Mary para promover.
+**Status:** Fases 0–3 concluídas (27/09/2026) — 6 páginas v2 prontas, aguardando push + aprovação da Mary (Fase 4).
 
 ---
 
@@ -75,12 +75,21 @@ e a trava `-v2`, apagar as pastas `-v2`.
 | `docs/implementations/README.md` | Implementação ativa listada |
 | `docs/pendencias-mary.md` | Pendência #11 (aprovar v2 + dúvida da LP3) |
 
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 0 | `d931460` | este arquivo + README + pendência #11 |
+
 ### Fase 1 — LP1 v2
 
 | Arquivo | O que muda |
 |---|---|
 | `holistic-energy-massage-en-v2/index.html` | Nova (cópia + preços) |
 | `holistic-energy-massage-nl-v2/index.html` | Nova (espelhada) |
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `4ea1092` | seção #pricing 60/90/120 + estendidas, nav, FAQ, hero note, CTA final |
+| 1b | `a420ec6` | (junto com a Fase 2) texto pré-preenchido do WhatsApp do CTA final da NL sem "offerte" |
 
 ### Fase 2 — LP2 v2
 
@@ -89,12 +98,38 @@ e a trava `-v2`, apagar as pastas `-v2`.
 | `relaxation-massage-en-v2/index.html` | Nova (cópia + preços) |
 | `relaxation-massage-nl-v2/index.html` | Nova (espelhada) |
 
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 2 | `a420ec6` | seção #pricing 60/90/120 (antes do About), nav, FAQ, passo 1 do "How it works", CTAs e textos do WhatsApp sem "quote" |
+
 ### Fase 3 — LP3 v2
 
 | Arquivo | O que muda |
 |---|---|
 | `couples-massage-en-v2/index.html` | Nova (cópia + preços + FAQ de simultaneidade) |
 | `couples-massage-nl-v2/index.html` | Nova (espelhada) |
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 3 | `a83ba6c` | "From €420 for two" nos 3 cards, seção #pricing (1 terapeuta × 2 terapeutas), nav, 3 FAQs, CTAs e WhatsApp sem "quote" |
+
+**Ainda diz "at the same time" (não alterado, depende da resposta da Mary):** a
+faixa de promessa ("Experience the session together, in the same space, at the
+same time") e o card "Stress" da seção For whom. Se a Mary disser que o pacote
+de 1 terapeuta não é simultâneo, ajustar esses dois textos na Fase 4.
+
+### Relatório das Fases 1–3 — o que mudou na prática
+
+**Antes:** nenhuma LP mostrava preço; todas mandavam o visitante pedir orçamento no WhatsApp.
+**Agora:** existem 6 cópias novas das LPs (endereços terminados em `-v2/`) com
+uma seção de preços no estilo de cada página, o preço inicial já no topo ("From
+€300" / "From €420 for two"), FAQ de preço com os valores e botões "Book" em vez
+de "Request a quote". As páginas que recebem o anúncio continuam exatamente como
+estavam. As cópias não aparecem no Google e cliques nelas não contam como conversão.
+**Para validar:** Cenários 1–2 (feitos localmente); Cenário 3 com a Mary após o push.
+
+Gerado com scripts Python de substituição exata (falham se algum trecho não
+bater), mantidos fora do repositório; a verificação usou Playwright + Chrome.
 
 ### Fase 4 — Promoção (só após aprovação da Mary)
 
@@ -108,14 +143,16 @@ e a trava `-v2`, apagar as pastas `-v2`.
 ## Checks de Validação
 
 ### Cenário 1 — v2 renderiza com preços (desktop e mobile)
-- [ ] Abrir as 6 v2 no navegador
-- [ ] Seção de preços aparece com a identidade visual da LP; link "Prices/Prijzen" no nav rola até ela
-- [ ] Em mobile (≤768px) os cards viram 1 coluna, sem scroll horizontal
+- [x] Abrir as 6 v2 no navegador
+- [x] Seção de preços aparece com a identidade visual da LP; link "Prices/Prijzen" no nav aponta pra `#pricing`
+- [x] Em mobile (≤768px) os cards viram 1 coluna, sem scroll horizontal
+- **Validado em:** 27/09/2026 — servidor local + Playwright/Chrome, screenshots da `#pricing` em 1400px e 390px nas 6 páginas, overflow horizontal 0px
 
 ### Cenário 2 — Prévia não afeta Ads/SEO
-- [ ] `<meta name="robots" content="noindex, nofollow">` presente nas 6 v2
-- [ ] Clique no WhatsApp na v2 não dispara o evento `conversion` (conferir no Network/console)
-- [ ] LPs atuais (`<slug>/index.html`) inalteradas (`git diff` vazio nelas)
+- [x] `<meta name="robots" content="noindex, nofollow">` presente nas 6 v2
+- [x] Clique no WhatsApp na v2 não dispara o evento `conversion` (conferir no Network/console)
+- [x] LPs atuais (`<slug>/index.html`) inalteradas (`git diff` vazio nelas)
+- **Validado em:** 27/09/2026 — `dataLayer` após clique: 0 eventos `conversion` nas 6 v2, 1 evento nas 6 originais; `git diff d931460 HEAD` nas pastas originais e nos `lp*-*.html` vazio
 
 ### Cenário 3 — Mary aprova
 - [ ] Mary revisou as 6 v2 e aprovou valores e textos (pendência #11)
