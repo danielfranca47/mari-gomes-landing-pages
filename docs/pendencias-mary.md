@@ -286,11 +286,11 @@ novas em `prices/index.html`/`nl/` (Fase 3) de
 **Registrado em:** 2026-09-09 (expansão de conteúdo, Fase 2). **Resolvido em:**
 2026-09-12.
 
-
 **Revertido em 2026-09-27 (via Daniel):** a Mari **não** oferece, por enquanto,
 nenhuma opção com segunda terapeuta. 4 mãos e "Couple Ritual with 2 Therapists"
 foram removidos da Home, Treatments e Prices (EN/NL), e "me and my colleague
 therapists" virou atendimento pessoal dela (`docs/implementations/precos-nas-lps.md`, Fase 6).
+
 ---
 
 ### 5. Instagram handle
