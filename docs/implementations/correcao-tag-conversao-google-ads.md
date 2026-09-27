@@ -77,7 +77,8 @@ viravam conversão e o GA4 não recebia nada.
 
 ### Cenário 2 — Em produção
 - [x] Após o push, repetir o Cenário 1 em produção — 27/09/2026, `https://amarigomes.com/holistic-energy-massage-nl/?gclid=TEST_PROD_GCLID`: loader `GT-55XJZX3L` carrega; conversão com label `9rp5CIvso6QcEJqMuZhD` enviada sem consentimento (`gcs=G100`) e com consentimento (`gcs=G111`, cookie `_gcl_aw` com o gclid). Conferido também que as 9 URLs principais servem o loader novo.
-- [ ] Em até 48h: "Solicitar cotação" volta a "Ativa" e a qualidade da tag sai de "Urgente"
+- [x] Qualidade da tag sai de "Urgente" — 27/09/2026 ~15:00 (CEST): "Bom"; "Solicitar cotação" passou de "Configuração incorreta" para "Conversões pendentes"
+- [ ] "Solicitar cotação" volta a "Ativa" (primeira conversão registrada após 27/09)
 
 ### Cenário 3 — Fotos das LPs
 - [ ] As 6 LPs publicadas carregam hero/about sem 404
@@ -88,5 +89,9 @@ viravam conversão e o GA4 não recebia nada.
 
 - Não aceitar a sugestão de subir o orçamento pra €29/dia enquanto a medição não
   normalizar.
-- Rebaixar "Mary Gomes - Massagista (web) Clique_Botao_Contato" (importada do GA4,
-  evento que não existe no código novo) de Principal para Secundária, ou remover.
+- [x] "Mary Gomes - Massagista (web) Clique_Botao_Contato" (importada do GA4, evento
+  que não existe no código novo) rebaixada de Principal para Secundária — 27/09/2026.
+- [x] Exclusões de dados criadas na CP-03 (fuso da conta: CEST, GMT+2), divididas em 2
+  porque o Ads limita cada exclusão a 14 dias: 09/09 13:00 → 23/09 13:00 e
+  23/09 13:00 → 27/09 14:30 — 27/09/2026. Não aplicadas à campanha pausada
+  "[CP-03] ... (backup ignorar)".
