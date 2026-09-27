@@ -27,7 +27,8 @@ para `CLAUDE.md` ou `docs/architecture/`, e o arquivo é deletado.
 
 | Arquivo | Status |
 |---|---|
-| *(nenhum ativo no momento)* | — |
+| `correcao-tag-conversao-google-ads.md` | Fase 1 feita, Fase 2 pendente |
+| `precos-nas-lps.md` | v2 provisórias em construção — aguardando aprovação da Mary |
 
 ---
 

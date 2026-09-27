@@ -13,6 +13,39 @@ mudança no código correspondente.
 
 ## Em aberto
 
+### 11. Preços nas landing pages do anúncio (versões v2 para aprovar)
+
+**Contexto:** a Mari pediu para as LPs do Google Ads mostrarem preço. Foram
+criadas versões provisórias, fora do ar para o anúncio (não indexadas, sem
+contar conversão), com a mesma tabela da página `/prices/`:
+- `amarigomes.com/holistic-energy-massage-en-v2/` (+ `-nl-v2/`): 60 min €300 ·
+  90 min €350 · 120 min €400 · 2,5h €450 · 3h €500
+- `amarigomes.com/relaxation-massage-en-v2/` (+ `-nl-v2/`): 60 min €300 ·
+  90 min €350 · 120 min €400
+- `amarigomes.com/couples-massage-en-v2/` (+ `-nl-v2/`): 2h €420 · 2,5h €470 ·
+  3h €520 · 4h €600 · com 2 terapeutas 90 min €600 / 120 min €750
+- Em todas: sobretaxa após 21h e pagamento por cartão/dinheiro/BTC.
+
+Lembrete: essa tabela é idêntica à da tantrana.nl (autorizado por ela em
+2026-09-09, ver "Preços reais" em Resolvidas) — vale ela confirmar que são os
+valores que quer mostrar para quem vem do anúncio.
+
+**Perguntar pra Mary:**
+1. Aprova os preços e textos das 6 páginas v2 para substituírem as atuais?
+2. Casal: a LP diz hoje que os dois recebem a massagem **ao mesmo tempo**. No
+   pacote de €420 (2h, uma terapeuta) isso acontece? Ou a massagem simultânea é
+   só na opção com 2 terapeutas (€600/€750)? (Na v2 deixei o FAQ dizendo que a
+   simultânea é a opção com 2 terapeutas — confirmar.)
+3. Tem mesmo a 2ª terapeuta disponível para oferecer a opção com 2 terapeutas
+   na LP de casal?
+
+**Onde é usado:** 6 pastas `*-v2/` (`docs/implementations/precos-nas-lps.md`).
+Após a aprovação, viram as LPs principais.
+
+**Registrado em:** 2026-09-27.
+
+---
+
 ### 6. Regiões/países do Fly Me In
 
 **Contexto:** `fly-me-in-service.txt` (texto real da Mary, 2026-09-12) tem a
