@@ -16,33 +16,32 @@ mudança no código correspondente.
 ### 11. Preços nas landing pages do anúncio (versões v2 para aprovar)
 
 **Contexto:** a Mari pediu para as LPs do Google Ads mostrarem preço. Foram
-criadas versões provisórias, fora do ar para o anúncio (não indexadas, sem
-contar conversão), com a mesma tabela da página `/prices/`:
-- `amarigomes.com/holistic-energy-massage-en-v2/` (+ `-nl-v2/`): 60 min €300 ·
-  90 min €350 · 120 min €400 · 2,5h €450 · 3h €500
-- `amarigomes.com/relaxation-massage-en-v2/` (+ `-nl-v2/`): 60 min €300 ·
-  90 min €350 · 120 min €400
-- `amarigomes.com/couples-massage-en-v2/` (+ `-nl-v2/`): 2h €420 · 2,5h €470 ·
-  3h €520 · 4h €600 · com 2 terapeutas 90 min €600 / 120 min €750
-- Em todas: sobretaxa após 21h e pagamento por cartão/dinheiro/BTC.
-
-Lembrete: essa tabela é idêntica à da tantrana.nl (autorizado por ela em
-2026-09-09, ver "Preços reais" em Resolvidas) — vale ela confirmar que são os
-valores que quer mostrar para quem vem do anúncio.
+criadas versões provisórias (não indexadas, sem contar conversão). Em 27/09/2026 a
+Mari mandou os valores reais (via Daniel), já aplicados:
+- `amarigomes.com/holistic-energy-massage-en-v2/` (+ `-nl-v2/`), agora "Tantric
+  Energy Experience": 60 min €300 · 90 min €350 · 120 min €400
+- `amarigomes.com/relaxation-massage-en-v2/` (+ `-nl-v2/`), agora "Tantric Holistic
+  Relaxation": 60 min €250 · 90 min €300 · 120 min €350
+- `amarigomes.com/couples-massage-en-v2/` (+ `-nl-v2/`): 90 min €350 · 2h €400 ·
+  2,5h €450 · 3h €500 (preço do casal)
+- Em todas: horário 9:00–19:00, +€50 de deslocamento para casa/hotel, pagamento por
+  cartão/dinheiro/BTC. Sem opção de 2 terapeutas (ela não oferece por enquanto).
 
 **Perguntar pra Mary:**
-1. Aprova os preços e textos das 6 páginas v2 para substituírem as atuais?
-2. Casal: a LP diz hoje que os dois recebem a massagem **ao mesmo tempo**. No
-   pacote de €420 (2h, uma terapeuta) isso acontece? Ou a massagem simultânea é
-   só na opção com 2 terapeutas (€600/€750)? (Na v2 deixei o FAQ dizendo que a
-   simultânea é a opção com 2 terapeutas — confirmar.)
-3. Tem mesmo a 2ª terapeuta disponível para oferecer a opção com 2 terapeutas
-   na LP de casal?
+1. Revisou as 6 páginas v2 e aprova para substituírem as atuais?
+2. Casal: como funciona a sessão com uma terapeuta só — os dois recebem ao mesmo
+   tempo, um de cada vez, ou é um ritual guiado para os dois? A LP atual promete
+   "both partners receive their massage simultaneously"; na v2 o FAQ ficou neutro
+   ("you share the whole experience together… Mari guides the ritual"), mas a faixa
+   de promessa ainda diz "at the same time".
+3. A página `/prices/` do site ainda tem a tabela antiga (Tantrana). Quer que
+   passe a mostrar os mesmos valores/nomes das LPs? E os demais tratamentos
+   (Dearmouring, Chakra Balancing, Couple Ritual, Coaching) — quais valores?
 
 **Onde é usado:** 6 pastas `*-v2/` (`docs/implementations/precos-nas-lps.md`).
 Após a aprovação, viram as LPs principais.
 
-**Registrado em:** 2026-09-27.
+**Registrado em:** 2026-09-27. **Atualizado:** 2026-09-27 (valores reais recebidos).
 
 ---
 
@@ -287,24 +286,11 @@ novas em `prices/index.html`/`nl/` (Fase 3) de
 **Registrado em:** 2026-09-09 (expansão de conteúdo, Fase 2). **Resolvido em:**
 2026-09-12.
 
----
 
-### 4. Taxa de deslocamento (outcall pra hotel)
-
-**Contexto:** a Mary confirmou que atende em hotel ("deslocação em hotel"). A
-taxa **noturna** da referência (`tantrana.nl`, €100/€150 após 21h) já foi copiada
-pra `prices/index.html`/`nl/prices/index.html` (ver pendência resolvida "Preços
-reais", abaixo) — mas a referência não tinha um valor específico de taxa de
-**deslocamento/distância** pro hotel, só a taxa por horário. As páginas novas ainda
-dizem que deslocamento está disponível "a pedido", sem citar taxa de viagem.
-
-**Perguntar pra Mary:** além da taxa noturna (já copiada), cobra algo a mais
-especificamente pelo deslocamento até o hotel? Fixo ou por distância?
-
-**Onde é usado:** `treatments/index.html`, `prices/index.html` (+ variantes `nl/`).
-
-**Registrado em:** 2026-09-09.
-
+**Revertido em 2026-09-27 (via Daniel):** a Mari **não** oferece, por enquanto,
+nenhuma opção com segunda terapeuta. 4 mãos e "Couple Ritual with 2 Therapists"
+foram removidos da Home, Treatments e Prices (EN/NL), e "me and my colleague
+therapists" virou atendimento pessoal dela (`docs/implementations/precos-nas-lps.md`, Fase 6).
 ---
 
 ### 5. Instagram handle
@@ -341,6 +327,21 @@ ver como ficou).
 **Onde foi aplicado:** `prices/index.html` / `nl/prices/index.html`.
 
 **Resolvido em:** 2026-09-09.
+
+---
+
+### 4. Taxa de deslocamento (outcall pra hotel) — RESOLVIDA
+
+**Contexto:** a Mary confirmou que atende em hotel, mas não havia valor de taxa de
+deslocamento (só a taxa noturna copiada da Tantrana).
+
+**Resolução (2026-09-27, via Daniel):** taxa fixa de **€50** para visita a casa/hotel.
+A Mari atende só das **9:00 às 19:00** — não existe sobretaxa noturna. Aplicado nas
+6 LPs v2 (`docs/implementations/precos-nas-lps.md`). Ainda falta refletir em
+`treatments/` e `prices/` (+ `nl/`), que dizem "a pedido" e mostram a sobretaxa
+"after 21:00" — listado como ajuste no mesmo doc.
+
+**Registrado em:** 2026-09-09. **Resolvido em:** 2026-09-27.
 
 ---
 
