@@ -67,7 +67,7 @@ viravam conversão e o GA4 não recebia nada.
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 1 | *(ver abaixo)* | 24 referências de imagem em 12 arquivos + regra no CLAUDE.md |
+| 1 | `26af10c` | 24 referências de imagem em 12 arquivos + regra no CLAUDE.md |
 
 **Relatório da Fase 2.**
 **Antes:** as fotos principais e do About das 6 LPs davam 404 (WordPress desligado).
