@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ontspanningsmassage Amsterdam | Stressverlichting | Mari Gomes</title>
+<title>Tantric Holistic Relaxation Amsterdam | Mari Gomes</title>
 <!-- Google Consent Mode v2 — default state (denied until the visitor chooses via the cookie banner below) -->
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -145,7 +145,24 @@
   footer { background: var(--deep); color: rgba(250,247,243,0.5); padding: 36px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
   footer a { color: inherit; text-decoration: none; font-size: 13px; }
   footer .logo { color: var(--linen); }
+  /* PRICING */
+  .pricing { background: var(--linen); }
+  .pricing-intro { font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.8; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .price-card { background: var(--sand); padding: 36px; border: 0.5px solid var(--border); position: relative; overflow: hidden; }
+  .price-card::after { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--moss); }
+  .price-card.featured { background: var(--moss); color: var(--linen); border-color: var(--moss); }
+  .price-card.featured::after { background: var(--terracotta); }
+  .price-tag { position: absolute; top: 18px; right: 18px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: var(--terracotta); color: var(--linen); padding: 4px 10px; }
+  .price-dur { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--moss); margin-bottom: 10px; }
+  .price-val { font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 400; line-height: 1.1; margin-bottom: 14px; }
+  .price-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .price-card.featured .price-dur { color: var(--linen); opacity: 0.8; }
+  .price-card.featured .price-desc { color: rgba(250,247,243,0.8); }
+  .pricing-notes { font-size: 13px; color: var(--muted); margin-top: 28px; margin-bottom: 32px; line-height: 1.7; }
+
   @media (max-width: 768px) {
+    .pricing-grid { grid-template-columns: 1fr; }
     nav { padding: 16px 24px; }
     .nav-menu { display: none; }
     .hero-top { grid-template-columns: 1fr; }
@@ -177,6 +194,7 @@
     <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
     <div class="nav-menu">
       <a href="#sessions">Sessies</a>
+      <a href="#pricing">Prijzen</a>
       <a href="#about">Over mij</a>
       <a href="#testimonials">Reviews</a>
       <a href="#faq">Vragen</a>
@@ -190,14 +208,14 @@
       window.gtranslateSettings['74519283'] = {"default_language":"nl","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-74519283","alt_flags":[],"horizontal_position":"inline","flags_location":"https://cdn.gtranslate.net/flags/"}
     </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/flags.js" data-gt-widget-id="74519283"></script>
-    <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20een%20ontspanningsmassage.%20Kun%20je%20me%20meer%20informatie%20sturen?" class="nav-cta" target="_blank">Sessie boeken</a>
+    <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20de%20Tantric%20Holistic%20Relaxation.%20Kun%20je%20me%20meer%20informatie%20sturen?" class="nav-cta" target="_blank">Sessie boeken</a>
   </div>
 </nav>
 
 <div class="hero">
   <div class="hero-top">
     <div class="hero-left">
-      <div class="hero-tag">Ontspanningsmassage · Amsterdam</div>
+      <div class="hero-tag">Tantric Holistic Relaxation · Amsterdam</div>
       <h1 class="hero-headline">
         Diepe ontspanning.<br>
         Stress losgelaten.<br>
@@ -205,8 +223,8 @@
       </h1>
       <p class="hero-sub">Draag je stress in je schouders, borst of kaak? Een full-body sessie in onze Amsterdamse studio laat spanning los waar die zit — fysiek én energetisch.</p>
       <div class="hero-cta-group">
-        <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20een%20ontspanningsmassage.%20Kun%20je%20me%20een%20offerte%20en%20beschikbaarheid%20sturen?" class="btn-moss" target="_blank">Vraag je offerte aan →</a>
-        <p class="hero-cta-note">Studiosessies in Amsterdam · Offerte via WhatsApp · Op afspraak</p>
+        <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20de%20Tantric%20Holistic%20Relaxation.%20Kun%20je%20me%20je%20beschikbaarheid%20sturen?" class="btn-moss" target="_blank">Boek je sessie →</a>
+        <p class="hero-cta-note">Vanaf €250 · Studio in Amsterdam · Boeken via WhatsApp</p>
       </div>
     </div>
     <div class="hero-right" style="padding:0;">
@@ -235,7 +253,7 @@
     <div class="label">Hoe het werkt</div>
     <h2 class="title">Van eerste contact tot<br><em>diepe herstelling</em></h2>
     <div class="steps">
-      <div class="step"><div class="step-circle">1</div><div class="step-title">Stuur een bericht</div><p class="step-desc">Neem contact op via WhatsApp. Vertel wat je zoekt en ontvang snel een persoonlijke offerte.</p></div>
+      <div class="step"><div class="step-circle">1</div><div class="step-title">Stuur een bericht</div><p class="step-desc">Neem contact op via WhatsApp. Vertel wat je zoekt en welke dag je voorkeur heeft — Mari bevestigt snel de beschikbaarheid.</p></div>
       <div class="step"><div class="step-circle">2</div><div class="step-title">Kies je sessie</div><p class="step-desc">Samen kies je het beste sessietype en de duur die bij jouw behoeften passen — van een gerichte 60 min tot een uitgebreide 2-uur sessie.</p></div>
       <div class="step"><div class="step-circle">3</div><div class="step-title">Kom naar de studio</div><p class="step-desc">Je arriveert in een privé studio in Amsterdam, ontworpen voor volledige ontspanning vanaf het moment dat je binnenkomt.</p></div>
       <div class="step"><div class="step-circle">4</div><div class="step-title">Vertrek hersteld</div><p class="step-desc">Je vertrekt lichter, rustiger en helderder. De meeste cliënten voelen het verschil direct — lichaam en geest zijn gereset.</p></div>
@@ -262,6 +280,35 @@
   </div>
 </section>
 
+<!-- PRICING — valores enviados pela Mari (27/09/2026), ver docs/implementations/precos-nas-lps.md -->
+<section class="pricing" id="pricing">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="label">Tantric Holistic Relaxation · Prijzen</div>
+    <h2 class="title">Eenvoudige, <em>transparante</em> prijzen</h2>
+    <p class="pricing-intro">Dezelfde prijs voor beide sessietypes — je kiest alleen de duur. Twijfel je? Mari helpt je kiezen als je contact opneemt.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-dur">60 min</div>
+        <div class="price-val">€250</div>
+        <p class="price-desc">Een gerichte sessie om de spanning in je schouders, rug en nek los te laten.</p>
+      </div>
+      <div class="price-card featured">
+        <span class="price-tag">Aanbevolen</span>
+        <div class="price-dur">90 min</div>
+        <div class="price-val">€300</div>
+        <p class="price-desc">Mari’s aanbeveling voor een eerste sessie — tijd om echt los te laten en het verschil te voelen.</p>
+      </div>
+      <div class="price-card">
+        <div class="price-dur">120 min</div>
+        <div class="price-val">€350</div>
+        <p class="price-desc">Een volledige reset voor lichaam en geest, ideaal als stress zich al een tijd opbouwt.</p>
+      </div>
+    </div>
+    <p class="pricing-notes">Sessies tussen 9:00 en 19:00 · Bezoek aan huis of hotel in Amsterdam: +€50 reiskosten · Betalen met pin/kaart, contant of BTC</p>
+    <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20de%20Tantric%20Holistic%20Relaxation.%20Kun%20je%20me%20je%20beschikbaarheid%20sturen?" class="btn-moss" target="_blank">Boek je sessie →</a>
+  </div>
+</section>
+
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-portrait" style="background:transparent;overflow:hidden;"><img src="/images/LP1_About.webp" alt="Interieur van de privé massagestudio van Mari Gomes in Amsterdam" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -270,7 +317,7 @@
       <h2 class="title">Techniek, <em>sensitiviteit</em> en diepte</h2>
       <p>Mari Gomes is specialist in energiemassage en holistische lichaamstherapieën. Met uitgebreide ervaring combineert ze <strong>nauwkeurige techniek met echte sensitiviteit</strong> — elke sessie wordt afgestemd op wat jij die dag meebrengt.</p>
       <p>Haar methode wordt erkend om precisie en diepte. Ze werkt met het lichaam als geheel — fysiek, emotioneel en energetisch — omdat echte ontspanning betekent: spanning op elk niveau loslaten.</p>
-      <p><strong>Alle sessies vinden plaats in een privé studio in Amsterdam.</strong> De ruimte is ontworpen om diep werk te ondersteunen vanaf het moment dat je aankomt.</p>
+      <p><strong>Sessies vinden plaats in een privé studio in Amsterdam — of bij je thuis of in je hotel.</strong> De ruimte is ontworpen om diep werk te ondersteunen vanaf het moment dat je aankomt.</p>
       <div class="about-sig">Mari Gomes</div>
     </div>
   </div>
@@ -305,8 +352,8 @@
     <div class="label">Vragen & antwoorden</div>
     <h2 class="title">Alles wat je moet weten<br><em>voor je boekt</em></h2>
     <div class="faq-inner">
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe krijg ik een prijs / offerte?<span>+</span></div><div class="faq-a">Sessies worden geprijsd op basis van het gekozen type en de duur. Stuur een WhatsApp-bericht en Mari antwoordt met een persoonlijke offerte, alle details en beschikbare tijden — meestal snel.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Waar vindt de sessie plaats?<span>+</span></div><div class="faq-a">Alle sessies vinden plaats in Mari's privé studio in Amsterdam. Het exacte adres en de routebeschrijving worden gedeeld na bevestiging van de boeking.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wat kost een sessie?<span>+</span></div><div class="faq-a">De prijs hangt alleen af van de duur van de sessie: 60 minuten €250, 90 minuten €300 (aanbevolen voor een eerste sessie), 120 minuten €350. Sessies vinden plaats tussen 9:00 en 19:00. Voor een bezoek aan huis of hotel in Amsterdam geldt €50 reiskosten. Betalen met pin/kaart, contant of BTC.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Waar vindt de sessie plaats?<span>+</span></div><div class="faq-a">In Mari's privé studio in Amsterdam — het exacte adres en de routebeschrijving worden gedeeld na bevestiging van de boeking. Mari kan ook bij je thuis of in je hotel in Amsterdam komen (+€50 reiskosten).</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is dit een seksuele dienst?<span>+</span></div><div class="faq-a">Nee. Alle sessies zijn strikt therapeutisch. De focus ligt op fysieke verlichting, energetisch herstel en echt welzijn. De studio is professioneel en te allen tijde volledig respectvol.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wat moet ik dragen / meenemen?<span>+</span></div><div class="faq-a">Draag comfortabele, makkelijk uit te trekken kleding. Kom indien mogelijk al gedoucht — er is ook een douche beschikbaar in de studio. Betaling via contant of pin.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe lang duurt een sessie?<span>+</span></div><div class="faq-a">Sessies zijn beschikbaar in 60, 90 en 120 minuten. Mari raadt de beste duur aan op basis van je doelen wanneer je contact opneemt.</div></div>
@@ -331,8 +378,8 @@
 <section class="cta-final">
   <div class="label">Jouw volgende stap</div>
   <h2 class="title">Stop met de stress dragen.<br><em>Begin vandaag.</em></h2>
-  <p>Stuur een WhatsApp-bericht en ontvang een persoonlijke offerte met sessieopties, beschikbaarheid en antwoorden op al je vragen.</p>
-  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20een%20ontspanningsmassage.%20Kun%20je%20me%20een%20offerte%20en%20beschikbaarheid%20sturen?" class="btn-white" target="_blank">Vraag je offerte aan via WhatsApp →</a>
+  <p>Stuur een WhatsApp-bericht met je voorkeursdag en de gewenste sessieduur — Mari bevestigt de beschikbaarheid en beantwoordt al je vragen.</p>
+  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20de%20Tantric%20Holistic%20Relaxation.%20Kun%20je%20me%20je%20beschikbaarheid%20sturen?" class="btn-white" target="_blank">Boek je sessie via WhatsApp →</a>
   <p class="cta-note">Studio in Amsterdam · Op afspraak · Snelle reactie</p>
 </section>
 

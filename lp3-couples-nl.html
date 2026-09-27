@@ -154,7 +154,22 @@
   footer { background: var(--ink); color: rgba(248,244,239,0.5); padding: 36px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
   footer a { color: inherit; text-decoration: none; font-size: 13px; }
   footer .logo { color: var(--ivory); }
+  /* PRICING */
+  .option-price { font-family: 'Libre Baskerville', serif; font-size: 15px; color: var(--ink); margin-bottom: 14px; }
+  .option-price strong { font-size: 22px; font-weight: 400; color: var(--rose); }
+  .pricing { background: var(--ivory); }
+  .pricing-intro { font-size: 15px; color: var(--warm-gray); max-width: 600px; line-height: 1.8; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr; max-width: 640px; margin-top: 48px; }
+  .price-box { background: var(--white); border: 0.5px solid var(--border); padding: 36px 32px; }
+  .price-box h3 { font-family: 'Libre Baskerville', serif; font-size: 19px; font-weight: 400; margin-bottom: 6px; }
+  .price-box-sub { font-size: 13px; color: var(--warm-gray); line-height: 1.7; margin-bottom: 20px; }
+  .price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 0.5px solid var(--border); font-size: 14px; }
+  .price-row:last-child { border-bottom: none; }
+  .price-row strong { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 400; color: var(--rose); }
+  .pricing-notes { font-size: 13px; color: var(--warm-gray); margin-top: 28px; margin-bottom: 32px; line-height: 1.7; }
+
   @media (max-width: 768px) {
+    .pricing-grid { grid-template-columns: 1fr; }
     nav { padding: 16px 24px; }
     .nav-menu { display: none; }
     .hero { grid-template-columns: 1fr; }
@@ -187,6 +202,7 @@
     <div class="nav-menu">
       <a href="#experience-section">Ervaring</a>
       <a href="#options">Pakketten</a>
+      <a href="#pricing">Prijzen</a>
       <a href="#testimonials">Reviews</a>
       <a href="#faq">Vragen</a>
       <a href="#location">Locatie</a>
@@ -199,7 +215,7 @@
       window.gtranslateSettings['96138475'] = {"default_language":"nl","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-96138475","alt_flags":[],"horizontal_position":"inline","flags_location":"https://cdn.gtranslate.net/flags/"}
     </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/flags.js" data-gt-widget-id="96138475"></script>
-    <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20meer%20informatie%20en%20een%20offerte%20sturen?" class="nav-cta" target="_blank">Boek voor twee</a>
+    <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20meer%20informatie%20sturen?" class="nav-cta" target="_blank">Boek voor twee</a>
   </div>
 </nav>
 
@@ -216,13 +232,13 @@
     <p class="hero-eyebrow">Amsterdam · Privé Studio · Voor twee</p>
     <h1 class="hero-headline">Een holistische<br>massage-ervaring<br><em>voor koppels</em></h1>
     <p class="hero-sub">Meer dan een massage — een gedeelde reis die stress verlicht, energie herstelt en verbinding verdiept. In een privé, zorgvuldig ingericht studio in Amsterdam.</p>
-    <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20een%20offerte%20en%20beschikbaarheid%20sturen?" class="btn-rose" target="_blank">Vraag je offerte voor twee aan →</a>
-    <p class="hero-note">Privé studio · Op afspraak · Offerte via WhatsApp</p>
+    <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20je%20beschikbaarheid%20sturen?" class="btn-rose" target="_blank">Boek jullie sessie voor twee →</a>
+    <p class="hero-note">Vanaf €350 voor twee · Privé studio · Boeken via WhatsApp</p>
   </div>
 </div>
 
 <div class="promise-bar">
-  <div class="promise-item"><div class="promise-icon">◈</div><div class="promise-title">Naast elkaar</div><p class="promise-desc">Beleef de sessie samen, in dezelfde ruimte, op hetzelfde moment.</p></div>
+  <div class="promise-item"><div class="promise-icon">◈</div><div class="promise-title">Naast elkaar</div><p class="promise-desc">Beleef de sessie samen, in dezelfde privé ruimte.</p></div>
   <div class="promise-item"><div class="promise-icon">◎</div><div class="promise-title">Op maat voor twee</div><p class="promise-desc">Elke sessie wordt gepersonaliseerd op wat jullie die dag meebrengen.</p></div>
   <div class="promise-item"><div class="promise-icon">◇</div><div class="promise-title">Privé studio</div><p class="promise-desc">Een intieme, toegewijde ruimte in Amsterdam ontworpen voor koppels.</p></div>
 </div>
@@ -234,7 +250,7 @@
     <div class="for-grid">
       <div class="for-card"><div class="for-card-icon">◈</div><h3>Jullie willen herverbinden</h3><p>Drukke levens creëren afstand. Een gezamenlijke sessie vertraagt alles en creëert ruimte voor echte aanwezigheid — samen, zonder afleiding.</p></div>
       <div class="for-card"><div class="for-card-icon">◎</div><h3>Jullie iets anders willen</h3><p>Een unieke ervaring die verder gaat dan een diner. Iets wat jullie allebei bijblijft. Een cadeau dat op een dieper niveau geeft.</p></div>
-      <div class="for-card"><div class="for-card-icon">◇</div><h3>Jullie allebei stress dragen</h3><p>Wanneer beide partners gestrest zijn, lijdt de relatie eronder. Samen ontspannen — in dezelfde ruimte, op hetzelfde moment — creëert een gedeelde reset.</p></div>
+      <div class="for-card"><div class="for-card-icon">◇</div><h3>Jullie allebei stress dragen</h3><p>Wanneer beide partners gestrest zijn, lijdt de relatie eronder. Samen ontspannen — in dezelfde ruimte — creëert een gedeelde reset.</p></div>
     </div>
   </div>
 </section>
@@ -248,7 +264,7 @@
       <h2 class="title">Elk detail <em>intentioneel</em></h2>
       <ul class="exp-list">
         <li><div class="exp-list-num">i.</div><div><div class="exp-list-title">Verwelkomingsritueel</div><div class="exp-list-desc">Jullie komen allebei aan in een ruimte die is voorbereid voor jullie sessie — rustgevend, sfeervol en privé. Een korte intake om te begrijpen wat jullie die dag meebrengen.</div></div></li>
-        <li><div class="exp-list-num">ii.</div><div><div class="exp-list-title">Gelijktijdige holistische massage</div><div class="exp-list-desc">Naast elkaar, elk een full-body holistische massage ontvangend van Mari. Druk, techniek en focus individueel aangepast aan elke partner.</div></div></li>
+        <li><div class="exp-list-num">ii.</div><div><div class="exp-list-title">Holistische massage voor ieder van jullie</div><div class="exp-list-desc">In dezelfde ruimte ontvangt ieder een full-body holistische massage van Mari. Druk, techniek en focus individueel aangepast aan elke partner.</div></div></li>
         <li><div class="exp-list-num">iii.</div><div><div class="exp-list-title">Energetische en zintuiglijke elementen</div><div class="exp-list-desc">Aromatische oliën, begeleide ademhaling en intentionele energetische aanraking — de volledige holistische ervaring, samen gedeeld.</div></div></li>
         <li><div class="exp-list-num">iv.</div><div><div class="exp-list-title">Afsluiting en integratie</div><div class="exp-list-desc">Tijd om na de sessie te rusten en te herverbinden in een rustige, privé omgeving voordat jullie vertrekken.</div></div></li>
       </ul>
@@ -265,22 +281,46 @@
         <div class="option-name">Ontspanning Duo</div>
         <p class="option-desc">Een full-body holistische massage gericht op diepe fysieke ontspanning en stressverlichting. Ideaal voor koppels die samen willen ontspannen en lichter willen vertrekken.</p>
         <p class="option-desc" style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color: var(--rose);">Beste voor → eerste keer · stressverlichting · verjaardag</p>
-        <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20We%20willen%20graag%20een%20Ontspanning%20Duo%20sessie%20boeken.%20Kun%20je%20ons%20een%20offerte%20sturen?" class="option-cta" target="_blank">Offerte aanvragen →</a>
+        <div class="option-price">Vanaf <strong>€350</strong> voor twee</div>
+        <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20We%20willen%20graag%20een%20Ontspanning%20Duo%20sessie%20boeken.%20Kun%20je%20ons%20je%20beschikbaarheid%20sturen?" class="option-cta" target="_blank">Boek deze sessie →</a>
       </div>
       <div class="option-card featured">
         <div class="option-popular">Meest gevraagd</div>
         <div class="option-name">Holistische Koppelservaring</div>
         <p class="option-desc">Onze signatuursessie voor twee — combineert fysieke massage, energetische heling en bewuste elementen. Elk partner ontvangt een volledig gepersonaliseerde sessie terwijl jullie de ervaring samen delen.</p>
         <p class="option-desc" style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color: var(--rose);">Beste voor → herverbinding · jubileum · diepe reset</p>
-        <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20We%20zijn%20ge%C3%AFnteresseerd%20in%20de%20Holistische%20Koppelservaring.%20Kun%20je%20ons%20details%20en%20een%20offerte%20sturen?" class="option-cta" target="_blank">Offerte aanvragen →</a>
+        <div class="option-price">Vanaf <strong>€350</strong> voor twee</div>
+        <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20We%20zijn%20ge%C3%AFnteresseerd%20in%20de%20Holistische%20Koppelservaring.%20Kun%20je%20ons%20details%20en%20je%20beschikbaarheid%20sturen?" class="option-cta" target="_blank">Boek deze sessie →</a>
       </div>
       <div class="option-card">
         <div class="option-name">Tantrische Koppelstherapie</div>
         <p class="option-desc">Een diepere energetische ervaring voor koppels die klaar zijn om samen verbinding, levensenergie en emotionele vrijlating te verkennen. Een transformerende sessie die echte vernieuwing brengt.</p>
         <p class="option-desc" style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color: var(--rose);">Beste voor → diepere verbinding · energiewerk · vernieuwing</p>
-        <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20We%20zijn%20ge%C3%AFnteresseerd%20in%20de%20Tantrische%20Koppelstherapie.%20Kun%20je%20ons%20meer%20informatie%20sturen?" class="option-cta" target="_blank">Offerte aanvragen →</a>
+        <div class="option-price">Vanaf <strong>€350</strong> voor twee</div>
+        <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20We%20zijn%20ge%C3%AFnteresseerd%20in%20de%20Tantrische%20Koppelstherapie.%20Kun%20je%20ons%20meer%20informatie%20sturen?" class="option-cta" target="_blank">Boek deze sessie →</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- PRICING — valores enviados pela Mari (27/09/2026), ver docs/implementations/precos-nas-lps.md -->
+<section class="pricing" id="pricing">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="label">Prijzen</div>
+    <h2 class="title">Prijzen <em>voor twee</em></h2>
+    <p class="pricing-intro">Eén prijs voor het koppel, niet per persoon. De drie formaten hierboven hebben dezelfde prijs — jullie kiezen de duur.</p>
+    <div class="pricing-grid">
+      <div class="price-box">
+        <h3>Koppelsessie</h3>
+        <p class="price-box-sub">Mari begeleidt het ritueel voor jullie allebei, in dezelfde privé ruimte.</p>
+        <div class="price-row"><span>90 minuten</span><strong>€350</strong></div>
+        <div class="price-row"><span>2 uur</span><strong>€400</strong></div>
+        <div class="price-row"><span>2,5 uur</span><strong>€450</strong></div>
+        <div class="price-row"><span>3 uur</span><strong>€500</strong></div>
+      </div>
+    </div>
+    <p class="pricing-notes">Sessies tussen 9:00 en 19:00 · Bezoek aan huis of hotel in Amsterdam: +€50 reiskosten · Betalen met pin/kaart, contant of BTC · Ook als cadeau mogelijk</p>
+    <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20je%20beschikbaarheid%20sturen?" class="btn-rose" target="_blank">Boek jullie sessie voor twee →</a>
   </div>
 </section>
 
@@ -301,10 +341,11 @@
     <div class="label">Jullie vragen, beantwoord</div>
     <h2 class="title">Alles wat je moet weten<br><em>voor je boekt</em></h2>
     <div class="faq-inner">
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ontvangen we de massage tegelijkertijd?<span>+</span></div><div class="faq-a">Ja. Beide partners ontvangen hun massage gelijktijdig in dezelfde privé ruimte. Jullie beleven het samen, naast elkaar.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is er één of zijn er twee therapeuten?<span>+</span></div><div class="faq-a">Mari adviseert over het beste formaat voor de gekozen sessie wanneer jullie contact opnemen. Dit wordt vóór de boeking verduidelijkt samen met de offerte.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe krijgen we een offerte?<span>+</span></div><div class="faq-a">Stuur een WhatsApp-bericht met het gewenste sessietype. Mari antwoordt met een persoonlijke offerte, alle details en beschikbare datums — meestal snel.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Waar vindt de sessie plaats?<span>+</span></div><div class="faq-a">Alle sessies vinden plaats in een privé studio in Amsterdam. Het exacte adres wordt gedeeld na bevestiging van de boeking.</div></div>
+      <!-- COPY DRAFT: como funciona a massagem do casal com 1 terapeuta (simultânea ou alternada) a confirmar com a Mary (pendência #11) -->
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ontvangen we de massage tegelijkertijd?<span>+</span></div><div class="faq-a">Jullie beleven de hele ervaring samen, naast elkaar in dezelfde privé ruimte. Mari begeleidt het ritueel voor jullie allebei en legt uit hoe de sessie verloopt wanneer jullie contact opnemen.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is er één of zijn er twee therapeuten?<span>+</span></div><div class="faq-a">Eén — Mari begeleidt de sessie voor jullie allebei, van begin tot eind.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wat kost een koppelsessie?<span>+</span></div><div class="faq-a">De prijs geldt voor het koppel, niet per persoon: 90 minuten €350, 2 uur €400, 2,5 uur €450, 3 uur €500. Sessies vinden plaats tussen 9:00 en 19:00. Voor een bezoek aan huis of hotel in Amsterdam geldt €50 reiskosten. Betalen met pin/kaart, contant of BTC.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Waar vindt de sessie plaats?<span>+</span></div><div class="faq-a">In een privé studio in Amsterdam — het exacte adres wordt gedeeld na bevestiging van de boeking. Mari kan ook bij jullie thuis of in jullie hotel in Amsterdam komen (+€50 reiskosten).</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is dit een seksuele dienst?<span>+</span></div><div class="faq-a">Nee. Alle sessies — inclusief Tantrische Therapie — zijn strikt therapeutisch en energetisch van aard. De studio is professioneel en te allen tijde volledig respectvol.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kunnen we dit cadeau geven?<span>+</span></div><div class="faq-a">Ja. Een koppelssessie is een doordacht en betekenisvol cadeau. Neem contact op via WhatsApp en Mari adviseert over de beste optie voor de gelegenheid.</div></div>
     </div>
@@ -328,8 +369,8 @@
 <section class="cta-final">
   <div class="label">Boek jullie ervaring</div>
   <h2 class="title">Gun jullie zelf<br>de ervaring <em>die je verdient</em></h2>
-  <p>Stuur een WhatsApp-bericht en ontvang een persoonlijke offerte met sessieopties, beschikbaarheid en alles wat jullie nodig hebben om te boeken.</p>
-  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20een%20offerte%20en%20beschikbaarheid%20sturen?" class="btn-ivory" target="_blank">Vraag jullie offerte aan →</a>
+  <p>Stuur een WhatsApp-bericht met jullie voorkeursdag en sessie — Mari bevestigt de beschikbaarheid en alles wat jullie nodig hebben om te boeken.</p>
+  <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Mijn%20partner%20en%20ik%20zijn%20ge%C3%AFnteresseerd%20in%20een%20koppelsmassage.%20Kun%20je%20ons%20je%20beschikbaarheid%20sturen?" class="btn-ivory" target="_blank">Boek jullie sessie →</a>
   <p class="cta-note">Privé studio · Amsterdam · Op afspraak · Snelle reactie</p>
 </section>
 

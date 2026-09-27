@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Holistic Energy Massage Amsterdam | Mari Gomes</title>
+<title>Tantric Energy Experience Amsterdam | Mari Gomes</title>
 <!-- Google Consent Mode v2 — default state (denied until the visitor chooses via the cookie banner below) -->
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -369,7 +369,22 @@
   footer .logo { color: var(--cream); }
 
   /* RESPONSIVE */
+  /* PRICING */
+  .pricing { background: var(--warm-white); }
+  .pricing-intro { font-size: 15px; color: var(--stone); max-width: 560px; line-height: 1.8; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
+  .price-card { background: var(--cream); border: 0.5px solid var(--border); padding: 40px 32px; position: relative; }
+  .price-card.featured { background: var(--charcoal); color: var(--cream); border-color: var(--charcoal); }
+  .price-tag { position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--charcoal); background: var(--gold-light); padding: 4px 10px; }
+  .price-dur { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .price-val { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; line-height: 1; margin-bottom: 16px; }
+  .price-desc { font-size: 14px; color: var(--stone); line-height: 1.7; }
+  .price-card.featured .price-dur { color: var(--gold-light); }
+  .price-card.featured .price-desc { color: rgba(253,250,247,0.65); }
+  .pricing-notes { font-size: 13px; color: var(--stone); margin-top: 28px; margin-bottom: 36px; line-height: 1.7; }
+
   @media (max-width: 768px) {
+    .pricing-grid { grid-template-columns: 1fr; }
     nav { padding: 16px 24px; }
     .nav-menu { display: none; }
     .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
@@ -408,6 +423,7 @@
     <div class="nav-menu">
       <a href="#about">About</a>
       <a href="#therapies">Therapies</a>
+      <a href="#pricing">Prices</a>
       <a href="#testimonials">Reviews</a>
       <a href="#faq">FAQ</a>
       <a href="#location">Location</a>
@@ -420,14 +436,14 @@
       window.gtranslateSettings['41028573'] = {"default_language":"en","languages":["nl","en","fr","pt","es"],"url_structure":"none","flag_style":"2d","flag_size":24,"wrapper_selector":"#gt-wrapper-41028573","alt_flags":[],"horizontal_position":"inline","flags_location":"https://cdn.gtranslate.net/flags/"}
     </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/flags.js" data-gt-widget-id="41028573"></script>
-    <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Holistic%20Energy%20Massage%20session.%20Could%20you%20provide%20more%20details?" class="nav-cta" target="_blank">Book a session</a>
+    <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Tantric%20Energy%20Experience%20session.%20Could%20you%20provide%20more%20details?" class="nav-cta" target="_blank">Book a session</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Holistic Massage · Amsterdam</p>
+    <p class="hero-eyebrow">Tantric Energy Experience · Amsterdam</p>
     <h1 class="hero-headline">
       Restore your <em>energy,</em><br>
       balance your chakras,<br>
@@ -437,8 +453,8 @@
       Feeling drained, disconnected, or out of balance? Our holistic energy sessions realign your body, mind, and vital energy — in a private, professional studio in Amsterdam.
     </p>
     <div class="hero-actions">
-      <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Holistic%20Energy%20Massage%20session.%20Could%20you%20please%20send%20me%20more%20details%20and%20availability?" class="btn-primary" target="_blank">Request your session →</a>
-      <p class="hero-note">Sessions by appointment · Studio in Amsterdam · Quote via WhatsApp</p>
+      <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Tantric%20Energy%20Experience%20session.%20Could%20you%20please%20send%20me%20more%20details%20and%20availability?" class="btn-primary" target="_blank">Request your session →</a>
+      <p class="hero-note">From €300 · Studio in Amsterdam · Book via WhatsApp</p>
     </div>
   </div>
   <div class="hero-right">
@@ -539,6 +555,35 @@
   </div>
 </section>
 
+<!-- PRICING — valores enviados pela Mari (27/09/2026), ver docs/implementations/precos-nas-lps.md -->
+<section class="pricing" id="pricing">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">Tantric Energy Experience · Prices</div>
+    <h2 class="section-title">Clear prices, <em>no surprises</em></h2>
+    <p class="pricing-intro">One price per session length. The modality — energetic, holistic or tantric — is chosen together with Mari, based on what you need that day.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-dur">60 min</div>
+        <div class="price-val">€300</div>
+        <p class="price-desc">A focused session to release tension and rebalance your energy.</p>
+      </div>
+      <div class="price-card featured">
+        <span class="price-tag">Recommended</span>
+        <div class="price-dur">90 min</div>
+        <div class="price-val">€350</div>
+        <p class="price-desc">Mari's recommendation for a first session — enough time to experience the full depth of the work.</p>
+      </div>
+      <div class="price-card">
+        <div class="price-dur">120 min</div>
+        <div class="price-val">€400</div>
+        <p class="price-desc">An extended session combining several techniques for a deep reset of body and energy.</p>
+      </div>
+    </div>
+    <p class="pricing-notes">Sessions between 9:00 and 19:00 · Home or hotel visit in Amsterdam: +€50 travel fee · Payment by card, cash or BTC</p>
+    <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Tantric%20Energy%20Experience%20session.%20Could%20you%20please%20send%20me%20more%20details%20and%20availability?" class="btn-primary" target="_blank">Book your session on WhatsApp →</a>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
   <div style="max-width: 1100px; margin: 0 auto;">
@@ -586,17 +631,17 @@
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          How does pricing work? Can I get a quote?
+          How much does a session cost?
           <span>+</span>
         </div>
-        <div class="faq-a">Sessions are priced based on the modality and duration chosen. To receive a personalised quote with full details, simply send a message via WhatsApp — Mari will respond with all the information you need within a short time.</div>
+        <div class="faq-a">Prices depend only on the length of the session: 60 minutes €300, 90 minutes €350 (recommended for a first session), 120 minutes €400. Sessions take place between 9:00 and 19:00. For a home or hotel visit in Amsterdam there is a €50 travel fee. Payment by card, cash or BTC.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           Where do sessions take place?
           <span>+</span>
         </div>
-        <div class="faq-a">All sessions take place in Mari's private studio in Amsterdam. The address and exact directions are shared upon booking confirmation.</div>
+        <div class="faq-a">In Mari's private studio in Amsterdam — the address and exact directions are shared upon booking confirmation. Mari can also come to your home or hotel in Amsterdam (+€50 travel fee).</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -635,8 +680,8 @@
 <section class="cta-section">
   <div class="section-label" style="justify-content: center;">Ready to begin</div>
   <h2 class="section-title">Your energy <em>deserves</em><br>to be restored</h2>
-  <p>Send a message on WhatsApp and receive a personalised quote with full session details, availability, and answers to any questions you may have.</p>
-  <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Holistic%20Energy%20Massage%20session.%20Could%20you%20please%20send%20me%20more%20details%20and%20availability?" class="btn-primary" target="_blank">Request your quote on WhatsApp →</a>
+  <p>Send a message on WhatsApp with your preferred day and session length — Mari will confirm availability and answer any questions you may have.</p>
+  <a href="https://wa.me/31634366008?text=Hi%20Mari!%20I%27m%20interested%20in%20a%20Tantric%20Energy%20Experience%20session.%20Could%20you%20please%20send%20me%20more%20details%20and%20availability?" class="btn-primary" target="_blank">Book your session on WhatsApp →</a>
   <p class="cta-disclaimer">Quick response · Studio in Amsterdam · Sessions by appointment</p>
 </section>
 
