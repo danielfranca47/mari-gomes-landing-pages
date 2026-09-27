@@ -74,8 +74,7 @@ URLs `-v2` não existem mais). A pergunta 1 está resolvida; a 3 virou
    passe a mostrar os mesmos valores/nomes das LPs? E os demais tratamentos
    (Dearmouring, Chakra Balancing, Couple Ritual, Coaching) — quais valores?
 
-**Onde é usado:** 6 pastas `*-v2/` (`docs/implementations/precos-nas-lps.md`).
-Após a aprovação, viram as LPs principais.
+**Onde é usado:** seção `#pricing` e FAQs das 6 LPs (ver `CLAUDE.md`, seção "Preços nas LPs").
 
 **Registrado em:** 2026-09-27. **Atualizado:** 2026-09-27 (valores reais recebidos).
 
@@ -325,7 +324,7 @@ novas em `prices/index.html`/`nl/` (Fase 3) de
 **Revertido em 2026-09-27 (via Daniel):** a Mari **não** oferece, por enquanto,
 nenhuma opção com segunda terapeuta. 4 mãos e "Couple Ritual with 2 Therapists"
 foram removidos da Home, Treatments e Prices (EN/NL), e "me and my colleague
-therapists" virou atendimento pessoal dela (`docs/implementations/precos-nas-lps.md`, Fase 6).
+therapists" virou atendimento pessoal dela (commit `eba5632`).
 
 ---
 
@@ -373,7 +372,7 @@ deslocamento (só a taxa noturna copiada da Tantrana).
 
 **Resolução (2026-09-27, via Daniel):** taxa fixa de **€50** para visita a casa/hotel.
 A Mari atende só das **9:00 às 19:00** — não existe sobretaxa noturna. Aplicado nas
-6 LPs v2 (`docs/implementations/precos-nas-lps.md`). Ainda falta refletir em
+6 LPs (ver `CLAUDE.md`, seção "Preços nas LPs"). Ainda falta refletir em
 `treatments/` e `prices/` (+ `nl/`), que dizem "a pedido" e mostram a sobretaxa
 "after 21:00" — listado como ajuste no mesmo doc.
 

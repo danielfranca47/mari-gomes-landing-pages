@@ -2,7 +2,7 @@
 
 **Status:** Planejado — diagnóstico pronto (27/09/2026), bloqueado pela pendência #13; falta Plan Mode + aprovação.
 
-> Criado a partir dos "ajustes possíveis" de `precos-nas-lps.md`. Antes de implementar,
+> Criado a partir dos "ajustes possíveis" da implementação de preços nas LPs (já graduada — ver `CLAUDE.md`, seção "Preços nas LPs"). Antes de implementar,
 > seguir o Passo 0 de `_guia-documentar-implementacao.md`.
 
 ---

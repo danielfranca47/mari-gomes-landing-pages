@@ -2,19 +2,19 @@
 
 **Status:** Planejado — diagnóstico pronto (27/09/2026), falta Plan Mode + aprovação do plano.
 
-> Criado a partir dos "ajustes possíveis" de `precos-nas-lps.md`. Antes de implementar,
+> Criado a partir dos "ajustes possíveis" da implementação de preços nas LPs (já graduada — ver `CLAUDE.md`, seção "Preços nas LPs"). Antes de implementar,
 > seguir o Passo 0 de `_guia-documentar-implementacao.md` (revalidar o diagnóstico abaixo
-> e aprovar as fases com o Daniel). Os valores das LPs v2 são a referência.
+> e aprovar as fases com o Daniel). Os valores das LPs são a referência.
 
 ---
 
 ## Motivação
 
 Em 27/09/2026 a Mari passou os preços reais dos serviços das LPs, o horário de
-atendimento (só 9:00–19:00) e a taxa de deslocamento (€50). Isso já está nas LPs v2
-(`precos-nas-lps.md`), mas o site institucional continua com a tabela da Tantrana, a
+atendimento (só 9:00–19:00) e a taxa de deslocamento (€50). Isso já está nas 6 LPs
+(`CLAUDE.md`, seção "Preços nas LPs"), mas o site institucional continua com a tabela da Tantrana, a
 sobretaxa noturna e "deslocamento a pedido". Quem sai da LP e abre `/prices/` vê outro
-preço pro mesmo serviço. **Recomendado fazer antes de promover as LPs v2.**
+preço pro mesmo serviço. **As LPs já estão no ar com os preços novos (27/09/2026) — esta é a próxima prioridade.**
 
 ---
 
@@ -23,7 +23,7 @@ preço pro mesmo serviço. **Recomendado fazer antes de promover as LPs v2.**
 1. **`/prices/` com preços antigos para os 3 serviços das LPs**
    (`prices/index.html` / `nl/prices/index.html`, tabela de sessões):
 
-   | Linha atual | Mostra hoje | Valor da Mari (LPs v2) |
+   | Linha atual | Mostra hoje | Valor da Mari (LPs) |
    |---|---|---|
    | Holistic Energy Massage | 60–180 min €300–€500 | "Tantric Energy Experience": 60/90/120 min €300/€350/€400 |
    | Relaxation & Stress Relief | 60–180 min €300–€500 | "Tantric Holistic Relaxation": 60/90/120 min €250/€300/€350 |
@@ -77,7 +77,7 @@ preço pro mesmo serviço. **Recomendado fazer antes de promover as LPs v2.**
 ## Checks de Validação (propostos)
 
 ### Cenário 1 — Mesmo preço na LP e no site
-- [ ] Para cada LP v2, o valor e a duração na seção `#pricing` batem com a linha correspondente de `/prices/` (EN e NL)
+- [ ] Para cada LP, o valor e a duração na seção `#pricing` batem com a linha correspondente de `/prices/` (EN e NL)
 
 ### Cenário 2 — Horário e deslocamento coerentes
 - [ ] Nenhuma menção a sessão após 19:00 ou sobretaxa noturna em Prices/Treatments/Home

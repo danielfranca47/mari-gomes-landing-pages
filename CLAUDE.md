@@ -17,10 +17,10 @@ Três landing pages de vendas para a terapeuta **Mari Gomes** (massagem holísti
 
 | Arquivo | Página | Idioma |
 |---|---|---|
-| `lp1-holistic-energy-en.html` | LP1 — Holistic Energy Massage | EN |
-| `lp1-holistic-energy-nl.html` | LP1 — Holistic Energy Massage | NL |
-| `lp2-relaxation-en.html` | LP2 — Relaxation & Stress Relief | EN |
-| `lp2-relaxation-nl.html` | LP2 — Relaxation & Stress Relief | NL |
+| `lp1-holistic-energy-en.html` | LP1 — Tantric Energy Experience (ex-Holistic Energy Massage) | EN |
+| `lp1-holistic-energy-nl.html` | LP1 — Tantric Energy Experience (ex-Holistic Energy Massage) | NL |
+| `lp2-relaxation-en.html` | LP2 — Tantric Holistic Relaxation (ex-Relaxation & Stress Relief) | EN |
+| `lp2-relaxation-nl.html` | LP2 — Tantric Holistic Relaxation (ex-Relaxation & Stress Relief) | NL |
 | `lp3-couples-en.html` | LP3 — Couples Massage | EN |
 | `lp3-couples-nl.html` | LP3 — Couples Massage | NL |
 
@@ -68,7 +68,22 @@ Dados de atendimento confirmados pela Mari (27/09/2026) — valem para LPs e sit
 - **Atende sozinha:** não oferecer nada que exija segunda terapeuta (4 mãos, casal com 2 terapeutas, "me and my colleague therapists"); na sessão de casal é a Mari que conduz.
 - **Pagamento:** cartão, dinheiro ou BTC.
 
-Os preços por LP estão sendo publicados via versões `*-v2/` (ver `docs/implementations/precos-nas-lps.md`) — só migram para cá quando as v2 forem promovidas.
+## Preços nas LPs
+
+Desde 27/09/2026 as 6 LPs mostram preço (pedido da Mari: filtrar lead que chamava no WhatsApp sem saber o valor). Valores enviados por ela:
+
+| LP (pasta, URL mantida) | Nome do serviço | Preços |
+|---|---|---|
+| LP1 `holistic-energy-massage-*` | Tantric Energy Experience | 60 min €300 · 90 min €350 (recomendado) · 120 min €400 |
+| LP2 `relaxation-massage-*` | Tantric Holistic Relaxation | 60 min €250 · 90 min €300 (recomendado) · 120 min €350 |
+| LP3 `couples-massage-*` | (nome original) | 90 min €350 · 2h €400 · 2,5h €450 · 3h €500 — preço do casal |
+
+- O nome do serviço aparece no `<title>`, no rótulo do hero (`.hero-eyebrow` / `.hero-tag`), no rótulo da seção de preços e no texto pré-preenchido do WhatsApp; os `<h1>` não mudaram. "Tantric" em página de anúncio é risco aceito pelo Daniel (pendência #8).
+- Cada LP tem uma `<section id="pricing">` no estilo próprio da página (LP1 após "The experience"; LP2 antes do About; LP3 após Packages, e os 3 cards de Packages mostram "From €350 for two") + link "Prices/Prijzen" no nav, FAQ "How much does a session cost?" com os valores, hero note "From €…" e a nota "Sessions between 9:00 and 19:00 · Home or hotel visit in Amsterdam: +€50 travel fee · Payment by card, cash or BTC".
+- Os CTAs dizem "Book…" (não "Request a quote") e o texto do WhatsApp pede disponibilidade, não orçamento.
+- O botão da seção de preços é um link `wa.me` como os outros, então também dispara a conversão do Google Ads.
+- LP3: a Mari atende o casal sozinha — nenhum texto promete massagem simultânea (pergunta #11-2 aberta para refinar).
+- **`/prices/` do site institucional ainda não segue esta tabela** — ver `docs/implementations/alinhamento-precos-site-institucional.md`. Ao mudar preço, mudar nas LPs e no `/prices/` juntos.
 
 ## Seletor de idiomas (GTranslate)
 
@@ -98,14 +113,14 @@ pra lá.
 
 ## Menu de navegação interno (âncoras)
 
-O `<nav>` de cada página tem 2 grupos lado a lado (`.nav-left` = logo + menu, `.nav-right` = bandeiras + CTA), com `justify-content: space-between` entre os dois grupos. O menu (`.nav-menu`) tem 4 links em âncora (`#id`) para seções da própria página — **escondido em mobile** (`max-width: 768px`) via `display: none`, já que não há menu hambúrguer implementado; no celular só ficam logo, bandeiras e botão de CTA.
+O `<nav>` de cada página tem 2 grupos lado a lado (`.nav-left` = logo + menu, `.nav-right` = bandeiras + CTA), com `justify-content: space-between` entre os dois grupos. O menu (`.nav-menu`) tem 6 links em âncora (`#id`) para seções da própria página — **escondido em mobile** (`max-width: 768px`) via `display: none`, já que não há menu hambúrguer implementado; no celular só ficam logo, bandeiras e botão de CTA.
 
 Cada seção-alvo recebeu um `id` (reaproveitando o nome da classe, ex. `class="about" id="about"`) e a regra global `section { ...; scroll-margin-top: Npx; }` foi ajustada para compensar a altura do nav fixo — sem isso, o scroll suave (`html { scroll-behavior: smooth; }`, já existente) deixaria o topo da seção escondido atrás do nav.
 
 Itens do menu por página (mesmas seções, label traduzido por idioma):
-- **LP1**: About/Over mij → `#about` · Therapies/Therapieën → `#therapies` · Reviews → `#testimonials` · FAQ/Vragen → `#faq`
-- **LP2**: Sessions/Sessies → `#sessions` · About/Over mij → `#about` · Reviews → `#testimonials` · FAQ/Vragen → `#faq`
-- **LP3**: Experience/Ervaring → `#experience-section` · Packages/Pakketten → `#options` · Reviews → `#testimonials` · FAQ/Vragen → `#faq`
+- **LP1**: About/Over mij → `#about` · Therapies/Therapieën → `#therapies` · Prices/Prijzen → `#pricing` · Reviews → `#testimonials` · FAQ/Vragen → `#faq` · Location/Locatie → `#location`
+- **LP2**: Sessions/Sessies → `#sessions` · Prices/Prijzen → `#pricing` · About/Over mij → `#about` · Reviews → `#testimonials` · FAQ/Vragen → `#faq` · Location/Locatie → `#location`
+- **LP3**: Experience/Ervaring → `#experience-section` · Packages/Pakketten → `#options` · Prices/Prijzen → `#pricing` · Reviews → `#testimonials` · FAQ/Vragen → `#faq` · Location/Locatie → `#location`
 
 Ao adicionar uma seção nova a alguma LP que faça sentido entrar no menu, lembrar de: adicionar `id` na section, adicionar o link em `.nav-menu` (nos dois grupos `.nav-left`), e conferir que `scroll-margin-top` ainda cobre a altura do nav.
 
@@ -128,6 +143,8 @@ As 6 páginas têm uma seção `#location` (entre o FAQ e a CTA final) com ender
 - Links de WhatsApp usam texto pré-preenchido via `?text=` com `%XX` encoding — ao alterar a mensagem, manter o encoding válido (espaços como `%20`, apóstrofo como `%27`, etc.).
 - Não introduzir dependências externas (frameworks JS, build tools) — o objetivo é manter os arquivos simples e portáveis para colar/publicar no WordPress da cliente.
 - Existe uma classe `.btn-outline` definida no CSS da LP1 que não é usada em nenhum HTML — é resíduo, não precisa de ação a menos que peçam um botão secundário.
+- Os `lp*-*.html` da raiz são cópias idênticas de `<slug>/index.html` — toda mudança numa LP vai nos dois.
+- **Mudança grande em LP com anúncio ativo → prévia `-v2` antes.** Criar `<slug>-v2/index.html` (cópia + mudança) com `<meta name="robots" content="noindex, nofollow">` e o listener de conversão travado com `if (!/-v2\//.test(location.pathname))`, pra teste da Mari não gerar conversão falsa. Na promoção: copiar por cima de `<slug>/index.html` **e** do `lp*-*.html` legado, remover `noindex` + trava, `git rm -r` da pasta `-v2`, e **conferir que os blocos `<script>` (Consent Mode, `GT-55XJZX3L`, configs `G-`/`AW-`, conversão, cookie banner, GTranslate) ficaram idênticos à versão no ar** — regressão de tag já custou 18 dias de conversões (ver `docs/implementations/correcao-tag-conversao-google-ads.md`).
 
 ## Fluxo de trabalho deste projeto
 
