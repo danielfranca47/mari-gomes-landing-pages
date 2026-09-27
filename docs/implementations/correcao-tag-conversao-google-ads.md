@@ -76,7 +76,7 @@ viravam conversão e o GA4 não recebia nada.
 - **Validado em:** 27/09/2026 — `http://localhost:8765/holistic-energy-massage-en/?gclid=TEST_GCLID_123`, Chrome DevTools MCP
 
 ### Cenário 2 — Em produção
-- [ ] Após o push, repetir o Cenário 1 em `https://amarigomes.com/holistic-energy-massage-en/`
+- [x] Após o push, repetir o Cenário 1 em produção — 27/09/2026, `https://amarigomes.com/holistic-energy-massage-nl/?gclid=TEST_PROD_GCLID`: loader `GT-55XJZX3L` carrega; conversão com label `9rp5CIvso6QcEJqMuZhD` enviada sem consentimento (`gcs=G100`) e com consentimento (`gcs=G111`, cookie `_gcl_aw` com o gclid). Conferido também que as 9 URLs principais servem o loader novo.
 - [ ] Em até 48h: "Solicitar cotação" volta a "Ativa" e a qualidade da tag sai de "Urgente"
 
 ### Cenário 3 — Fotos das LPs
