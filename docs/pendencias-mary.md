@@ -13,6 +13,37 @@ mudança no código correspondente.
 
 ## Em aberto
 
+### 12. Taxa de deslocamento fora de Amsterdã
+
+**Contexto:** a taxa de €50 (27/09/2026) vale para casa/hotel em Amsterdã. A Home
+diz que ela também atende em outras cidades ("Utrecht, The Hague, and Rotterdam").
+
+**Perguntar pra Mary:** continua atendendo fora de Amsterdã? Se sim, qual a taxa
+(fixa ou por distância)? Se não, tiramos as outras cidades da Home.
+
+**Onde é usado:** `index.html` / `nl/index.html` (+ `home-en.html` / `home-nl.html`),
+seção My Services. Ver `docs/implementations/alinhamento-precos-site-institucional.md`.
+
+**Registrado em:** 2026-09-27.
+
+---
+
+### 13. Workshop: horário até 22:00 e se é mesmo da Mari
+
+**Contexto:** a Mari atende só das 9:00 às 19:00, mas a página do Workshop anuncia
+"10:00–15:00 & 17:00–22:00" com uma sessão noturna. O texto do Workshop veio da
+Tantrana (pendência #10), então o horário pode ser deles.
+
+**Perguntar pra Mary:** você oferece esse workshop? Se sim, o horário noturno vale
+(é uma exceção) ou é outro cronograma? Se não, tiramos a página do site.
+
+**Onde é usado:** `workshop/index.html` / `nl/workshop/index.html` (+ linha do
+Workshop em `/prices/`). Ver `docs/implementations/horario-workshop.md`.
+
+**Registrado em:** 2026-09-27.
+
+---
+
 ### 11. Preços nas landing pages do anúncio (versões v2 para aprovar)
 
 **Contexto:** a Mari pediu para as LPs do Google Ads mostrarem preço. Foram

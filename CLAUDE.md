@@ -62,6 +62,14 @@ Os 12 placeholders já foram substituídos (Fase 2 concluída). As imagens reais
 
 Esses 4 destinos se repetem em nav, hero, seções de CTA e footer em todas as 6 páginas. Ver `IMPLEMENTACAO.md` Fase 1 para o mapeamento completo de cada botão.
 
+Dados de atendimento confirmados pela Mari (27/09/2026) — valem para LPs e site institucional:
+- **Horário:** só das 9:00 às 19:00. Não existe sobretaxa noturna (a nota "after 21:00" que ainda aparece em `/prices/` veio da Tantrana).
+- **Deslocamento:** visita a casa/hotel em Amsterdã custa **+€50**. Fora de Amsterdã: não confirmado (pendência #12).
+- **Atende sozinha:** não oferecer nada que exija segunda terapeuta (4 mãos, casal com 2 terapeutas, "me and my colleague therapists"); na sessão de casal é a Mari que conduz.
+- **Pagamento:** cartão, dinheiro ou BTC.
+
+Os preços por LP estão sendo publicados via versões `*-v2/` (ver `docs/implementations/precos-nas-lps.md`) — só migram para cá quando as v2 forem promovidas.
+
 ## Seletor de idiomas (GTranslate)
 
 Todas as páginas do projeto (as 6 LPs + a home + as 4 páginas institucionais novas,

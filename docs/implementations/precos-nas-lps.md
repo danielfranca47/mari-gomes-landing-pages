@@ -139,6 +139,32 @@ bater), mantidos fora do repositório; a verificação usou Playwright + Chrome.
 
 ### Fase 4 — Promoção (só após aprovação da Mary)
 
+**Pré-requisitos (ajustar nas v2 antes de promover):**
+- [ ] **LP3 "at the same time"** — `couples-massage-{en,nl}-v2/index.html`: a faixa de
+  promessa ("Experience the session together, in the same space, at the same time")
+  e o card "Stress" da seção For whom ("in the same room, at the same time")
+  prometem massagem simultânea. Reescrever conforme a resposta da pendência #11-2
+  e remover o comentário `COPY DRAFT` acima dos FAQs de simultaneidade.
+- [ ] **LP2 About** — `relaxation-massage-{en,nl}-v2/index.html`: "All sessions take
+  place in a private studio in Amsterdam." contradiz a visita a casa/hotel (+€50)
+  citada no FAQ. Ajustar para "…studio in Amsterdam, or at your home or hotel".
+- [ ] Recomendado: `alinhamento-precos-site-institucional.md` concluído (senão
+  `/prices/` mostra outro preço pros mesmos serviços).
+
+> As v2 foram geradas por scripts temporários (fora do repo, não preservados). Daqui
+> em diante, editar os arquivos `*-v2/index.html` diretamente.
+
+**Passos:**
+1. Para cada slug: copiar `<slug>-v2/index.html` por cima de `<slug>/index.html` e
+   do legado correspondente na raiz (`lp1-holistic-energy-{en,nl}.html`,
+   `lp2-relaxation-{en,nl}.html`, `lp3-couples-{en,nl}.html`).
+2. Nos 12 arquivos promovidos: remover o comentário `PREVIEW v2` + a linha
+   `<meta name="robots" content="noindex, nofollow">`, e a trava
+   `if (!/-v2\//.test(location.pathname))` (com o comentário acima) do script de conversão.
+3. `git rm -r` das 6 pastas `*-v2/`.
+4. Graduar este arquivo: dados de preço/nome por LP e o padrão de "prévia v2" vão
+   pro `CLAUDE.md`.
+
 | Arquivo | O que muda |
 |---|---|
 | 6 `<slug>/index.html` + 6 `lp*-*.html` legados | Recebem o conteúdo da v2, sem `noindex`/trava |
@@ -209,23 +235,17 @@ dependa de uma segunda terapeuta.
 
 ## Ajustes Possíveis Pós-Implementação
 
-- **`/prices/` desatualizada em relação às LPs** (`prices/index.html` + `nl/`): as
-  linhas "Holistic Energy Massage", "Relaxation & Stress Relief" e "Couples Massage"
-  ainda mostram a tabela antiga (€300–€500 / €420–€600), e as demais linhas (Dearmouring,
-  Chakra, Couple Ritual, Coaching) também são da Tantrana. Alinhar com os valores e
-  nomes novos antes de promover as v2, para quem navega da LP pro site não ver dois preços.
-- **Horários fora de 9:00–19:00 (otimização futura):** nota de sobretaxa "after 21:00"
-  em `prices/index.html` / `nl/prices/index.html`; Workshop com sessão 17:00–22:00 em
-  `workshop/index.html` / `nl/workshop/index.html` (hero e bloco de horário).
-- **Taxa de deslocamento de €50 no site institucional:** Treatments/Prices ainda dizem
-  que visita a hotel é "a pedido", sem valor (ver pendência #4, agora resolvida).
-- **"At the same time" na LP3:** faixa de promessa e card "Stress" da seção For whom
-  continuam prometendo massagem simultânea; ajustar quando a Mari explicar como é a
-  sessão de casal com 1 terapeuta (pendência #11).
-- **LP2, bloco About:** "All sessions take place in a private studio in Amsterdam"
-  ficou em tensão com a visita a casa/hotel citada no FAQ.
+Viraram arquivos próprios em `docs/implementations/` (27/09/2026):
+- [`alinhamento-precos-site-institucional.md`](alinhamento-precos-site-institucional.md) —
+  `/prices/` com preços antigos e sobretaxa noturna, taxa de €50 em Prices/Treatments/Home,
+  "we/our" e outras cidades na Home.
+- [`horario-workshop.md`](horario-workshop.md) — Workshop anunciado até 22:00.
 
+Os dois ajustes que são texto das próprias v2 (LP3 "at the same time", LP2 About)
+ficaram como pré-requisito da Fase 4, acima.
+
+Monitoramento depois da promoção (não é código):
 - Acompanhar volume de conversões e CPA da campanha nas 2–3 semanas após a promoção:
   queda de volume é esperada (é o filtro), mas a campanha usa "Maximizar conversões".
-- LP2 (Relaxation) é a mais sensível ao nível de preço (€300/h) — se a taxa de
-  conversão despencar, avaliar com a Mary.
+- "Tantric" no nome das páginas 1 e 2 aumenta o risco de reprovação de anúncio
+  (pendência #8) — acompanhar o status dos anúncios no Google Ads após a promoção.

@@ -28,7 +28,9 @@ para `CLAUDE.md` ou `docs/architecture/`, e o arquivo é deletado.
 | Arquivo | Status |
 |---|---|
 | `correcao-tag-conversao-google-ads.md` | Fase 1 feita, Fase 2 pendente |
-| `precos-nas-lps.md` | v2 provisórias em construção — aguardando aprovação da Mary |
+| `precos-nas-lps.md` | v2 prontas com valores da Mari — aguardando aprovação final e promoção (Fase 4) |
+| `alinhamento-precos-site-institucional.md` | Planejado — diagnóstico pronto, falta Plan Mode |
+| `horario-workshop.md` | Planejado — bloqueado pela pendência #13 |
 
 ---
 
