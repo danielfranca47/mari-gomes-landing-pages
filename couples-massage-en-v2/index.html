@@ -243,9 +243,8 @@
   .option-price strong { font-size: 22px; font-weight: 400; color: var(--rose); }
   .pricing { background: var(--ivory); }
   .pricing-intro { font-size: 15px; color: var(--warm-gray); max-width: 600px; line-height: 1.8; }
-  .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 48px; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr; max-width: 640px; margin-top: 48px; }
   .price-box { background: var(--white); border: 0.5px solid var(--border); padding: 36px 32px; }
-  .price-box.alt { background: var(--blush); }
   .price-box h3 { font-family: 'Libre Baskerville', serif; font-size: 19px; font-weight: 400; margin-bottom: 6px; }
   .price-box-sub { font-size: 13px; color: var(--warm-gray); line-height: 1.7; margin-bottom: 20px; }
   .price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 0.5px solid var(--border); font-size: 14px; }
@@ -324,7 +323,7 @@
     </h1>
     <p class="hero-sub">More than a massage — a shared journey that relieves stress, restores energy, and deepens connection. In a private, curated studio in Amsterdam.</p>
     <a href="https://wa.me/31634366008?text=Hi%20Mari!%20My%20partner%20and%20I%20are%20interested%20in%20a%20couples%20massage.%20Could%20you%20please%20send%20us%20details%20and%20availability?" class="btn-rose" target="_blank">Book your session for two →</a>
-    <p class="hero-note">From €420 for two · Private studio · Book via WhatsApp</p>
+    <p class="hero-note">From €350 for two · Private studio · Book via WhatsApp</p>
   </div>
 </div>
 
@@ -416,7 +415,7 @@
         <div class="option-name">Relaxation Duo</div>
         <p class="option-desc">A full-body holistic massage focused on deep physical relaxation and stress release. Ideal for couples who want to decompress together and leave feeling lighter.</p>
         <p class="option-desc" style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color: var(--rose);">Best for → first-time couples · stress relief · birthdays</p>
-        <div class="option-price">From <strong>€420</strong> for two</div>
+        <div class="option-price">From <strong>€350</strong> for two</div>
         <a href="https://wa.me/31634366008?text=Hi%20Mari!%20We%27d%20like%20to%20book%20a%20Relaxation%20Duo%20session.%20Could%20you%20send%20us%20your%20availability?" class="option-cta" target="_blank">Book this session →</a>
       </div>
       <div class="option-card featured">
@@ -424,14 +423,14 @@
         <div class="option-name">Holistic Couple Experience</div>
         <p class="option-desc">Our signature session for two — combining physical massage, energetic healing, and conscious elements. Each partner receives a fully personalised session while sharing the experience together.</p>
         <p class="option-desc" style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color: var(--rose);">Best for → reconnection · anniversaries · deep reset</p>
-        <div class="option-price">From <strong>€420</strong> for two</div>
+        <div class="option-price">From <strong>€350</strong> for two</div>
         <a href="https://wa.me/31634366008?text=Hi%20Mari!%20We%27re%20interested%20in%20the%20Holistic%20Couple%20Experience.%20Could%20you%20send%20us%20more%20details%20and%20availability?" class="option-cta" target="_blank">Book this session →</a>
       </div>
       <div class="option-card">
         <div class="option-name">Tantric Couple Therapy</div>
         <p class="option-desc">A deeper energetic experience for couples ready to explore connection, vital energy, and emotional release together. A transformative session that goes beyond the physical into genuine renewal.</p>
         <p class="option-desc" style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color: var(--rose);">Best for → deeper connection · energy work · renewal</p>
-        <div class="option-price">From <strong>€420</strong> for two</div>
+        <div class="option-price">From <strong>€350</strong> for two</div>
         <a href="https://wa.me/31634366008?text=Hi%20Mari!%20We%27re%20interested%20in%20the%20Tantric%20Couple%20Therapy.%20Could%20you%20send%20us%20more%20information?" class="option-cta" target="_blank">Book this session →</a>
       </div>
     </div>
@@ -439,7 +438,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<!-- PRICING — COPY DRAFT: valores de docs/texto-do-site/Prices.txt (mesma tabela de /prices/), aguardando aprovação da Mary (pendência #11, inclusive a dúvida sobre simultaneidade no pacote de 1 terapeuta) -->
+<!-- PRICING — valores enviados pela Mari (27/09/2026), ver docs/implementations/precos-nas-lps.md -->
 <section class="pricing" id="pricing">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="label">Prices</div>
@@ -448,20 +447,14 @@
     <div class="pricing-grid">
       <div class="price-box">
         <h3>Couple session</h3>
-        <p class="price-box-sub">One therapist guides the ritual for both of you, in the same private space.</p>
-        <div class="price-row"><span>2 hours</span><strong>€420</strong></div>
-        <div class="price-row"><span>2.5 hours</span><strong>€470</strong></div>
-        <div class="price-row"><span>3 hours</span><strong>€520</strong></div>
-        <div class="price-row"><span>4 hours</span><strong>€600</strong></div>
-      </div>
-      <div class="price-box alt">
-        <h3>With two therapists</h3>
-        <p class="price-box-sub">A second therapist joins, so both partners receive their massage simultaneously.</p>
-        <div class="price-row"><span>90 minutes each</span><strong>€600</strong></div>
-        <div class="price-row"><span>120 minutes each</span><strong>€750</strong></div>
+        <p class="price-box-sub">Mari guides the ritual for both of you, in the same private space.</p>
+        <div class="price-row"><span>90 minutes</span><strong>€350</strong></div>
+        <div class="price-row"><span>2 hours</span><strong>€400</strong></div>
+        <div class="price-row"><span>2.5 hours</span><strong>€450</strong></div>
+        <div class="price-row"><span>3 hours</span><strong>€500</strong></div>
       </div>
     </div>
-    <p class="pricing-notes">Sessions starting after 21:00: +€150 · Payment by card, cash or BTC · Also available as a gift</p>
+    <p class="pricing-notes">Sessions between 9:00 and 19:00 · Home or hotel visit in Amsterdam: +€50 travel fee · Payment by card, cash or BTC · Also available as a gift</p>
     <a href="https://wa.me/31634366008?text=Hi%20Mari!%20My%20partner%20and%20I%20are%20interested%20in%20a%20couples%20massage.%20Could%20you%20please%20send%20us%20your%20availability?" class="btn-rose" target="_blank">Book your session for two →</a>
   </div>
 </section>
@@ -497,21 +490,21 @@
     <h2 class="title">Everything you need to know<br><em>before you book</em></h2>
     <div class="faq-inner">
       <div class="faq-item">
-        <!-- COPY DRAFT: simultaneidade no pacote de 1 terapeuta a confirmar com a Mary (pendência #11) -->
+        <!-- COPY DRAFT: como funciona a massagem do casal com 1 terapeuta (simultânea ou alternada) a confirmar com a Mary (pendência #11) -->
       <div class="faq-q" onclick="toggleFaq(this)">Do we receive the massage at the same time?<span>+</span></div>
-        <div class="faq-a">You share the whole experience together, side by side in the same private space. If you both want to be massaged at exactly the same time, choose the session with two therapists (90 minutes each €600 · 120 minutes each €750).</div>
+        <div class="faq-a">You share the whole experience together, side by side in the same private space. Mari guides the ritual for both of you and will explain how the session flows when you get in touch.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Is it one therapist or two?<span>+</span></div>
-        <div class="faq-a">Both are possible. The couple sessions from €420 are guided by one therapist. With two therapists (from €600), a second therapist joins so both partners are massaged simultaneously.</div>
+        <div class="faq-a">One — Mari guides the session for both of you, from start to finish.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">How much does a couples session cost?<span>+</span></div>
-        <div class="faq-a">The price is for the couple, not per person: 2 hours €420, 2.5 hours €470, 3 hours €520, 4 hours €600. With two therapists: 90 minutes each €600, 120 minutes each €750. Sessions starting after 21:00 have a night supplement of €150. Payment by card, cash or BTC.</div>
+        <div class="faq-a">The price is for the couple, not per person: 90 minutes €350, 2 hours €400, 2.5 hours €450, 3 hours €500. Sessions take place between 9:00 and 19:00. For a home or hotel visit in Amsterdam there is a €50 travel fee. Payment by card, cash or BTC.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Where does the session take place?<span>+</span></div>
-        <div class="faq-a">All sessions take place in a private studio in Amsterdam. The exact address is shared upon booking confirmation.</div>
+        <div class="faq-a">In a private studio in Amsterdam — the exact address is shared upon booking confirmation. Mari can also come to your home or hotel in Amsterdam (+€50 travel fee).</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Is this a sexual service?<span>+</span></div>
