@@ -58,11 +58,21 @@ viravam conversão e o GA4 não recebia nada.
 **Agora:** o script carrega e o clique no WhatsApp envia a conversão pra conta de Ads.
 **Para validar:** Cenários 1 e 2.
 
-### Fase 2 — Fotos das LPs apontando pra `/images/` (pendente)
+### Fase 2 — Fotos das LPs apontando pra `/images/`
 
 | Arquivo | O que muda |
 |---|---|
 | `holistic-energy-massage-{en,nl}/`, `relaxation-massage-{en,nl}/`, `couples-massage-{en,nl}/` + os 6 `lp*.html` | `https://amarigomes.com/wp-content/uploads/2026/06/` → `/images/` |
+| `CLAUDE.md` | regra antiga ("usar URL do WordPress no `src`") substituída pela nova (`/images/...`) |
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | *(ver abaixo)* | 24 referências de imagem em 12 arquivos + regra no CLAUDE.md |
+
+**Relatório da Fase 2.**
+**Antes:** as fotos principais e do About das 6 LPs davam 404 (WordPress desligado).
+**Agora:** as fotos são servidas pelo próprio site, a partir da pasta `images/`.
+**Para validar:** Cenário 3.
 
 ---
 
@@ -81,7 +91,8 @@ viravam conversão e o GA4 não recebia nada.
 - [ ] "Solicitar cotação" volta a "Ativa" (primeira conversão registrada após 27/09)
 
 ### Cenário 3 — Fotos das LPs
-- [ ] As 6 LPs publicadas carregam hero/about sem 404
+- [x] Local (servidor HTTP): as 12 imagens das 6 LPs respondem 200 e decodificam (1086×1448, 1173×1341, 1161×1355, 1254×1254) — 27/09/2026
+- [ ] Produção: as 6 LPs publicadas carregam hero/about sem 404 (após push)
 
 ---
 
