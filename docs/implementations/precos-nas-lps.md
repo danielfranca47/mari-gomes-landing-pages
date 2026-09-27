@@ -1,6 +1,6 @@
 # Preços visíveis nas 3 LPs (versão v2 provisória)
 
-**Status:** Fases 0–3, 5 e 6 concluídas (27/09/2026) — 6 páginas v2 com os valores da Mari, aguardando push + aprovação final (Fase 4).
+**Status:** Todas as fases implementadas (27/09/2026) — v2 promovidas a principais (Fase 4). Falta push + conferir no ar (Cenário 4) para graduar.
 
 ---
 
@@ -140,15 +140,19 @@ bater), mantidos fora do repositório; a verificação usou Playwright + Chrome.
 ### Fase 4 — Promoção (só após aprovação da Mary)
 
 **Pré-requisitos (ajustar nas v2 antes de promover):**
-- [ ] **LP3 "at the same time"** — `couples-massage-{en,nl}-v2/index.html`: a faixa de
+- [x] **LP3 "at the same time"** — `couples-massage-{en,nl}-v2/index.html`: a faixa de
   promessa ("Experience the session together, in the same space, at the same time")
   e o card "Stress" da seção For whom ("in the same room, at the same time")
   prometem massagem simultânea. Reescrever conforme a resposta da pendência #11-2
   e remover o comentário `COPY DRAFT` acima dos FAQs de simultaneidade.
-- [ ] **LP2 About** — `relaxation-massage-{en,nl}-v2/index.html`: "All sessions take
+  **Feito (27/09):** sem resposta da Mari, o texto foi neutralizado ("together, in the
+  same private space"), inclusive a etapa ii da experiência ("Simultaneous holistic
+  massage" → "Holistic massage for each of you"). O `COPY DRAFT` fica até a resposta.
+- [x] **LP2 About** — `relaxation-massage-{en,nl}-v2/index.html`: "All sessions take
   place in a private studio in Amsterdam." contradiz a visita a casa/hotel (+€50)
   citada no FAQ. Ajustar para "…studio in Amsterdam, or at your home or hotel".
-- [ ] Recomendado: `alinhamento-precos-site-institucional.md` concluído (senão
+- [ ] Recomendado: `alinhamento-precos-site-institucional.md` concluído — **não feito**:
+  o Daniel optou por promover antes; `/prices/` segue com os valores antigos até essa implementação (senão
   `/prices/` mostra outro preço pros mesmos serviços).
 
 > As v2 foram geradas por scripts temporários (fora do repo, não preservados). Daqui
@@ -169,6 +173,26 @@ bater), mantidos fora do repositório; a verificação usou Playwright + Chrome.
 |---|---|
 | 6 `<slug>/index.html` + 6 `lp*-*.html` legados | Recebem o conteúdo da v2, sem `noindex`/trava |
 | 6 pastas `*-v2/` | Removidas |
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 4 | `41ecee7` | pré-requisitos + promoção nas 12 páginas + remoção das pastas `-v2` |
+
+**Tags sem regressão (pedido do Daniel):** o script de promoção comparou, página a
+página, todos os blocos `<script>` do arquivo promovido com a versão que estava no ar
+(8 blocos idênticos em cada uma) e o `<head>` de tags (idêntico, exceto `<title>`). No
+navegador, as 6 URLs + legados carregam `GT-55XJZX3L`, fazem `config` de
+`G-EBY5JJD27V` e `AW-18036442650`, têm o `consent default` e o clique no WhatsApp gera
+a conversão `AW-18036442650/9rp5CIvso6QcEJqMuZhD` (o botão novo da seção de preços
+também conta).
+
+### Relatório da Fase 4 — o que mudou na prática
+
+**Antes:** as páginas do anúncio não mostravam preço; as versões com preço existiam só
+como prévia.
+**Agora:** as 6 páginas do anúncio (e as cópias antigas na raiz) mostram os preços da
+Mari; as prévias foram apagadas. Rastreamento do Google Ads/GA4 idêntico ao anterior.
+**Para validar:** Cenário 4, depois do push.
 
 ### Fase 5 — Valores corrigidos pela Mari (27/09/2026)
 
@@ -223,8 +247,9 @@ dependa de uma segunda terapeuta.
 - **Validado em:** 27/09/2026 — `dataLayer` após clique: 0 eventos `conversion` nas 6 v2, 1 evento nas 6 originais; `git diff d931460 HEAD` nas pastas originais e nos `lp*-*.html` vazio
 
 ### Cenário 3 — Mary aprova
-- [ ] Mary revisou as 6 v2 e aprovou valores e textos (pendência #11)
-- [ ] Resposta sobre como funciona a sessão de casal com 1 terapeuta aplicada na LP3
+- [x] Mary revisou as 6 v2 e aprovou valores e textos (pendência #11)
+- [x] Sessão de casal com 1 terapeuta coerente na LP3
+- **Validado em:** 27/09/2026 — valores/nomes/horário/deslocamento enviados pela Mari; Daniel efetivou as v2. Simultaneidade resolvida com texto neutro (pergunta #11-2 segue aberta só para refinar o texto)
 - **Parcial em 27/09/2026:** valores, nomes, horário, taxa de deslocamento e ausência de 2ª terapeuta vieram da Mari via Daniel e já estão nas v2; revalidado localmente (overflow 0, noindex, conversão travada) nas 6
 
 ### Cenário 4 — Promoção no ar

@@ -58,13 +58,18 @@ Mari mandou os valores reais (via Daniel), já aplicados:
 - Em todas: horário 9:00–19:00, +€50 de deslocamento para casa/hotel, pagamento por
   cartão/dinheiro/BTC. Sem opção de 2 terapeutas (ela não oferece por enquanto).
 
+**Atualização (27/09/2026):** o Daniel efetivou as v2 como páginas principais (as
+URLs `-v2` não existem mais). A pergunta 1 está resolvida; a 3 virou
+`docs/implementations/alinhamento-precos-site-institucional.md`.
+
 **Perguntar pra Mary:**
-1. Revisou as 6 páginas v2 e aprova para substituírem as atuais?
+1. ~~Aprova as v2?~~ Resolvido — efetivadas em 27/09/2026.
 2. Casal: como funciona a sessão com uma terapeuta só — os dois recebem ao mesmo
    tempo, um de cada vez, ou é um ritual guiado para os dois? A LP atual promete
    "both partners receive their massage simultaneously"; na v2 o FAQ ficou neutro
-   ("you share the whole experience together… Mari guides the ritual"), mas a faixa
-   de promessa ainda diz "at the same time".
+   ("you share the whole experience together… Mari guides the ritual"), e os demais textos
+   que prometiam "at the same time" foram neutralizados ("together, in the same private
+   space"). Se for simultâneo de fato, dá pra voltar a destacar isso.
 3. A página `/prices/` do site ainda tem a tabela antiga (Tantrana). Quer que
    passe a mostrar os mesmos valores/nomes das LPs? E os demais tratamentos
    (Dearmouring, Chakra Balancing, Couple Ritual, Coaching) — quais valores?
