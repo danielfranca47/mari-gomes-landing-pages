@@ -30,6 +30,7 @@ para `CLAUDE.md` ou `docs/architecture/`, e o arquivo é deletado.
 | `correcao-tag-conversao-google-ads.md` | Fase 1 feita, Fase 2 pendente |
 | `alinhamento-precos-site-institucional.md` | Planejado — diagnóstico pronto, falta Plan Mode |
 | `horario-workshop.md` | Planejado — bloqueado pela pendência #13 |
+| `menu-mobile-site-institucional.md` | Fases 1-2 feitas, validadas localmente — falta conferir no ar (após push) |
 
 ---
 

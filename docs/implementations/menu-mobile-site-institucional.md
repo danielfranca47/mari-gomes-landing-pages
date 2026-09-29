@@ -74,6 +74,21 @@ institucionais.
 | `fly-me-in/index.html` / `nl/fly-me-in/index.html` | Idem |
 | `home-en.html` / `home-nl.html` (legados) | Idem |
 
+### Commits Fase 1
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `976fc2a` | ☰ + painel mobile + nav mobile em 2 linhas nos 14 arquivos |
+
+### Relatório da Fase 1 — o que mudou na prática
+
+**Antes:** no celular o menu sumia e não havia como ir para outras páginas; o
+botão "Book a session" ainda encostava na borda da tela.
+**Agora:** no celular o topo tem logo, "Book a session" e um botão ☰ na mesma
+linha, com as bandeiras logo abaixo. O ☰ abre a lista com todas as páginas e
+seções; tocar num item navega e fecha o menu. No computador nada mudou.
+**Para validar:** Cenários 1 e 2.
+
 ### Fase 2 — Links das páginas no rodapé
 
 **Objetivo:** segundo caminho de navegação, visível em qualquer largura.
@@ -82,24 +97,42 @@ institucionais.
 |---|---|
 | Os mesmos 14 arquivos da Fase 1 | `<div class="footer-nav">` no início do `<footer>` + CSS (EN com `/…/`, NL com `/nl/…/`) |
 
+### Commits Fase 2
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `827ddf2` | `.footer-nav` com Home + 5 páginas nos 14 arquivos |
+
+### Relatório da Fase 2 — o que mudou na prática
+
+**Antes:** o rodapé só tinha contatos.
+**Agora:** o rodapé tem uma linha com links para Home, About, Treatments,
+Prices, Workshop e Fly Me In (em holandês nas páginas NL), no computador e no
+celular.
+**Para validar:** Cenário 3.
+
 ---
 
 ## Checks de Validação
 
 ### Cenário 1 — Menu hambúrguer no celular
-- [ ] Abrir a Home (EN e NL) em viewport de celular (375px e 360px)
-- [ ] Confirmar: logo, "Book a session" e ☰ na mesma linha, bandeiras abaixo, nada cortado na borda
-- [ ] Tocar no ☰: painel abre com os 8 links; ícone vira ✕
-- [ ] Tocar num link de página (ex. Treatments): navega e o menu fica fechado na página nova
-- [ ] Tocar num link de âncora (Reviews/FAQ): rola até a seção e o menu fecha
-- [ ] Repetir abrir/fechar em pelo menos uma página interna EN e uma NL
+- [x] Abrir a Home (EN e NL) em viewport de celular (375px e 360px)
+- [x] Confirmar: logo, "Book a session" e ☰ na mesma linha, bandeiras abaixo, nada cortado na borda
+- [x] Tocar no ☰: painel abre com os 8 links; ícone vira ✕
+- [x] Tocar num link de página (ex. Treatments): navega e o menu fica fechado na página nova
+- [x] Tocar num link de âncora (Reviews/FAQ): rola até a seção e o menu fecha
+- [x] Repetir abrir/fechar em pelo menos uma página interna EN e uma NL
+- **Validado localmente em:** 29/09/2026 — Chrome DevTools (servidor local), Home EN 375px, `/nl/treatments/` 360px (sem rolagem horizontal), ☰ → Prijzen navegou pra `/nl/prices/` com menu fechado; FAQ fechou o menu
+- [ ] Conferência do Daniel no celular real (após push)
 
 ### Cenário 2 — Desktop inalterado
-- [ ] Abrir a Home em largura > 768px: nav igual ao anterior, sem ☰ visível
+- [x] Abrir a Home em largura > 768px: nav igual ao anterior, sem ☰ visível
+- **Validado localmente em:** 29/09/2026 — Chrome DevTools (servidor local), `/nl/prices/` em 1280px
 
 ### Cenário 3 — Rodapé
-- [ ] Rodapé mostra os 6 links (Home + 5 páginas) no idioma certo, em desktop e mobile
-- [ ] Links NL apontam para `/nl/...`
+- [x] Rodapé mostra os 6 links (Home + 5 páginas) no idioma certo, em desktop e mobile
+- [x] Links NL apontam para `/nl/...`
+- **Validado localmente em:** 29/09/2026 — Chrome DevTools (servidor local), `/nl/` em 1280px e 375px
 
 ### Cenário 4 — Site publicado
 - [ ] Após push, conferir em `amarigomes.com` no celular real
