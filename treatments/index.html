@@ -217,6 +217,17 @@
   footer a { color: inherit; text-decoration: none; font-size: 13px; }
   footer .logo { color: var(--parchment); }
   footer .logo span { color: var(--amber-light); }
+  .footer-nav {
+    flex-basis: 100%;
+    display: flex; flex-wrap: wrap; gap: 12px 28px;
+    padding-bottom: 20px; margin-bottom: 4px;
+    border-bottom: 0.5px solid rgba(243,233,218,0.15);
+  }
+  .footer-nav a {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--parchment); transition: color 0.3s ease;
+  }
+  .footer-nav a:hover { color: var(--amber-light); }
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
@@ -247,6 +258,7 @@
     .outcall-note { padding: 0 24px 48px; }
     .treatments-cta { padding: 0 24px 64px; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+    .footer-nav { justify-content: center; }
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; flex-direction: column; align-items: stretch; }
     .cookie-actions { justify-content: stretch; }
     .cookie-actions button { flex: 1; }
@@ -343,6 +355,14 @@
 </section>
 
 <footer>
+  <div class="footer-nav">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/treatments/">Treatments</a>
+    <a href="/prices/">Prices</a>
+    <a href="/workshop/">Workshop</a>
+    <a href="/fly-me-in/">Fly Me In</a>
+  </div>
   <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
   <div style="display:flex; gap:24px; flex-wrap:wrap;">
     <a href="mailto:marycontato@gmail.com">marycontato@gmail.com</a>
