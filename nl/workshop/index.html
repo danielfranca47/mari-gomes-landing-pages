@@ -89,6 +89,19 @@
     transition: all 0.3s ease;
   }
   .nav-cta:hover { background: var(--ink); color: var(--parchment); }
+  .nav-toggle {
+    display: none;
+    width: 40px; height: 40px; padding: 0;
+    background: none; border: 0.5px solid var(--ink); cursor: pointer;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  }
+  .nav-toggle span {
+    display: block; width: 18px; height: 1px; background: var(--ink);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  nav.menu-open .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  nav.menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  nav.menu-open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
   /* PAGE HERO (subpages, not the home hero) */
   .page-hero {
@@ -241,8 +254,26 @@
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; }
+    nav { padding: 12px 16px; flex-wrap: wrap; row-gap: 10px; }
+    .nav-left { gap: 0; }
+    .logo { white-space: nowrap; }
+    .nav-right { display: contents; }
+    .nav-cta { margin-left: auto; margin-right: 8px; padding: 10px 14px; letter-spacing: 0.08em; white-space: nowrap; }
+    .nav-toggle { display: flex; }
+    .gtranslate_wrapper { order: 1; flex-basis: 100%; justify-content: center; }
     .nav-menu { display: none; }
+    nav.menu-open .nav-menu {
+      display: flex; flex-direction: column; align-items: stretch; gap: 0;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--parchment);
+      border-bottom: 0.5px solid var(--border);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+      max-height: calc(100vh - 120px); overflow-y: auto;
+    }
+    nav.menu-open .nav-menu a {
+      font-size: 13px; padding: 16px 24px;
+      border-top: 0.5px solid var(--border);
+    }
     .page-hero { padding: 130px 24px 48px; }
     .workshop-intro { padding: 0 24px; }
     .workshop-points { padding: 56px 24px; }
@@ -274,7 +305,7 @@
 <nav>
   <div class="nav-left">
     <a href="https://amarigomes.com" class="logo">Mari <span>Gomes</span></a>
-    <div class="nav-menu">
+    <div class="nav-menu" id="nav-menu">
       <a href="/nl/about/">Over mij</a>
       <a href="/nl/treatments/">Behandelingen</a>
       <a href="/nl/prices/">Prijzen</a>
@@ -293,6 +324,7 @@
     </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/flags.js" data-gt-widget-id="81357924"></script>
     <a href="https://wa.me/31634366008?text=Hoi%20Mari!%20Ik%20wil%20graag%20meer%20weten%20over%20je%20tantra%20en%20holistische%20massagesessies." class="nav-cta" target="_blank">Boek een sessie</a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-controls="nav-menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -564,6 +596,26 @@ document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
     localStorage.setItem(KEY, 'denied');
     updateConsent(false);
     banner.hidden = true;
+  });
+})();
+</script>
+<script>
+// Mobile menu (hamburger) — below 768px the .nav-menu opens as a panel under the nav
+(function () {
+  var nav = document.querySelector('nav');
+  var btn = document.getElementById('nav-toggle');
+  function setOpen(open) {
+    nav.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function () {
+    setOpen(!nav.classList.contains('menu-open'));
+  });
+  document.querySelectorAll('#nav-menu a').forEach(function (a) {
+    a.addEventListener('click', function () { setOpen(false); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setOpen(false);
   });
 })();
 </script>
