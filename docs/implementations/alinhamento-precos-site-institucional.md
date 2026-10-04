@@ -1,6 +1,6 @@
 # Alinhar preços, horário e deslocamento no site institucional
 
-**Status:** Planejado — diagnóstico pronto (27/09/2026), falta Plan Mode + aprovação do plano.
+**Status:** Fases 1 a 3 implementadas em 04/10/2026 dentro de `correcoes-mari-outubro-2026.md` (commits `24bc3e7`, `ea1b47f`, `bb8ff85`). Resta só a Fase 4 (demais linhas do `/prices/`), que depende da pendência #11-3.
 
 > Criado a partir dos "ajustes possíveis" da implementação de preços nas LPs (já graduada — ver `CLAUDE.md`, seção "Preços nas LPs"). Antes de implementar,
 > seguir o Passo 0 de `_guia-documentar-implementacao.md` (revalidar o diagnóstico abaixo

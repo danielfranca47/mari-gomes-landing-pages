@@ -13,7 +13,9 @@ mudança no código correspondente.
 
 ## Em aberto
 
-### 12. Taxa de deslocamento fora de Amsterdã
+### 12. Taxa de deslocamento fora de Amsterdã — RESOLVIDA
+
+**Resolução (04/10/2026, via Daniel):** a Mari atende **só em Amsterdã**. As outras cidades saíram da Home e o link do Fly Me In saiu do menu e do rodapé (ver `docs/implementations/correcoes-mari-outubro-2026.md`).
 
 **Contexto:** a taxa de €50 (27/09/2026) vale para casa/hotel em Amsterdã. A Home
 diz que ela também atende em outras cidades ("Utrecht, The Hague, and Rotterdam").

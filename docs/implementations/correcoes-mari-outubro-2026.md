@@ -107,6 +107,29 @@ Este doc absorve as fases 1 a 3 de `alinhamento-precos-site-institucional.md`.
 | LP2 EN/NL (+ `lp2-*.html`) | About: mesmo título; negrito sem "or at your home or hotel" |
 | LP3 EN/NL (+ `lp3-*.html`) | "intimate space" → "calm space" |
 
+### Commits
+
+| Fase | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `bb8ff85` | Home (4 arquivos): pontos 2 a 7 |
+| 2 | `24bc3e7` | Prices EN/NL: valores reais, ordem crescente, sem sobretaxa noturna |
+| 3 | `ea1b47f` | Treatments e About EN/NL |
+| 4 | `0c4ed69` | Fly Me In fora do menu + `noindex`; termos em Fly Me In e Workshop |
+| 5 | `621088f` | 6 LPs + 6 cópias legadas: título, negrito da LP2, "calm space" na LP3 |
+
+### Relatório — o que mudou na prática
+
+**Antes:** a Home abria a parte de serviços falando de atendimento a domicílio e em
+outras cidades, vendia o serviço móvel como diferencial e usava palavras como
+"intimate". A tabela de preços estava fora de ordem e com valores antigos.
+
+**Agora:** a Home fala da massagem tântrica no estúdio em Amsterdã; o domicílio é
+uma linha discreta no FAQ. Os diferenciais começam por Holistic Wellness e incluem
+a experiência dela como Terapeuta Tântrica Bioenergética. Os preços vão do mais
+barato ao mais caro e batem com as LPs.
+
+**Para validar:** Cenário 4 (site publicado), depois do push.
+
 ---
 
 ## Checks de Validação

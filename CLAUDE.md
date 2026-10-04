@@ -64,7 +64,10 @@ Esses 4 destinos se repetem em nav, hero, seções de CTA e footer em todas as 6
 
 Dados de atendimento confirmados pela Mari (27/09/2026) — valem para LPs e site institucional:
 - **Horário:** só das 9:00 às 19:00. Não existe sobretaxa noturna (a nota "after 21:00" que ainda aparece em `/prices/` veio da Tantrana).
-- **Deslocamento:** visita a casa/hotel em Amsterdã custa **+€50**. Fora de Amsterdã: não confirmado (pendência #12).
+- **Deslocamento:** visita a casa/hotel em Amsterdã custa **+€50**. **Ela atende só em Amsterdã** (confirmado em 04/10/2026) — não citar outras cidades. O domicílio não é diferencial: fica só em notas discretas (FAQ, nota de preços), nunca em título, card ou destaque, e sem os termos "Outcall/Incall".
+- **Título profissional:** "Terapeuta Tântrica Bioenergética" (EN "Bioenergetic Tantric Therapist", NL "Bio-energetisch Tantra Therapeut"), usado nas bios. Anos de experiência entram sem número até ela informar (pendência #7).
+- **Vocabulário:** evitar termos que remetem a erótico ("intimate/intimacy", "sensual", "desire", "pleasure") — usar "connection", "presence", "calm", "private".
+- **Preços sempre do mais barato para o mais caro**, em qualquer lista ou tabela.
 - **Atende sozinha:** não oferecer nada que exija segunda terapeuta (4 mãos, casal com 2 terapeutas, "me and my colleague therapists"); na sessão de casal é a Mari que conduz.
 - **Pagamento:** cartão, dinheiro ou BTC.
 
@@ -83,7 +86,7 @@ Desde 27/09/2026 as 6 LPs mostram preço (pedido da Mari: filtrar lead que chama
 - Os CTAs dizem "Book…" (não "Request a quote") e o texto do WhatsApp pede disponibilidade, não orçamento.
 - O botão da seção de preços é um link `wa.me` como os outros, então também dispara a conversão do Google Ads.
 - LP3: a Mari atende o casal sozinha — nenhum texto promete massagem simultânea (pergunta #11-2 aberta para refinar).
-- **`/prices/` do site institucional ainda não segue esta tabela** — ver `docs/implementations/alinhamento-precos-site-institucional.md`. Ao mudar preço, mudar nas LPs e no `/prices/` juntos.
+- `/prices/` do site institucional segue esta tabela para os 3 serviços das LPs desde 04/10/2026 (mantendo os nomes "Holistic Energy Massage" / "Relaxation & Stress Relief"); as demais linhas ainda têm valores antigos (pendência #11-3). Ao mudar preço, mudar nas LPs e no `/prices/` juntos.
 
 ## Seletor de idiomas (GTranslate)
 
@@ -209,6 +212,8 @@ Site novo, standalone (fora do WordPress), publicado via GitHub Pages + Cloudfla
 | Prices | `prices/index.html` | `nl/prices/index.html` |
 | Workshop | `workshop/index.html` | `nl/workshop/index.html` |
 | Fly Me In | `fly-me-in/index.html` | `nl/fly-me-in/index.html` |
+
+**Fly Me In está fora do menu e do rodapé e com `noindex`** desde 04/10/2026 (contradiz "só em Amsterdã"); a página continua acessível pela URL. Não recolocar o link sem pedido da Mari.
 
 **Atenção — `home-en.html` e `home-nl.html` na raiz NÃO são a home publicada.** São cópias legadas de antes da migração pro GitHub Pages, mantidas por referência/histórico. Os arquivos que o GitHub Pages realmente serve em `/` e `/nl/` são `index.html` e `nl/index.html`. As duas únicas diferenças intencionais entre cada par são: (1) os 3 links das LPs (`index.html` usa caminho limpo `/holistic-energy-massage-en/`; `home-en.html` usa o nome de arquivo `lp1-holistic-energy-en.html`) e (2) caminho de imagem (`nl/index.html` usa `../images/...`, `home-nl.html` usa `images/...`). Fora essas duas diferenças, **qualquer mudança de conteúdo na Home precisa ser aplicada nos dois arquivos** (`index.html` E `home-en.html`, idem NL) — já aconteceu de uma fase de implementação atualizar só o arquivo legado e não refletir no site publicado (ver `docs/implementations/revisao-textos-reais-mary.md`, Fase 1 vs. Fase 5). Antes de considerar uma mudança de Home "no ar", confirmar que tocou `index.html`/`nl/index.html`.
 
