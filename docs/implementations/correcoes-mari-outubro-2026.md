@@ -130,6 +130,23 @@ barato ao mais caro e batem com as LPs.
 
 **Para validar:** Cenário 4 (site publicado), depois do push.
 
+## Fase 6 — Correção: "visita" → "atendimento" (04/10/2026)
+
+### Problema identificado
+Ao ver o relatório, a Mari apontou que "visita a casa ou hotel" está errado: é
+**atendimento**, não visita. A causa era o inglês "home or hotel visit(s)" e o
+holandês "bezoek aan huis", usados na nota discreta de domicílio (e já presentes
+nas LPs desde 27/09/2026).
+
+### Correção
+| Arquivo | Mudança |
+|---|---|
+| `index.html`, `home-en.html`, `prices/`, `treatments/` | "Home or hotel visits within Amsterdam" → "Home or hotel sessions within Amsterdam" |
+| `nl/index.html`, `home-nl.html`, `nl/prices/`, `nl/treatments/` | "Een bezoek aan huis of hotel" → "Een sessie aan huis of in je hotel" |
+| 6 LPs + 6 cópias legadas | Nota de preços e FAQ: "home or hotel visit" → "home or hotel session" (NL "bezoek" → "sessie") |
+
+"Visit Us" / "Bezoek ons" na seção de localização não mudou: ali é o cliente indo ao estúdio.
+
 ---
 
 ## Checks de Validação

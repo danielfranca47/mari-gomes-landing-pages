@@ -66,7 +66,7 @@ Dados de atendimento confirmados pela Mari (27/09/2026) — valem para LPs e sit
 - **Horário:** só das 9:00 às 19:00. Não existe sobretaxa noturna (a nota "after 21:00" que ainda aparece em `/prices/` veio da Tantrana).
 - **Deslocamento:** visita a casa/hotel em Amsterdã custa **+€50**. **Ela atende só em Amsterdã** (confirmado em 04/10/2026) — não citar outras cidades. O domicílio não é diferencial: fica só em notas discretas (FAQ, nota de preços), nunca em título, card ou destaque, e sem os termos "Outcall/Incall".
 - **Título profissional:** "Terapeuta Tântrica Bioenergética" (EN "Bioenergetic Tantric Therapist", NL "Bio-energetisch Tantra Therapeut"), usado nas bios. Anos de experiência entram sem número até ela informar (pendência #7).
-- **Vocabulário:** evitar termos que remetem a erótico ("intimate/intimacy", "sensual", "desire", "pleasure") — usar "connection", "presence", "calm", "private".
+- **Vocabulário:** evitar termos que remetem a erótico ("intimate/intimacy", "sensual", "desire", "pleasure") — usar "connection", "presence", "calm", "private". Atendimento em casa/hotel é "session" / "sessie", nunca "visit" / "bezoek" (a Mari não quer "visita"; corrigido em 04/10/2026).
 - **Preços sempre do mais barato para o mais caro**, em qualquer lista ou tabela.
 - **Atende sozinha:** não oferecer nada que exija segunda terapeuta (4 mãos, casal com 2 terapeutas, "me and my colleague therapists"); na sessão de casal é a Mari que conduz.
 - **Pagamento:** cartão, dinheiro ou BTC.
@@ -82,7 +82,7 @@ Desde 27/09/2026 as 6 LPs mostram preço (pedido da Mari: filtrar lead que chama
 | LP3 `couples-massage-*` | (nome original) | 90 min €350 · 2h €400 · 2,5h €450 · 3h €500 — preço do casal |
 
 - O nome do serviço aparece no `<title>`, no rótulo do hero (`.hero-eyebrow` / `.hero-tag`), no rótulo da seção de preços e no texto pré-preenchido do WhatsApp; os `<h1>` não mudaram. "Tantric" em página de anúncio é risco aceito pelo Daniel (pendência #8).
-- Cada LP tem uma `<section id="pricing">` no estilo próprio da página (LP1 após "The experience"; LP2 antes do About; LP3 após Packages, e os 3 cards de Packages mostram "From €350 for two") + link "Prices/Prijzen" no nav, FAQ "How much does a session cost?" com os valores, hero note "From €…" e a nota "Sessions between 9:00 and 19:00 · Home or hotel visit in Amsterdam: +€50 travel fee · Payment by card, cash or BTC".
+- Cada LP tem uma `<section id="pricing">` no estilo próprio da página (LP1 após "The experience"; LP2 antes do About; LP3 após Packages, e os 3 cards de Packages mostram "From €350 for two") + link "Prices/Prijzen" no nav, FAQ "How much does a session cost?" com os valores, hero note "From €…" e a nota "Sessions between 9:00 and 19:00 · Home or hotel session in Amsterdam: +€50 travel fee · Payment by card, cash or BTC".
 - Os CTAs dizem "Book…" (não "Request a quote") e o texto do WhatsApp pede disponibilidade, não orçamento.
 - O botão da seção de preços é um link `wa.me` como os outros, então também dispara a conversão do Google Ads.
 - LP3: a Mari atende o casal sozinha — nenhum texto promete massagem simultânea (pergunta #11-2 aberta para refinar).
