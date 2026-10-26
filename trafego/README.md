@@ -17,6 +17,7 @@ seus arquivos `.html`; esta pasta não tem código.
 | `anuncios/` | Textos de anúncio versionados antes de subir no Ads |
 | `experimentos/` | Testes A/B (um arquivo por teste, a partir de `_template.md`) |
 | `relatorios/` | Relatórios datados `AAAA-MM-DD_<assunto>.md` |
+| `../.agents/product-marketing.md` | Contexto de marketing lido pelas skills globais; aprendizados novos vão para a seção Learnings |
 
 ## Rotina semanal
 

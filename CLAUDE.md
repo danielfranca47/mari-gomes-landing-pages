@@ -237,6 +237,7 @@ Conta Google Ads "Mari Gomes" (fuso GMT+02:00, EUR). Hoje só a campanha `[CP-03
 | [`trafego/politicas/vocabulario.md`](trafego/politicas/vocabulario.md) | Termos a evitar/preferir em anúncio, palavra-chave e LP |
 | [`trafego/keywords/negativas.md`](trafego/keywords/negativas.md) | Negativas propostas e aplicadas |
 | [`trafego/relatorios/`](trafego/relatorios/) | Relatórios datados `AAAA-MM-DD_<assunto>.md` |
+| [`.agents/product-marketing.md`](.agents/product-marketing.md) | Contexto de marketing (público, preços, vocabulário, regras de Ads, aprendizados) lido automaticamente pelas skills globais `ads`, `copywriting`, `ad-creative`, `cro`, `conversion-tracking`, `ab-testing`. Atualizar a versão e o Changelog a cada mudança; aprendizado novo entra em Learnings |
 
 **Regras:**
 
