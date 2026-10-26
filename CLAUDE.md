@@ -2,12 +2,13 @@
 
 ## Escopo do repositório (a partir de 2026-09-08)
 
-Este repositório cobre **dois produtos distintos** da mesma cliente (Mari Gomes), que coexistem mas não devem ser confundidos:
+Este repositório cobre **dois produtos distintos** da mesma cliente (Mari Gomes), que coexistem mas não devem ser confundidos, mais a gestão do tráfego pago que leva a eles:
 
 1. **Funil de campanha (LPs)** — as 3 landing pages × 2 idiomas descritas na seção abaixo. **Estável e entregue** (ver `ENTREGA.md`). Estão publicadas no WordPress da Mary e recebendo tráfego pago ativo (Google Ads) — **não mexer nelas sem pedido explícito do usuário**, mesmo que uma mudança feita no site institucional pareça "fazer sentido" replicar lá também. **Exceção já em andamento:** migração de hospedagem — WordPress/TurboCloud → GitHub Pages + Cloudflare, operada pelo Daniel, cobre a home **e** as 6 LPs (ver [`docs/hospedagem-github-pages-cloudflare.md`](docs/hospedagem-github-pages-cloudflare.md)). Depois de concluída, as LPs passam a ser servidas como arquivos estáticos direto do GitHub, mantendo as URLs atuais.
 2. **Site institucional (home)** — projeto novo, iniciado em 2026-09-08, para substituir a home atual em WordPress (`amarigomes.com`, tema terracota/tântrico feito no Elementor). Ao contrário das LPs, é standalone (HTML autocontido, fora do WordPress) e cobre a primeira impressão/marca da Mari, não uma oferta de campanha específica. Direção estratégica: reposicionar a identidade da home para algo mais alinhado a massagem tântrica/holística (a home atual não converte — ver diagnóstico em `docs/implementations/` quando o plano for criado). Referências de estrutura/conteúdo: `latantra.nl` e `tantricmuses.com`. Direção visual: partir das fotos que melhor performam no Google Business da Mari (tatame em sala escura com velas; retrato dela vestida de preto) — tom quente, penumbra, spa de luxo discreto — em vez do tom espiritual-abstrato do site atual.
+3. **Gestão de tráfego (Google Ads)** — escopo iniciado em 2026-10-26, sem código: estado da conta Google Ads da Mari, log de alterações, reprovações de política, relatórios e experimentos, tudo em [`trafego/`](trafego/README.md). Regras na seção "Gestão de tráfego (Google Ads)", abaixo.
 
-Ao trabalhar em qualquer um dos dois produtos, verificar primeiro qual escopo a tarefa pertence antes de aplicar convenções — eles têm arquivos, identidade visual e workflow de publicação próprios (as seções abaixo, salvo indicação contrária, descrevem o **funil de LPs**; o site institucional terá sua própria seção conforme for implementado).
+Ao trabalhar em qualquer um dos três escopos, verificar primeiro a qual deles a tarefa pertence antes de aplicar convenções — eles têm arquivos, identidade visual e workflow de publicação próprios (as seções abaixo, salvo indicação contrária, descrevem o **funil de LPs**; o site institucional terá sua própria seção conforme for implementado).
 
 **Gaps de conteúdo/informação que só a Mary pode fechar** (dado factual não confirmado, decisão de negócio, credencial, etc.) não travam a implementação — registrar em [`docs/pendencias-mary.md`](docs/pendencias-mary.md) (contexto + pergunta exata) e seguir em frente com um rascunho razoável ou placeholder (mesmo padrão de comentário `COPY DRAFT`/`PHOTO REFERENCE` já usado no código). Esse arquivo é a lista central a encaminhar pra ela; não duplicar as perguntas espalhadas nos arquivos de `docs/implementations/`.
 
@@ -147,6 +148,7 @@ As 6 páginas têm uma seção `#location` (entre o FAQ e a CTA final) com ender
 - Não introduzir dependências externas (frameworks JS, build tools) — o objetivo é manter os arquivos simples e portáveis para colar/publicar no WordPress da cliente.
 - Existe uma classe `.btn-outline` definida no CSS da LP1 que não é usada em nenhum HTML — é resíduo, não precisa de ação a menos que peçam um botão secundário.
 - Os `lp*-*.html` da raiz são cópias idênticas de `<slug>/index.html` — toda mudança numa LP vai nos dois.
+- **LP usada como URL final de anúncio:** qualquer mudança de texto nela pode levar o Google a revisar (e reprovar) os anúncios que apontam para ela. Antes de mudar, conferir o vocabulário em [`trafego/politicas/vocabulario.md`](trafego/politicas/vocabulario.md); depois do commit, anotar data, hash e páginas em [`trafego/alteracoes.md`](trafego/alteracoes.md). As URLs finais ativas estão em [`trafego/conta.md`](trafego/conta.md).
 - **Mudança grande em LP com anúncio ativo → prévia `-v2` antes.** Criar `<slug>-v2/index.html` (cópia + mudança) com `<meta name="robots" content="noindex, nofollow">` e o listener de conversão travado com `if (!/-v2\//.test(location.pathname))`, pra teste da Mari não gerar conversão falsa. Na promoção: copiar por cima de `<slug>/index.html` **e** do `lp*-*.html` legado, remover `noindex` + trava, `git rm -r` da pasta `-v2`, e **conferir que os blocos `<script>` (Consent Mode, `GT-55XJZX3L`, configs `G-`/`AW-`, conversão, cookie banner, GTranslate) ficaram idênticos à versão no ar** — regressão de tag já custou 18 dias de conversões (ver `docs/implementations/correcao-tag-conversao-google-ads.md`).
 
 ## Fluxo de trabalho deste projeto
@@ -222,6 +224,29 @@ Cada página segue o mesmo template visual (paleta parchment/amber/ember, Fraunc
 O conteúdo (Home, Treatments, Prices, Workshop, Fly Me In) vem dos textos que a Mary mandou em `docs/texto-do-site/` (ver `docs/implementations/revisao-textos-reais-mary.md`) — **mas atenção: esses arquivos contêm texto copiado do concorrente `tantrana.nl`** (confirmado em 2026-09-20: o About do `home.txt` é verbatim da Tantrana, com a assinatura "Tantrana" no arquivo; `workshop.txt` cita "Tantrana workshop" e o e-mail `bookings@tantrana.nl`). Não tratar nenhum trecho de `docs/texto-do-site/` como autoria/biografia da Mari sem confirmar; a única bio comprovadamente dela é a recuperada do WordPress antigo (`docs/texto-do-site/about.txt`), já usada na página About e no teaser da Home. Nunca afirmar fatos biográficos (estudo na Índia, anos de experiência, certificações) sem confirmação da Mary. O restante do conteúdo (Home fora do About, Treatments, Prices, Workshop, Fly Me In) ainda não foi auditado contra o tantrana.nl — ver pendência #10 em [`docs/pendencias-mary.md`](docs/pendencias-mary.md), que também lista as demais pendências abertas.
 
 **Nota de conteúdo:** o texto real da Mary é mais explícito que o anterior em vários pontos (estrutura outcall/incall, sobretaxa noturna, currículo do Workshop incluindo massagem lingam/yoni e possibilidade de parear participantes solteiros). Isso foi mantido fiel ao pedido dela, mas existe uma pendência aberta sobre risco de política de conteúdo adulto do Google Ads (a conta de Ads é ativa nas 6 LPs) — ver pendência #8 em `docs/pendencias-mary.md` antes de expandir tráfego pago pras páginas novas.
+
+## Gestão de tráfego (Google Ads)
+
+Conta Google Ads "Mari Gomes" (fuso GMT+02:00, EUR). Hoje só a campanha `[CP-03] Holistische Massage Amsterdam #4` está ativa, apontando para as 6 LPs. Tudo sobre a conta fica em [`trafego/`](trafego/README.md) — ler o `README.md` de lá antes de qualquer tarefa de tráfego.
+
+| Arquivo | Para que serve |
+|---|---|
+| [`trafego/conta.md`](trafego/conta.md) | Estado atual: campanhas, anúncios, URLs finais, orçamento, lances |
+| [`trafego/alteracoes.md`](trafego/alteracoes.md) | Log de mudanças na conta e de commits em LPs usadas como URL final |
+| [`trafego/politicas/reprovacoes.md`](trafego/politicas/reprovacoes.md) | Histórico de reprovações de política |
+| [`trafego/politicas/vocabulario.md`](trafego/politicas/vocabulario.md) | Termos a evitar/preferir em anúncio, palavra-chave e LP |
+| [`trafego/keywords/negativas.md`](trafego/keywords/negativas.md) | Negativas propostas e aplicadas |
+| [`trafego/relatorios/`](trafego/relatorios/) | Relatórios datados `AAAA-MM-DD_<assunto>.md` |
+
+**Regras:**
+
+- **A conta é só leitura por padrão.** O Claude coleta e propõe; nenhuma mudança no Ads (orçamento, lance, palavra-chave, anúncio, status, recomendação) sem aprovação explícita do Daniel na conversa.
+- **Toda mudança aplicada vai para `trafego/alteracoes.md`** (data/hora, quem, onde, o quê, por quê) — inclusive as feitas pela Mari pelo app, quando aparecerem no histórico do Ads.
+- **Recomendações do Google só depois de revisadas.** Aumento de orçamento por recomendação não pode ser desfeito; correspondência ampla com "Maximizar conversões" abre buscas fora do nicho terapêutico. Em 22/10/2026 quatro recomendações foram aceitas pelo app e o CPA diário piorou.
+- **Anúncio novo:** escrever em `trafego/anuncios/`, checar contra `vocabulario.md`, aprovar, subir, registrar. Anúncio reprovado não se edita — cria-se outro.
+- **Política de conteúdo adulto é o maior risco do nicho.** O anúncio "Relaxation Massage" está reprovado por "encontros e acompanhantes" desde ~01/10/2026; a hipótese principal é a LP2 ter virado "Tantric Holistic Relaxation" em 27/09. O uso de "tantric" em anúncio e LP de anúncio é decisão em aberto (pendência #8) — até decidir, não usar em anúncio novo.
+- **Relatório semanal** segue a rotina de `trafego/README.md` e compara com o relatório anterior.
+- **Repositório público:** não gravar em `trafego/` dados de faturamento (cartão, saldo), e-mails de login ou outros dados pessoais. Números de desempenho da conta entram nos relatórios.
 
 ## Git
 
