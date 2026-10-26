@@ -31,7 +31,7 @@ para `CLAUDE.md` ou `docs/architecture/`, e o arquivo é deletado.
 | `alinhamento-precos-site-institucional.md` | Planejado — diagnóstico pronto, falta Plan Mode |
 | `horario-workshop.md` | Planejado — bloqueado pela pendência #13 |
 | `menu-mobile-site-institucional.md` | Fases 1-2 feitas, validadas localmente — falta conferir no ar (após push) |
-| `gestao-trafego.md` | Plano aprovado (26/10/2026) — Fase 1 em andamento |
+| `gestao-trafego.md` | Fases 1-2 feitas (26/10/2026) — Fase 3 aguarda decisão "tantric" |
 
 ---
 

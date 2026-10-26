@@ -1,6 +1,6 @@
 # Gestão de tráfego (Google Ads) dentro do repositório
 
-**Status:** Plano aprovado (26/10/2026), Fase 1 em andamento
+**Status:** Fases 1 e 2 implementadas (26/10/2026); Fase 3 aguardando a decisão "tantric"
 
 ---
 
@@ -107,8 +107,8 @@ de 12/10 e 26/10, reprovações, alterações), sem mudar nada no Ads nem nas LP
 
 | # | Commit | O que foi implementado |
 |---|---|---|
-| 0 | `4f2d1db` | Plano (este arquivo) + índice em `docs/implementations/README.md` |
-| 1 | `2448f4d` | Pasta `trafego/` com 10 arquivos: conta, alterações, reprovações, vocabulário, negativas, templates e relatórios de 12/10 e 26/10 |
+| 0 | `1781f4d` | Plano (este arquivo) + índice em `docs/implementations/README.md` |
+| 1 | `788bfbe` | Pasta `trafego/` com 10 arquivos: conta, alterações, reprovações, vocabulário, negativas, templates e relatórios de 12/10 e 26/10 |
 
 ### Relatório da Fase 1 — o que mudou na prática
 
@@ -118,6 +118,10 @@ alterações (incluindo os commits de LP de 27/09), o histórico de reprovaçõe
 lista de termos a evitar e os dois relatórios. Nada mudou no Ads nem nas LPs.
 **Para validar:** Cenário 1, abaixo.
 
+**Correção na própria fase:** o repositório é público, então dados de faturamento
+(cartão, saldo) e e-mails de login foram retirados de `trafego/` antes do push
+(commits locais reescritos; regra registrada no CLAUDE.md na Fase 2).
+
 ### Fase 2 — CLAUDE.md + índice
 
 **Objetivo:** o Claude saber que o escopo existe e seguir as regras.
@@ -126,6 +130,21 @@ lista de termos a evitar e os dois relatórios. Nada mudou no Ads nem nas LPs.
 |---|---|
 | `CLAUDE.md` | Escopo 3 "Gestão de tráfego" + regras: conta só leitura por padrão; toda mudança no `alteracoes.md`; recomendação do Google só após revisão; anúncio novo passa pelo `vocabulario.md` (e Preflight); commit em LP usada como URL final é anotado no `alteracoes.md` |
 | `docs/implementations/README.md` | Lista esta implementação |
+
+### Commits Fase 2
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `976de60` | CLAUDE.md: 3º escopo, seção "Gestão de tráfego (Google Ads)", convenção de LP como URL final |
+
+### Relatório da Fase 2 — o que mudou na prática
+
+**Antes:** o CLAUDE.md não sabia que existia gestão de tráfego no repositório.
+**Agora:** toda sessão do Claude no repositório lê que a conta do Ads é só
+leitura por padrão, que mudanças vão para `trafego/alteracoes.md`, que
+recomendações do Google precisam de revisão, que mudar texto de LP pode
+reprovar anúncio, e que dados pessoais e de faturamento não entram no repo.
+**Para validar:** Cenário 2, abaixo.
 
 ### Fase 3 — Skills próprias da Mari
 
@@ -146,6 +165,7 @@ lista de termos a evitar e os dois relatórios. Nada mudou no Ads nem nas LPs.
 
 ### Cenário 1 — Estrutura e registros (Fase 1)
 - [ ] Os 10 arquivos existem em `trafego/` e abrem legíveis no editor
+- [ ] Nenhum dado de faturamento nem e-mail de login em `trafego/`
 - [ ] Números dos relatórios batem com o doc de 12/10 e a atualização de 26/10
 - [ ] Nada fora de `trafego/` foi alterado (`git status`)
 
