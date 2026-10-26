@@ -130,7 +130,7 @@ Ao adicionar uma seção nova a alguma LP que faça sentido entrar no menu, lemb
 
 ## Seção de localização (mapa)
 
-As 6 páginas têm uma seção `#location` (entre o FAQ e a CTA final) com endereço + mapa embed do Google Maps, apontando para o perfil público do Google Business da Mari ("Massagem Amsterdam - Mari Gomes", Brouwersgracht 270A, 1013 HG Amsterdam — 5,0★, 6 avaliações). Também está no menu de navegação (`#location`).
+As 6 páginas têm uma seção `#location` (entre o FAQ e a CTA final) com endereço + mapa embed do Google Maps, apontando para o perfil público do Google Business da Mari ("Massagem Amsterdam - Mari Gomes", Brouwersgracht 270A, 1013 HG Amsterdam — 5,0★, 9 avaliações em 26/10/2026). Também está no menu de navegação (`#location`).
 
 - **Mapa**: `<iframe src="https://maps.google.com/maps?q=...&output=embed">` — embed público do Google, sem chave de API (mesmo princípio do GTranslate). Precisa estar dentro de uma tag `<iframe>` real; a URL sozinha fora de iframe retorna erro "must be used in an iframe".
 - **Botão "Get Directions"**: usa a URL de direções completa do Google Maps fornecida para o local (link direto, `target="_blank"`), reaproveitando/criando a classe `.btn-outline` de cada página (era CSS morto não-usado na LP1-EN; replicado nas outras 5 páginas com a cor de destaque de cada uma).
