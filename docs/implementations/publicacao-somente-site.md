@@ -1,6 +1,6 @@
 # Publicar no ar só o site (não o repositório inteiro)
 
-**Status:** Fase 1 em andamento (01/11/2026)
+**Status:** Todos os cenários validados (01/11/2026)
 
 ---
 
@@ -33,14 +33,27 @@ pasta nova volta a ficar pública.
 | Configuração do Pages (GitHub) | Origem `legacy` (branch) → `workflow` (Actions) |
 | `CLAUDE.md` | Regra: o que é publicado e como |
 
+### Commits Fase 1
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 1 | `2faec2d` | Workflow, CLAUDE.md e este arquivo; origem do Pages trocada para `workflow` via API |
+
+### Relatório da Fase 1 — o que mudou na prática
+
+**Antes:** qualquer arquivo do repositório abria em amarigomes.com.
+**Agora:** só as páginas do site são publicadas; documentação interna dá 404.
+
 ## Checks de Validação
 
 ### Cenário 1 — Site continua no ar
-- [ ] `/`, `/nl/`, as 6 LPs e as páginas institucionais respondem 200
-- [ ] Imagens `/images/*.webp` respondem 200
+- [x] `/`, `/nl/`, as 6 LPs e as páginas institucionais respondem 200
+- [x] Imagens `/images/*.webp` respondem 200
+- **Validado em:** 01/11/2026 — run 41359865381 "Publicar site" com sucesso; 13 URLs públicas com 200
 
 ### Cenário 2 — Interno fora do ar
-- [ ] `/CLAUDE.md`, `/docs/pendencias-mary.md`, `/trafego/backlog.md`, `/.agents/product-marketing.md`, `/.claude-ads/setup-profile.json` respondem 404
+- [x] `/CLAUDE.md`, `/docs/pendencias-mary.md`, `/trafego/backlog.md`, `/.agents/product-marketing.md`, `/.claude-ads/setup-profile.json` respondem 404
+- **Validado em:** 01/11/2026 — com e sem parâmetro anti-cache
 
 ## Ajustes Possíveis Pós-Implementação
 
