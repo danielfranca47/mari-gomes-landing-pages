@@ -1,6 +1,6 @@
 # Gestão de tráfego (Google Ads) dentro do repositório
 
-**Status:** Fases 1 e 2 implementadas (26/10/2026); Fase 3 aguardando a decisão "tantric"
+**Status:** Fases 1 e 2 implementadas (26/10/2026); Fase 3 reformulada (ecossistema) em 01/11/2026 — aguardando aprovação
 
 ---
 
@@ -146,18 +146,55 @@ recomendações do Google precisam de revisão, que mudar texto de LP pode
 reprovar anúncio, e que dados pessoais e de faturamento não entram no repo.
 **Para validar:** Cenário 2, abaixo.
 
-### Fase 3 — Skills próprias da Mari
+### Fase 3 — Ecossistema de gestão de tráfego (reformulada em 01/11/2026)
 
-**Objetivo:** transformar os procedimentos repetidos em skills do repo.
+**Decisão:** em vez de só 3 skills da Mari, montar um ecossistema que faz o ciclo
+inteiro sozinho e só para para pedir aprovação de mudança na conta ou publicação
+de página. Base: **[claude-ads](https://github.com/AgriciDaniel/claude-ads)**
+(MIT, v2.1.0, commit `fc3908e`, ~8,5 mil estrelas): maestro `/ads` + ~25
+subagentes com escopo limitado (auditoria por plataforma, conformidade de
+política, rastreamento, orçamento, criativo, redação), portão de mudança, saídas
+"observado / inferido / falta". Revisado em 01/11/2026: sem prompt injection, sem
+Unicode oculto, sem `curl | bash`; rede só no buscador de páginas (com proteção
+SSRF); subagentes só com leitura, exceto 1 com Bash e 1 com Write.
 
-| Arquivo | O que muda |
-|---|---|
-| `.claude/skills/mari-ads-compliance/SKILL.md` | Checagem de texto de anúncio, keyword e LP contra `vocabulario.md` |
-| `.claude/skills/mari-relatorio-semanal/SKILL.md` | Roteiro de coleta (só leitura) + comparação + gravação em `relatorios/` |
-| `.claude/skills/mari-mudanca-lp-com-anuncio/SKILL.md` | Regra `-v2`, conferência de tags e anotação no `alteracoes.md` |
+Limites conhecidos do claude-ads que esta fase cobre:
+- Google Ads só por **export** (CSV/JSON), sem API ao vivo e sem escrita.
+- Não sabe de agendamento/venda — vem do CRM (discovery no `crm-auto-digital`).
+- Não conhece o vocabulário da Mari — vem de `trafego/politicas/vocabulario.md`.
 
-**Fora deste plano:** decidir o posicionamento "tantric" nas LPs de anúncio
-(pendência #8) e qualquer edição das LPs — vira implementação própria.
+**Camadas:**
+
+```
+Global (~/.claude, serve qualquer cliente)
+  claude-ads (plugin)        → método, maestro /ads e subagentes
+  skills coreyhaines31       → ads, ad-creative, copywriting, cro, conversion-tracking, ab-testing
+  gestor-trafego (skill nova)→ ciclo semanal, backlog, pacote de aprovação
+Por cliente (repo do cliente)
+  .agents/product-marketing.md, trafego/ (conta, alterações, políticas, backlog, relatórios)
+  estado do claude-ads (perfil, runs) — exports brutos fora do git (repo público)
+```
+
+**Ciclo do gestor (sem perguntar o que fazer):**
+1. Coletar dados (export agendado do Ads; navegador como reserva).
+2. Rodar `/ads audit google`, `/ads monitor`, `/ads landing`, conformidade de política.
+3. Comparar com as metas (CPA €4 por contato; custo por agendamento quando houver CRM).
+4. Escrever/atualizar `trafego/backlog.md` (tarefa, prioridade pela meta, subagente, se precisa de aprovação).
+5. Executar sozinho tudo que não mexe na conta nem no site no ar: análises, rascunhos de anúncios, páginas `-v2`, negativas propostas, relatório.
+6. Entregar **um pacote de aprovação por semana** (mudanças na conta e publicação de página, com antes/depois e como desfazer).
+7. Após o "aprovado": aplicar, registrar em `alteracoes.md`, medir na semana seguinte.
+
+| Fase | Entrega | Arquivos |
+|---|---|---|
+| 3a | Instalar claude-ads global fixado no commit revisado; conferir | `~/.claude` (plugin) |
+| 3b | Onboarding da Mari: `/ads setup` a partir do `product-marketing.md` (aprovador Daniel, sem autoridade de escrita, tetos) e `.gitignore` do estado bruto | estado do claude-ads, `.gitignore` |
+| 3c | Fonte de dados sem intervenção: relatório agendado do Google Ads para Planilhas/Drive, lido pelo conector Google Drive | `trafego/README.md` |
+| 3d | Skill global `gestor-trafego` (ciclo acima) + `trafego/backlog.md` | `~/.claude/skills/gestor-trafego`, `trafego/backlog.md` |
+| 3e | Tarefa agendada semanal + validação no caso real (grupo de casais sub-representado; anúncio de relaxamento reprovado) | tarefa agendada, `trafego/relatorios/` |
+
+**Fora do automático, sempre com aprovação:** qualquer mudança na conta do Ads,
+publicação de página e contestação de reprovação. Decisão "tantric" (pendência #8)
+segue aberta e bloqueia o texto novo do anúncio de relaxamento.
 
 ---
 
@@ -173,9 +210,11 @@ reprovar anúncio, e que dados pessoais e de faturamento não entram no repo.
 - [ ] Nova sessão do Claude no repo cita o escopo de tráfego ao ser perguntada
 - [ ] Pedido de "mudar anúncio" leva o Claude a consultar `vocabulario.md` e registrar em `alteracoes.md`
 
-### Cenário 3 — Skills (Fase 3)
-- [ ] As 3 skills aparecem na lista de skills de uma sessão aberta no repo
-- [ ] `mari-ads-compliance` reprova "Full Body Massage aan Huis" e aprova um texto terapêutico
+### Cenário 3 — Ecossistema (Fase 3)
+- [ ] `/ads` e os subagentes do claude-ads aparecem numa sessão do Claude Code no repo
+- [ ] O ciclo do gestor roda de ponta a ponta sem perguntas e gera backlog + relatório + pacote de aprovação
+- [ ] O pacote reprova "Full Body Massage aan Huis" pelo vocabulário e propõe texto terapêutico
+- [ ] Nenhuma mudança na conta acontece sem aprovação registrada
 
 ---
 
