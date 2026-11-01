@@ -1,7 +1,7 @@
 # Product Marketing Context
 
-**Document version:** v2
-**Last updated:** 2026-10-26
+**Document version:** v3
+**Last updated:** 2026-11-01
 
 > Contexto lido automaticamente pelas skills de marketing globais (`ads`,
 > `copywriting`, `ad-creative`, `cro`, `conversion-tracking`, `ab-testing`).
@@ -119,10 +119,10 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 ## Goals
 **Business goal:** Mais sessões agendadas com custo por lead sustentável.
 **Conversion action:** Clique no WhatsApp ("Solicitar cotação" no Google Ads).
-**Current metrics:** [CP-03] #4, 12–26/10/2026: CTR 6,94%, CPC €0,71, 87 conversões, CPA €3,16 (`trafego/relatorios/2026-10-26_atualizacao.md`).
+**Current metrics:** [CP-03] #4, 12–26/10/2026: CTR 6,94%, CPC €0,71, 87 conversões, CPA €3,16 (`trafego/relatorios/2026-10-26_atualizacao.md`). Vendas (reportado pela Mari): 19–23/10 = 1 agendamento para 29 contatos e €108,88 de mídia (`trafego/relatorios/2026-11-01_feedback-vendas-19-23-out.md`).
 
 ## Paid Ads (optional)
-**Target CPA / ROAS:** CPA meta **€4** por contato de mensagem (conversão "Solicitar cotação" = clique no WhatsApp). Histórico: €3,16 em 12–26/10/2026. CPA por venda (sessão marcada): MISSING até existir captura em CRM.
+**Target CPA / ROAS:** CPA meta **€4** por contato de mensagem (conversão "Solicitar cotação" = clique no WhatsApp). Histórico: €3,16 em 12–26/10/2026. CPA por venda (sessão marcada): primeira amostra 19–23/10 = €108,88 (1 agendamento, reportado); medição contínua depende de CRM.
 **Hard floor:** MISSING.
 **Monthly budget and daily variance:** €28/dia na [CP-03] #4 desde 22/10/2026 (era €15).
 **Conversions that count:**
@@ -142,6 +142,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 *Decisions and tested lessons. Newest first. Keep it to about 20 active entries.*
 | Date | Learning | Evidence | Applies to | Status |
 |------|----------|----------|------------|--------|
+| 2026-11-01 | CPA por contato baixo não garante venda: 29 contatos (CPA €3,75) viraram 1 agendamento | Mari, 19–23/10/2026; 1 semana só | ads, cro, copywriting | watch |
 | 2026-10-26 | Meta: CPA ≤ €4 por contato de mensagem; abaixo disso a campanha está saudável | Definido pelo Daniel; out/2026 rodou a €3,16 | ads, ad-creative | active |
 | 2026-10-26 | Concorrentes tântricos (La Tantra, Tantric Muses) não usam Google Ads e são mais explícitos; não copiar o tom deles em página de anúncio | Sites conferidos em 26/10/2026 | copywriting, cro, ads | active |
 | 2026-10-26 | Aceitar recomendações do Google sem revisão piorou o CPA diário | 22/10: orçamento €15→€28 e palavras amplas; CPA semana 19–24/10 €3,72 vs. €2,30 na anterior | ads, recomendações | watch |
@@ -151,5 +152,6 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v3 (2026-11-01) — Primeiro dado de venda (1 agendamento em 19–23/10) em Goals, Paid Ads e Learnings.
 - v2 (2026-10-26) — Meta de CPA €4, concorrentes, avaliações reais (Google/Treatwell), depoimentos confirmados, caminho de CRM para vendas.
 - v1 (2026-10-26) — Initial context, montado a partir do CLAUDE.md, das LPs e de `trafego/`.
