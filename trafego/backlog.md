@@ -12,7 +12,8 @@ Aprovação = precisa do Daniel no pacote semanal.
 | T05 | P2 | Dar mais alcance ao grupo de casais (melhor CTR 15,49%, só 9% das impressões em 25–31/10); reavaliar "koppels massage amsterdam" removida em 22/10 | audit-google + audit-budget | Sim | No pacote 01/11 (item 2) | Grupos 25–31/10 |
 | T06 | P2 | Revisar palavras amplas aceitas em 22/10 e negativas com relatório de termos | skill ads | Sim | Parcial: item 1 do pacote 01/11; resto aguarda planilha (T08) | `alteracoes.md` 22/10; termos "tantra near me" |
 | T07 | P2 | Combinar com a Mari: recomendações do Google pelo app só após revisão | Daniel | — | Aberta | 4 recomendações em 22/10 |
-| T08 | P3 | Ligar a planilha agendada do Google Ads no Drive | Daniel (1 vez) | — | Aberta | `trafego/README.md` > Fonte de dados |
+| T08 | P3 | Ligar a planilha agendada do Google Ads no Drive | Daniel (1 vez) | — | Feita 01/11: script do Google Ads `trafego/scripts/export-planilha.js`, segunda 06:00, prévia validada (5 abas, 634 termos) | `trafego/README.md` > Fonte de dados |
 | T09 | P3 | Confirmar criptografia do disco (BitLocker) para validar o perfil do claude-ads | Daniel (1 vez) | — | Aberta | `.claude-ads/setup-profile.json` |
 | T10 | P3 | Forma de pagamento alternativa no Google Ads | Daniel | — | Aberta | Alerta ativo em 26/10 |
 | T11 | P2 | Medir vendas de forma contínua (CRM em modo escuta) | discovery no crm-auto-digital | — | Em discovery | `crm-auto-digital/docs/discovery/escuta-whatsapp-dono-terapeuta.md` |
+| T12 | P2 | Entender os anúncios fora do painel: campanha "[CA-01] CONTATO WHATS - 2026" com anúncio reprovado (PROHIBITED_DATING_AND_COMPANIONSHIP) e um 3º "Relaxation Massage" na [CP-03] como APPROVED_LIMITED pela mesma política | audit-google + audit-policy-compliance | — | Aberta | Aba `anuncios` da planilha, 01/11 |

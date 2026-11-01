@@ -22,11 +22,14 @@ seus arquivos `.html`; esta pasta não tem código.
 ## Fonte de dados (sem intervenção)
 
 1. **Planilha agendada (principal):** planilha `trafego-mari-google-ads` no
-   Google Drive do Daniel, alimentada pelo complemento oficial **Google Ads para
-   Planilhas** com atualização **semanal (segunda de manhã)**. Abas:
+   Google Drive do Daniel, alimentada por um **script do Google Ads** (só
+   leitura; código em `scripts/export-planilha.js`, nome no Ads: "Export semanal
+   para planilha trafego-mari-google-ads (somente leitura)"), agendado toda
+   **segunda 06:00–07:00**. Aba `execucao` mostra a data da última atualização. Abas:
    `campanhas_dia` (campanha × dia: impr., cliques, custo, conversões),
-   `grupos` (grupo de anúncios, últimos 7 dias), `anuncios` (anúncio, status,
-   URL final, últimos 7 dias), `termos` (termos de pesquisa, últimos 7 dias). O
+   `grupos` (grupo de anúncios, últimos 7 dias), `anuncios` (todos os anúncios
+   não removidos: status, aprovação, política, URL final), `termos` (termos de
+   pesquisa, últimos 7 dias). O
    gestor lê pelo conector do Google Drive.
 2. **Exports em `trafego/dados/`** (fora do git), quando houver.
 3. **Navegador** (só leitura) como reserva — pede aprovação a cada passo no Ads.
