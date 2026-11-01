@@ -18,10 +18,10 @@ Três landing pages de vendas para a terapeuta **Mari Gomes** (massagem holísti
 
 | Arquivo | Página | Idioma |
 |---|---|---|
-| `lp1-holistic-energy-en.html` | LP1 — Tantric Energy Experience (ex-Holistic Energy Massage) | EN |
-| `lp1-holistic-energy-nl.html` | LP1 — Tantric Energy Experience (ex-Holistic Energy Massage) | NL |
-| `lp2-relaxation-en.html` | LP2 — Tantric Holistic Relaxation (ex-Relaxation & Stress Relief) | EN |
-| `lp2-relaxation-nl.html` | LP2 — Tantric Holistic Relaxation (ex-Relaxation & Stress Relief) | NL |
+| `lp1-holistic-energy-en.html` | LP1 — Holistic Energy Experience (ex-Tantric Energy Experience, até 01/11/2026) | EN |
+| `lp1-holistic-energy-nl.html` | LP1 — Holistic Energy Experience (ex-Tantric Energy Experience, até 01/11/2026) | NL |
+| `lp2-relaxation-en.html` | LP2 — Holistic Relaxation (ex-Tantric Holistic Relaxation, até 01/11/2026) | EN |
+| `lp2-relaxation-nl.html` | LP2 — Holistic Relaxation (ex-Tantric Holistic Relaxation, até 01/11/2026) | NL |
 | `lp3-couples-en.html` | LP3 — Couples Massage | EN |
 | `lp3-couples-nl.html` | LP3 — Couples Massage | NL |
 
@@ -58,7 +58,7 @@ Os 12 placeholders já foram substituídos (Fase 2 concluída). As imagens reais
 
 - WhatsApp: `+31 634 366 008` → `https://wa.me/31634366008?text=...` (texto pré-preenchido, URL-encoded, varia por página e idioma)
 - E-mail: `marycontato@gmail.com`
-- Instagram: `@massage.tantric.therapy` → `https://www.instagram.com/massage.tantric.therapy/` (handle atualizado; `@kirakundalini` era o valor original e não está mais em uso em nenhum dos 6 arquivos)
+- Instagram: `@massage.tantric.therapy` → `https://www.instagram.com/massage.tantric.therapy/` (nas LPs de anúncio o texto do link é só "Instagram" desde 01/11/2026; handle atualizado; `@kirakundalini` era o valor original e não está mais em uso em nenhum dos 6 arquivos)
 - Site/logo: `https://amarigomes.com`
 
 Esses 4 destinos se repetem em nav, hero, seções de CTA e footer em todas as 6 páginas. Ver `IMPLEMENTACAO.md` Fase 1 para o mapeamento completo de cada botão.
@@ -66,7 +66,7 @@ Esses 4 destinos se repetem em nav, hero, seções de CTA e footer em todas as 6
 Dados de atendimento confirmados pela Mari (27/09/2026) — valem para LPs e site institucional:
 - **Horário:** só das 9:00 às 19:00. Não existe sobretaxa noturna (a nota "after 21:00" que ainda aparece em `/prices/` veio da Tantrana).
 - **Deslocamento:** visita a casa/hotel em Amsterdã custa **+€50**. **Ela atende só em Amsterdã** (confirmado em 04/10/2026) — não citar outras cidades. O domicílio não é diferencial: fica só em notas discretas (FAQ, nota de preços), nunca em título, card ou destaque, e sem os termos "Outcall/Incall".
-- **Título profissional:** "Terapeuta Tântrica Bioenergética" (EN "Bioenergetic Tantric Therapist", NL "Bio-energetisch Tantra Therapeut"), usado nas bios. Anos de experiência entram sem número até ela informar (pendência #7).
+- **Título profissional:** "Terapeuta Tântrica Bioenergética" (EN "Bioenergetic Tantric Therapist", NL "Bio-energetisch Tantra Therapeut"), usado nas bios do site institucional; nas LPs de anúncio, desde 01/11/2026: "Bioenergetic Therapist" / "Bio-energetisch Therapeut". Anos de experiência entram sem número até ela informar (pendência #7).
 - **Vocabulário:** evitar termos que remetem a erótico ("intimate/intimacy", "sensual", "desire", "pleasure") — usar "connection", "presence", "calm", "private". Atendimento em casa/hotel é "session" / "sessie", nunca "visit" / "bezoek" (a Mari não quer "visita"; corrigido em 04/10/2026).
 - **Preços sempre do mais barato para o mais caro**, em qualquer lista ou tabela.
 - **Atende sozinha:** não oferecer nada que exija segunda terapeuta (4 mãos, casal com 2 terapeutas, "me and my colleague therapists"); na sessão de casal é a Mari que conduz.
@@ -78,11 +78,11 @@ Desde 27/09/2026 as 6 LPs mostram preço (pedido da Mari: filtrar lead que chama
 
 | LP (pasta, URL mantida) | Nome do serviço | Preços |
 |---|---|---|
-| LP1 `holistic-energy-massage-*` | Tantric Energy Experience | 60 min €300 · 90 min €350 (recomendado) · 120 min €400 |
-| LP2 `relaxation-massage-*` | Tantric Holistic Relaxation | 60 min €250 · 90 min €300 (recomendado) · 120 min €350 |
+| LP1 `holistic-energy-massage-*` | Holistic Energy Experience | 60 min €300 · 90 min €350 (recomendado) · 120 min €400 |
+| LP2 `relaxation-massage-*` | Holistic Relaxation | 60 min €250 · 90 min €300 (recomendado) · 120 min €350 |
 | LP3 `couples-massage-*` | (nome original) | 90 min €350 · 2h €400 · 2,5h €450 · 3h €500 — preço do casal |
 
-- O nome do serviço aparece no `<title>`, no rótulo do hero (`.hero-eyebrow` / `.hero-tag`), no rótulo da seção de preços e no texto pré-preenchido do WhatsApp; os `<h1>` não mudaram. **Decisão 01/11/2026 (Daniel): sair do "Tantric" nas páginas de anúncio.** Prévias `-v2` sem o termo aguardam o pacote `trafego/aprovacoes/2026-11-01-b.md`; na promoção, atualizar esta tabela e a do topo com os nomes novos (ver `trafego/politicas/vocabulario.md`).
+- O nome do serviço aparece no `<title>`, no rótulo do hero (`.hero-eyebrow` / `.hero-tag`), no rótulo da seção de preços e no texto pré-preenchido do WhatsApp; os `<h1>` não mudaram. **Decisão 01/11/2026 (Daniel): sair do "Tantric" nas páginas de anúncio.** Promovido em 01/11/2026 (pacote `trafego/aprovacoes/2026-11-01-b.md`, item 1); nomes em `trafego/politicas/vocabulario.md`.
 - Cada LP tem uma `<section id="pricing">` no estilo próprio da página (LP1 após "The experience"; LP2 antes do About; LP3 após Packages, e os 3 cards de Packages mostram "From €350 for two") + link "Prices/Prijzen" no nav, FAQ "How much does a session cost?" com os valores, hero note "From €…" e a nota "Sessions between 9:00 and 19:00 · Home or hotel session in Amsterdam: +€50 travel fee · Payment by card, cash or BTC".
 - Os CTAs dizem "Book…" (não "Request a quote") e o texto do WhatsApp pede disponibilidade, não orçamento.
 - O botão da seção de preços é um link `wa.me` como os outros, então também dispara a conversão do Google Ads.
