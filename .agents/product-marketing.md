@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v3
+**Document version:** v4
 **Last updated:** 2026-11-01
 
 > Contexto lido automaticamente pelas skills de marketing globais (`ads`,
@@ -142,6 +142,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 *Decisions and tested lessons. Newest first. Keep it to about 20 active entries.*
 | Date | Learning | Evidence | Applies to | Status |
 |------|----------|----------|------------|--------|
+| 2026-11-01 | O contato chega (mensagens ≈ conversões do Ads), mas parte pede opção mais barata: o filtro de preço precisa acontecer ANTES do clique (anúncio), não só na página | Mari, 01/11/2026; preço na LP desde set/2026 não bastou | ads, ad-creative, cro | active |
 | 2026-11-01 | CPA por contato baixo não garante venda: 29 contatos (CPA €3,75) viraram 1 agendamento | Mari, 19–23/10/2026; 1 semana só | ads, cro, copywriting | watch |
 | 2026-10-26 | Meta: CPA ≤ €4 por contato de mensagem; abaixo disso a campanha está saudável | Definido pelo Daniel; out/2026 rodou a €3,16 | ads, ad-creative | active |
 | 2026-10-26 | Concorrentes tântricos (La Tantra, Tantric Muses) não usam Google Ads e são mais explícitos; não copiar o tom deles em página de anúncio | Sites conferidos em 26/10/2026 | copywriting, cro, ads | active |
@@ -152,6 +153,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v4 (2026-11-01) — Learning: sensibilidade a preço confirmada pela Mari; filtrar antes do clique.
 - v3 (2026-11-01) — Primeiro dado de venda (1 agendamento em 19–23/10) em Goals, Paid Ads e Learnings.
 - v2 (2026-10-26) — Meta de CPA €4, concorrentes, avaliações reais (Google/Treatwell), depoimentos confirmados, caminho de CRM para vendas.
 - v1 (2026-10-26) — Initial context, montado a partir do CLAUDE.md, das LPs e de `trafego/`.

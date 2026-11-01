@@ -6,6 +6,7 @@ commits de LP são deste repositório.
 
 | Data e hora | Quem | Onde | O que mudou | Por quê / origem |
 | --- | --- | --- | --- | --- |
+| 01/11/2026 ~23:10 | Claude (aprovado por Daniel) | [CP-03] #4 / G1 Holistisch & Energetisch | Negativas de frase no grupo: "price menu", "45 minute", "daily full body". Desfazer: remover as 3 em Palavras-chave > Negativas | Pacote 01/11 item 1 — buscas de massagem barata/genérica |
 | 24/10/2026 23:00 | Mari (app) | [CP-03] #4 / G2 - Deep Relax | Removida a ampla body massage amsterdam; adicionada "massage amsterdam" | Não registrado |
 | 22/10/2026 20:14 | Mari (app) | [CP-03] #4 / G1 e G3 | Removidas "kundalini massage amsterdam", "energetische massage amsterdam" (G1), "koppels massage amsterdam" (G3) e a ampla massage in amsterdam (G1) | Recomendação "Palavra-chave redundante" |
 | 22/10/2026 20:13 | Mari (app) | [CP-03] #4 / G2 - Deep Relax | Adicionada a ampla thuis massage amsterdam | Recomendação "Correspondência ampla" |
