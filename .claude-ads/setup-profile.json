@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "setup-profile",
+  "run_id": "setup-mari-20261101",
+  "created_at": "2026-11-01T17:30:00Z",
+  "business": {
+    "name": "Mari Gomes — massagem holística (Amsterdã)",
+    "business_model": "Serviço local B2C por agendamento; sessões individuais (60–120 min, €250–€400) e para casal (90 min–3 h, €350–€500); contato e venda pelo WhatsApp",
+    "geographies": ["NL-Amsterdam"],
+    "regulated_categories": ["adult-content-adjacent: Google Ads 'encontros e acompanhantes' (sexual content) policy risk", "wellness/health claims"]
+  },
+  "objective": {
+    "primary": "Mais sessões agendadas com custo sustentável",
+    "conversion_definition": "Google Ads 'Solicitar cotação' = clique em link wa.me nas landing pages (contato de mensagem). Venda = sessão agendada, hoje reportada pela Mari, sem import no Ads",
+    "success_metrics": ["CPA por contato <= EUR 4", "custo por agendamento (sem meta definida; amostra 19-23/10/2026 = EUR 108,88)", "anúncios sem reprovação de política"]
+  },
+  "platforms": ["google"],
+  "account_refs": [],
+  "data_sources": [
+    {"id": "google-ads-scheduled-report", "kind": "export", "platform": "google", "status": "missing"},
+    {"id": "google-ads-browser-read", "kind": "manual", "platform": "google", "status": "available"},
+    {"id": "mari-booking-feedback", "kind": "manual", "platform": "google", "status": "available"}
+  ],
+  "privacy_class": "confidential",
+  "mutation_authority": "approved-plan-required",
+  "approver_ids": ["daniel"],
+  "assumptions": [
+    "Contexto completo em .agents/product-marketing.md e trafego/ deste repositório",
+    "ID da conta Google Ads omitido de propósito: repositório público",
+    "Só [CP-03] Holistische Massage Amsterdam #4 está ativa (Search, Maximizar conversões, EUR 28/dia desde 22/10/2026)",
+    "Uso de 'tantric' em anúncio e página de anúncio: decisão em aberto (docs/pendencias-mary.md #8)",
+    "Nenhuma mudança na conta, publicação de página ou contestação sem aprovação do Daniel",
+    "Criptografia em repouso do PC do Daniel (BitLocker) NÃO verificada: o perfil fica pendente de validação até confirmação"
+  ],
+  "data_lifecycle": {
+    "schema_version": "1.0.0",
+    "lifecycle_id": "mari-ads-data-v1",
+    "classification": "confidential",
+    "retention": {"minimum_seconds": 0, "mode": "operator-defined", "delete_after": "2027-11-01T00:00:00Z", "purpose": "Gestão de tráfego pago da cliente", "exception_reason": null},
+    "encryption": {"at_rest": "not-applicable", "in_transit": "verified", "evidence_refs": ["Transporte HTTPS do Google Ads/Drive; exports e runs brutos fora do git (.gitignore). Em repouso: pendente de confirmação do BitLocker"]},
+    "access": {"owner": "daniel", "authorized_roles": ["gestor-trafego"], "access_log_locator": null},
+    "deletion": {"status": "scheduled", "method": "Apagar .claude-ads/runs e trafego/dados no fim do contrato ou em 2027-11-01", "verification_required": true, "verification_artifact_locator": null},
+    "incident": {"owner": "daniel", "reporting_channel": "Contato direto do Daniel com a Mari (WhatsApp/e-mail)", "status": "not-triggered", "record_locator": null}
+  }
+}

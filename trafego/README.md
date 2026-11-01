@@ -19,6 +19,19 @@ seus arquivos `.html`; esta pasta não tem código.
 | `relatorios/` | Relatórios datados `AAAA-MM-DD_<assunto>.md` |
 | `../.agents/product-marketing.md` | Contexto de marketing lido pelas skills globais; aprendizados novos vão para a seção Learnings |
 
+## Fonte de dados (sem intervenção)
+
+1. **Planilha agendada (principal):** planilha `trafego-mari-google-ads` no
+   Google Drive do Daniel, alimentada pelo complemento oficial **Google Ads para
+   Planilhas** com atualização **semanal (segunda de manhã)**. Abas:
+   `campanhas_dia` (campanha × dia: impr., cliques, custo, conversões),
+   `grupos` (grupo de anúncios, últimos 7 dias), `anuncios` (anúncio, status,
+   URL final, últimos 7 dias), `termos` (termos de pesquisa, últimos 7 dias). O
+   gestor lê pelo conector do Google Drive.
+2. **Exports em `trafego/dados/`** (fora do git), quando houver.
+3. **Navegador** (só leitura) como reserva — pede aprovação a cada passo no Ads.
+4. **Vendas:** feedback da Mari até o CRM em modo escuta existir.
+
 ## Rotina semanal
 
 1. **Coletar** (só leitura no Ads): métricas por campanha e por dia, status de

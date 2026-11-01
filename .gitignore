@@ -6,3 +6,8 @@ desktop.ini
 .venv/
 __pycache__/
 .claude/settings.local.json
+
+# Gestão de tráfego — dados brutos fora do git (repo público)
+.claude-ads/runs/
+.claude-ads/cache/
+trafego/dados/
