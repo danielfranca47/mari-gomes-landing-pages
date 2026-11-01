@@ -1,6 +1,6 @@
 # Gestão de tráfego (Google Ads) dentro do repositório
 
-**Status:** Fases 1 e 2 implementadas (26/10/2026); Fase 3 reformulada (ecossistema) em 01/11/2026 — aguardando aprovação
+**Status:** Fase 3 implementada (01/11/2026) — aguardando a 1ª execução agendada (02/11) para fechar os checks
 
 ---
 
@@ -192,6 +192,28 @@ Por cliente (repo do cliente)
 | 3d | Skill global `gestor-trafego` (ciclo acima) + `trafego/backlog.md` | `~/.claude/skills/gestor-trafego`, `trafego/backlog.md` |
 | 3e | Tarefa agendada semanal + validação no caso real (grupo de casais sub-representado; anúncio de relaxamento reprovado) | tarefa agendada, `trafego/relatorios/` |
 
+### Commits Fase 3
+
+| # | Commit | O que foi implementado |
+|---|---|---|
+| 0 | `350c12a` | Fase 3 reformulada (este plano) |
+| 1 | — (fora do repo) | 3a: claude-ads v2.1.0 instalado como plugin global, fixado no commit `fc3908e` (clone local em `~/claude-plugins-pinned/claude-ads`, marketplace local) |
+| 2 | `dd02d57` | 3b–3c: `.claude-ads/setup-profile.json`, `.gitignore` de dados brutos, fontes de dados no `trafego/README.md` |
+| 3 | — (fora do repo) | 3d: skill global `~/.claude/skills/gestor-trafego` (fonte em `~/claude-plugins-pinned/gestor-trafego`) |
+| 4 | `0f9035a` | 3d: `trafego/backlog.md` |
+| 5 | `808c21e` | 3e: 1º ciclo — relatório 25–31/10 e pacote de aprovação 01/11 |
+| 6 | — (fora do repo) | 3e: tarefa agendada "Ciclo semanal de tráfego — Mari" (segunda 08:58, Amsterdã) |
+
+### Relatório da Fase 3 — o que mudou na prática
+
+**Antes:** cada análise dependia de o Daniel pedir e dizer o que fazer.
+**Agora:** toda segunda de manhã uma tarefa agendada lê o contexto da Mari, coleta
+os dados, audita, atualiza o backlog, faz os rascunhos e entrega relatório +
+pacote de aprovação. Mudanças na conta só depois do "aprovo" do Daniel.
+**Pendências de 1 clique do Daniel:** ligar a planilha agendada (T08) e confirmar
+BitLocker (T09).
+**Para validar:** Cenário 3.
+
 **Fora do automático, sempre com aprovação:** qualquer mudança na conta do Ads,
 publicação de página e contestação de reprovação. Decisão "tantric" (pendência #8)
 segue aberta e bloqueia o texto novo do anúncio de relaxamento.
@@ -211,10 +233,11 @@ segue aberta e bloqueia o texto novo do anúncio de relaxamento.
 - [ ] Pedido de "mudar anúncio" leva o Claude a consultar `vocabulario.md` e registrar em `alteracoes.md`
 
 ### Cenário 3 — Ecossistema (Fase 3)
-- [ ] `/ads` e os subagentes do claude-ads aparecem numa sessão do Claude Code no repo
+- [x] `/ads` e os subagentes do claude-ads aparecem numa sessão do Claude Code no repo
+- **Validado em:** 01/11/2026 — `claude -p` no repo listou gestor-trafego, ads, ads-landing, audit-policy-compliance, copy-writer e ad-creative como disponíveis
 - [ ] O ciclo do gestor roda de ponta a ponta sem perguntas e gera backlog + relatório + pacote de aprovação
 - [ ] O pacote reprova "Full Body Massage aan Huis" pelo vocabulário e propõe texto terapêutico
-- [ ] Nenhuma mudança na conta acontece sem aprovação registrada
+- [ ] Nenhuma mudança na conta acontece sem aprovação registrada (01/11: nenhuma mudança feita; conferir após a 1ª execução agendada de 02/11)
 
 ---
 
