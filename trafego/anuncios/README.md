@@ -5,5 +5,6 @@ Um arquivo por grupo de anúncios: `<campanha>_<grupo>.md` (ex.:
 caminhos de exibição, títulos (com fixação), descrições e status no Ads.
 
 Fluxo: escrever aqui → checar contra `../politicas/vocabulario.md` (e Preflight)
-→ aprovar → subir no Ads → registrar em `../alteracoes.md`. Anúncio reprovado não
-é editado: cria-se um novo arquivo/versão.
+→ aprovar → subir no Ads → registrar em `../alteracoes.md`. Anúncio reprovado por causa
+da página: corrigir a página e contestar ("Fiz alterações para cumprir a política").
+Reprovado pelo texto: criar um novo arquivo/versão.
