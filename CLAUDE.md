@@ -82,7 +82,7 @@ Desde 27/09/2026 as 6 LPs mostram preço (pedido da Mari: filtrar lead que chama
 | LP2 `relaxation-massage-*` | Tantric Holistic Relaxation | 60 min €250 · 90 min €300 (recomendado) · 120 min €350 |
 | LP3 `couples-massage-*` | (nome original) | 90 min €350 · 2h €400 · 2,5h €450 · 3h €500 — preço do casal |
 
-- O nome do serviço aparece no `<title>`, no rótulo do hero (`.hero-eyebrow` / `.hero-tag`), no rótulo da seção de preços e no texto pré-preenchido do WhatsApp; os `<h1>` não mudaram. "Tantric" em página de anúncio é risco aceito pelo Daniel (pendência #8).
+- O nome do serviço aparece no `<title>`, no rótulo do hero (`.hero-eyebrow` / `.hero-tag`), no rótulo da seção de preços e no texto pré-preenchido do WhatsApp; os `<h1>` não mudaram. **Decisão 01/11/2026 (Daniel): sair do "Tantric" nas páginas de anúncio.** Prévias `-v2` sem o termo aguardam o pacote `trafego/aprovacoes/2026-11-01-b.md`; na promoção, atualizar esta tabela e a do topo com os nomes novos (ver `trafego/politicas/vocabulario.md`).
 - Cada LP tem uma `<section id="pricing">` no estilo próprio da página (LP1 após "The experience"; LP2 antes do About; LP3 após Packages, e os 3 cards de Packages mostram "From €350 for two") + link "Prices/Prijzen" no nav, FAQ "How much does a session cost?" com os valores, hero note "From €…" e a nota "Sessions between 9:00 and 19:00 · Home or hotel session in Amsterdam: +€50 travel fee · Payment by card, cash or BTC".
 - Os CTAs dizem "Book…" (não "Request a quote") e o texto do WhatsApp pede disponibilidade, não orçamento.
 - O botão da seção de preços é um link `wa.me` como os outros, então também dispara a conversão do Google Ads.
@@ -245,7 +245,7 @@ Conta Google Ads "Mari Gomes" (fuso GMT+02:00, EUR). Hoje só a campanha `[CP-03
 - **Toda mudança aplicada vai para `trafego/alteracoes.md`** (data/hora, quem, onde, o quê, por quê) — inclusive as feitas pela Mari pelo app, quando aparecerem no histórico do Ads.
 - **Recomendações do Google só depois de revisadas.** Aumento de orçamento por recomendação não pode ser desfeito; correspondência ampla com "Maximizar conversões" abre buscas fora do nicho terapêutico. Em 22/10/2026 quatro recomendações foram aceitas pelo app e o CPA diário piorou.
 - **Anúncio novo:** escrever em `trafego/anuncios/`, checar contra `vocabulario.md`, aprovar, subir, registrar. Anúncio reprovado não se edita — cria-se outro.
-- **Política de conteúdo adulto é o maior risco do nicho.** O anúncio "Relaxation Massage" está reprovado por "encontros e acompanhantes" desde ~01/10/2026; a hipótese principal é a LP2 ter virado "Tantric Holistic Relaxation" em 27/09. O uso de "tantric" em anúncio e LP de anúncio é decisão em aberto (pendência #8) — até decidir, não usar em anúncio novo.
+- **Política de conteúdo adulto é o maior risco do nicho.** O anúncio "Relaxation Massage" está reprovado por "encontros e acompanhantes" desde ~01/10/2026; a hipótese principal é a LP2 ter virado "Tantric Holistic Relaxation" em 27/09. Decidido em 01/11/2026: sem "tantric" em anúncio, palavra-chave e LP de anúncio (site institucional e Google Maps não mudam).
 - **Relatório semanal** segue a rotina de `trafego/README.md` e compara com o relatório anterior.
 - **Repositório público:** não gravar em `trafego/` dados de faturamento (cartão, saldo), e-mails de login ou outros dados pessoais. Números de desempenho da conta entram nos relatórios.
 

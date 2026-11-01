@@ -5,10 +5,10 @@ Aprovação = precisa do Daniel no pacote semanal.
 
 | ID | Pri | Tarefa | Responsável | Aprovação | Status | Evidência |
 | --- | --- | --- | --- | --- | --- | --- |
-| T01 | P1 | Decidir uso de "Tantric" nas páginas de anúncio (LP1/LP2/LP3) | Daniel + Mari | Decisão de negócio | Bloqueio | Pendência #8; reprovação "Relaxation Massage" desde ~01/10 |
+| T01 | P1 | Decidir uso de "Tantric" nas páginas de anúncio (LP1/LP2/LP3) | Daniel + Mari | Decisão de negócio | Decidida 01/11 pelo Daniel: sem "Tantric" no tráfego pago; vocabulário atualizado | Pendência #8; reprovação "Relaxation Massage" desde ~01/10 |
 | T02 | P1 | Descobrir onde se perdem os contatos: 29 contatos → 1 agendamento (19–23/10) | gestor + Mari | — | Confirmado pela Mari (01/11): mensagens ≈ conversões; perda é preço — pedem opção mais barata. Próximo: pré-qualificar por preço no anúncio (recurso de preço / preço no texto) e negativas de intenção barata | Item 3 pacote 01/11 | `relatorios/2026-11-01_feedback-vendas-19-23-out.md` |
-| T03 | P1 | Novo anúncio de relaxamento EN (G2) sem padrão reprovado | copy-writer + audit-policy-compliance | Sim | Bloqueada por T01 | `politicas/reprovacoes.md` |
-| T04 | P1 | Página `/relaxation-massage-en-v2/` com linguagem terapêutica | skill cro + CLAUDE.md (-v2) | Sim (publicação) | Bloqueada por T01 | Hipótese LP2 renomeada 27/09 |
+| T03 | P1 | Novo anúncio de relaxamento EN (G2) sem padrão reprovado | copy-writer + audit-policy-compliance | Sim | Rascunho pronto (`anuncios/cp-03-4_g2-deep-relax.md`); pacote 01/11-b item 2 | `politicas/reprovacoes.md` |
+| T04 | P1 | Página `/relaxation-massage-en-v2/` com linguagem terapêutica | skill cro + CLAUDE.md (-v2) | Sim (publicação) | Prévias -v2 das 6 LPs criadas 01/11; pacote 01/11-b item 1 | Hipótese LP2 renomeada 27/09 |
 | T05 | P2 | Dar mais alcance ao grupo de casais (melhor CTR 15,49%, só 9% das impressões em 25–31/10); reavaliar "koppels massage amsterdam" removida em 22/10 | audit-google + audit-budget | Sim | Reaberta: item 2 do pacote 01/11 descartado (palavras já existem em ampla); próxima alavanca = orçamento/campanha própria | Grupos 25–31/10 |
 | T06 | P2 | Revisar palavras amplas aceitas em 22/10 e negativas com relatório de termos | skill ads | Sim | Parcial: item 1 do pacote 01/11; resto aguarda planilha (T08) | `alteracoes.md` 22/10; termos "tantra near me" |
 | T07 | P2 | Combinar com a Mari: recomendações do Google pelo app só após revisão | Daniel | — | Aberta | 4 recomendações em 22/10 |

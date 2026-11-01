@@ -15,15 +15,28 @@ foi reprovado no Ads. Vale para EN e NL.
 | "Limited Availability" e urgência similar | Anúncio | Título reprovado |
 | "for men" | Keyword | Intenção ambígua |
 
-## Decisão em aberto
+## Decidido: sem "Tantric" no tráfego pago (01/11/2026)
 
-| Termo | Situação |
+Decisão do Daniel em 01/11/2026 (T01). **tantra, tantric, tantrisch, tantrische**
+não entram em anúncio, palavra-chave nem nas páginas usadas como URL final.
+O site institucional (home, about, treatments, workshop) e o perfil no Google
+Maps não mudam por esta regra.
+
+| Antes (nas LPs de anúncio) | Depois |
 | --- | --- |
-| tantra, tantric, tantrisch | Usado no nome dos serviços das LP1/LP2 desde 27/09/2026 (risco aceito, pendência #8). Suspeito da reprovação do "Relaxation Massage". Decidir: (a) tirar dos anúncios e das LPs de anúncio e negativar; ou (b) manter e aceitar o risco. Até decidir: **não usar em anúncio novo** |
+| Tantric Energy Experience | Holistic Energy Experience |
+| Tantric Holistic Relaxation | Holistic Relaxation |
+| Tantric Couple Therapy / Tantrische Koppelstherapie | Couples Energy Therapy / Energetische Koppelstherapie |
+| Tantric Therapy / Tantrische Therapie | Bioenergetic Therapy / Bio-energetische Therapie |
+| Bioenergetic Tantric Therapist | Bioenergetic Therapist |
+| "@massage.tantric.therapy" (texto do link) | "Instagram" (o endereço do perfil não muda) |
+
+Resíduo aceito: a URL do Instagram (`instagram.com/massage.tantric.therapy`)
+continua no rodapé das LPs. Se a reprovação persistir depois da troca, o próximo
+passo é tirar esse link das LPs de anúncio.
 
 ## Preferir
 
 session/sessie, therapeutic massage, stress relief, muscle tension, certified
-therapist, Bioenergetic Tantric Therapist só nas bios (não em anúncio enquanto
-a decisão acima estiver aberta), calm, presence, connection, private studio,
+therapist, Bioenergetic Therapist, calm, presence, connection, private studio,
 Amsterdam.

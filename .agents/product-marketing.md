@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v4
+**Document version:** v5
 **Last updated:** 2026-11-01
 
 > Contexto lido automaticamente pelas skills de marketing globais (`ads`,
@@ -96,7 +96,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 | Term | Meaning |
 |------|---------|
 | Session / sessie | Atendimento (inclusive em casa/hotel). Nunca "visit" |
-| Tantric | **Decisão em aberto** — ver Paid Ads e Learnings |
+| Tantric | **Fora do tráfego pago** (decisão 01/11/2026): não usar em anúncio, palavra-chave nem LP de anúncio; ok no site institucional |
 
 ## Brand Voice
 | Attribute | Means | Doesn't mean | Example line |
@@ -153,6 +153,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v5 (2026-11-01) — Tantric fora do tráfego pago (decisão do Daniel).
 - v4 (2026-11-01) — Learning: sensibilidade a preço confirmada pela Mari; filtrar antes do clique.
 - v3 (2026-11-01) — Primeiro dado de venda (1 agendamento em 19–23/10) em Goals, Paid Ads e Learnings.
 - v2 (2026-10-26) — Meta de CPA €4, concorrentes, avaliações reais (Google/Treatwell), depoimentos confirmados, caminho de CRM para vendas.

@@ -7,8 +7,9 @@ Lista de conta, para as 4 campanhas, correspondência de frase:
 erotic, erotisch, sensual, nuru, body to body, escort, happy ending, for men,
 sexy, adult
 
-Pendentes da decisão "tantric" (`politicas/vocabulario.md`): tantra, tantric,
-tantrisch.
+Decisão "tantric" tomada em 01/11: tantra, tantric, tantrisch entram no pacote
+`aprovacoes/2026-11-01-b.md` (item 4), junto com termos de preço baixo:
+cheap, cheapest, goedkoop, goedkope, budget, affordable, discount, korting.
 
 Motivo: a #4 usa correspondência ampla e "tantra near me" e "massage near me
 for men near me" apareceram nos termos de pesquisa (26/10).
