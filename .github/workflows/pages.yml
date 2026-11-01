@@ -1,0 +1,60 @@
+# Publica no GitHub Pages SÓ os arquivos do site (lista de permissão).
+# Documentação interna (docs/, trafego/, .agents/, .claude-ads/, CLAUDE.md etc.)
+# nunca vai para amarigomes.com. Ver docs/implementations/publicacao-somente-site.md
+name: Publicar site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Montar _site só com o que é página
+        run: |
+          set -euo pipefail
+          mkdir _site
+          # Raiz: páginas .html, domínio e marcador sem Jekyll
+          cp ./*.html _site/
+          cp CNAME .nojekyll _site/
+          for f in robots.txt sitemap.xml favicon.ico; do [ -f "$f" ] && cp "$f" _site/ || true; done
+          # Imagens
+          cp -r images _site/
+          # Toda pasta de 1º nível que é página (tem index.html), exceto as internas
+          for d in */; do
+            d="${d%/}"
+            case "$d" in docs|trafego|scripts|images|_site) continue ;; esac
+            [ -f "$d/index.html" ] && cp -r "$d" _site/
+          done
+          # Trava: nada interno pode ter entrado
+          if find _site \( -name '*.md' -o -name '.agents' -o -name '.claude*' -o -name 'trafego' -o -name 'docs' \) | grep -q .; then
+            echo "Arquivo interno no site — abortando"; find _site \( -name '*.md' -o -name 'trafego' -o -name 'docs' \); exit 1
+          fi
+          echo "Publicando:"; find _site -maxdepth 1 | sort
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

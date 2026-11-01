@@ -249,6 +249,16 @@ Conta Google Ads "Mari Gomes" (fuso GMT+02:00, EUR). Hoje só a campanha `[CP-03
 - **Relatório semanal** segue a rotina de `trafego/README.md` e compara com o relatório anterior.
 - **Repositório público:** não gravar em `trafego/` dados de faturamento (cartão, saldo), e-mails de login ou outros dados pessoais. Números de desempenho da conta entram nos relatórios.
 
+## Publicação do site (GitHub Pages via Actions)
+
+Desde 01/11/2026 o site é publicado pelo workflow `.github/workflows/pages.yml`,
+que monta `_site/` só com páginas: `.html` da raiz, `CNAME`, `.nojekyll`,
+`images/` e toda pasta de 1º nível com `index.html` (exceto `docs/`, `trafego/`,
+`scripts/`). Documentação interna nunca vai para `amarigomes.com`. Página nova
+precisa ser uma pasta com `index.html` (ou `.html` na raiz) para ser publicada;
+arquivo em outro formato na raiz (ex.: `robots.txt`) precisa entrar na lista do
+workflow. Ver `docs/implementations/publicacao-somente-site.md`.
+
 ## Git
 
 Este projeto tem repositório no GitHub: `danielfranca47/mari-gomes-landing-pages` (público).
