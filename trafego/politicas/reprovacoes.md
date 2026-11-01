@@ -5,6 +5,7 @@ registrar a data em que ela foi vista e a última data com impressões.
 
 | Visto em | Campanha / grupo | Anúncio | Política | URL final | Situação | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
+| 01/11/2026 | [CP-03] #4 / G2 - Deep Relax | Relaxation Massage (EN) | Encontros e acompanhantes | https://amarigomes.com/relaxation-massage-en/ | **Em contestação** (1ª de 3), após remover "Tantric" da página (commit 4cad8a3). Anúncio novo com preço no mesmo grupo, em análise | Contestado com "Fiz alterações para obedecer à política" |
 | 01–03/10/2026 | [CP-03] #4 / G2 - Deep Relax | Relaxation Massage (EN) | Reprovado: conteúdo proibido sobre encontros e acompanhantes (verificação automática) | https://amarigomes.com/relaxation-massage-en/ | Nunca veiculou; segue reprovado em 26/10 | Pausado em 03/10. Sem contestação nem edição |
 | a partir de 01/10/2026 | [CP-03] #3 / G2 - Deep Relax | Relaxation Massage (EN) | Mesma política; 11 de 15 títulos reprovados | https://amarigomes.com/relaxation-massage-en/ | Veiculou até 01/10 (142 cliques no total); campanha pausada | Nenhuma |
 | antes de 03/07/2026 | [CP-01] / G1, G2, G3 | Holistische, Ontspanningsmassage, Duo, Couples | Aprovado (limitado): violação anterior; Duo e Couples também "encontros e acompanhantes" | https://amarigomes.com (home) | Campanha pausada | Nenhuma |

@@ -1,9 +1,9 @@
 # [CP-03] #4 › G2 - Deep Relax — anúncios
 
-## RSA EN v2 — "Relaxation Massage Amsterdam" (rascunho, 01/11/2026)
+## RSA EN v2 — "Relaxation Massage Amsterdam" (no ar desde 01/11/2026)
 
-- **Status:** rascunho — aguarda pacote `../aprovacoes/2026-11-01-b.md` (item 2)
-- **Substitui:** "Relaxation Massage" (EN), reprovado (encontros e acompanhantes) e pausado em 03/10. O reprovado **não é editado**; fica pausado.
+- **Status:** criado em 01/11/2026 ~23:45, em análise (pacote `../aprovacoes/2026-11-01-b.md`, item 2b)
+- **Substitui:** "Relaxation Massage" (EN), reprovado (encontros e acompanhantes) e pausado em 03/10. O reprovado foi **contestado** em 01/11 (item 2a) e continua pausado.
 - **Pré-requisito:** página `/relaxation-massage-en/` já sem "Tantric" (item 1 do pacote).
 - **Idioma:** EN
 - **URL final:** https://amarigomes.com/relaxation-massage-en/
