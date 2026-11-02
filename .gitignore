@@ -11,3 +11,5 @@ __pycache__/
 .claude-ads/runs/
 .claude-ads/cache/
 trafego/dados/
+
+trafego/relatorios/cliente/*.pdf
