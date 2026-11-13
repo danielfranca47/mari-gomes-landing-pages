@@ -153,6 +153,9 @@ As 6 páginas têm uma seção `#location` (entre o FAQ e a CTA final) com ender
 
 ## Fluxo de trabalho deste projeto
 
+**Continuidade entre sessões (celular ↔ computador):** toda sessão começa lendo [`docs/em-andamento.md`](docs/em-andamento.md) e termina atualizando-o, com commit + push no branch da sessão (sessão na nuvem é descartável). Feedback da Mari (texto/print de WhatsApp, vendas, relatório) é processado pela skill do projeto `feedback-mari` (`.claude/skills/feedback-mari/SKILL.md`).
+
+
 Ver `IMPLEMENTACAO.md` para o plano de fases já concluído (botões → imagens → QA e publicação no WordPress da Mary). Para mudanças novas a partir de agora, ver "Workflow de Implementação de Features", abaixo.
 
 ## Workflow de Implementação de Features
