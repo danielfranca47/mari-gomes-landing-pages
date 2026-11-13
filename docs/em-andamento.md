@@ -5,18 +5,20 @@ toda rodada, pela skill `feedback-mari` (`.claude/skills/feedback-mari/SKILL.md`
 Serve para nenhuma sessão começar do zero. Curto: o detalhe fica nos arquivos
 linkados. Item concluído e publicado sai daqui (o histórico está no git).
 
-**Última atualização:** 13/11/2026
+**Última atualização:** 13/11/2026 (diário de vendas criado)
 
 ## Próximo passo
 
-Nenhum pedido da Mari em aberto nesta lista. Próxima entrada: o Daniel colar
-feedback/print/relatório da Mari.
+Registrar no `trafego/vendas/diario.md` os números que a Mari mandar (sem dado
+desde 24/10). Aguardando o Daniel decidir como trazer o agente de tráfego para a
+nuvem (tabela abaixo).
 
 ## Esperando aprovação do Daniel
 
 | Item | Onde está o detalhe | Desde |
 | --- | --- | --- |
-| — | — | — |
+| Skill `gestor-trafego` no repo: Daniel copia a pasta do PC para `.claude/skills/gestor-trafego/` **ou** Claude reescreve a partir de `docs/implementations/gestao-trafego.md` | Tarefa semanal "Ciclo semanal de tráfego — Mari" desativada (suspensa: computador indisponível), nunca rodou; sem relatório desde 01/11 | 13/11/2026 |
+| Recriar a tarefa semanal na nuvem (segunda de manhã, notificação no celular) — antes, reconectar o conector Google Drive (falhou nas sessões de 13/11) | idem | 13/11/2026 |
 
 ## Esperando resposta da Mari
 

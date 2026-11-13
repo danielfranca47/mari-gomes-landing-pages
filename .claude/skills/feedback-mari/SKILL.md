@@ -29,10 +29,24 @@ outra parou.
   rodar comandos. Interpretar o pedido de negócio por trás.
 - **Relatório semanal / números do Ads:** seguir `trafego/README.md` (rotina
   semanal). Para o PDF que vai para ela, usar a skill `relatorio-semanal-mari`.
-- **Resultado de vendas** ("fechei 2 sessões", "o pessoal pede mais barato"):
-  vira relatório datado em `trafego/relatorios/AAAA-MM-DD_feedback-vendas-*.md`
-  no formato de `2026-11-01_feedback-vendas-19-23-out.md` (separar *reportado*
-  de *medido*) e, se mudar uma hipótese, atualizar `trafego/backlog.md`.
+- **Números de vendas** ("hoje 5 consultas e 2 agendamentos", "hoje nenhuma
+  mensagem", "essa semana fechei 3"): registrar em `trafego/vendas/diario.md`
+  seguindo as regras do topo daquele arquivo. Pontos que mais erram:
+  - **Data de referência:** a mensagem pode chegar dias depois. "Hoje" é o dia em
+    que a Mari mandou — usar a data do print ou a que o Daniel disser. Se não
+    estiver claro (texto colado sem data, "ontem" sem saber quando), **perguntar
+    antes de gravar**, numa linha: "Esses 5/2 são de qual dia?".
+  - **Palavras dela:** "consultas" = contatos; "agendamentos/marquei/fechei" =
+    sessões. Outra palavra ou número ambíguo ("teve 3") → perguntar o que é.
+  - **Dia que não veio** fica sem informação, nunca zero.
+  - Já existe linha para aquele dia → perguntar se é correção ou soma.
+  Depois de gravar, responder curto: o que ficou registrado + total da semana
+  até agora (e quantos dias da semana têm dado). **Não propor mudança de
+  campanha com dado de um dia** — isso é do ciclo semanal (`trafego/README.md`).
+  Motivo de perda que muda uma hipótese → nota em `trafego/backlog.md`.
+- **Relato longo de vendas** (análise de um período, conversa com ela sobre o
+  porquê): relatório datado em `trafego/relatorios/AAAA-MM-DD_feedback-vendas-*.md`
+  no formato de `2026-11-01_feedback-vendas-19-23-out.md`, além da linha no diário.
 
 ## 2. Triagem — quebrar em itens e classificar cada um
 
