@@ -25,6 +25,14 @@ Conferir também se as listas "irrelevantes com impressões" (08/05) e
 Ao aplicar: mover a linha para "Aplicadas"/"Removidas" e registrar em
 `../alteracoes.md`.
 
+## Adição aprovada, aguardando aplicação — 16/11/2026
+
+Daniel aprovou em 16/11/2026 negativas de frase, nível de campanha [CP-03] #4:
+**aan huis, thuis, hotel, at home, home massage, op locatie**. Motivo: a Mari não
+oferece mais atendimento em casa/hotel; a ampla "massage amsterdam" pode casar
+com buscas de massagem a domicílio. Ao aplicar: registrar em "Aplicadas" e em
+`../alteracoes.md`.
+
 ## Aplicadas
 
 | Data | Lista / campanha | Termos | Quem |
