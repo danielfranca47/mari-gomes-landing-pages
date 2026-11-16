@@ -14,7 +14,7 @@ cheap, cheapest, goedkoop, goedkope, budget, affordable, discount, korting.
 Motivo: a #4 usa correspondência ampla e "tantra near me" e "massage near me
 for men near me" apareceram nos termos de pesquisa (26/10).
 
-## Remoção aprovada, aguardando aplicação — 16/11/2026
+## Remoção tântrica — APLICADA 16/11/2026 (ver Aplicadas/alteracoes.md)
 
 Daniel aprovou em 16/11/2026 tirar **tantra, tantric, tantrisch** das negativas da
 [CP-03] #4 (frase, nível de campanha, aplicadas em 01/11). Não entram como
@@ -25,7 +25,7 @@ Conferir também se as listas "irrelevantes com impressões" (08/05) e
 Ao aplicar: mover a linha para "Aplicadas"/"Removidas" e registrar em
 `../alteracoes.md`.
 
-## Adição aprovada, aguardando aplicação — 16/11/2026
+## Negativas de casa/hotel — APLICADAS 16/11/2026
 
 Daniel aprovou em 16/11/2026 negativas de frase, nível de campanha [CP-03] #4:
 **aan huis, thuis, hotel, at home, home massage, op locatie**. Motivo: a Mari não
@@ -37,6 +37,8 @@ com buscas de massagem a domicílio. Ao aplicar: registrar em "Aplicadas" e em
 
 | Data | Lista / campanha | Termos | Quem |
 | --- | --- | --- | --- |
+| 16/11/2026 | [CP-03] #4 (campanha), frase | **adicionadas:** aan huis, thuis, hotel, at home, home massage, op locatie · **removidas:** tantra, tantric | Claude in Chrome (aprovado por Daniel) |
+| 16/11/2026 | Lista "irrelevantes com impressões" (6 campanhas), ampla | **removidas:** gay tantra, la tantra | Claude in Chrome (aprovado por Daniel) |
 | 01/11/2026 | [CP-03] #4 (campanha), frase | cheap, cheapest, goedkoop, goedkope, budget, affordable, discount, korting, tantra, tantric, tantrisch (as 3 últimas com remoção aprovada em 16/11, pendente) | Claude (aprovado por Daniel) |
 | 01/11/2026 | [CP-03] #4 / G1 (grupo), frase | price menu, 45 minute, daily full body | Claude (aprovado por Daniel) |
 | 08/05/2026 | Lista "irrelevantes com impressões" | (conteúdo não conferido) | Daniel |
