@@ -13,7 +13,9 @@ mudança no código correspondente.
 
 ## Em aberto
 
-### 13. Link curto de avaliação do Google (Perfil da Empresa)
+### 13. Link curto de avaliação do Google (Perfil da Empresa) — RESOLVIDA
+
+**Resolução (16/11/2026):** link montado a partir do CID do perfil: `https://g.page/r/CXcoLkESvwsfEAE/review`, aplicado nos botões. Confirmar clicando uma vez (abre a janela "Escrever avaliação" do perfil da Mari).
 
 **Contexto (16/11/2026):** a Mari pediu um lugar no site para os clientes avaliarem
 (eles procuravam e não achavam). Foi colocado um botão "Leave a Google review" /

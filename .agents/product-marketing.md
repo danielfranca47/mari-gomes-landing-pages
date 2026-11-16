@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v6
+**Document version:** v7
 **Last updated:** 2026-11-01
 
 > Contexto lido automaticamente pelas skills de marketing globais (`ads`,
@@ -96,7 +96,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 | Term | Meaning |
 |------|---------|
 | Session / sessie | Atendimento. Nunca "visit" |
-| Tantric | **Fora do tráfego pago** (decisão 01/11/2026): não usar em anúncio, palavra-chave nem LP de anúncio; ok no site institucional |
+| Tantric | Nos **títulos/nomes de serviço das LPs** desde 16/11/2026 (Tantric Energy Experience, Tantric Holistic Relaxation, Tantric Couple Therapy). Fora de bio/FAQ das LPs; anúncios e palavras-chave seguem a decisão de 01/11 até nova revisão |
 
 ## Brand Voice
 | Attribute | Means | Doesn't mean | Example line |
@@ -153,6 +153,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v7 (2026-11-16) — Tantric de volta aos títulos das LPs (decisão do Daniel); link g.page de avaliação.
 - v6 (2026-11-16) — Casa/hotel fora de todas as páginas e anúncios (pedido da Mari); botão de Google Review no site.
 - v5 (2026-11-01) — Tantric fora do tráfego pago (decisão do Daniel).
 - v4 (2026-11-01) — Learning: sensibilidade a preço confirmada pela Mari; filtrar antes do clique.

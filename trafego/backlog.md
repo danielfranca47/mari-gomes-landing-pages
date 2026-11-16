@@ -5,7 +5,7 @@ Aprovação = precisa do Daniel no pacote semanal.
 
 | ID | Pri | Tarefa | Responsável | Aprovação | Status | Evidência |
 | --- | --- | --- | --- | --- | --- | --- |
-| T01 | P1 | Decidir uso de "Tantric" nas páginas de anúncio (LP1/LP2/LP3) | Daniel + Mari | Decisão de negócio | Decidida 01/11 pelo Daniel: sem "Tantric" no tráfego pago; vocabulário atualizado | Pendência #8; reprovação "Relaxation Massage" desde ~01/10 |
+| T01 | P1 | Decidir uso de "Tantric" nas páginas de anúncio (LP1/LP2/LP3) | Daniel + Mari | Decisão de negócio | Decidida 01/11 pelo Daniel: sem "Tantric" no tráfego pago. **Revista 16/11: "Tantric" volta aos títulos das LPs**; anúncios/keywords e negativas tantra/tantric seguem como em 01/11 — rever | Pendência #8; reprovação "Relaxation Massage" desde ~01/10 |
 | T02 | P1 | Descobrir onde se perdem os contatos: 29 contatos → 1 agendamento (19–23/10) | gestor + Mari | — | Confirmado pela Mari (01/11): mensagens ≈ conversões; perda é preço — pedem opção mais barata. Próximo: pré-qualificar por preço no anúncio (recurso de preço / preço no texto) e negativas de intenção barata | Item 3 pacote 01/11 | `relatorios/2026-11-01_feedback-vendas-19-23-out.md` |
 | T03 | P1 | Novo anúncio de relaxamento EN (G2) sem padrão reprovado | copy-writer + audit-policy-compliance | Sim | Aplicado 01/11 (RSA EN novo, em análise) + contestação do reprovado; acompanhar status | `politicas/reprovacoes.md` |
 | T04 | P1 | Página `/relaxation-massage-en-v2/` com linguagem terapêutica | skill cro + CLAUDE.md (-v2) | Sim (publicação) | Feito 01/11: 6 LPs sem "Tantric" no ar (commit 4cad8a3) | Hipótese LP2 renomeada 27/09 |
