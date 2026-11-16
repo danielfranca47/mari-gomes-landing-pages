@@ -18,10 +18,10 @@ Três landing pages de vendas para a terapeuta **Mari Gomes** (massagem holísti
 
 | Arquivo | Página | Idioma |
 |---|---|---|
-| `lp1-holistic-energy-en.html` | LP1 — Holistic Energy Experience (ex-Tantric Energy Experience, até 01/11/2026) | EN |
-| `lp1-holistic-energy-nl.html` | LP1 — Holistic Energy Experience (ex-Tantric Energy Experience, até 01/11/2026) | NL |
-| `lp2-relaxation-en.html` | LP2 — Holistic Relaxation (ex-Tantric Holistic Relaxation, até 01/11/2026) | EN |
-| `lp2-relaxation-nl.html` | LP2 — Holistic Relaxation (ex-Tantric Holistic Relaxation, até 01/11/2026) | NL |
+| `lp1-holistic-energy-en.html` | LP1 — Tantric Energy Experience ("Holistic Energy Experience" de 01/11 a 16/11/2026) | EN |
+| `lp1-holistic-energy-nl.html` | LP1 — Tantric Energy Experience ("Holistic Energy Experience" de 01/11 a 16/11/2026) | NL |
+| `lp2-relaxation-en.html` | LP2 — Tantric Holistic Relaxation ("Holistic Relaxation" de 01/11 a 16/11/2026) | EN |
+| `lp2-relaxation-nl.html` | LP2 — Tantric Holistic Relaxation ("Holistic Relaxation" de 01/11 a 16/11/2026) | NL |
 | `lp3-couples-en.html` | LP3 — Couples Massage | EN |
 | `lp3-couples-nl.html` | LP3 — Couples Massage | NL |
 
@@ -65,7 +65,7 @@ Esses 4 destinos se repetem em nav, hero, seções de CTA e footer em todas as 6
 
 Dados de atendimento confirmados pela Mari (27/09/2026) — valem para LPs e site institucional:
 - **Horário:** só das 9:00 às 19:00. Não existe sobretaxa noturna (a nota "after 21:00" que ainda aparece em `/prices/` veio da Tantrana).
-- **Deslocamento:** visita a casa/hotel em Amsterdã custa **+€50**. **Ela atende só em Amsterdã** (confirmado em 04/10/2026) — não citar outras cidades. O domicílio não é diferencial: fica só em notas discretas (FAQ, nota de preços), nunca em título, card ou destaque, e sem os termos "Outcall/Incall".
+- **Deslocamento:** ~~visita a casa/hotel em Amsterdã +€50~~ — **desde 16/11/2026 o atendimento em casa/hotel não aparece em nenhuma página** (pedido da Mari: tirar das FAQ e notas de preço das LPs e do site institucional). Não reintroduzir sem pedido dela. **Ela atende só em Amsterdã** (confirmado em 04/10/2026) — não citar outras cidades, nem os termos "Outcall/Incall".
 - **Título profissional:** "Terapeuta Tântrica Bioenergética" (EN "Bioenergetic Tantric Therapist", NL "Bio-energetisch Tantra Therapeut"), usado nas bios do site institucional; nas LPs de anúncio, desde 01/11/2026: "Bioenergetic Therapist" / "Bio-energetisch Therapeut". Anos de experiência entram sem número até ela informar (pendência #7).
 - **Vocabulário:** evitar termos que remetem a erótico ("intimate/intimacy", "sensual", "desire", "pleasure") — usar "connection", "presence", "calm", "private". Atendimento em casa/hotel é "session" / "sessie", nunca "visit" / "bezoek" (a Mari não quer "visita"; corrigido em 04/10/2026).
 - **Preços sempre do mais barato para o mais caro**, em qualquer lista ou tabela.
@@ -78,12 +78,12 @@ Desde 27/09/2026 as 6 LPs mostram preço (pedido da Mari: filtrar lead que chama
 
 | LP (pasta, URL mantida) | Nome do serviço | Preços |
 |---|---|---|
-| LP1 `holistic-energy-massage-*` | Holistic Energy Experience | 60 min €300 · 90 min €350 (recomendado) · 120 min €400 |
-| LP2 `relaxation-massage-*` | Holistic Relaxation | 60 min €250 · 90 min €300 (recomendado) · 120 min €350 |
+| LP1 `holistic-energy-massage-*` | Tantric Energy Experience | 60 min €300 · 90 min €350 (recomendado) · 120 min €400 |
+| LP2 `relaxation-massage-*` | Tantric Holistic Relaxation | 60 min €250 · 90 min €300 (recomendado) · 120 min €350 |
 | LP3 `couples-massage-*` | (nome original) | 90 min €350 · 2h €400 · 2,5h €450 · 3h €500 — preço do casal |
 
-- O nome do serviço aparece no `<title>`, no rótulo do hero (`.hero-eyebrow` / `.hero-tag`), no rótulo da seção de preços e no texto pré-preenchido do WhatsApp; os `<h1>` não mudaram. **Decisão 01/11/2026 (Daniel): sair do "Tantric" nas páginas de anúncio.** Promovido em 01/11/2026 (pacote `trafego/aprovacoes/2026-11-01-b.md`, item 1); nomes em `trafego/politicas/vocabulario.md`.
-- Cada LP tem uma `<section id="pricing">` no estilo próprio da página (LP1 após "The experience"; LP2 antes do About; LP3 após Packages, e os 3 cards de Packages mostram "From €350 for two") + link "Prices/Prijzen" no nav, FAQ "How much does a session cost?" com os valores, hero note "From €…" e a nota "Sessions between 9:00 and 19:00 · Home or hotel session in Amsterdam: +€50 travel fee · Payment by card, cash or BTC".
+- O nome do serviço aparece no `<title>`, no rótulo do hero (`.hero-eyebrow` / `.hero-tag`), no rótulo da seção de preços e no texto pré-preenchido do WhatsApp; os `<h1>` não mudaram. **Decisão 16/11/2026 (Daniel): "Tantric" volta aos títulos/nomes de serviço** (title, hero, rótulo de preços, cards Tantric Therapy / Tantric Couple Therapy, texto do WhatsApp), revertendo a parte de títulos da decisão de 01/11. Bio, FAQ e texto do link do Instagram seguem sem "Tantric". Detalhes em `trafego/politicas/vocabulario.md`.
+- Cada LP tem uma `<section id="pricing">` no estilo próprio da página (LP1 após "The experience"; LP2 antes do About; LP3 após Packages, e os 3 cards de Packages mostram "From €350 for two") + link "Prices/Prijzen" no nav, FAQ "How much does a session cost?" com os valores, hero note "From €…" e a nota "Sessions between 9:00 and 19:00 · Payment by card, cash or BTC" (o trecho de casa/hotel +€50 saiu em 16/11/2026).
 - Os CTAs dizem "Book…" (não "Request a quote") e o texto do WhatsApp pede disponibilidade, não orçamento.
 - O botão da seção de preços é um link `wa.me` como os outros, então também dispara a conversão do Google Ads.
 - LP3: a Mari atende o casal sozinha — nenhum texto promete massagem simultânea (pergunta #11-2 aberta para refinar).
@@ -137,6 +137,10 @@ As 6 páginas têm uma seção `#location` (entre o FAQ e a CTA final) com ender
 - Layout: grid de 2 colunas (texto+botão / mapa), colapsa para 1 coluna em mobile via `.location-grid` adicionado às regras de grid responsivas existentes.
 
 **Nota de consistência:** o FAQ de cada página diz que "o endereço é compartilhado após a confirmação da reserva" — isso não foi alterado. Mostrar o mapa/endereço aqui não contradiz tecnicamente esse texto porque o local já é um perfil público do Google Maps (endereço já é descobrível via busca), mas vale avisar a Mary dessa pequena tensão de mensagem caso quase queira ajustar o texto do FAQ no futuro.
+
+## Botão de avaliação (Google Review)
+
+Desde 16/11/2026 a Home (`index.html`, `nl/index.html` + legados `home-*.html`) e as 6 LPs (+ legados `lp*-*.html`) têm, no fim da seção `#testimonials`, um bloco `.review-cta` com a frase "Had a session with Mari? Your review helps others find her." / NL "Een sessie bij Mari gehad?…" e um `.btn-outline` "Leave a Google review" / "Schrijf een Google-review" (pedido da Mari: clientes procuravam onde avaliar e não achavam). O link é `https://g.page/r/CXcoLkESvwsfEAE/review` (link curto de avaliação, derivado do CID `2237091725043443831` do perfil; abre direto a janela de avaliação). Para trocar, buscar por `REVIEW LINK` nos arquivos.
 
 ## Convenções ao editar
 
@@ -245,7 +249,7 @@ Conta Google Ads "Mari Gomes" (fuso GMT+02:00, EUR). Hoje só a campanha `[CP-03
 - **Toda mudança aplicada vai para `trafego/alteracoes.md`** (data/hora, quem, onde, o quê, por quê) — inclusive as feitas pela Mari pelo app, quando aparecerem no histórico do Ads.
 - **Recomendações do Google só depois de revisadas.** Aumento de orçamento por recomendação não pode ser desfeito; correspondência ampla com "Maximizar conversões" abre buscas fora do nicho terapêutico. Em 22/10/2026 quatro recomendações foram aceitas pelo app e o CPA diário piorou.
 - **Anúncio novo:** escrever em `trafego/anuncios/`, checar contra `vocabulario.md`, aprovar, subir, registrar. Anúncio reprovado: se a causa foi a página e ela já foi corrigida, **contestar** com "Fiz alterações para cumprir a política" (máx. 3 por anúncio, 24 h entre elas; se recusada, edição mínima + salvar força nova leitura — não reenviar em série); se a causa é o texto, criar outro anúncio. Sempre com aprovação do Daniel.
-- **Política de conteúdo adulto é o maior risco do nicho.** O anúncio "Relaxation Massage" está reprovado por "encontros e acompanhantes" desde ~01/10/2026; a hipótese principal é a LP2 ter virado "Tantric Holistic Relaxation" em 27/09. Decidido em 01/11/2026: sem "tantric" em anúncio, palavra-chave e LP de anúncio (site institucional e Google Maps não mudam).
+- **Política de conteúdo adulto é o maior risco do nicho.** O anúncio "Relaxation Massage" está reprovado por "encontros e acompanhantes" desde ~01/10/2026; a hipótese principal é a LP2 ter virado "Tantric Holistic Relaxation" em 27/09. Decidido em 01/11/2026: sem "tantric" em anúncio, palavra-chave e LP de anúncio; **revisto em 16/11/2026: os títulos das LPs voltaram a ter "Tantric"** (anúncios e palavras-chave não mudaram — ver `vocabulario.md`).
 - **Relatório semanal** segue a rotina de `trafego/README.md` e compara com o relatório anterior.
 - **Repositório público:** não gravar em `trafego/` dados de faturamento (cartão, saldo), e-mails de login ou outros dados pessoais. Números de desempenho da conta entram nos relatórios.
 

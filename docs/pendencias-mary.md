@@ -13,6 +13,27 @@ mudança no código correspondente.
 
 ## Em aberto
 
+### 13. Link curto de avaliação do Google (Perfil da Empresa) — RESOLVIDA
+
+**Resolução (16/11/2026):** link montado a partir do CID do perfil: `https://g.page/r/CXcoLkESvwsfEAE/review`, aplicado nos botões. Confirmado pelo Daniel em 16/11: abre "Escrever avaliação" no perfil da Mari.
+
+**Contexto (16/11/2026):** a Mari pediu um lugar no site para os clientes avaliarem
+(eles procuravam e não achavam). Foi colocado um botão "Leave a Google review" /
+"Schrijf een Google-review" no fim dos depoimentos da Home e das 6 LPs, apontando
+provisoriamente para o perfil no Google Maps (`maps.google.com/?cid=2237091725043443831`)
+— o cliente ainda precisa clicar em "Escrever avaliação" lá.
+
+**Perguntar pra Mary (ou o Daniel pega direto):** no Perfil da Empresa no Google
+(app Google Maps → perfil → "Pedir avaliações" / "Compartilhar formulário de
+avaliação"), copiar o link `https://g.page/r/.../review` e mandar. Com ele o botão
+abre direto a janela de avaliação, e ela pode mandar o mesmo link no WhatsApp
+depois de cada sessão.
+
+**Onde é usado:** comentário `REVIEW LINK` em `index.html`, `nl/index.html`,
+`home-*.html`, 6 LPs e 6 `lp*-*.html` legados.
+
+**Registrado em:** 2026-11-16.
+
 ### 12. Taxa de deslocamento fora de Amsterdã — RESOLVIDA
 
 **Resolução (04/10/2026, via Daniel):** a Mari atende **só em Amsterdã**. As outras cidades saíram da Home e o link do Fly Me In saiu do menu e do rodapé (ver `docs/implementations/correcoes-mari-outubro-2026.md`).
