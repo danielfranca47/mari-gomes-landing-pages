@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Relatório de mudanças — 16/11/2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--deep:#2A2420;--linen:#FAF7F3;--sand:#F0EAE0;--muted:#7A7068;--terra:#B5644A;--terra-l:#D4917D;--moss:#5C6B55;--moss-l:#8CA882;--line:#E4DBCF}
+  @page{size:A4;margin:0}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Nunito Sans",Helvetica,Arial,sans-serif;color:var(--deep);font-size:10pt;line-height:1.5;background:var(--linen)}
+  .page{width:210mm;height:297mm;padding:17mm 20mm 18mm;position:relative;page-break-after:always;overflow:hidden;background:var(--linen)}
+  .page:last-child{page-break-after:auto}
+  h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:500;margin:0}
+  h2{font-size:20pt;margin-bottom:3mm}
+  h3{font-size:12.5pt;margin-bottom:1.5mm}
+  .eyebrow{font-size:8pt;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);font-weight:700;margin-bottom:2mm}
+  p{margin:0 0 3mm}
+  .muted{color:var(--muted)}
+  .foot{position:absolute;left:20mm;right:20mm;bottom:10mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--muted);border-top:1px solid var(--line);padding-top:2.5mm}
+
+  /* capa */
+  .cover{background:var(--deep);color:var(--linen);padding:0}
+  .cover .band{height:100%;padding:30mm 22mm;display:flex;flex-direction:column}
+  .cover .eyebrow{color:var(--terra-l)}
+  .cover h1{font-size:38pt;line-height:1.08;margin:6mm 0 5mm}
+  .cover h1 em{color:var(--terra-l);font-style:italic}
+  .cover .sub{font-size:12pt;color:#D9CFC3;max-width:140mm}
+  .cover .summary{margin-top:auto;background:rgba(250,247,243,.06);border:1px solid rgba(212,145,125,.35);border-radius:4mm;padding:8mm 9mm}
+  .cover .summary h3{color:var(--terra-l);font-size:13pt;margin-bottom:4mm}
+  .cover ol{margin:0;padding-left:5mm}
+  .cover li{margin-bottom:2.5mm;color:#EFE7DD}
+  .cover li b{color:#fff}
+  .cover .meta{display:flex;justify-content:space-between;margin-top:9mm;font-size:9pt;color:#B9AEA2}
+
+  /* kpis */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;margin:4mm 0 5mm}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:3mm;padding:5mm 4mm}
+  .kpi .v{font-family:"Playfair Display",serif;font-size:20pt;line-height:1.1}
+  .kpi .l{font-size:8pt;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:1.5mm}
+  .kpi.good{border-color:var(--moss-l);background:#F3F6F0}
+  .kpi.good .v{color:var(--moss)}
+  .tag{display:inline-block;font-size:7.5pt;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.6mm 2.2mm;border-radius:10mm;margin-top:2mm}
+  .tag.ok{background:var(--moss);color:#fff}
+  .tag.wait{background:var(--terra-l);color:#fff}
+  .tag.info{background:var(--sand);color:var(--deep)}
+
+  table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:2mm 0 5mm}
+  th{font-size:7.5pt;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:left;font-weight:700;padding:2mm 2.5mm;border-bottom:1.5px solid var(--deep)}
+  td{padding:1.8mm 2.5mm;border-bottom:1px solid var(--line);vertical-align:top}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  .callout{background:var(--sand);border-left:3px solid var(--terra);padding:4mm 6mm;border-radius:0 3mm 3mm 0;margin:4mm 0}
+  .callout p:last-child{margin:0}
+  .quote{font-family:"Playfair Display",serif;font-style:italic;font-size:11.5pt;color:var(--terra)}
+
+  /* funil */
+  .funnel{display:flex;align-items:stretch;gap:3mm;margin:4mm 0 2mm}
+  .fstep{flex:1;background:#fff;border:1px solid var(--line);border-radius:3mm;padding:4mm;text-align:center}
+  .fstep .v{font-family:"Playfair Display",serif;font-size:19pt}
+  .fstep .l{font-size:8.5pt;color:var(--muted)}
+  .fstep.hot{border-color:var(--terra);background:#FBF1EC}
+  .fstep.hot .v{color:var(--terra)}
+  .arrow{align-self:center;color:var(--terra-l);font-size:16pt}
+
+  /* ações */
+  .action{display:grid;grid-template-columns:11mm 1fr;gap:4mm;padding:3mm 0;border-bottom:1px solid var(--line)}
+  .action:last-child{border-bottom:none}
+  .num{width:10mm;height:10mm;border-radius:50%;background:var(--terra);color:#fff;font-family:"Playfair Display",serif;font-size:13pt;display:flex;align-items:center;justify-content:center}
+  .action p{margin:0 0 1.5mm}
+  .why{font-size:9pt;color:var(--muted)}
+  .names td:first-child{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--terra-l)}
+  .names td:last-child{font-weight:600}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+  .card{background:#fff;border:1px solid var(--line);border-radius:3mm;padding:5.5mm}
+  .card h3{margin-bottom:2.5mm}
+  ul.clean{margin:0;padding-left:4.5mm}
+  ul.clean li{margin-bottom:1.8mm}
+  .timeline{border-left:2px solid var(--terra-l);margin:3mm 0 0 2mm;padding-left:6mm}
+  .tl{position:relative;margin-bottom:4.5mm}
+  .tl:before{content:"";position:absolute;left:-8.2mm;top:1.3mm;width:3mm;height:3mm;border-radius:50%;background:var(--terra)}
+  .tl b{display:block;font-size:8pt;letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
+  .ask{background:var(--deep);color:var(--linen);border-radius:3mm;padding:7mm 8mm;margin-top:5mm}
+  .ask h3{color:var(--terra-l);margin-bottom:3mm}
+  .ask table{color:var(--linen);margin:0}
+  .ask th{color:#B9AEA2;border-color:#6b5f56}
+  .ask td{border-color:#4a403a}
+  .shot{display:block;width:100%;border:1px solid var(--line);border-radius:2mm;background:#fff;margin:1.5mm 0 1mm}
+  .cap{font-size:8.5pt;color:var(--muted);margin:0 0 4mm}
+  .lbl{display:inline-block;font-size:7.5pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.6mm 2.4mm;border-radius:10mm;margin-top:2mm}
+  .lbl.before{background:var(--sand);color:var(--terra)}
+  .lbl.after{background:var(--moss);color:#fff}
+  .req{font-family:"Playfair Display",serif;font-style:italic;color:var(--terra);font-size:11pt;margin:0 0 3mm}
+  .link{font-family:monospace;font-size:10.5pt;background:#fff;border:1px solid var(--line);padding:1.5mm 3mm;border-radius:2mm;display:inline-block}
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<section class="page cover">
+  <div class="band">
+    <div class="eyebrow">Site e Google Ads · Relatório de mudanças</div>
+    <h1>O que mudamos a partir<br>do seu <em>pedido</em></h1>
+    <p class="sub">Mari Gomes · Massagem em Amsterdã<br>Segunda-feira, 16 de novembro de 2026</p>
+
+    <div class="summary">
+      <h3>Em resumo</h3>
+      <ol>
+        <li><b>Agora o site tem onde o cliente avaliar você.</b> O botão "Leave a Google review" (em holandês, "Schrijf een Google-review") abre direto a janela de avaliação do seu perfil.</li>
+        <li><b>Saiu toda menção a atendimento em casa ou hotel</b>, no site e nos anúncios do Google.</li>
+        <li><b>Saiu o bloco do Workshop com datas e grupo</b> que não existem.</li>
+        <li><b>"Tantric" voltou aos títulos das páginas</b> das massagens, como combinado.</li>
+      </ol>
+    </div>
+    <div class="meta"><span>Preparado por Daniel França · Gestão de tráfego</span><span>Mudanças publicadas em 16/11/2026</span></div>
+  </div>
+</section>
+
+<!-- AVALIAÇÕES -->
+<section class="page">
+  <div class="eyebrow">1 · Avaliações</div>
+  <h2>Um lugar para o cliente avaliar</h2>
+  <p class="req">"O site não tem onde deixar uma avaliação."</p>
+  <p>No fim da seção de depoimentos da página inicial e das 6 páginas de massagem (inglês e holandês) entrou um botão que abre <b>direto a janela "Escrever avaliação" do seu perfil no Google</b>. Ninguém precisa procurar.</p>
+
+  <span class="lbl after">Página inicial</span>
+  <img class="shot" src="img/review-home.jpg">
+  <span class="lbl after">Página de relaxamento, em holandês</span>
+  <img class="shot" src="img/review-lp2nl.jpg">
+
+  <div class="callout">
+    <p><b>Dica:</b> você pode mandar este mesmo link para o cliente pelo WhatsApp logo depois da sessão. É o jeito mais fácil de conseguir a avaliação:</p>
+    <p><span class="link">https://g.page/r/CXcoLkESvwsfEAE/review</span></p>
+  </div>
+  <div class="foot"><span>Mari Gomes · Relatório de mudanças</span><span>16/11/2026 · 2</span></div>
+</section>
+
+<!-- CASA / HOTEL -->
+<section class="page">
+  <div class="eyebrow">2 · Atendimento em casa ou hotel</div>
+  <h2>Saiu de todas as páginas</h2>
+  <p class="req">"Tira essas informações de atendimento em domicílio."</p>
+  <p>Tiramos dos dois pontos que você marcou no print (as perguntas sobre preço e sobre onde a sessão acontece) e também da nota abaixo dos preços. Valeu para as 6 páginas de massagem e para a página inicial, preços e tratamentos do site. Exemplo na página Energy, em inglês:</p>
+
+  <span class="lbl before">Antes · nota dos preços</span>
+  <img class="shot" src="img/precos-antes-c.jpg">
+  <span class="lbl after">Depois</span>
+  <img class="shot" src="img/precos-depois-c.jpg">
+
+  <span class="lbl before">Antes · perguntas frequentes</span>
+  <img class="shot" src="img/faq-antes-c.jpg" style="width:70%">
+  <span class="lbl after">Depois</span>
+  <img class="shot" src="img/faq-depois-c.jpg" style="width:70%">
+  <p class="cap">Em destaque, o que foi retirado.</p>
+
+  <div class="callout">
+    <p><b>Nos anúncios do Google também:</b> tiramos os títulos "Full Body Massage aan Huis" e "Lichaamsmassage op Locatie" e as palavras-chave de massagem em casa e no hotel. Além disso, quem procura "massagem em casa" ou "massagem no hotel" não vê mais o seu anúncio. Assim você não paga por clique de quem quer um serviço que você não oferece.</p>
+  </div>
+  <div class="foot"><span>Mari Gomes · Relatório de mudanças</span><span>16/11/2026 · 3</span></div>
+</section>
+
+<!-- WORKSHOP -->
+<section class="page">
+  <div class="eyebrow">3 · Workshop</div>
+  <h2>Sem datas que não existem</h2>
+  <p class="req">"Também tem essa informação aqui que não existe."</p>
+  <p>Saiu o bloco "What to expect on the day" inteiro, com as datas (10/01 e 14/02/2027), o tamanho do grupo e os preços de inscrição antecipada. Também tiramos a pergunta "When is the workshop?". Vale para inglês e holandês.</p>
+
+  <span class="lbl before">Antes · bloco removido</span>
+  <img class="shot" src="img/workshop-antes-c.jpg">
+  <span class="lbl after">Depois · a página segue direto para "Everyone is welcome"</span>
+  <img class="shot" src="img/workshop-depois.jpg" style="width:72%">
+
+  <p class="why">Quando houver uma data real de workshop, é só nos mandar: dia, horário, número de vagas e valor.</p>
+  <div class="foot"><span>Mari Gomes · Relatório de mudanças</span><span>16/11/2026 · 4</span></div>
+</section>
+
+<!-- TANTRIC -->
+<section class="page">
+  <div class="eyebrow">4 · Títulos</div>
+  <h2>"Tantric" de volta nos títulos</h2>
+  <p>As páginas de massagem voltaram a usar os nomes com "Tantric": <b>Tantric Energy Experience</b>, <b>Tantric Holistic Relaxation</b> e, na página de casais, <b>Tantric Couple Therapy</b>. O nome aparece no topo da página, na aba do navegador, na seção de preços e na mensagem que o cliente manda pelo WhatsApp.</p>
+
+  <div class="two" style="gap:4mm;margin-bottom:1mm">
+    <div><span class="lbl before">Antes · Energy</span><img class="shot" src="img/t-lp1-antes.jpg"></div>
+    <div><span class="lbl after">Depois · Energy</span><img class="shot" src="img/t-lp1-depois.jpg"></div>
+  </div>
+  <div class="two" style="gap:4mm;margin-bottom:1mm">
+    <div><span class="lbl before">Antes · Relaxamento</span><img class="shot" src="img/t-lp2-antes.jpg"></div>
+    <div><span class="lbl after">Depois · Relaxamento</span><img class="shot" src="img/t-lp2-depois.jpg"></div>
+  </div>
+  <div class="two" style="gap:4mm;margin-bottom:1mm">
+    <div><span class="lbl before">Antes · Casais · card do pacote</span><img class="shot" src="img/t-lp3-antes.jpg"></div>
+    <div><span class="lbl after">Depois · Casais · card do pacote</span><img class="shot" src="img/t-lp3-depois.jpg"></div>
+  </div>
+  <div class="callout">
+    <p><b>O que vamos acompanhar:</b> em outubro o Google reprovou um anúncio logo depois de uma mudança parecida nas páginas. Nos próximos dias vamos olhar todo dia se os anúncios continuam aprovados. Se algum for reprovado, pedimos uma nova revisão na hora.</p>
+  </div>
+  <div class="foot"><span>Mari Gomes · Relatório de mudanças</span><span>16/11/2026 · 5</span></div>
+</section>
+
+<!-- PRÓXIMOS PASSOS -->
+<section class="page">
+  <div class="eyebrow">5 · Próximos passos</div>
+  <h2>O que vem agora</h2>
+
+  <div class="timeline">
+    <div class="tl"><b>17/11 · amanhã</b>Conferir se o Google aprovou os anúncios de relaxamento que foram editados (em inglês e holandês).</div>
+    <div class="tl"><b>Esta semana</b>Acompanhar a aprovação dos anúncios agora que "Tantric" voltou às páginas. Com a palavra liberada, a busca por massagem tântrica volta a mostrar o seu anúncio.</div>
+    <div class="tl"><b>Próximo relatório</b>Comparar contatos e agendamentos antes e depois destas mudanças, com os números que você nos manda.</div>
+  </div>
+
+  <div class="ask">
+    <h3>Como você pode ajudar</h3>
+    <table>
+      <tr><th>O quê</th><th>Por quê</th></tr>
+      <tr><td>Mandar o link de avaliação para cada cliente depois da sessão</td><td>Mais avaliações no Google aumentam a confiança de quem chega pelo anúncio</td></tr>
+      <tr><td>Continuar mandando o número diário de mensagens e de atendimentos</td><td>É assim que medimos se as mudanças trouxeram mais agendamentos</td></tr>
+      <tr><td>Avisar se tiver data de workshop</td><td>Para colocar de volta na página só informação real</td></tr>
+    </table>
+  </div>
+  <div class="foot"><span>Mari Gomes · Relatório de mudanças</span><span>16/11/2026 · 6</span></div>
+</section>
+
+</body>
+</html>
