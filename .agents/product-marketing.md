@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v5
+**Document version:** v6
 **Last updated:** 2026-11-01
 
 > Contexto lido automaticamente pelas skills de marketing globais (`ads`,
@@ -14,7 +14,7 @@
 **What it does:** Sessões individuais (60–120 min) e para casal (90 min–3 h) que trabalham tensão física, estresse e equilíbrio energético.
 **Product category:** Serviço local de bem-estar / massagem terapêutica.
 **Product type:** Serviço presencial, B2C, por agendamento.
-**Business model:** Pagamento por sessão (cartão, dinheiro ou BTC). Sessão em casa/hotel dentro de Amsterdã: +€50.
+**Business model:** Pagamento por sessão (cartão, dinheiro ou BTC). Atendimento em casa/hotel não é divulgado em nenhuma página desde 16/11/2026 (pedido da Mari) — não usar em anúncio.
 
 | Serviço (LP) | URL | Preços |
 | --- | --- | --- |
@@ -95,7 +95,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 **Glossary:**
 | Term | Meaning |
 |------|---------|
-| Session / sessie | Atendimento (inclusive em casa/hotel). Nunca "visit" |
+| Session / sessie | Atendimento. Nunca "visit" |
 | Tantric | **Fora do tráfego pago** (decisão 01/11/2026): não usar em anúncio, palavra-chave nem LP de anúncio; ok no site institucional |
 
 ## Brand Voice
@@ -153,6 +153,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v6 (2026-11-16) — Casa/hotel fora de todas as páginas e anúncios (pedido da Mari); botão de Google Review no site.
 - v5 (2026-11-01) — Tantric fora do tráfego pago (decisão do Daniel).
 - v4 (2026-11-01) — Learning: sensibilidade a preço confirmada pela Mari; filtrar antes do clique.
 - v3 (2026-11-01) — Primeiro dado de venda (1 agendamento em 19–23/10) em Goals, Paid Ads e Learnings.
