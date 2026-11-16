@@ -6,6 +6,7 @@ commits de LP são deste repositório.
 
 | Data e hora | Quem | Onde | O que mudou | Por quê / origem |
 | --- | --- | --- | --- | --- |
+| 16/11/2026 | Claude (pedido do Daniel) | Site — 6 LPs de anúncio + 6 legados, /prices/ | Commit d73e1a3: "BTC" removido das formas de pagamento (fica cartão ou dinheiro). Tags sem alteração. Desfazer: `git revert d73e1a3` | Pedido da Mari |
 | 16/11/2026 ~21:00 | Claude in Chrome (aprovado por Daniel) | [CP-03] #4 / G2 - Deep Relax | Removidas as keywords massage aan huis amsterdam (ampla), hotel massage amsterdam (ampla), "massage at home amsterdam" (frase), "thuis massage amsterdam" (frase). Busca nas 64 keywords restantes (G1 33, G2 17, G3 14): nenhuma com casa/hotel/locatie | T14 |
 | 16/11/2026 ~21:00 | Claude in Chrome (aprovado por Daniel) | [CP-03] #4 / G2 - Deep Relax | Anúncio EN pausado "Relaxation Massage": "Body Massage at Your Location" → "Private Studio in Amsterdam"; "Holistische Massage Amsterdam" → "Holistic Massage Amsterdam". Segue pausado, em análise | T14 |
 | 16/11/2026 ~20:30 | Claude in Chrome (aprovado por Daniel) | Lista compartilhada "irrelevantes com impressões" (6 campanhas) | Removidas as negativas amplas "gay tantra" e "la tantra" (lista fica com 23 termos). "otimização 03/07/ 26" e "otimização 03/07/26" conferidas: sem termos tântricos | T15 — tântrico fora das negativas |

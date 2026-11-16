@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v7
+**Document version:** v8
 **Last updated:** 2026-11-01
 
 > Contexto lido automaticamente pelas skills de marketing globais (`ads`,
@@ -14,7 +14,7 @@
 **What it does:** Sessões individuais (60–120 min) e para casal (90 min–3 h) que trabalham tensão física, estresse e equilíbrio energético.
 **Product category:** Serviço local de bem-estar / massagem terapêutica.
 **Product type:** Serviço presencial, B2C, por agendamento.
-**Business model:** Pagamento por sessão (cartão, dinheiro ou BTC). Atendimento em casa/hotel não é divulgado em nenhuma página desde 16/11/2026 (pedido da Mari) — não usar em anúncio.
+**Business model:** Pagamento por sessão (cartão ou dinheiro; BTC não é mais aceito desde 16/11/2026). Atendimento em casa/hotel não é divulgado em nenhuma página desde 16/11/2026 (pedido da Mari) — não usar em anúncio.
 
 | Serviço (LP) | URL | Preços |
 | --- | --- | --- |
@@ -153,6 +153,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v8 (2026-11-16) — Pagamento só cartão ou dinheiro (BTC removido).
 - v7 (2026-11-16) — Tantric de volta aos títulos das LPs (decisão do Daniel); link g.page de avaliação.
 - v6 (2026-11-16) — Casa/hotel fora de todas as páginas e anúncios (pedido da Mari); botão de Google Review no site.
 - v5 (2026-11-01) — Tantric fora do tráfego pago (decisão do Daniel).

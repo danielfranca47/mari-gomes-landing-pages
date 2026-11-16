@@ -70,7 +70,7 @@ Dados de atendimento confirmados pela Mari (27/09/2026) — valem para LPs e sit
 - **Vocabulário:** evitar termos que remetem a erótico ("intimate/intimacy", "sensual", "desire", "pleasure") — usar "connection", "presence", "calm", "private". Atendimento em casa/hotel é "session" / "sessie", nunca "visit" / "bezoek" (a Mari não quer "visita"; corrigido em 04/10/2026).
 - **Preços sempre do mais barato para o mais caro**, em qualquer lista ou tabela.
 - **Atende sozinha:** não oferecer nada que exija segunda terapeuta (4 mãos, casal com 2 terapeutas, "me and my colleague therapists"); na sessão de casal é a Mari que conduz.
-- **Pagamento:** cartão, dinheiro ou BTC.
+- **Pagamento:** só cartão ou dinheiro (BTC removido de todas as páginas em 16/11/2026, pedido da Mari — não reintroduzir).
 
 ## Preços nas LPs
 
@@ -83,7 +83,7 @@ Desde 27/09/2026 as 6 LPs mostram preço (pedido da Mari: filtrar lead que chama
 | LP3 `couples-massage-*` | (nome original) | 90 min €350 · 2h €400 · 2,5h €450 · 3h €500 — preço do casal |
 
 - O nome do serviço aparece no `<title>`, no rótulo do hero (`.hero-eyebrow` / `.hero-tag`), no rótulo da seção de preços e no texto pré-preenchido do WhatsApp; os `<h1>` não mudaram. **Decisão 16/11/2026 (Daniel): "Tantric" volta aos títulos/nomes de serviço** (title, hero, rótulo de preços, cards Tantric Therapy / Tantric Couple Therapy, texto do WhatsApp), revertendo a parte de títulos da decisão de 01/11. Bio, FAQ e texto do link do Instagram seguem sem "Tantric". Detalhes em `trafego/politicas/vocabulario.md`.
-- Cada LP tem uma `<section id="pricing">` no estilo próprio da página (LP1 após "The experience"; LP2 antes do About; LP3 após Packages, e os 3 cards de Packages mostram "From €350 for two") + link "Prices/Prijzen" no nav, FAQ "How much does a session cost?" com os valores, hero note "From €…" e a nota "Sessions between 9:00 and 19:00 · Payment by card, cash or BTC" (o trecho de casa/hotel +€50 saiu em 16/11/2026).
+- Cada LP tem uma `<section id="pricing">` no estilo próprio da página (LP1 após "The experience"; LP2 antes do About; LP3 após Packages, e os 3 cards de Packages mostram "From €350 for two") + link "Prices/Prijzen" no nav, FAQ "How much does a session cost?" com os valores, hero note "From €…" e a nota "Sessions between 9:00 and 19:00 · Payment by card or cash" (o trecho de casa/hotel +€50 e o BTC saíram em 16/11/2026).
 - Os CTAs dizem "Book…" (não "Request a quote") e o texto do WhatsApp pede disponibilidade, não orçamento.
 - O botão da seção de preços é um link `wa.me` como os outros, então também dispara a conversão do Google Ads.
 - LP3: a Mari atende o casal sozinha — nenhum texto promete massagem simultânea (pergunta #11-2 aberta para refinar).
