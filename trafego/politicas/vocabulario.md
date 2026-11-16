@@ -10,7 +10,7 @@ foi reprovado no Ads. Vale para EN e NL.
 | intimate, intimacy, sensual, desire, pleasure | Anúncio, LP | Remete a erótico (CLAUDE.md) |
 | erotic/erotisch, nuru, body to body, happy ending, escort, sexy, adult | Anúncio, keyword, LP | Política de conteúdo adulto / encontros |
 | visit, bezoek, outcall, incall | Anúncio, LP | Mari não usa; soa como acompanhante |
-| "at your location", "aan huis", "at home" em título | Anúncio | Atendimento em casa não é diferencial e reforça o padrão de acompanhante; fica só em nota discreta |
+| "at your location", "aan huis", "thuis", "op locatie", "hotel", "at home" | Anúncio, keyword, LP | **Desde 16/11/2026 a Mari não oferece atendimento em casa/hotel** — não prometer em lugar nenhum |
 | "Full Body Massage" | Anúncio | Título reprovado no "Relaxation Massage" |
 | "Limited Availability" e urgência similar | Anúncio | Título reprovado |
 | "for men" | Keyword | Intenção ambígua |
