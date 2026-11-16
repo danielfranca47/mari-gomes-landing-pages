@@ -6,6 +6,7 @@ commits de LP são deste repositório.
 
 | Data e hora | Quem | Onde | O que mudou | Por quê / origem |
 | --- | --- | --- | --- | --- |
+| 16/11/2026 | Claude (pedido do Daniel) | Site — 6 LPs de anúncio + 6 legados | Commit f72469f: "Tantric" de volta nos títulos (title, hero, rótulo de preços, cards, WhatsApp); botão de avaliação → g.page. Tags conferidas sem alteração. Desfazer: `git revert f72469f` | Decisão do Daniel 16/11 (revê T01). Acompanhar status dos anúncios após o deploy |
 | 16/11/2026 | Claude (aprovado por Daniel) | Site — 6 LPs de anúncio + 6 legados | Commit 9a7dc8d: casa/hotel +€50 removido (nota de preços e 2 FAQ); botão "Leave a Google review" nos depoimentos. Tags conferidas sem alteração. Desfazer: `git revert 9a7dc8d` | Pedido da Mari (WhatsApp 15/11). Atenção T14: G2 NL ainda anuncia "aan huis" |
 | 01/11/2026 ~23:50 | Claude (aprovado por Daniel) | [CP-03] #4 / Recursos | Recurso de preço (EN, Services, EUR, "From"): Relaxation Massage €250 · Holistic Energy Session €300 · Couples Massage €350, cada um com a LP EN. Status: em análise. Desfazer: remover o recurso | Pacote 01/11-b item 3 — filtrar por preço antes do clique |
 | 01/11/2026 ~23:45 | Claude (aprovado por Daniel) | [CP-03] #4 / G2 - Deep Relax | RSA EN novo "Relaxation Massage Amsterdam" (`anuncios/cp-03-4_g2-deep-relax.md`), "Sessions From €250" fixado na posição 2. Status: em análise. Desfazer: pausar | Pacote 01/11-b item 2b |
