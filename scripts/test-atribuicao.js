@@ -424,7 +424,7 @@ async function scenarioR() {
   const changed = sh('git diff --name-only ' + BASE + ' --').split('\n').filter(Boolean).concat(sh('git ls-files -o --exclude-standard').split('\n').filter(Boolean));
 
   // R1 só arquivos permitidos; LPs reais, legados, home, institucionais e workflow byte a byte iguais
-  const allowed = /^(workers\/atribuicao\/[^/]+|scripts\/[^/]+|(holistic-energy|relaxation|couples)-massage-(en|nl)-v2\/index\.html|mari\/index\.html|thank-you\/index\.html|nl\/thank-you\/index\.html|docs\/implementations\/(atribuicao-anuncio-fase2|gerador-link-conversao|pagina-obrigado-avaliacao)\.md|docs\/pendencias-mary\.md|trafego\/conversoes-offline\.md)$/;
+  const allowed = /^(workers\/atribuicao\/[^/]+|scripts\/[^/]+|(holistic-energy|relaxation|couples)-massage-(en|nl)-v2\/index\.html|mari\/index\.html|thank-you\/index\.html|nl\/thank-you\/index\.html|docs\/implementations\/(atribuicao-anuncio-fase2|gerador-link-conversao|pagina-obrigado-avaliacao)\.md|docs\/pendencias-mary\.md|trafego\/(conversoes-offline|alteracoes)\.md)$/; // alteracoes.md: vem do main (rótulo da conversão Compra)
   const extra = changed.filter(f => !allowed.test(f));
   assert.deepStrictEqual(extra, [], 'fora do permitido: ' + extra);
   const frozen = sh("git ls-files '*-massage-en/index.html' '*-massage-nl/index.html' 'lp*-*.html' 'home-*.html' index.html nl about treatments prices workshop fly-me-in .github").split('\n').filter(f => f && !/-v2\//.test(f) && !/thank-you\//.test(f));
