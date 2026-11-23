@@ -396,7 +396,7 @@
 </script>
 <script>
 // CONVERSION — viewing this page = purchase. Mari only sends this link to clients who booked.
-// Link generated at /mari/: ?s=<service code>&t=<session type, optional>&v=<value EUR>&id=<8 chars a-z0-9>. All params validated below.
+// Link generated at /mari/: ?s=<service code>&t=<session type, optional>&v=<value EUR>&id=<8 chars a-z0-9>&r=<client code MG-XXXXX, optional>. All params validated below.
 // GA4 'purchase' event always; Google Ads conversion only when ADS_PURCHASE_LABEL is filled in
 // (create a conversion action in Google Ads, then paste the label after "AW-18036442650/").
 // Old links keep working: no params = EUR 250 generic item; ?v=350 = EUR 350 generic item.
@@ -494,7 +494,10 @@ var SERVICE_CATALOG = [
   } else {
     item = { item_id: 'session', item_name: 'Mari Gomes session', price: value, quantity: 1 };
   }
-  gtag('event', 'purchase', { transaction_id: tx, value: value, currency: 'EUR', items: [item] });
+  // r: client code from the first WhatsApp message (random code, not personal data). Only used to report lead x sale in GA4.
+  var rc = params.get('r'), purchase = { transaction_id: tx, value: value, currency: 'EUR', items: [item] };
+  if (rc && /^MG-[2-9A-HJ-NP-Z]{5}$/.test(rc)) purchase.ref_code = rc;
+  gtag('event', 'purchase', purchase);
   if (ADS_PURCHASE_LABEL) {
     gtag('event', 'conversion', { send_to: 'AW-18036442650/' + ADS_PURCHASE_LABEL, value: value, currency: 'EUR', transaction_id: tx });
   }

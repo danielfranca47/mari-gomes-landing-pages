@@ -13,6 +13,29 @@ mudança no código correspondente.
 
 ## Em aberto
 
+### 14. Código de referência no WhatsApp + política de privacidade (atribuição da venda ao anúncio)
+
+**Contexto (23/11/2026):** para o Google Ads aprender com as vendas reais (e não só com
+cliques no WhatsApp), as landing pages vão acrescentar, **só para quem aceitou os
+cookies**, um código curto no fim da primeira mensagem do cliente, por exemplo
+"(ref MG-K7P2X)". Ao gerar o link de obrigado em `/mari/`, você cola essa primeira
+mensagem (ou só o código) e a página liga a venda ao anúncio. Nome e telefone do
+cliente não são enviados nem guardados. Ver `docs/implementations/atribuicao-anuncio-fase2.md`.
+
+**Perguntar pra Mary:**
+1. Tudo bem a primeira mensagem do cliente chegar com "(ref MG-…)" no fim?
+2. Ao gerar o link de obrigado, dá para segurar a primeira mensagem do cliente →
+   Copiar → colar no campo "Código do cliente"? (É opcional; sem o código a venda
+   conta, mas sem ligar ao anúncio.)
+3. Para a política de privacidade (obrigatória antes de ligar isso no site real):
+   nome que aparece como responsável (seu nome ou nome da empresa), número da
+   KvK (se tiver) e o e-mail de contato para pedidos de privacidade
+   (`marycontato@gmail.com`?).
+
+**Onde é usado:** prévias `*-massage-*-v2/`, `mari/index.html`, futura página de privacidade.
+
+**Registrado em:** 2026-11-23.
+
 ### 13. Link curto de avaliação do Google (Perfil da Empresa) — RESOLVIDA
 
 **Resolução (16/11/2026):** link montado a partir do CID do perfil: `https://g.page/r/CXcoLkESvwsfEAE/review`, aplicado nos botões. Confirmado pelo Daniel em 16/11: abre "Escrever avaliação" no perfil da Mari.

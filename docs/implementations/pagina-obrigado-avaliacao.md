@@ -19,5 +19,5 @@
 - [ ] Tela de pós-uso: confirmar o texto com a Mari ("Thank you for choosing Mari").
 
 ## Limitações a ter em mente
-- A atribuição ao anúncio só funciona se o cliente abrir a página no **mesmo navegador** em que clicou no anúncio (cookie `gclid`) e aceitou cookies. Abrir por link do WhatsApp em outro aparelho gera `purchase` no GA4, mas dificilmente casa com o clique.
+- A atribuição ao anúncio só funciona se o cliente abrir a página no **mesmo navegador** em que clicou no anúncio (cookie `gclid`) e aceitou cookies. Abrir por link do WhatsApp em outro aparelho gera `purchase` no GA4, mas dificilmente casa com o clique. **Resolvido em desenho pela Fase 2** (código `(ref MG-XXXXX)` no WhatsApp + Worker + importação offline): ver [`atribuicao-anuncio-fase2.md`](atribuicao-anuncio-fase2.md) — implementada só nas prévias `-v2`, sem promoção ainda.
 - Teste de ponta a ponta no GA4 DebugView / Tag Assistant ainda não feito (ambiente sem acesso ao Google).
