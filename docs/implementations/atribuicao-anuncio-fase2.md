@@ -205,7 +205,7 @@ Google Ads (upload agendado, HTTPS + Basic) ◄── GET /api/export.csv
 | A | `43bfd64` | Worker + teste W |
 | B | `5763506` | 6 prévias `-v2` + teste L |
 | C | `a36c30d` | `/mari/` + obrigado + teste M |
-| D | (ver `git log`: "Fase 2 / D") | E2E + guia + docs |
+| D | `b88c154` | E2E + guia + docs |
 
 ---
 
