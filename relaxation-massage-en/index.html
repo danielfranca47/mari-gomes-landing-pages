@@ -214,7 +214,10 @@
     .nav-menu { display: none; }
     .hero-top { grid-template-columns: 1fr; }
     .hero-left { padding: 48px 24px; }
-    .hero-right { min-height: 300px; padding: 32px 24px; }
+    /* foto empilhada acima dos benefícios (antes: espremida ao lado, ~0px de largura) */
+    .hero-right { flex-direction: column; align-items: stretch; justify-content: flex-start; min-height: auto; padding: 0 !important; }
+    .hero-right > div:first-child { flex: none !important; height: 280px; min-height: 0 !important; }
+    .hero-visual { max-width: none; }
     section { padding: 56px 24px; }
     .steps { grid-template-columns: 1fr 1fr; }
     .steps::before { display: none; }
@@ -226,6 +229,7 @@
     .cookie-banner { left: 12px; right: 12px; bottom: 12px; flex-direction: column; align-items: stretch; }
     .cookie-actions { justify-content: stretch; }
     .cookie-actions button { flex: 1; }
+    .cookie-banner p { flex: 0 0 auto; }
   }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
