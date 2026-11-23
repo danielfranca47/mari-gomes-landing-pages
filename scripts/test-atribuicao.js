@@ -227,7 +227,7 @@ const { execSync } = require('child_process');
 const PIN_HASH = (fs.readFileSync(path.join(ROOT, 'mari/index.html'), 'utf8').match(/var PIN_HASH = '([0-9a-f]{64})'/) || [])[1];
 const API_KEY = SALE_KEY;
 const MSG = "Hi Mari! I'm John and I'm interested in a Tantric Energy Experience session. Could you please send me more details and availability?\n\n(ref MG-K7P2X)";
-const BASE = '5711c4e';
+const BASE = 'c280d15';
 const convBlock = h => { const i = h.indexOf('// CONVERSION'); return h.slice(h.lastIndexOf('<script>', i), h.indexOf('</script>', i)); };
 const salePosts = srv => srv.api.filter(x => x.path === '/api/sale');
 
@@ -330,6 +330,7 @@ async function scenarioM(browser, srv) {
   srv.api.length = 0;
   ctx = await newCtx(browser, srv); page = await ctx.newPage(); await page.goto(prevUrl, { waitUntil: 'domcontentloaded' });
   assert.strictEqual((await dlEvents(page, 'purchase')).length, 0, 'prévia dispara purchase');
+  assert.strictEqual((await dlEvents(page, 'conversion')).length, 0, 'prévia dispara conversion do Ads');
   assert.strictEqual(srv.api.length, 0); await ctx.close();
   ok('M5');
 
@@ -338,6 +339,7 @@ async function scenarioM(browser, srv) {
     ctx = await newCtx(browser, srv); page = await ctx.newPage(); page.on('pageerror', e => errs.push(e.message));
     await page.goto(srv.base + base + '?s=nrg90&v=350&id=abcd1234&r=MG-K7P2X', { waitUntil: 'domcontentloaded' });
     let pu = await dlEvents(page, 'purchase'); assert.strictEqual(pu.length, 1);
+    const cv = await dlEvents(page, 'conversion'); assert.strictEqual(cv.length, 1); assert.strictEqual(cv[0][2].send_to, 'AW-18036442650/ZwyrCJrolr4dEJqMuZhD', 'rótulo Compra preservado');
     assert.strictEqual(pu[0][2].ref_code, 'MG-K7P2X'); assert.strictEqual(pu[0][2].transaction_id, 'abcd1234'); assert.strictEqual(pu[0][2].value, 350);
     await ctx.close();
     for (const bad of ['MG-0OOO1', encodeURIComponent('<img src=x onerror=alert(1)>'), 'mg-k7p2x', 'MG-K7P2XX']) {

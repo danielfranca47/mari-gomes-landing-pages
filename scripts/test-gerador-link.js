@@ -4,7 +4,7 @@
   Como rodar (na raiz do repositório):   node scripts/test-gerador-link.js
   Requer o Playwright com Chromium já instalado (require('playwright')) e python3.
   Sai com código 0 e imprime "OK <cenário>" quando tudo passa; "FAIL ..." e código 1 se algo falhar.
-  Variáveis opcionais: LP_ROOT (pasta com as LPs a comparar com o catálogo; padrão: a raiz do repo), BASE_REF (commit contra o qual comparar os <script>, padrão 5711c4e),
+  Variáveis opcionais: LP_ROOT (pasta com as LPs a comparar com o catálogo; padrão: a raiz do repo), BASE_REF (commit contra o qual comparar os <script>, padrão c280d15),
   SHOTS_DIR (onde salvar screenshots; padrão: pasta temporária do sistema).
   Serve a raiz do repo com python3 -m http.server (localhost é contexto seguro p/ crypto.subtle).
   Bloqueia googletagmanager/gtranslate/fonts e lê window.dataLayer.
@@ -14,7 +14,7 @@ const { spawn, execSync } = require('child_process');
 const fs = require('fs'), os = require('os'), path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const BASE_REF = process.env.BASE_REF || '5711c4e';
+const BASE_REF = process.env.BASE_REF || 'c280d15';
 const SHOTS = process.env.SHOTS_DIR || fs.mkdtempSync(path.join(os.tmpdir(), 'gerador-shots-'));
 const TEST_PIN = '135790'; // PIN só do teste: o teste troca o PIN_HASH da página em memória
 const sha = s => require('crypto').createHash('sha256').update(s).digest('hex');
