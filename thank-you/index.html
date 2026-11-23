@@ -396,24 +396,49 @@
 </script>
 <script>
 // CONVERSION — viewing this page = purchase. Mari only sends this link to clients who booked.
-// Link generated at /mari/: ?s=<service code>&v=<value EUR>&id=<8 chars a-z0-9>. All params validated below.
+// Link generated at /mari/: ?s=<service code>&t=<session type, optional>&v=<value EUR>&id=<8 chars a-z0-9>. All params validated below.
 // GA4 'purchase' event always; Google Ads conversion only when ADS_PURCHASE_LABEL is filled in
 // (create a conversion action in Google Ads, then paste the label after "AW-18036442650/").
 // Old links keep working: no params = EUR 250 generic item; ?v=350 = EUR 350 generic item.
 // ?test in the URL previews the page without firing the conversion.
-// SERVICE CATALOG — manter idêntico nos 3 arquivos (thank-you/, nl/thank-you/, mari/). Ao mudar preço: LPs + /prices/ + aqui.
+// SERVICE CATALOG — manter idêntico nos 3 arquivos (thank-you/, nl/thank-you/, mari/). Fonte da verdade: as LPs de anúncio (EN). Ao mudar preço/nome: LPs + /prices/ + aqui.
 var SERVICE_CATALOG = [
-  { s: 'rlx60',  name: 'Holistic Relaxation 60 min',  cat: 'relaxation', price: 250, label: 'Relaxation · 60 min' },
-  { s: 'rlx90',  name: 'Holistic Relaxation 90 min',  cat: 'relaxation', price: 300, label: 'Relaxation · 90 min' },
-  { s: 'rlx120', name: 'Holistic Relaxation 120 min', cat: 'relaxation', price: 350, label: 'Relaxation · 120 min' },
-  { s: 'nrg60',  name: 'Energy Experience 60 min',    cat: 'energy',     price: 300, label: 'Energy · 60 min' },
-  { s: 'nrg90',  name: 'Energy Experience 90 min',    cat: 'energy',     price: 350, label: 'Energy · 90 min' },
-  { s: 'nrg120', name: 'Energy Experience 120 min',   cat: 'energy',     price: 400, label: 'Energy · 120 min' },
-  { s: 'cpl90',  name: 'Couples 90 min',              cat: 'couples',    price: 350, label: 'Casal · 90 min' },
-  { s: 'cpl120', name: 'Couples 2 h',                 cat: 'couples',    price: 400, label: 'Casal · 2 h' },
-  { s: 'cpl150', name: 'Couples 2.5 h',               cat: 'couples',    price: 450, label: 'Casal · 2,5 h' },
-  { s: 'cpl180', name: 'Couples 3 h',                 cat: 'couples',    price: 500, label: 'Casal · 3 h' },
-  { s: 'other',  name: 'Other session',               cat: 'other',      price: 0,   label: 'Outro (valor livre)' }
+  { key: 'rlx', name: 'Tantric Holistic Relaxation', cat: 'relaxation', img: '/images/LP2_Hero.webp',
+    durations: [
+      { s: 'rlx60', label: '60 min', price: 250 },
+      { s: 'rlx90', label: '90 min', price: 300, rec: true },
+      { s: 'rlx120', label: '120 min', price: 350 }
+    ],
+    types: [
+      { t: 'rhm', name: 'Relaxation & Holistic Massage' },
+      { t: 'ehm', name: 'Energetic Healing Massage' }
+    ] },
+  { key: 'nrg', name: 'Tantric Energy Experience', cat: 'energy', img: '/images/LP1_hero.webp',
+    durations: [
+      { s: 'nrg60', label: '60 min', price: 300 },
+      { s: 'nrg90', label: '90 min', price: 350, rec: true },
+      { s: 'nrg120', label: '120 min', price: 400 }
+    ],
+    types: [
+      { t: 'ehm', name: 'Energetic Healing Massage' },
+      { t: 'hhm', name: 'Holistic Healing Massage' },
+      { t: 'tt', name: 'Tantric Therapy' }
+    ] },
+  { key: 'cpl', name: 'Couples Massage', cat: 'couples', img: '/images/LP3_Hero.webp',
+    durations: [
+      { s: 'cpl90', label: '90 minutes', price: 350 },
+      { s: 'cpl120', label: '2 hours', price: 400 },
+      { s: 'cpl150', label: '2.5 hours', price: 450 },
+      { s: 'cpl180', label: '3 hours', price: 500 }
+    ],
+    types: [
+      { t: 'duo', name: 'Relaxation Duo' },
+      { t: 'hce', name: 'Holistic Couple Experience', pop: true },
+      { t: 'tct', name: 'Tantric Couple Therapy' }
+    ] },
+  { key: 'other', name: 'Other session', cat: 'other', img: '',
+    durations: [ { s: 'other', label: '', price: 0 } ],
+    types: [] }
 ];
 // END SERVICE CATALOG
 (function () {
@@ -425,8 +450,15 @@ var SERVICE_CATALOG = [
   try { if (localStorage.getItem('mg_internal_device') === '1') return; } catch (e) {}
 
   // s: service code, only accepted if it is in the catalog (name/category never come from the URL)
-  var sp = params.get('s'), svc = null, i;
-  for (i = 0; i < SERVICE_CATALOG.length; i++) { if (SERVICE_CATALOG[i].s === sp) { svc = SERVICE_CATALOG[i]; break; } }
+  var sp = params.get('s'), exp = null, svc = null, i, j;
+  for (i = 0; i < SERVICE_CATALOG.length && !svc; i++) {
+    for (j = 0; j < SERVICE_CATALOG[i].durations.length; j++) {
+      if (SERVICE_CATALOG[i].durations[j].s === sp) { exp = SERVICE_CATALOG[i]; svc = exp.durations[j]; break; }
+    }
+  }
+  // t: session type, only accepted if it belongs to the family of s (never for "other")
+  var tp = params.get('t'), variant = '';
+  if (exp) { for (i = 0; i < exp.types.length; i++) { if (exp.types[i].t === tp) { variant = exp.types[i].name; break; } } }
 
   // v: value, 50–1500 with optional comma/dot decimals; otherwise the service default price, otherwise 250
   var raw = params.get('v'), value = 0;
@@ -455,9 +487,13 @@ var SERVICE_CATALOG = [
     tx = 'ty-' + now.toString(36) + Math.random().toString(36).slice(2, 8);
   }
 
-  var item = svc
-    ? { item_id: svc.s, item_name: svc.name, item_category: svc.cat, price: value, quantity: 1 }
-    : { item_id: 'session', item_name: 'Mari Gomes session', price: value, quantity: 1 };
+  var item;
+  if (svc) {
+    item = { item_id: svc.s, item_name: svc.label ? exp.name + ' ' + svc.label : exp.name, item_category: exp.cat, price: value, quantity: 1 };
+    if (variant) item.item_variant = variant;
+  } else {
+    item = { item_id: 'session', item_name: 'Mari Gomes session', price: value, quantity: 1 };
+  }
   gtag('event', 'purchase', { transaction_id: tx, value: value, currency: 'EUR', items: [item] });
   if (ADS_PURCHASE_LABEL) {
     gtag('event', 'conversion', { send_to: 'AW-18036442650/' + ADS_PURCHASE_LABEL, value: value, currency: 'EUR', transaction_id: tx });

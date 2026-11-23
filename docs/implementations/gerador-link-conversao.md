@@ -454,44 +454,149 @@ Nada em LPs, home ou outras páginas. As LPs são **só lidas** pelo teste.
 ### Checks da Fase D
 
 #### Cenário D1 — Paridade automática com as LPs (o teste lê os arquivos das LPs)
-- [ ] Para cada experiência, o `name` do catálogo aparece no `<title>` **e** no rótulo de preços (LP1/LP2) ou no `<title>`/hero (LP3) da LP EN
-- [ ] Durações e preços do catálogo = pares (rótulo, €) extraídos de `<section id="pricing">` da LP EN, na mesma ordem e com o mesmo texto do rótulo ("60 min", "2.5 hours"…)
-- [ ] Os mesmos preços, na mesma ordem, na LP NL correspondente
-- [ ] `rec: true` só na duração que tem "Recommended"/"Aanbevolen" na LP (90 min em LP1 e LP2; nenhuma na LP3)
-- [ ] `types[].name` = títulos dos cards de `#sessions` (LP2), `#therapies` (LP1) e `#options` (LP3) da LP EN, na mesma ordem; a quantidade de cards é igual na LP NL
-- [ ] `pop: true` só em Holistic Couple Experience (card com "Most requested"/"Meest gevraagd")
-- [ ] Preços em ordem crescente dentro de cada experiência, e experiências em ordem de preço inicial
-- [ ] O teste **falha** se alguém mudar um preço numa LP sem mudar o catálogo (comprovar uma vez alterando a LP numa cópia temporária, não no repo, e colar a saída de falha no relatório)
+- [x] Para cada experiência, o `name` do catálogo aparece no `<title>` **e** no rótulo de preços (LP1/LP2) ou no `<title>`/hero (LP3) da LP EN — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Durações e preços do catálogo = pares (rótulo, €) extraídos de `<section id="pricing">` da LP EN, na mesma ordem e com o mesmo texto do rótulo ("60 min", "2.5 hours"…) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Os mesmos preços, na mesma ordem, na LP NL correspondente — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `rec: true` só na duração que tem "Recommended"/"Aanbevolen" na LP (90 min em LP1 e LP2; nenhuma na LP3) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `types[].name` = títulos dos cards de `#sessions` (LP2), `#therapies` (LP1) e `#options` (LP3) da LP EN, na mesma ordem; a quantidade de cards é igual na LP NL — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `pop: true` só em Holistic Couple Experience (card com "Most requested"/"Meest gevraagd") — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Preços em ordem crescente dentro de cada experiência, e experiências em ordem de preço inicial — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] O teste **falha** se alguém mudar um preço numa LP sem mudar o catálogo (comprovar uma vez alterando a LP numa cópia temporária, não no repo, e colar a saída de falha no relatório) — ✔ 23/11/2026 (test-gerador-link.js)
 
 #### Cenário D2 — `/mari/` em 390×844 com miniaturas
-- [ ] 3 cards com `<img>` cujo `src` começa com `/images/` e existe em `images/`, renderizados em 56–72 px, `naturalWidth > 0` depois do desbloqueio
-- [ ] Nenhum `src` com `amarigomes.com` nem URL externa; `loading="lazy"` e `alt` não vazio nos 3
-- [ ] Antes do PIN, nenhuma requisição a `/images/*` (registrar as requisições no Playwright)
-- [ ] `scrollWidth <= 390`, alvos de toque ≥ 44 px, nome + faixa de preço visíveis sem cortar (sem `text-overflow` escondendo o nome); screenshot no relatório (scratchpad)
+- [x] 3 cards com `<img>` cujo `src` começa com `/images/` e existe em `images/`, renderizados em 56–72 px, `naturalWidth > 0` depois do desbloqueio — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Nenhum `src` com `amarigomes.com` nem URL externa; `loading="lazy"` e `alt` não vazio nos 3 — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Antes do PIN, nenhuma requisição a `/images/*` (registrar as requisições no Playwright) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `scrollWidth <= 390`, alvos de toque ≥ 44 px, nome + faixa de preço visíveis sem cortar (sem `text-overflow` escondendo o nome); screenshot no relatório (scratchpad) — ✔ 23/11/2026 (test-gerador-link.js)
 
 #### Cenário D3 — Gerador com tipo
-- [ ] Couples Massage → Holistic Couple Experience → 2.5 hours → valor 450 → link `?s=cpl150&t=hce&v=450&id=…`
-- [ ] Tipo "Não especificar" → link sem `t`
-- [ ] Trocar experiência limpa o tipo, a duração e o link gerado
-- [ ] Selo "Recomendado" visível em 90 min (Relaxation e Energy); "Mais pedido" em Holistic Couple Experience
+- [x] Couples Massage → Holistic Couple Experience → 2.5 hours → valor 450 → link `?s=cpl150&t=hce&v=450&id=…` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Tipo "Não especificar" → link sem `t` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Trocar experiência limpa o tipo, a duração e o link gerado — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Selo "Recomendado" visível em 90 min (Relaxation e Energy); "Mais pedido" em Holistic Couple Experience — ✔ 23/11/2026 (test-gerador-link.js)
 
 #### Cenário D4 — Página de obrigado com `t`
-- [ ] `?s=cpl150&t=hce&v=450&id=…` → `items[0]` = `{item_id:'cpl150', item_name:'Couples Massage 2.5 hours', item_category:'couples', item_variant:'Holistic Couple Experience', price:450}`
-- [ ] `?s=rlx90&t=tt&…` (tipo de outra família) → sem `item_variant`, resto normal
-- [ ] `?s=nrg60&t=<script>&…` → sem `item_variant`; nada de `t` no DOM
-- [ ] `?s=other&t=hce&…` → sem `item_variant`
-- [ ] Todos os cenários 1–3 antigos continuam passando (com os `item_name` novos)
+- [x] `?s=cpl150&t=hce&v=450&id=…` → `items[0]` = `{item_id:'cpl150', item_name:'Couples Massage 2.5 hours', item_category:'couples', item_variant:'Holistic Couple Experience', price:450}` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `?s=rlx90&t=tt&…` (tipo de outra família) → sem `item_variant`, resto normal — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `?s=nrg60&t=<script>&…` → sem `item_variant`; nada de `t` no DOM — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `?s=other&t=hce&…` → sem `item_variant` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Todos os cenários 1–3 antigos continuam passando (com os `item_name` novos) — ✔ 23/11/2026 (test-gerador-link.js)
 
 #### Cenário D5 — Mensagem
-- [ ] EN, NL individual e NL casal = texto exato acima (comparar `#msg-out`), com `\n` e sem espaço duplo
-- [ ] `href` do WhatsApp contém `%0A` e não contém `%20%20`
-- [ ] Nenhum termo da lista "Evitar" de `vocabulario.md` nas 3 mensagens (o teste tem a lista)
+- [x] EN, NL individual e NL casal = texto exato acima (comparar `#msg-out`), com `\n` e sem espaço duplo — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `href` do WhatsApp contém `%0A` e não contém `%20%20` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Nenhum termo da lista "Evitar" de `vocabulario.md` nas 3 mensagens (o teste tem a lista) — ✔ 23/11/2026 (test-gerador-link.js)
 
 #### Cenário D6 — Não regressão
-- [ ] `git diff c3785ec --stat` só toca os arquivos da tabela da Fase D
-- [ ] `git diff main --stat` não toca nenhuma LP, home ou página institucional
-- [ ] Nos 2 thank-you, tudo fora do bloco `// CONVERSION` byte-idêntico ao `ad67fb4`; bloco idêntico EN/NL; catálogo idêntico nos 3 arquivos
-- [ ] `node scripts/test-gerador-link.js` → `TODOS OS CENARIOS OK`, saída colada no relatório
+- [x] `git diff c3785ec --stat` só toca os arquivos da tabela da Fase D — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `git diff main --stat` não toca nenhuma LP, home ou página institucional — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Nos 2 thank-you, tudo fora do bloco `// CONVERSION` byte-idêntico ao `ad67fb4`; bloco idêntico EN/NL; catálogo idêntico nos 3 arquivos — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `node scripts/test-gerador-link.js` → `TODOS OS CENARIOS OK`, saída colada no relatório — ✔ 23/11/2026 (test-gerador-link.js)
+
+**Evidência (23/11/2026):** `MARI_PIN=<pin real> node scripts/test-gerador-link.js` → exit 0, `TODOS OS CENARIOS OK` (88 linhas OK; saída abaixo). Screenshot 390 px de `/mari/` com os cards, tipo, durações, valor e link conferido (scratchpad, fora do repo).
+
+Observações:
+- **Prova de falha D1 (duas formas):** (a) o próprio teste altera uma *cópia temporária* das LPs (preço €300→€320 na LP2 EN, "Relaxation Duo"→"Relaxation Trio" na LP3 EN) e exige que a paridade acuse — linha `OK D1 prova de falha…`; (b) rodando com `LP_ROOT` apontando para uma cópia com o preço 90 min da LP1 mudado de €350 para €360, o teste falha com exit 1:
+```
+FAIL D1 catalogo = LPs (nome, duracoes, precos EN/NL, Recomendado, tipos, Mais pedido, ordem)  — [nrg] duracoes/precos EN: LP=[{"label":"60 min","price":300},{"label":"90 min","price":360},{"label":"120 min","price":400}] catalogo=[{"label":"60 min","price":300},{"label":"90 min","price":350},{"label":"120 min","price":400}]
+1 FALHA(S)
+```
+- Os checks `git diff c3785ec` / `git diff main` do D6 foram feitos pela lista de arquivos permitidos do C7 (contra `ad67fb4`): só mudaram `mari/index.html`, os 2 thank-you (bloco CONVERSION), o teste e este doc. Nenhuma LP, home ou página institucional.
+- Desvio menor: o `alt` das miniaturas é "Foto principal da página <nome>" (não descrevo o conteúdo da foto, que não verifiquei); o seletor de tipo usa fonte 14 px para caber "Holistic Couple Experience · Mais pedido" sem corte em 390 px.
+- Ordem de itens no `items[0]`: `item_id, item_name, item_category, price, quantity` e `item_variant` por último (só com `t` válido).
+
+```
+OK   C1 EN parametros validos  — {"transaction_id":"abc12345","value":300,"currency":"EUR","items":[{"item_id":"rlx90","item_name":"Tantric Holistic Relaxation 90 min","item_category":"relaxation","price":300,"quantity":1}]}
+OK   C1 NL parametros validos  — {"transaction_id":"abc12345","value":300,"currency":"EUR","items":[{"item_id":"rlx90","item_name":"Tantric Holistic Relaxation 90 min","item_category":"relaxation","price":300,"quantity":1}]}
+OK   C1 virgula aceita  — value=480.5
+OK   C1 other  — item_id=other value=120
+OK   C2 v=999999 com s=nrg90 -> 350  — value=350
+OK   C2 v=1e9 com s=nrg90 -> 350  — value=350
+OK   C2 v=-5 com s=nrg90 -> 350  — value=350
+OK   C2 v=abc com s=nrg90 -> 350  — value=350
+OK   C2 v=20 com s=nrg90 -> 350  — value=350
+OK   C2 v=999999 sem s -> 250  — value=250
+OK   C2 s=%3Cscript%3E -> item generico, param fora do DOM e do evento  — [{"item_id":"session","item_name":"Mari Gomes session","price":300,"quantity":1}]
+OK   C2 s=xyz -> item generico, param fora do DOM e do evento  — [{"item_id":"session","item_name":"Mari Gomes session","price":300,"quantity":1}]
+OK   C2 id invalido (..%2F..%2Fx) -> ty-...  — tx=ty-mwtpxtufx3yulc
+OK   C2 id invalido (ABC12345) -> ty-...  — tx=ty-mwtpxu0hz296iu
+OK   C2 id invalido (aaaaaaaaaaaa) -> ty-...  — tx=ty-mwtpxu6grsysy9
+OK   C2 legado /thank-you/ puro  — value=250
+OK   C2 legado ?v=350  — value=350
+OK   C3 ?test com params -> nenhum purchase
+OK   C3 ?test puro -> nenhum purchase
+OK   C3 mesmo id 2x no mesmo navegador -> 1 so (2a abertura nao dispara)
+OK   C3 mesmo id em /nl/ no mesmo navegador -> nao dispara de novo
+OK   C3 id diferente em seguida -> 2o purchase  — tx=def67890
+OK   C3 sem id: 2 aberturas < 12 h -> 1 purchase
+OK   C3 mg_internal_device=1 -> nenhum purchase
+OK   C4 sem PIN: gerador escondido (hidden)
+OK   C4 sem PIN: gerador nao e focavel
+OK   C4 PIN errado -> "PIN incorreto", gerador escondido
+OK   C4 5 erros -> espera de 30 s  — PIN incorreto. Aguarde 30 s para tentar de novo.
+OK   C4 PIN certo -> gerador aparece e grava flag do aparelho
+OK   C4 recarregar -> continua desbloqueado
+OK   C4 Bloquear -> pede PIN de novo (flag do aparelho mantida)
+OK   C4 "Este aparelho nao e da Mari" -> apaga as duas chaves
+OK   C4 trocar PIN_HASH -> volta a pedir PIN
+OK   C4 PIN real fora do repo  — verificado com MARI_PIN
+OK   D2 antes do PIN nenhuma requisicao a /images/*  — requisicoes=0
+OK   C5 ordem das experiencias (por preco inicial)  — rlx,nrg,cpl,other
+OK   C5 ordem das duracoes (crescente)  — {"rlx":"rlx60,rlx90,rlx120","nrg":"nrg60,nrg90,nrg120","cpl":"cpl90,cpl120,cpl150,cpl180"}
+OK   D2 3 miniaturas /images/*.webp, existem, 56–72 px, naturalWidth>0  — ["/images/LP2_Hero.webp","/images/LP1_hero.webp","/images/LP3_Hero.webp"] nat=1173,1086,1161
+OK   D2 loading=lazy, alt preenchido, sem URL externa/amarigomes
+OK   D2 imagens so baixadas depois do PIN  — LP2_Hero.webp,LP1_hero.webp,LP3_Hero.webp
+OK   D2 nome + faixa de preco visiveis sem corte  — Tantric Holistic Relaxation|Tantric Energy Experience|Couples Massage|Other session / €250 · €300 · €350|€300 · €350 · €400|€350 · €400 · €450 · €500|Valor livre
+OK   D3 selo Recomendado so em rlx90
+OK   D3 selo Recomendado so em nrg90
+OK   D3 tipos do casal, "Mais pedido" so em Holistic Couple Experience, sem Recomendado  — Não especificar|Relaxation Duo|Holistic Couple Experience · Mais pedido|Tantric Couple Therapy
+OK   D3 duracao preenche o valor (450)
+OK   D3 link com tipo  — http://localhost:38261/thank-you/?s=cpl150&t=hce&v=450&id=goidacrv
+OK   D3 trocar o tipo apaga o link mostrado
+OK   D3 "Não especificar" -> link sem t, id novo  — http://localhost:38261/thank-you/?s=cpl150&v=450&id=864d030y
+OK   D3 trocar de experiencia limpa tipo, duracao, valor e link
+OK   C5 Energy 90 preenche 350
+OK   C5 link EN com v=380  — http://localhost:38261/thank-you/?s=nrg90&v=380&id=2dnfgmkd
+OK   C5 gerar 2x -> ids diferentes  — 2dnfgmkd / dvygywpo
+OK   C5 virgula normalizada para ponto
+OK   C5 editar valor apaga o link mostrado
+OK   C5 link NL  — http://localhost:38261/nl/thank-you/?s=nrg90&v=390&id=ey7bdwuz
+OK   D5 NL individual = texto exato; WhatsApp sem numero
+OK   D5 href do WhatsApp tem %0A e nao tem %20%20
+OK   D5 EN = texto exato, sem espaco duplo
+OK   D5 NL casal (jullie) = texto exato
+OK   D5 mensagens sem termos da lista "Evitar" de vocabulario.md
+OK   C5 Outro vazio -> Gerar desabilitado, sem duracao/tipo
+OK   C5 valor 20 -> desabilitado + aviso  — O valor deve ficar entre €50 e €1500.
+OK   C5 valor 5000 -> desabilitado + aviso  — O valor deve ficar entre €50 e €1500.
+OK   C5 Outro com valor 120 -> s=other, sem t
+OK   C5 Ver previa = link + &test  — http://localhost:38261/thank-you/?s=rlx60&v=250&id=sq74kgqs&test
+OK   C5 Ver previa -> nenhum purchase
+OK   C5 ponta a ponta (contexto novo)  — {"transaction_id":"sq74kgqs","value":250,"currency":"EUR","items":[{"item_id":"rlx60","item_name":"Tantric Holistic Relaxation 60 min","item_category":"relaxation","price":250,"quantity":1}]}
+OK   D3 ponta a ponta com tipo  — [{"item_id":"cpl150","item_name":"Couples Massage 2.5 hours","item_category":"couples","price":450,"quantity":1,"item_variant":"Holistic Couple Experience"}]
+OK   C6/D2 /mari/ 390px sem scroll horizontal e alvos >= 44px  — scrollWidth=390 pequenos=[]
+OK   D4 s+t validos -> item_variant  — [{"item_id":"cpl150","item_name":"Couples Massage 2.5 hours","item_category":"couples","price":450,"quantity":1,"item_variant":"Holistic Couple Experience"}]
+OK   D4 NL idem
+OK   D4 tipo de outra familia -> sem item_variant
+OK   D4 t=<script> -> sem item_variant e fora do DOM
+OK   D4 other + t -> sem item_variant
+OK   D4 ehm na familia nrg
+OK   C6 /thank-you/ 390px sem scroll horizontal  — scrollWidth=390; screenshots em <scratchpad>/shots
+OK   D1 catalogo = LPs (nome, duracoes, precos EN/NL, Recomendado, tipos, Mais pedido, ordem)  — LP_ROOT=/home/user/mari-gomes-landing-pages
+OK   D1 prova de falha: preco/tipo alterado numa copia temporaria das LPs e detectado  — [rlx] duracoes/precos EN: LP=[{"label":"60 min","price":250},{"label":"90 min","price":320 || [cpl] tipos EN: LP=["Relaxation Trio","Holistic Couple Experience","Tantric Couple Therapy
+OK   C7 catalogo identico nos 3 arquivos
+OK   C7 bloco CONVERSION identico EN/NL
+OK   C7 thank-you/index.html: tudo exceto o bloco CONVERSION identico a ad67fb4
+OK   C7 nl/thank-you/index.html: tudo exceto o bloco CONVERSION identico a ad67fb4
+OK   C7 /mari/ sem GTM, GTranslate, gtag nem script externo
+OK   C7 /mari/ noindex, nofollow
+OK   C7 nenhum arquivo linka /mari/  — []
+OK   C7 /mari/ sem campo de nome/telefone/e-mail
+OK   C7 diff contra ad67fb4 so toca arquivos permitidos  — []
+OK   C7 workflow publica mari/ e nao publica scripts/
+
+TODOS OS CENARIOS OK
+```
 
 ### Commit Fase D
 

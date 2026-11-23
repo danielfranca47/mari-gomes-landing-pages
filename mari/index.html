@@ -33,6 +33,23 @@
   }
   textarea { min-height: 120px; resize: vertical; font-size: 14px; line-height: 1.5; }
   select:focus, input:focus, textarea:focus, button:focus-visible, a.btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
+  #type { font-size: 14px; padding-left: 8px; padding-right: 4px; }
+  .exp-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .exp-card { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 80px; padding: 8px; text-align: left; font: inherit; color: var(--ink); background: var(--parchment); border: 0.5px solid rgba(36,27,20,0.35); cursor: pointer; }
+  .exp-card[aria-checked="true"] { border: 2px solid var(--amber); padding: 7px; background: #F7E6C7; }
+  .exp-card img, .exp-card .ph { flex: 0 0 64px; width: 64px; height: 64px; object-fit: cover; display: block; background: var(--amber-light); }
+  .exp-card .ph { display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 26px; color: var(--ink); }
+  .exp-card .tx { min-width: 0; }
+  .exp-card .nm { font-family: 'Fraunces', serif; font-size: 17px; line-height: 1.25; display: block; }
+  .exp-card .pr { font-size: 13px; color: var(--taupe); display: block; }
+  .dur-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .dur-btn { position: relative; min-height: 60px; padding: 8px; font: inherit; color: var(--ink); background: var(--parchment); border: 0.5px solid rgba(36,27,20,0.35); cursor: pointer; text-align: center; }
+  .dur-btn b { display: block; font-weight: 600; font-size: 14px; }
+  .dur-btn span { display: block; font-size: 13px; color: var(--taupe); }
+  .dur-btn i { display: block; font-style: normal; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); }
+  .dur-btn[aria-checked="true"] { background: var(--ink); color: var(--parchment); }
+  .dur-btn[aria-checked="true"] span, .dur-btn[aria-checked="true"] i { color: var(--amber-light); }
+  .dur-btn:focus-visible, .exp-card:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
   .langs { display: flex; gap: 8px; margin-bottom: 16px; }
   .langs label { flex: 1; margin: 0; }
   .langs input { position: absolute; opacity: 0; pointer-events: none; }
@@ -79,12 +96,24 @@
     <div class="note">Não abra o link no seu celular para testar. Use <strong>Ver prévia</strong>.</div>
 
     <div class="card">
-      <label for="svc">Atendimento realizado</label>
-      <select id="svc"></select>
+      <span class="lbl" id="exp-lbl">Experiência realizada</span>
+      <div class="exp-list" id="exp-list" role="radiogroup" aria-labelledby="exp-lbl"></div>
 
-      <label for="val">Valor (€)</label>
-      <input type="text" id="val" inputmode="decimal" autocomplete="off" placeholder="ex.: 300">
-      <p class="msg err" id="val-msg" role="alert"></p>
+      <div id="type-wrap" hidden>
+        <label for="type">Tipo de sessão</label>
+        <select id="type"></select>
+      </div>
+
+      <div id="dur-wrap" hidden>
+        <span class="lbl" id="dur-lbl">Duração</span>
+        <div class="dur-list" id="dur-list" role="radiogroup" aria-labelledby="dur-lbl"></div>
+      </div>
+
+      <div id="val-wrap" hidden>
+        <label for="val">Valor (€)</label>
+        <input type="text" id="val" inputmode="decimal" autocomplete="off" placeholder="ex.: 300">
+        <p class="msg err" id="val-msg" role="alert"></p>
+      </div>
 
       <span class="lbl" id="lang-lbl">Idioma da mensagem ao cliente</span>
       <div class="langs" role="radiogroup" aria-labelledby="lang-lbl">
@@ -123,19 +152,44 @@
   Para trocar o PIN: printf 'mari-gomes:%s' NOVOPIN | sha256sum   → colar o resultado em PIN_HASH.
   Trocar o hash derruba o desbloqueio de todos os aparelhos. Nunca escrever o PIN no repositório.
 */
-// SERVICE CATALOG — manter idêntico nos 3 arquivos (thank-you/, nl/thank-you/, mari/). Ao mudar preço: LPs + /prices/ + aqui.
+// SERVICE CATALOG — manter idêntico nos 3 arquivos (thank-you/, nl/thank-you/, mari/). Fonte da verdade: as LPs de anúncio (EN). Ao mudar preço/nome: LPs + /prices/ + aqui.
 var SERVICE_CATALOG = [
-  { s: 'rlx60',  name: 'Holistic Relaxation 60 min',  cat: 'relaxation', price: 250, label: 'Relaxation · 60 min' },
-  { s: 'rlx90',  name: 'Holistic Relaxation 90 min',  cat: 'relaxation', price: 300, label: 'Relaxation · 90 min' },
-  { s: 'rlx120', name: 'Holistic Relaxation 120 min', cat: 'relaxation', price: 350, label: 'Relaxation · 120 min' },
-  { s: 'nrg60',  name: 'Energy Experience 60 min',    cat: 'energy',     price: 300, label: 'Energy · 60 min' },
-  { s: 'nrg90',  name: 'Energy Experience 90 min',    cat: 'energy',     price: 350, label: 'Energy · 90 min' },
-  { s: 'nrg120', name: 'Energy Experience 120 min',   cat: 'energy',     price: 400, label: 'Energy · 120 min' },
-  { s: 'cpl90',  name: 'Couples 90 min',              cat: 'couples',    price: 350, label: 'Casal · 90 min' },
-  { s: 'cpl120', name: 'Couples 2 h',                 cat: 'couples',    price: 400, label: 'Casal · 2 h' },
-  { s: 'cpl150', name: 'Couples 2.5 h',               cat: 'couples',    price: 450, label: 'Casal · 2,5 h' },
-  { s: 'cpl180', name: 'Couples 3 h',                 cat: 'couples',    price: 500, label: 'Casal · 3 h' },
-  { s: 'other',  name: 'Other session',               cat: 'other',      price: 0,   label: 'Outro (valor livre)' }
+  { key: 'rlx', name: 'Tantric Holistic Relaxation', cat: 'relaxation', img: '/images/LP2_Hero.webp',
+    durations: [
+      { s: 'rlx60', label: '60 min', price: 250 },
+      { s: 'rlx90', label: '90 min', price: 300, rec: true },
+      { s: 'rlx120', label: '120 min', price: 350 }
+    ],
+    types: [
+      { t: 'rhm', name: 'Relaxation & Holistic Massage' },
+      { t: 'ehm', name: 'Energetic Healing Massage' }
+    ] },
+  { key: 'nrg', name: 'Tantric Energy Experience', cat: 'energy', img: '/images/LP1_hero.webp',
+    durations: [
+      { s: 'nrg60', label: '60 min', price: 300 },
+      { s: 'nrg90', label: '90 min', price: 350, rec: true },
+      { s: 'nrg120', label: '120 min', price: 400 }
+    ],
+    types: [
+      { t: 'ehm', name: 'Energetic Healing Massage' },
+      { t: 'hhm', name: 'Holistic Healing Massage' },
+      { t: 'tt', name: 'Tantric Therapy' }
+    ] },
+  { key: 'cpl', name: 'Couples Massage', cat: 'couples', img: '/images/LP3_Hero.webp',
+    durations: [
+      { s: 'cpl90', label: '90 minutes', price: 350 },
+      { s: 'cpl120', label: '2 hours', price: 400 },
+      { s: 'cpl150', label: '2.5 hours', price: 450 },
+      { s: 'cpl180', label: '3 hours', price: 500 }
+    ],
+    types: [
+      { t: 'duo', name: 'Relaxation Duo' },
+      { t: 'hce', name: 'Holistic Couple Experience', pop: true },
+      { t: 'tct', name: 'Tantric Couple Therapy' }
+    ] },
+  { key: 'other', name: 'Other session', cat: 'other', img: '',
+    durations: [ { s: 'other', label: '', price: 0 } ],
+    types: [] }
 ];
 // END SERVICE CATALOG
 
@@ -143,8 +197,10 @@ var PIN_HASH = '4f19b15c359068dcbe7d6a216b189993eef1cf4da685b39c6a594deaf6f2d49e
 var LS_OK = 'mg_pin_ok', LS_DEV = 'mg_internal_device';
 var MIN_VALUE = 50, MAX_VALUE = 1500;
 var MESSAGES = {
-  en: { path: '/thank-you/',    text: 'Hi! Thank you for your session today, it was lovely to welcome you. If you have a minute, I would love to hear how it was for you: {link}  Warm regards, Mari' },
-  nl: { path: '/nl/thank-you/', text: 'Hoi! Dank je wel voor je sessie vandaag, het was fijn je te ontvangen. Als je een minuutje hebt, hoor ik graag hoe je het vond: {link}  Hartelijke groet, Mari' }
+  en: { path: '/thank-you/', text: 'Hi! Thank you for your session today, it was lovely to welcome you.\n\nIf you have a minute, I would love to hear how it was for you:\n{link}\n\nWarm regards,\nMari' },
+  nl: { path: '/nl/thank-you/',
+        text: 'Hoi! Dank je wel voor je sessie vandaag, het was fijn je te ontvangen.\n\nAls je een minuutje hebt, hoor ik graag hoe je het vond:\n{link}\n\nHartelijke groet,\nMari',
+        couple: 'Hoi! Dank jullie wel voor jullie sessie vandaag, het was fijn jullie te ontvangen.\n\nAls jullie een minuutje hebben, hoor ik graag hoe jullie het vonden:\n{link}\n\nHartelijke groet,\nMari' }
 };
 
 (function () {
@@ -193,32 +249,73 @@ var MESSAGES = {
   if (lsGet(LS_OK) === PIN_HASH) { lsSet(LS_DEV, '1'); showGen(true); }
 
   // ---- Gerador ----
-  var svcSel = $('svc'), val = $('val'), genBtn = $('gen-btn');
-  SERVICE_CATALOG.forEach(function (it) {
-    var o = document.createElement('option'); o.value = it.s; o.textContent = it.label; svcSel.appendChild(o);
+  var val = $('val'), genBtn = $('gen-btn'), expList = $('exp-list'), durList = $('dur-list'), typeSel = $('type');
+  var exp = null, dur = null;
+  var NO_TYPE = 'Não especificar';
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt) e.textContent = txt; return e; }
+  function range(e) { return e.key === 'other' ? 'Valor livre' : e.durations.map(function (d) { return '€' + d.price; }).join(' · '); }
+
+  SERVICE_CATALOG.forEach(function (e) {
+    var b = el('button', 'exp-card'); b.type = 'button'; b.setAttribute('role', 'radio'); b.setAttribute('aria-checked', 'false'); b.dataset.key = e.key;
+    if (e.img) {
+      var im = document.createElement('img');
+      im.src = e.img; im.width = 64; im.height = 64; im.loading = 'lazy'; im.decoding = 'async';
+      im.alt = 'Foto principal da página ' + e.name; b.appendChild(im);
+    } else b.appendChild(el('span', 'ph', '€'));
+    var tx = el('span', 'tx'); tx.appendChild(el('span', 'nm', e.name)); tx.appendChild(el('span', 'pr', range(e)));
+    b.appendChild(tx);
+    b.addEventListener('click', function () { chooseExp(e); });
+    expList.appendChild(b);
   });
-  function current() { for (var i = 0; i < SERVICE_CATALOG.length; i++) if (SERVICE_CATALOG[i].s === svcSel.value) return SERVICE_CATALOG[i]; return SERVICE_CATALOG[0]; }
-  function lang() { return document.querySelector('input[name="lang"]:checked').value; }
+
   function parseValue() {
     var raw = val.value.trim();
-    if (!raw) return { ok: false, msg: svcSel.value === 'other' ? 'Informe o valor.' : '' };
+    if (!raw) return { ok: false, msg: exp && exp.key === 'other' ? 'Informe o valor.' : '' };
     if (!/^\d{1,4}([.,]\d{1,2})?$/.test(raw)) return { ok: false, msg: 'Valor inválido. Use só números, ex.: 300 ou 300,50.' };
     var n = parseFloat(raw.replace(',', '.'));
     if (n < MIN_VALUE || n > MAX_VALUE) return { ok: false, msg: 'O valor deve ficar entre €' + MIN_VALUE + ' e €' + MAX_VALUE + '.' };
     return { ok: true, n: n };
   }
+  function lang() { return document.querySelector('input[name="lang"]:checked').value; }
   function refresh() {
     var p = parseValue();
+    var ready = !!exp && (exp.key === 'other' || !!dur);
     $('val-msg').textContent = p.msg || '';
-    genBtn.disabled = !p.ok;
-    return p;
+    genBtn.disabled = !(ready && p.ok);
+    return { ok: ready && p.ok, n: p.n };
   }
   function clearOut() { $('out').hidden = true; $('link-out').textContent = ''; $('msg-out').value = ''; $('wa-btn').href = '#'; $('prev-btn').href = '#'; $('copy-msg').textContent = ''; }
-  function fillPrice() { var it = current(); val.value = it.price ? String(it.price) : ''; }
-  svcSel.addEventListener('change', function () { fillPrice(); clearOut(); refresh(); });
+
+  function chooseExp(e) {
+    exp = e; dur = null; clearOut();
+    Array.prototype.forEach.call(expList.children, function (c) { c.setAttribute('aria-checked', c.dataset.key === e.key ? 'true' : 'false'); });
+    typeSel.innerHTML = '';
+    var o0 = document.createElement('option'); o0.value = ''; o0.textContent = NO_TYPE; typeSel.appendChild(o0);
+    e.types.forEach(function (ty) { var o = document.createElement('option'); o.value = ty.t; o.textContent = ty.name + (ty.pop ? ' · Mais pedido' : ''); typeSel.appendChild(o); });
+    $('type-wrap').hidden = !e.types.length;
+    durList.innerHTML = '';
+    if (e.key !== 'other') e.durations.forEach(function (d) {
+      var b = el('button', 'dur-btn'); b.type = 'button'; b.setAttribute('role', 'radio'); b.setAttribute('aria-checked', 'false'); b.dataset.s = d.s;
+      b.appendChild(el('b', '', d.label)); b.appendChild(el('span', '', '€' + d.price));
+      if (d.rec) b.appendChild(el('i', '', 'Recomendado'));
+      b.addEventListener('click', function () { chooseDur(d); });
+      durList.appendChild(b);
+    });
+    $('dur-wrap').hidden = e.key === 'other';
+    $('val-wrap').hidden = false;
+    val.value = '';
+    refresh();
+  }
+  function chooseDur(d) {
+    dur = d; clearOut();
+    Array.prototype.forEach.call(durList.children, function (c) { c.setAttribute('aria-checked', c.dataset.s === d.s ? 'true' : 'false'); });
+    val.value = String(d.price);
+    refresh();
+  }
+  typeSel.addEventListener('change', clearOut);
   val.addEventListener('input', function () { clearOut(); refresh(); });
   Array.prototype.forEach.call(document.querySelectorAll('input[name="lang"]'), function (r) { r.addEventListener('change', clearOut); });
-  fillPrice(); refresh();
+  refresh();
 
   function newId() {
     var A = 'abcdefghijklmnopqrstuvwxyz0123456789', b = new Uint8Array(8), s = '';
@@ -230,9 +327,10 @@ var MESSAGES = {
 
   genBtn.addEventListener('click', function () {
     var p = refresh(); if (!p.ok) return;
-    var m = MESSAGES[lang()];
-    var link = location.origin + m.path + '?s=' + svcSel.value + '&v=' + fmt(p.n) + '&id=' + newId();
-    var text = m.text.replace('{link}', link);
+    var l = lang(), m = MESSAGES[l];
+    var s = exp.key === 'other' ? 'other' : dur.s;
+    var link = location.origin + m.path + '?s=' + s + (typeSel.value && exp.key !== 'other' ? '&t=' + typeSel.value : '') + '&v=' + fmt(p.n) + '&id=' + newId();
+    var text = (l === 'nl' && exp.key === 'cpl' ? m.couple : m.text).replace('{link}', link);
     $('link-out').textContent = link;
     $('msg-out').value = text;
     $('wa-btn').href = 'https://wa.me/?text=' + encodeURIComponent(text);

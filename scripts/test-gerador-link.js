@@ -4,7 +4,7 @@
   Como rodar (na raiz do repositório):   node scripts/test-gerador-link.js
   Requer o Playwright com Chromium já instalado (require('playwright')) e python3.
   Sai com código 0 e imprime "OK <cenário>" quando tudo passa; "FAIL ..." e código 1 se algo falhar.
-  Variáveis opcionais: BASE_REF (commit contra o qual comparar os <script>, padrão ad67fb4),
+  Variáveis opcionais: LP_ROOT (pasta com as LPs a comparar com o catálogo; padrão: a raiz do repo), BASE_REF (commit contra o qual comparar os <script>, padrão ad67fb4),
   SHOTS_DIR (onde salvar screenshots; padrão: pasta temporária do sistema).
   Serve a raiz do repo com python3 -m http.server (localhost é contexto seguro p/ crypto.subtle).
   Bloqueia googletagmanager/gtranslate/fonts e lê window.dataLayer.
@@ -22,6 +22,58 @@ let failures = 0;
 function ok(cond, name, detail) {
   if (cond) console.log('OK   ' + name + (detail ? '  — ' + detail : ''));
   else { failures++; console.log('FAIL ' + name + (detail ? '  — ' + detail : '')); }
+}
+
+// Paridade catálogo × LPs de anúncio (as LPs são a fonte da verdade). Só lê arquivos. Devolve lista de divergências.
+function parityErrors(lpRoot, CAT) {
+  const errs = [];
+  const rd = f => fs.readFileSync(path.join(lpRoot, f, 'index.html'), 'utf8');
+  const dec = s => s.replace(/&amp;/g, '&').replace(/&#0?39;/g, "'").replace(/\s+/g, ' ').trim();
+  const sect = (t, id) => { const m = t.match(new RegExp('<section[^>]*id="' + id + '"[\\s\\S]*?</section>')); return m ? m[0] : ''; };
+  const LP = {
+    rlx: { en: 'relaxation-massage-en', nl: 'relaxation-massage-nl', types: 'sessions', typeRe: /<h3>(.*?)<\/h3>/g, rec: /<span class="price-tag">(.*?)<\/span>/, kind: 'cards' },
+    nrg: { en: 'holistic-energy-massage-en', nl: 'holistic-energy-massage-nl', types: 'therapies', typeRe: /<div class="therapy-name">(.*?)<\/div>/g, rec: /<span class="price-tag">(.*?)<\/span>/, kind: 'cards' },
+    cpl: { en: 'couples-massage-en', nl: 'couples-massage-nl', types: 'options', typeRe: /<div class="option-name">(.*?)<\/div>/g, kind: 'rows' }
+  };
+  const pairs = (t, kind) => {
+    const sec = sect(t, 'pricing'), out = [];
+    const re = kind === 'cards' ? /<div class="price-dur">(.*?)<\/div>\s*<div class="price-val">€(\d+)<\/div>/g : /<div class="price-row"><span>(.*?)<\/span><strong>€(\d+)<\/strong><\/div>/g;
+    let m; while ((m = re.exec(sec))) out.push({ label: dec(m[1]), price: +m[2] });
+    return out;
+  };
+  const featuredIdx = t => { // índice do card "featured" entre os price-card
+    const sec = sect(t, 'pricing'); const cards = sec.split('<div class="price-card').slice(1);
+    return cards.findIndex(c => /^ featured/.test(c));
+  };
+  const types = (t, lp) => { const sec = sect(t, lp.types); const o = []; let m; const re = new RegExp(lp.typeRe.source, 'g'); while ((m = re.exec(sec))) o.push(dec(m[1])); return o; };
+  const popIdx = (t, lp) => { const sec = sect(t, lp.types); const m = sec.match(/<div class="option-popular">[\s\S]*?<div class="option-name">(.*?)<\/div>/); return m ? types(t, lp).indexOf(dec(m[1])) : -1; };
+  let lastStart = 0;
+  CAT.filter(e => e.key !== 'other').forEach(e => {
+    const lp = LP[e.key], en = rd(lp.en), nl = rd(lp.nl), tag = '[' + e.key + '] ';
+    const title = (en.match(/<title>(.*?)<\/title>/) || [])[1] || '';
+    if (!dec(title).includes(e.name)) errs.push(tag + 'nome "' + e.name + '" nao esta no <title> da LP EN: ' + title);
+    if (lp.kind === 'cards' && !sect(en, 'pricing').includes(e.name + ' · Prices')) errs.push(tag + 'nome nao esta no rotulo de precos da LP EN');
+    const pe = pairs(en, lp.kind), pn = pairs(nl, lp.kind);
+    const cat = e.durations.map(d => ({ label: d.label, price: d.price }));
+    if (JSON.stringify(pe) !== JSON.stringify(cat)) errs.push(tag + 'duracoes/precos EN: LP=' + JSON.stringify(pe) + ' catalogo=' + JSON.stringify(cat));
+    if (JSON.stringify(pn.map(x => x.price)) !== JSON.stringify(cat.map(x => x.price))) errs.push(tag + 'precos NL: ' + JSON.stringify(pn.map(x => x.price)));
+    const prices = cat.map(x => x.price); if (prices.join() !== prices.slice().sort((a, b) => a - b).join()) errs.push(tag + 'precos fora de ordem crescente');
+    if (prices[0] < lastStart) errs.push(tag + 'experiencias fora de ordem de preco inicial'); lastStart = prices[0];
+    const recCat = e.durations.findIndex(d => d.rec);
+    if (lp.kind === 'cards') {
+      const fe = featuredIdx(en), fn = featuredIdx(nl);
+      if (fe !== recCat) errs.push(tag + 'rec: LP EN destaca indice ' + fe + ', catalogo ' + recCat);
+      if (fn !== fe) errs.push(tag + 'rec: LP NL destaca indice ' + fn + ' (EN ' + fe + ')');
+      if (!/Recommended/.test(sect(en, 'pricing')) || !/Aanbevolen/.test(sect(nl, 'pricing'))) errs.push(tag + 'selo Recommended/Aanbevolen ausente');
+    } else if (recCat !== -1 || /price-tag|Recommended/.test(sect(en, 'pricing'))) errs.push(tag + 'LP3 nao tem duracao recomendada');
+    const te = types(en, lp), tn = types(nl, lp), tc = e.types.map(x => dec(x.name));
+    if (JSON.stringify(te) !== JSON.stringify(tc)) errs.push(tag + 'tipos EN: LP=' + JSON.stringify(te) + ' catalogo=' + JSON.stringify(tc));
+    if (tn.length !== te.length) errs.push(tag + 'qtd de tipos NL ' + tn.length + ' != EN ' + te.length);
+    const popCat = e.types.findIndex(x => x.pop), pe2 = popIdx(en, lp), pn2 = popIdx(nl, lp);
+    if (pe2 !== popCat) errs.push(tag + 'pop: LP EN indice ' + pe2 + ', catalogo ' + popCat);
+    if (pn2 !== pe2) errs.push(tag + 'pop: LP NL indice ' + pn2 + ' (EN ' + pe2 + ')');
+  });
+  return errs;
 }
 
 function freePort() {
@@ -55,7 +107,7 @@ async function main() {
   // ===== Cenário 1: parâmetros válidos =====
   let r = await fresh('/thank-you/?s=rlx90&v=300&id=abc12345');
   ok(r.length === 1 && r[0].value === 300 && r[0].currency === 'EUR' && r[0].transaction_id === 'abc12345' &&
-     JSON.stringify(r[0].items) === JSON.stringify([{ item_id: 'rlx90', item_name: 'Holistic Relaxation 90 min', item_category: 'relaxation', price: 300, quantity: 1 }]),
+     JSON.stringify(r[0].items) === JSON.stringify([{ item_id: 'rlx90', item_name: 'Tantric Holistic Relaxation 90 min', item_category: 'relaxation', price: 300, quantity: 1 }]),
      'C1 EN parametros validos', JSON.stringify(r[0]));
   r = await fresh('/nl/thank-you/?s=rlx90&v=300&id=abc12345');
   ok(r.length === 1 && r[0].value === 300 && r[0].transaction_id === 'abc12345' && r[0].items[0].item_id === 'rlx90', 'C1 NL parametros validos', JSON.stringify(r[0]));
@@ -160,13 +212,58 @@ async function main() {
     ok(hit.length === 0, 'C4 PIN real fora do repo', process.env.MARI_PIN ? 'verificado com MARI_PIN' : 'MARI_PIN nao informado: nada verificado');
   }
 
-  // ===== Cenário 5: gerador =====
+  // ===== Cenário 5 (+ D2/D3/D5): gerador =====
+  const IMG_REQS = [];
   {
     const c = await newCtx(); await routeTestPin(c); const p = await newPage(c);
-    await p.goto(ORIGIN + '/mari/'); await p.fill('#pin', TEST_PIN); await p.click('#pin-btn'); await p.waitForSelector('#gen:not([hidden])');
-    const opts = await p.$$eval('#svc option', o => o.map(x => x.value));
-    ok(opts.join() === 'rlx60,rlx90,rlx120,nrg60,nrg90,nrg120,cpl90,cpl120,cpl150,cpl180,other', 'C5 ordem da lista', opts.join());
-    await p.selectOption('#svc', 'nrg90');
+    p.on('request', r => { if (/\/images\//.test(r.url())) IMG_REQS.push(r.url()); });
+    await p.goto(ORIGIN + '/mari/'); await p.waitForTimeout(600);
+    ok(IMG_REQS.length === 0, 'D2 antes do PIN nenhuma requisicao a /images/*', 'requisicoes=' + IMG_REQS.length);
+    await p.fill('#pin', TEST_PIN); await p.click('#pin-btn'); await p.waitForSelector('#gen:not([hidden])');
+    const pick = async (key, s, t) => { await p.click('.exp-card[data-key=' + key + ']'); if (t !== undefined) await p.selectOption('#type', t); if (s) await p.click('.dur-btn[data-s=' + s + ']'); };
+
+    // ordem
+    const keys = await p.$$eval('.exp-card', e => e.map(x => x.dataset.key));
+    ok(keys.join() === 'rlx,nrg,cpl,other', 'C5 ordem das experiencias (por preco inicial)', keys.join());
+    const durOrder = {};
+    for (const k of ['rlx', 'nrg', 'cpl']) { await p.click('.exp-card[data-key=' + k + ']'); durOrder[k] = (await p.$$eval('.dur-btn', e => e.map(x => x.dataset.s))).join(); }
+    ok(durOrder.rlx === 'rlx60,rlx90,rlx120' && durOrder.nrg === 'nrg60,nrg90,nrg120' && durOrder.cpl === 'cpl90,cpl120,cpl150,cpl180', 'C5 ordem das duracoes (crescente)', JSON.stringify(durOrder));
+
+    // D2 miniaturas
+    const imgs = await p.$$eval('.exp-card img', els => els.map(i => ({ src: i.getAttribute('src'), lazy: i.loading, alt: i.alt, w: i.getBoundingClientRect().width, h: i.getBoundingClientRect().height })));
+    await p.waitForFunction(() => Array.from(document.querySelectorAll('.exp-card img')).every(i => i.complete && i.naturalWidth > 0), null, { timeout: 5000 }).catch(() => {});
+    const nat = await p.$$eval('.exp-card img', els => els.map(i => i.naturalWidth));
+    ok(imgs.length === 3 && imgs.every((i, n) => /^\/images\/[A-Za-z0-9_]+\.webp$/.test(i.src) && fs.existsSync(path.join(ROOT, i.src)) && i.w >= 56 && i.w <= 72 && i.h >= 56 && i.h <= 72 && nat[n] > 0), 'D2 3 miniaturas /images/*.webp, existem, 56–72 px, naturalWidth>0', JSON.stringify(imgs.map(i => i.src)) + ' nat=' + nat);
+    ok(imgs.every(i => i.lazy === 'lazy' && i.alt.length > 5 && !/amarigomes|https?:/.test(i.src)), 'D2 loading=lazy, alt preenchido, sem URL externa/amarigomes');
+    ok(IMG_REQS.length >= 3 && IMG_REQS.every(u => u.startsWith(ORIGIN + '/images/')), 'D2 imagens so baixadas depois do PIN', IMG_REQS.map(u => u.split('/').pop()).join(','));
+    const cut = await p.$$eval('.exp-card .nm, .exp-card .pr', els => els.filter(e => e.scrollWidth > e.clientWidth + 1 || getComputedStyle(e).textOverflow === 'ellipsis').map(e => e.textContent));
+    const names = await p.$$eval('.exp-card .nm', e => e.map(x => x.textContent)); const prs = await p.$$eval('.exp-card .pr', e => e.map(x => x.textContent));
+    ok(cut.length === 0 && names.join('|') === 'Tantric Holistic Relaxation|Tantric Energy Experience|Couples Massage|Other session' && prs.slice(0, 3).join('|') === '€250 · €300 · €350|€300 · €350 · €400|€350 · €400 · €450 · €500', 'D2 nome + faixa de preco visiveis sem corte', names.join('|') + ' / ' + prs.join('|'));
+
+    // D3 selos / tipo
+    await p.click('.exp-card[data-key=rlx]');
+    ok((await p.$$eval('.dur-btn i', e => e.map(x => x.textContent))).join() === 'Recomendado' && /Recomendado/.test(await p.textContent('.dur-btn[data-s=rlx90]')), 'D3 selo Recomendado so em rlx90');
+    await p.click('.exp-card[data-key=nrg]');
+    ok((await p.$$eval('.dur-btn i', e => e.map(x => x.textContent))).join() === 'Recomendado' && /Recomendado/.test(await p.textContent('.dur-btn[data-s=nrg90]')), 'D3 selo Recomendado so em nrg90');
+    await p.click('.exp-card[data-key=cpl]');
+    const cplTypes = await p.$$eval('#type option', o => o.map(x => x.textContent));
+    ok(cplTypes.join('|') === 'Não especificar|Relaxation Duo|Holistic Couple Experience · Mais pedido|Tantric Couple Therapy' && (await p.$$('.dur-btn i')).length === 0, 'D3 tipos do casal, "Mais pedido" so em Holistic Couple Experience, sem Recomendado', cplTypes.join('|'));
+
+    // D3 fluxo com tipo
+    await pick('cpl', 'cpl150', 'hce');
+    ok((await p.inputValue('#val')) === '450', 'D3 duracao preenche o valor (450)');
+    await p.click('#gen-btn');
+    const l1 = await p.textContent('#link-out');
+    ok(new RegExp('^' + ORIGIN + '/thank-you/\\?s=cpl150&t=hce&v=450&id=[a-z0-9]{8}$').test(l1), 'D3 link com tipo', l1);
+    await p.selectOption('#type', '');
+    ok(!(await p.isVisible('#out')), 'D3 trocar o tipo apaga o link mostrado');
+    await p.click('#gen-btn'); const l2 = await p.textContent('#link-out');
+    ok(new RegExp('^' + ORIGIN + '/thank-you/\\?s=cpl150&v=450&id=[a-z0-9]{8}$').test(l2) && l1 !== l2, 'D3 "Não especificar" -> link sem t, id novo', l2);
+    await p.click('.exp-card[data-key=rlx]');
+    ok(!(await p.isVisible('#out')) && (await p.inputValue('#type')) === '' && (await p.$$eval('.dur-btn[aria-checked=true]', e => e.length)) === 0 && (await p.inputValue('#val')) === '' && await p.$eval('#gen-btn', b => b.disabled), 'D3 trocar de experiencia limpa tipo, duracao, valor e link');
+
+    // fluxo geral (energy 90 editado)
+    await pick('nrg', 'nrg90');
     ok((await p.inputValue('#val')) === '350', 'C5 Energy 90 preenche 350');
     await p.fill('#val', '380'); await p.click('#gen-btn');
     const link1 = await p.textContent('#link-out');
@@ -178,23 +275,39 @@ async function main() {
     await p.fill('#val', '380'); await p.click('#gen-btn');
     await p.fill('#val', '390');
     ok(!(await p.isVisible('#out')), 'C5 editar valor apaga o link mostrado');
-    await p.click('input[name=lang][value=nl]', { force: true }).catch(async () => { await p.check('input[name=lang][value=nl]', { force: true }); });
+    await p.check('input[name=lang][value=nl]', { force: true });
     await p.click('#gen-btn');
     const linkNl = await p.textContent('#link-out');
     ok(new RegExp('^' + ORIGIN + '/nl/thank-you/\\?s=nrg90&v=390&id=[a-z0-9]{8}$').test(linkNl), 'C5 link NL', linkNl);
+
+    // D5 mensagens
+    const EXP_EN = id => 'Hi! Thank you for your session today, it was lovely to welcome you.\n\nIf you have a minute, I would love to hear how it was for you:\n' + id + '\n\nWarm regards,\nMari';
+    const EXP_NL = id => 'Hoi! Dank je wel voor je sessie vandaag, het was fijn je te ontvangen.\n\nAls je een minuutje hebt, hoor ik graag hoe je het vond:\n' + id + '\n\nHartelijke groet,\nMari';
+    const EXP_NLC = id => 'Hoi! Dank jullie wel voor jullie sessie vandaag, het was fijn jullie te ontvangen.\n\nAls jullie een minuutje hebben, hoor ik graag hoe jullie het vonden:\n' + id + '\n\nHartelijke groet,\nMari';
+    const bad = /intimate|intimacy|sensual|desire|pleasure|erotic|erotisch|nuru|body to body|happy ending|escort|sexy|adult|visit|bezoek|outcall|incall|aan huis|thuis|op locatie|hotel|at home|tantric|tantra/i;
     const wa = await p.getAttribute('#wa-btn', 'href');
     const decoded = decodeURIComponent(wa.slice('https://wa.me/?text='.length));
-    ok(wa.startsWith('https://wa.me/?text=') && decoded === (await p.inputValue('#msg-out')) && decoded.includes(linkNl) && decoded.startsWith('Hoi!'), 'C5 botao WhatsApp (NL) sem numero + texto = mensagem+link');
-    const bad = /intimate|intimacy|sensual|desire|pleasure|erotic|erotisch|nuru|body to body|happy ending|escort|sexy|adult|visit|bezoek|outcall|incall|aan huis|thuis|op locatie|hotel|at home|tantric|tantra/i;
+    ok(wa.startsWith('https://wa.me/?text=') && decoded === (await p.inputValue('#msg-out')) && decoded === EXP_NL(linkNl), 'D5 NL individual = texto exato; WhatsApp sem numero');
+    ok(wa.includes('%0A') && !wa.includes('%20%20'), 'D5 href do WhatsApp tem %0A e nao tem %20%20');
     const msgs = [decoded];
+    await p.check('input[name=lang][value=en]', { force: true }); await p.click('#gen-btn');
+    const linkEn = await p.textContent('#link-out'); const mEn = await p.inputValue('#msg-out'); msgs.push(mEn);
+    ok(mEn === EXP_EN(linkEn) && !/ {2}/.test(mEn), 'D5 EN = texto exato, sem espaco duplo');
+    await pick('cpl', 'cpl90'); await p.check('input[name=lang][value=nl]', { force: true }); await p.click('#gen-btn');
+    const linkC = await p.textContent('#link-out'); const mC = await p.inputValue('#msg-out'); msgs.push(mC);
+    ok(mC === EXP_NLC(linkC) && /jullie/.test(mC), 'D5 NL casal (jullie) = texto exato');
     await p.check('input[name=lang][value=en]', { force: true }); await p.click('#gen-btn'); msgs.push(await p.inputValue('#msg-out'));
-    ok(msgs.every(m => !bad.test(m)) && /^Hi! Thank you/.test(msgs[1]), 'C5 mensagens EN/NL sem termos proibidos');
-    // outro
-    await p.selectOption('#svc', 'other');
-    ok((await p.inputValue('#val')) === '' && await p.$eval('#gen-btn', b => b.disabled), 'C5 Outro vazio -> Gerar desabilitado');
+    ok(msgs.every(m => !bad.test(m.replace(/https?:\/\/\S+/g, ''))), 'D5 mensagens sem termos da lista "Evitar" de vocabulario.md');
+
+    // Outro
+    await p.click('.exp-card[data-key=other]');
+    ok((await p.inputValue('#val')) === '' && await p.$eval('#gen-btn', b => b.disabled) && !(await p.isVisible('#dur-list')) && !(await p.isVisible('#type')), 'C5 Outro vazio -> Gerar desabilitado, sem duracao/tipo');
     for (const v of ['20', '5000']) { await p.fill('#val', v); ok(await p.$eval('#gen-btn', b => b.disabled) && (await p.textContent('#val-msg')).length > 0, 'C5 valor ' + v + ' -> desabilitado + aviso', await p.textContent('#val-msg')); }
+    await p.fill('#val', '120'); await p.click('#gen-btn');
+    ok(new RegExp('\\?s=other&v=120&id=[a-z0-9]{8}$').test(await p.textContent('#link-out')), 'C5 Outro com valor 120 -> s=other, sem t');
+
     // prévia
-    await p.selectOption('#svc', 'rlx60'); await p.click('#gen-btn');
+    await pick('rlx', 'rlx60'); await p.click('#gen-btn');
     const prev = await p.getAttribute('#prev-btn', 'href'); const gen = await p.textContent('#link-out');
     ok(prev === gen + '&test', 'C5 Ver previa = link + &test', prev);
     const pp = await newPage(c); const pr = await visit(pp, prev.replace(ORIGIN, ''));
@@ -202,15 +315,38 @@ async function main() {
     // e2e: contexto novo, sem flag
     const c3 = await newCtx(); const p3 = await newPage(c3);
     const e2e = await visit(p3, gen.replace(ORIGIN, ''));
-    ok(e2e.length === 1 && e2e[0].value === 250 && e2e[0].items[0].item_id === 'rlx60' && e2e[0].transaction_id === gen.slice(-8), 'C5 ponta a ponta (contexto novo)', 'tx=' + (e2e[0] && e2e[0].transaction_id) + ' value=' + (e2e[0] && e2e[0].value));
+    ok(e2e.length === 1 && e2e[0].value === 250 && e2e[0].items[0].item_id === 'rlx60' && e2e[0].items[0].item_name === 'Tantric Holistic Relaxation 60 min' && e2e[0].transaction_id === gen.slice(-8), 'C5 ponta a ponta (contexto novo)', JSON.stringify(e2e[0]));
     await c3.close();
-    // C6 mobile /mari/
-    await p.selectOption('#svc', 'cpl90'); await p.click('#gen-btn'); await p.waitForTimeout(400);
+    // e2e com tipo
+    await pick('cpl', 'cpl150', 'hce'); await p.click('#gen-btn');
+    const genT = await p.textContent('#link-out');
+    const c4 = await newCtx(); const p4 = await newPage(c4);
+    const e2eT = await visit(p4, genT.replace(ORIGIN, ''));
+    ok(e2eT.length === 1 && e2eT[0].items[0].item_variant === 'Holistic Couple Experience' && e2eT[0].items[0].item_name === 'Couples Massage 2.5 hours', 'D3 ponta a ponta com tipo', JSON.stringify(e2eT[0] && e2eT[0].items));
+    await c4.close();
+    // C6 mobile /mari/ (com tudo aberto)
+    await pick('cpl', 'cpl90', 'hce'); await p.click('#gen-btn'); await p.waitForTimeout(400);
     const sw = await p.evaluate(() => document.documentElement.scrollWidth);
-    const small = await p.$$eval('.btn, .link-btn, select, input[type=text]', els => els.filter(e => e.offsetParent !== null && e.getBoundingClientRect().height < 44).map(e => e.id || e.className));
+    const small = await p.$$eval('.btn, .link-btn, select, input[type=text], .exp-card, .dur-btn', els => els.filter(e => e.offsetParent !== null && e.getBoundingClientRect().height < 44).map(e => e.id || e.className));
     await p.screenshot({ path: path.join(SHOTS, 'mari-390.png'), fullPage: true });
-    ok(sw <= 390 && small.length === 0, 'C6 /mari/ 390px sem scroll horizontal e alvos >= 44px', 'scrollWidth=' + sw + ' pequenos=' + JSON.stringify(small));
+    ok(sw <= 390 && small.length === 0, 'C6/D2 /mari/ 390px sem scroll horizontal e alvos >= 44px', 'scrollWidth=' + sw + ' pequenos=' + JSON.stringify(small));
     await c.close();
+  }
+
+  // ===== Cenário D4: obrigado com tipo =====
+  {
+    let r4 = await fresh('/thank-you/?s=cpl150&t=hce&v=450&id=abc12345');
+    ok(r4.length === 1 && JSON.stringify(r4[0].items) === JSON.stringify([{ item_id: 'cpl150', item_name: 'Couples Massage 2.5 hours', item_category: 'couples', price: 450, quantity: 1, item_variant: 'Holistic Couple Experience' }]), 'D4 s+t validos -> item_variant', JSON.stringify(r4[0] && r4[0].items));
+    r4 = await fresh('/nl/thank-you/?s=cpl150&t=hce&v=450&id=abc12345');
+    ok(r4.length === 1 && r4[0].items[0].item_variant === 'Holistic Couple Experience', 'D4 NL idem');
+    r4 = await fresh('/thank-you/?s=rlx90&t=tt&v=300&id=abc12345');
+    ok(r4.length === 1 && r4[0].items[0].item_variant === undefined && r4[0].items[0].item_name === 'Tantric Holistic Relaxation 90 min', 'D4 tipo de outra familia -> sem item_variant');
+    { const c = await newCtx(); const p = await newPage(c); const r5 = await visit(p, '/thank-you/?s=nrg60&t=%3Cscript%3E&v=300&id=abc12345'); const html = await p.content();
+      ok(r5.length === 1 && r5[0].items[0].item_variant === undefined && !/%3Cscript%3E|t=<script/.test(html), 'D4 t=<script> -> sem item_variant e fora do DOM'); await c.close(); }
+    r4 = await fresh('/thank-you/?s=other&t=hce&v=120&id=abc12345');
+    ok(r4.length === 1 && r4[0].items[0].item_variant === undefined && r4[0].items[0].item_name === 'Other session', 'D4 other + t -> sem item_variant');
+    r4 = await fresh('/thank-you/?s=nrg120&t=ehm&v=400&id=abc12345');
+    ok(r4.length === 1 && r4[0].items[0].item_variant === 'Energetic Healing Massage' && r4[0].items[0].item_name === 'Tantric Energy Experience 120 min', 'D4 ehm na familia nrg');
   }
   {
     const c = await newCtx(); const p = await newPage(c);
@@ -219,6 +355,24 @@ async function main() {
     await p.screenshot({ path: path.join(SHOTS, 'thank-you-390.png'), fullPage: true });
     ok(sw <= 390, 'C6 /thank-you/ 390px sem scroll horizontal', 'scrollWidth=' + sw + '; screenshots em ' + SHOTS);
     await c.close();
+  }
+
+  // ===== Cenário D1: paridade com as LPs =====
+  {
+    const CAT = new Function(fs.readFileSync(path.join(ROOT, 'mari/index.html'), 'utf8').match(/\/\/ SERVICE CATALOG[\s\S]*?\/\/ END SERVICE CATALOG/)[0] + '\n; return SERVICE_CATALOG;')();
+    const LP_ROOT = process.env.LP_ROOT || ROOT;
+    const errs = parityErrors(LP_ROOT, CAT);
+    ok(errs.length === 0, 'D1 catalogo = LPs (nome, duracoes, precos EN/NL, Recomendado, tipos, Mais pedido, ordem)', errs.join(' || ') || 'LP_ROOT=' + LP_ROOT);
+    // prova de falha: cópia temporária das LPs com 1 preço alterado e 1 tipo renomeado -> o teste TEM que acusar
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'lp-copy-'));
+    for (const d of ['relaxation-massage-en', 'relaxation-massage-nl', 'holistic-energy-massage-en', 'holistic-energy-massage-nl', 'couples-massage-en', 'couples-massage-nl']) { fs.mkdirSync(path.join(tmp, d)); fs.copyFileSync(path.join(ROOT, d, 'index.html'), path.join(tmp, d, 'index.html')); }
+    const f1 = path.join(tmp, 'relaxation-massage-en/index.html');
+    fs.writeFileSync(f1, fs.readFileSync(f1, 'utf8').replace('<div class="price-val">€300</div>', '<div class="price-val">€320</div>'));
+    const f2 = path.join(tmp, 'couples-massage-en/index.html');
+    fs.writeFileSync(f2, fs.readFileSync(f2, 'utf8').replace('<div class="option-name">Relaxation Duo</div>', '<div class="option-name">Relaxation Trio</div>'));
+    const bad = parityErrors(tmp, CAT);
+    ok(bad.some(e => /\[rlx\] duracoes\/precos EN/.test(e)) && bad.some(e => /\[cpl\] tipos EN/.test(e)), 'D1 prova de falha: preco/tipo alterado numa copia temporaria das LPs e detectado', bad.map(e => e.slice(0, 90)).join(' || '));
+    fs.rmSync(tmp, { recursive: true, force: true });
   }
 
   // ===== Cenário 7: estático =====
