@@ -602,7 +602,7 @@ TODOS OS CENARIOS OK
 
 | Fase | Commit | O que foi implementado |
 |---|---|---|
-| D | _(preencher)_ | nomes iguais às LPs, tipos (`t`), miniaturas, mensagem com quebras |
+| D | `3172852` | nomes iguais às LPs, tipos (`t`), miniaturas, mensagem com quebras |
 
 ---
 
