@@ -203,7 +203,7 @@ Google Ads (upload agendado, HTTPS + Basic) ◄── GET /api/export.csv
 |---|---|---|
 | Plano | (este commit) | plano da Fase 2 + pendência #14 |
 | A | `43bfd64` | Worker + teste W |
-| B | — | 6 prévias `-v2` + teste L |
+| B | `5763506` | 6 prévias `-v2` + teste L |
 | C | — | `/mari/` + obrigado + teste M |
 | D | — | E2E + guia + docs |
 
@@ -259,13 +259,26 @@ Teste de mutação: trocando a checagem de consentimento numa `-v2`, o teste fal
 - Mesmo `gclid` numa visita nova não renova o `ct` (a janela de 90 dias conta do 1º clique).
 
 ### Cenário M — `/mari/` e obrigado
-- [ ] M1 colar `Hi Mari! I'm John… availability?\n\n(ref MG-K7P2X)` → campo mostra só `MG-K7P2X`; sem código → aviso neutro, gerar continua permitido
-- [ ] M2 link gerado com `&r=MG-K7P2X`; sem código → link igual ao da Fase 1 (sem `r`)
-- [ ] M3 com `mg_api_key` + código → 1 `POST /api/sale` com corpo exatamente `{ref,id,v,s}` (sem texto colado) e status "ligada ✓"/"sem clique"; sem chave ou sem código → nenhum POST; Worker fora do ar → status de erro, link funciona
-- [ ] M4 `/mari/#k=<chave>` → grava `mg_api_key`, URL sem `#`; chave fora do formato → ignorada; "Este aparelho não é da Mari" apaga `mg_api_key`
-- [ ] M5 "Ver prévia" (`&test`) não chama o Worker nem dispara `purchase`
-- [ ] M6 obrigado EN/NL com `r` válido → `purchase` com `ref_code`; `r` inválido/adulterado → sem `ref_code`, nada no DOM; bloco CONVERSION idêntico EN/NL; fora dele, arquivo idêntico a `5711c4e`
-- [ ] M7 `node scripts/test-gerador-link.js` → `TODOS OS CENARIOS OK`; `/mari/` 390 px sem scroll horizontal e com alvos ≥ 44 px
+- [x] M1 colar `Hi Mari! I'm John… availability?\n\n(ref MG-K7P2X)` → campo mostra só `MG-K7P2X`; sem código → aviso neutro, gerar continua permitido
+- [x] M2 link gerado com `&r=MG-K7P2X`; sem código → link igual ao da Fase 1 (sem `r`)
+- [x] M3 com `mg_api_key` + código → 1 `POST /api/sale` com corpo exatamente `{ref,id,v,s}` (sem texto colado) e status "ligada ✓"/"sem clique"; sem chave ou sem código → nenhum POST; Worker fora do ar → status de erro, link funciona
+- [x] M4 `/mari/#k=<chave>` → grava `mg_api_key`, URL sem `#`; chave fora do formato → ignorada; "Este aparelho não é da Mari" apaga `mg_api_key`
+- [x] M5 "Ver prévia" (`&test`) não chama o Worker nem dispara `purchase`
+- [x] M6 obrigado EN/NL com `r` válido → `purchase` com `ref_code`; `r` inválido/adulterado → sem `ref_code`, nada no DOM; bloco CONVERSION idêntico EN/NL; fora dele, arquivo idêntico a `5711c4e`
+- [x] M7 `node scripts/test-gerador-link.js` → `TODOS OS CENARIOS OK`; `/mari/` 390 px sem scroll horizontal e com alvos ≥ 44 px
+
+**Evidência M (23/11/2026, implementador):** `node scripts/test-atribuicao.js M` (Chromium 390×844; servidor local com o Worker; `test-gerador-link.js` rodado dentro do M7) →
+```
+OK M1  OK M2  OK M3  OK M4  OK M5  OK M6  OK M7
+TODOS OS CENARIOS OK (M1 M2 M3 M4 M5 M6 M7)
+```
+`node scripts/test-gerador-link.js` → `TODOS OS CENARIOS OK` (default de `BASE_REF` agora é `5711c4e`; a lista permitida do C7 inclui os arquivos da Fase 2).
+
+**Desvios/decisões do implementador na Fase C:**
+- Com código mas sem `mg_api_key` no aparelho, `/mari/` mostra um aviso em vermelho ("este aparelho ainda não tem a chave de registro…") em vez de ficar calado; nenhum POST sai (como pede M3).
+- O aviso "não achei o código…" só aparece ao sair do campo/`change`, não a cada tecla (a Mari cola de uma vez, mas quem digita à mão não vê o aviso durante a digitação).
+- O `blur` do campo só limpa o link gerado se o texto do campo mudou (senão tocar em "Copiar mensagem" com o campo focado esconderia o link antes do clique).
+- O fragmento `#k=` é apagado da barra mesmo quando a chave é inválida (a chave inválida não é gravada).
 
 ### Cenário E — Ponta a ponta (LP servida no caminho real, simulando a promoção)
 - [ ] E1 servir o arquivo `-v2` em `/holistic-energy-massage-en/` (sem `-v2` → trava livre): Accept + gclid → clique → **1 `conversion` de lead `AW-18036442650/9rp5CIvso6QcEJqMuZhD` por clique** + `whatsapp_ref` + beacon `pv:0`

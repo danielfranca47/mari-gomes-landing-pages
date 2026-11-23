@@ -9,7 +9,7 @@ const { chromium } = require('playwright');
 
 const ROOT = path.resolve(__dirname, '..');
 const DAY = 86400000;
-const SALE_KEY = 'test_sale_key_0123456789abcdef0123'; // só para teste local
+const SALE_KEY = 'k_abcdefghij0123456789ABCDEFGHIJ'; // só para teste local (32 caracteres)
 const EXPORT_BASIC = 'Basic ' + Buffer.from('u_test:p_test').toString('base64');
 const MIME = { '.html': 'text/html; charset=utf-8', '.webp': 'image/webp', '.png': 'image/png', '.js': 'text/javascript', '.css': 'text/css' };
 const SLUGS = ['holistic-energy-massage-en', 'holistic-energy-massage-nl', 'relaxation-massage-en', 'relaxation-massage-nl', 'couples-massage-en', 'couples-massage-nl'];
@@ -213,6 +213,154 @@ async function scenarioL(browser, srv) {
   ok('L10');
 }
 
+const { execSync } = require('child_process');
+const PIN_HASH = (fs.readFileSync(path.join(ROOT, 'mari/index.html'), 'utf8').match(/var PIN_HASH = '([0-9a-f]{64})'/) || [])[1];
+const API_KEY = SALE_KEY;
+const MSG = "Hi Mari! I'm John and I'm interested in a Tantric Energy Experience session. Could you please send me more details and availability?\n\n(ref MG-K7P2X)";
+const BASE = '5711c4e';
+const convBlock = h => { const i = h.indexOf('// CONVERSION'); return h.slice(h.lastIndexOf('<script>', i), h.indexOf('</script>', i)); };
+const salePosts = srv => srv.api.filter(x => x.path === '/api/sale');
+
+async function openMari(ctx, srv, errs, hash) {
+  const page = await ctx.newPage();
+  page.on('pageerror', e => errs && errs.push(e.message));
+  await page.goto(srv.base + '/mari/' + (hash || ''), { waitUntil: 'domcontentloaded' });
+  return page;
+}
+async function generate(page, { key = 'nrg', dur = 'nrg90' } = {}) {
+  await page.click('.exp-card[data-key="' + key + '"]');
+  if (dur) await page.click('.dur-btn[data-s="' + dur + '"]');
+  await page.click('#gen-btn');
+  return page.textContent('#link-out');
+}
+
+async function scenarioM(browser, srv) {
+  const errs = [];
+  const seed = (extra) => Object.assign({ mg_pin_ok: PIN_HASH }, extra || {});
+  const addLead = ref => srv.kv.put('lead:' + ref, JSON.stringify({ k: 'gclid', c: GCLID, ct: Date.now() - 1000, lp: '/holistic-energy-massage-en/' }), { expirationTtl: 9999999 });
+  await addLead('MG-K7P2X');
+
+  // M1 colar a mensagem inteira
+  let ctx = await newCtx(browser, srv, { seed: seed() }); let page = await openMari(ctx, srv, errs);
+  await page.fill('#ref', MSG);
+  assert.strictEqual(await page.inputValue('#ref'), 'MG-K7P2X');
+  await page.fill('#ref', 'oi, tudo bem?'); await page.dispatchEvent('#ref', 'change');
+  assert.ok((await page.textContent('#ref-msg')).length > 5, 'aviso neutro');
+  assert.strictEqual(await page.inputValue('#ref'), 'oi, tudo bem?');
+  await page.click('.exp-card[data-key="nrg"]'); await page.click('.dur-btn[data-s="nrg90"]');
+  assert.ok(!(await page.isDisabled('#gen-btn')), 'gerar continua permitido sem código');
+  await page.fill('#ref', 'mg-k7p2x'); assert.strictEqual(await page.inputValue('#ref'), 'MG-K7P2X');
+  ok('M1');
+
+  // M2 link com &r= / sem código igual à Fase 1
+  srv.api.length = 0;
+  let link = await generate(page);
+  assert.ok(/^http:\/\/127\.0\.0\.1:\d+\/thank-you\/\?s=nrg90&v=350&id=[a-z0-9]{8}&r=MG-K7P2X$/.test(link), link);
+  const prev = await page.getAttribute('#prev-btn', 'href'); assert.ok(prev.endsWith('&r=MG-K7P2X&test'));
+  assert.ok(decodeURIComponent((await page.getAttribute('#wa-btn', 'href')).split('?text=')[1]).includes('&r=MG-K7P2X'));
+  await page.fill('#ref', ''); // limpa e gera de novo
+  link = await generate(page);
+  assert.ok(/\/thank-you\/\?s=nrg90&v=350&id=[a-z0-9]{8}$/.test(link), 'sem código = Fase 1: ' + link);
+  ok('M2');
+
+  // M3 POST /api/sale
+  await ctx.close(); srv.api.length = 0;
+  ctx = await newCtx(browser, srv, { seed: seed({ mg_api_key: API_KEY }) }); page = await openMari(ctx, srv, errs);
+  await page.fill('#ref', MSG);
+  link = await generate(page);
+  await page.waitForFunction(() => /ligada/.test(document.getElementById('sale-msg').textContent));
+  let sp = salePosts(srv); assert.strictEqual(sp.length, 1);
+  const id1 = /id=([a-z0-9]{8})/.exec(link)[1];
+  assert.deepStrictEqual(JSON.parse(sp[0].body), { ref: 'MG-K7P2X', id: id1, v: 350, s: 'nrg90' });
+  assert.ok(!sp[0].body.includes('John') && !sp[0].body.includes('Hi Mari'));
+  assert.strictEqual(sp[0].auth, 'Bearer ' + API_KEY);
+  assert.ok((await page.textContent('#sale-msg')).includes('Venda ligada ao anúncio ✓'));
+  assert.ok(srv.kv.m.has('sale:' + id1));
+  // código sem clique registrado
+  await page.fill('#ref', 'MG-AAAAA'); await generate(page);
+  await page.waitForFunction(() => /sem clique/i.test(document.getElementById('sale-msg').textContent) || /Código sem clique/.test(document.getElementById('sale-msg').textContent));
+  assert.ok((await page.textContent('#sale-msg')).includes('Código sem clique de anúncio registrado'));
+  // sem código: nenhum POST
+  srv.api.length = 0; await page.fill('#ref', ''); await generate(page); await page.waitForTimeout(150);
+  assert.strictEqual(salePosts(srv).length, 0);
+  // Worker fora do ar
+  srv.down = true; await page.fill('#ref', 'MG-K7P2X'); link = await generate(page);
+  await page.waitForFunction(() => /Não deu para registrar/.test(document.getElementById('sale-msg').textContent));
+  assert.ok(/thank-you\/\?s=nrg90/.test(link) && !(await page.isHidden('#out')), 'link funciona com o Worker fora do ar');
+  srv.down = false; await ctx.close();
+  // sem chave: nenhum POST
+  srv.api.length = 0;
+  ctx = await newCtx(browser, srv, { seed: seed() }); page = await openMari(ctx, srv, errs);
+  await page.fill('#ref', MSG); await generate(page); await page.waitForTimeout(150);
+  assert.strictEqual(salePosts(srv).length, 0);
+  assert.ok(!(await page.isHidden('#out')));
+  await ctx.close();
+  ok('M3');
+
+  // M4 #k=
+  ctx = await newCtx(browser, srv, { seed: seed() }); page = await openMari(ctx, srv, errs, '#k=' + API_KEY);
+  assert.strictEqual(await lsGet(page, 'mg_api_key'), API_KEY);
+  assert.strictEqual(await page.evaluate(() => location.hash + '|' + location.href.includes('#')), '|false');
+  await page.click('#forget-btn');
+  assert.strictEqual(await lsGet(page, 'mg_api_key'), null, 'forget apaga a chave');
+  await ctx.close();
+  ctx = await newCtx(browser, srv, { seed: seed() });
+  for (const bad of ['#k=curta', '#k=' + 'a'.repeat(65), '#k=' + 'a'.repeat(31) + '!']) {
+    page = await openMari(ctx, srv, errs, bad);
+    assert.strictEqual(await lsGet(page, 'mg_api_key'), null, 'chave inválida aceita: ' + bad);
+    await page.close();
+  }
+  await ctx.close();
+  ok('M4');
+
+  // M5 prévia não chama o Worker nem dispara purchase
+  ctx = await newCtx(browser, srv, { seed: seed() }); page = await openMari(ctx, srv, errs);
+  await page.fill('#ref', MSG); await generate(page);
+  const prevUrl = await page.getAttribute('#prev-btn', 'href'); await ctx.close();
+  srv.api.length = 0;
+  ctx = await newCtx(browser, srv); page = await ctx.newPage(); await page.goto(prevUrl, { waitUntil: 'domcontentloaded' });
+  assert.strictEqual((await dlEvents(page, 'purchase')).length, 0, 'prévia dispara purchase');
+  assert.strictEqual(srv.api.length, 0); await ctx.close();
+  ok('M5');
+
+  // M6 obrigado EN/NL
+  for (const base of ['/thank-you/', '/nl/thank-you/']) {
+    ctx = await newCtx(browser, srv); page = await ctx.newPage(); page.on('pageerror', e => errs.push(e.message));
+    await page.goto(srv.base + base + '?s=nrg90&v=350&id=abcd1234&r=MG-K7P2X', { waitUntil: 'domcontentloaded' });
+    let pu = await dlEvents(page, 'purchase'); assert.strictEqual(pu.length, 1);
+    assert.strictEqual(pu[0][2].ref_code, 'MG-K7P2X'); assert.strictEqual(pu[0][2].transaction_id, 'abcd1234'); assert.strictEqual(pu[0][2].value, 350);
+    await ctx.close();
+    for (const bad of ['MG-0OOO1', encodeURIComponent('<img src=x onerror=alert(1)>'), 'mg-k7p2x', 'MG-K7P2XX']) {
+      ctx = await newCtx(browser, srv); page = await ctx.newPage(); page.on('pageerror', e => errs.push(e.message));
+      await page.goto(srv.base + base + '?s=nrg90&v=350&id=abcd1234&r=' + bad, { waitUntil: 'domcontentloaded' });
+      pu = await dlEvents(page, 'purchase'); assert.strictEqual(pu.length, 1);
+      assert.strictEqual(pu[0][2].ref_code, undefined, 'ref_code aceito: ' + bad);
+      assert.ok(!(await page.evaluate(() => document.body.innerHTML.includes('onerror=alert'))));
+      await ctx.close();
+    }
+  }
+  const ty = fs.readFileSync(path.join(ROOT, 'thank-you/index.html'), 'utf8'), tn = fs.readFileSync(path.join(ROOT, 'nl/thank-you/index.html'), 'utf8');
+  assert.ok(convBlock(ty) === convBlock(tn), 'bloco CONVERSION difere EN/NL');
+  for (const f of ['thank-you/index.html', 'nl/thank-you/index.html']) {
+    const cur = fs.readFileSync(path.join(ROOT, f), 'utf8'), old = execSync('git show ' + BASE + ':' + f, { cwd: ROOT, maxBuffer: 1 << 26 }).toString();
+    assert.strictEqual(cur.replace(convBlock(cur), ''), old.replace(convBlock(old), ''), f + ' mudou fora do bloco CONVERSION');
+  }
+  ok('M6');
+
+  // M7 gerador de link + layout mobile
+  const gl = execSync('node scripts/test-gerador-link.js', { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 26 });
+  assert.ok(gl.includes('TODOS OS CENARIOS OK'), gl.slice(-400));
+  ctx = await newCtx(browser, srv, { seed: seed() }); page = await openMari(ctx, srv, errs);
+  await page.fill('#ref', MSG); await generate(page);
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), '/mari/ scroll horizontal');
+  const small = await page.evaluate(() => Array.from(document.querySelectorAll('button, a.btn, select, input[type=text], textarea')).filter(e => e.offsetParent !== null && e.getBoundingClientRect().height < 44).map(e => (e.id || e.className) + ':' + Math.round(e.getBoundingClientRect().height)));
+  assert.deepStrictEqual(small, [], 'alvos < 44px: ' + small);
+  assert.strictEqual(await page.evaluate(() => parseFloat(getComputedStyle(document.getElementById('ref')).fontSize)), 16);
+  await ctx.close();
+  assert.deepStrictEqual(errs, [], errs.join(' | '));
+  ok('M7');
+}
+
 (async () => {
   const want = process.argv.slice(2).map(s => s.toUpperCase());
   const run = k => !want.length || want.includes(k);
@@ -220,6 +368,7 @@ async function scenarioL(browser, srv) {
   const srv = await startServer();
   try {
     if (run('L')) await scenarioL(browser, srv);
+    if (run('M')) await scenarioM(browser, srv);
   } finally { await browser.close(); await srv.close(); }
   console.log('TODOS OS CENARIOS OK (' + results.join(' ') + ')');
 })().catch(e => { console.error('FALHOU:', e); process.exit(1); });

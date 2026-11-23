@@ -32,6 +32,7 @@
     background: var(--parchment); border: 0.5px solid rgba(36,27,20,0.35); border-radius: 0; margin-bottom: 16px;
   }
   textarea { min-height: 120px; resize: vertical; font-size: 16px; line-height: 1.5; }
+  #ref { min-height: 72px; margin-bottom: 8px; }
   select:focus, input:focus, textarea:focus, button:focus-visible, a.btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
   .exp-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
   .exp-card { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 80px; padding: 8px; text-align: left; font: inherit; color: var(--ink); background: var(--parchment); border: 0.5px solid rgba(36,27,20,0.35); cursor: pointer; }
@@ -120,6 +121,10 @@
         <label><input type="radio" name="lang" value="nl"><span>Nederlands</span></label>
       </div>
 
+      <label for="ref">Código do cliente (opcional)</label>
+      <textarea id="ref" rows="2" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Cole aqui a 1ª mensagem do cliente (ou só o código MG-…)"></textarea>
+      <p class="msg" id="ref-msg" role="status"></p>
+
       <button type="button" class="btn" id="gen-btn">Gerar link</button>
     </div>
 
@@ -131,6 +136,7 @@
       <a class="btn wa" id="wa-btn" href="#" target="_blank" rel="noopener">Enviar no WhatsApp</a>
       <button type="button" class="btn ghost" id="copy-btn">Copiar mensagem</button>
       <p class="msg" id="copy-msg" role="status"></p>
+      <p class="msg" id="sale-msg" role="status"></p>
       <a class="btn ghost" id="prev-btn" href="#" target="_blank" rel="noopener">Ver prévia (não conta venda)</a>
       <p class="hint">No WhatsApp, escolha o contato do cliente na lista. O número dele nunca passa por esta página.</p>
     </div>
@@ -193,7 +199,7 @@ var SERVICE_CATALOG = [
 // END SERVICE CATALOG
 
 var PIN_HASH = '4f19b15c359068dcbe7d6a216b189993eef1cf4da685b39c6a594deaf6f2d49e';
-var LS_OK = 'mg_pin_ok', LS_DEV = 'mg_internal_device';
+var LS_OK = 'mg_pin_ok', LS_DEV = 'mg_internal_device', LS_KEY = 'mg_api_key';
 var MIN_VALUE = 50, MAX_VALUE = 1500;
 var MESSAGES = {
   en: { path: '/thank-you/', text: 'Hi! Thank you for your session today, it was lovely to welcome you.\n\nIf you have a minute, I would love to hear how it was for you:\n{link}\n\nWarm regards,\nMari' },
@@ -207,6 +213,13 @@ var MESSAGES = {
   function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function lsDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
+
+  // Chave de registro de vendas (Fase 2): gravada uma vez por /mari/#k=<chave>. O fragmento não vai ao servidor e é apagado da barra.
+  (function () {
+    var m = /^#k=([A-Za-z0-9_-]{32,64})$/.exec(location.hash);
+    if (m) lsSet(LS_KEY, m[1]);
+    if (location.hash.indexOf('#k=') === 0) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
+  })();
 
   var lock = $('lock'), gen = $('gen');
   function showGen(on) { lock.hidden = on; gen.hidden = !on; if (!on) { $('pin').value = ''; clearOut(); } }
@@ -244,7 +257,7 @@ var MESSAGES = {
     });
   });
   $('lock-btn').addEventListener('click', function () { lsDel(LS_OK); showGen(false); });
-  $('forget-btn').addEventListener('click', function () { lsDel(LS_OK); lsDel(LS_DEV); showGen(false); });
+  $('forget-btn').addEventListener('click', function () { lsDel(LS_OK); lsDel(LS_DEV); lsDel(LS_KEY); showGen(false); });
   if (lsGet(LS_OK) === PIN_HASH) { lsSet(LS_DEV, '1'); showGen(true); }
 
   // ---- Gerador ----
@@ -284,7 +297,7 @@ var MESSAGES = {
     genBtn.disabled = !(ready && p.ok);
     return { ok: ready && p.ok, n: p.n };
   }
-  function clearOut() { $('out').hidden = true; $('link-out').textContent = ''; $('msg-out').value = ''; $('wa-btn').href = '#'; $('prev-btn').href = '#'; $('copy-msg').textContent = ''; }
+  function clearOut() { $('sale-msg').textContent = ''; $('sale-msg').className = 'msg'; $('out').hidden = true; $('link-out').textContent = ''; $('msg-out').value = ''; $('wa-btn').href = '#'; $('prev-btn').href = '#'; $('copy-msg').textContent = ''; }
 
   function chooseExp(e) {
     exp = e; dur = null; clearOut();
@@ -312,6 +325,19 @@ var MESSAGES = {
     val.value = String(d.price);
     refresh();
   }
+  // Código do cliente: aceita o código ou a mensagem inteira; só o código MG-XXXXX é mantido (o resto do texto some do campo)
+  var refBox = $('ref'), REF_FIND = /MG-[2-9A-HJ-NP-Z]{5}/i;
+  function readRef() { var m = REF_FIND.exec(refBox.value); return m ? m[0].toUpperCase() : ''; }
+  var lastRef = '';
+  function normRef(final) {
+    var c = readRef();
+    if (c) { if (refBox.value !== c) refBox.value = c; $('ref-msg').textContent = ''; }
+    else $('ref-msg').textContent = final && refBox.value.trim() ? 'Não achei o código nessa mensagem. Tudo bem: o link é gerado sem ele.' : '';
+    if (refBox.value !== lastRef) { lastRef = refBox.value; clearOut(); } // blur sem mudança não pode esconder o link já gerado
+  }
+  refBox.addEventListener('input', function () { normRef(false); });
+  refBox.addEventListener('change', function () { normRef(true); });
+  refBox.addEventListener('blur', function () { normRef(true); });
   typeSel.addEventListener('change', clearOut);
   val.addEventListener('input', function () { clearOut(); refresh(); });
   Array.prototype.forEach.call(document.querySelectorAll('input[name="lang"]'), function (r) { r.addEventListener('change', clearOut); });
@@ -329,7 +355,8 @@ var MESSAGES = {
     var p = refresh(); if (!p.ok) return;
     var l = lang(), m = MESSAGES[l];
     var s = exp.key === 'other' ? 'other' : dur.s;
-    var link = location.origin + m.path + '?s=' + s + (typeSel.value && exp.key !== 'other' ? '&t=' + typeSel.value : '') + '&v=' + fmt(p.n) + '&id=' + newId();
+    var id = newId(), code = readRef();
+    var link = location.origin + m.path + '?s=' + s + (typeSel.value && exp.key !== 'other' ? '&t=' + typeSel.value : '') + '&v=' + fmt(p.n) + '&id=' + id + (code ? '&r=' + code : '');
     var text = (l === 'nl' && exp.key === 'cpl' ? m.couple : m.text).replace('{link}', link);
     $('link-out').textContent = link;
     $('msg-out').value = text;
@@ -338,7 +365,25 @@ var MESSAGES = {
     $('copy-msg').textContent = '';
     $('out').hidden = false;
     $('out').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (code) registerSale({ ref: code, id: id, v: Number(fmt(p.n)), s: s });
   });
+
+  // Registra a venda no Worker (liga o código do cliente ao clique do anúncio). Só com código E chave; nunca envia o texto colado.
+  function saleStatus(t, err) { var e = $('sale-msg'); e.className = 'msg' + (err ? ' err' : ''); e.textContent = t; }
+  function registerSale(body) {
+    var key = lsGet(LS_KEY);
+    if (!key) { saleStatus('Este aparelho ainda não tem a chave de registro: a venda não foi enviada ao servidor (o link funciona normalmente).', true); return; }
+    saleStatus('Registrando a venda…', false);
+    try {
+      fetch('/api/sale', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key }, body: JSON.stringify(body) })
+        .then(function (r) { if (!r.ok) throw new Error('http'); return r.json(); })
+        .then(function (j) {
+          if (j && j.matched) saleStatus('Venda ligada ao anúncio ✓', false);
+          else saleStatus('Código sem clique de anúncio registrado (a venda conta só no GA4)', false);
+        })
+        .catch(function () { saleStatus('Não deu para registrar no servidor (o link funciona normalmente)', true); });
+    } catch (e) { saleStatus('Não deu para registrar no servidor (o link funciona normalmente)', true); }
+  }
 
   $('copy-btn').addEventListener('click', function () {
     var ta = $('msg-out'), ok = false;
