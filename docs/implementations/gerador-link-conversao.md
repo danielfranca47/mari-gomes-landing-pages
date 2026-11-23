@@ -1,6 +1,6 @@
 # Gerador de link de conversão (página privada da Mari) + obrigado com parâmetros
 
-**Status:** Planejado (23/11/2026). Fase 1 = fases A–C abaixo (a implementar); Fase 2 (atribuição ao anúncio) **só planejada, não implementar**.
+**Status:** Fases A–C implementadas e testadas (23/11/2026), aguardando revisão. Fase 1 = fases A–C abaixo; Fase 2 (atribuição ao anúncio) **só planejada, não implementar**.
 
 **Branch:** `claude/plano-link-conversao` · **Planejador/revisor:** sessão Opus · **Implementador:** sessão Sonnet (mesma branch)
 
@@ -195,8 +195,8 @@ Como rodar (documentar no topo do script): `node scripts/test-gerador-link.js` �
 
 | Fase | Commit | O que foi implementado |
 |---|---|---|
-| A | _(preencher)_ | thank-you EN/NL leem `s`/`v`/`id` com validação |
-| B | _(preencher)_ | página `/mari/` |
+| A | `c2296b1` | thank-you EN/NL leem `s`/`v`/`id` com validação |
+| B | `b9c452d` | página `/mari/` |
 | C | _(preencher)_ | testes Playwright + docs |
 
 Relatório de cada fase (antes / agora / como validar), em linguagem simples, logo
@@ -211,58 +211,58 @@ do que foi visto (ex.: "dataLayer: purchase value=300 item_id=rlx90 tx=k3x9p2qa"
 **Check sem evidência = não marcado.**
 
 ### Cenário 1 — Página de obrigado: parâmetros válidos
-- [ ] `/thank-you/?s=rlx90&v=300&id=abc12345` → 1 `purchase`, `value` 300, `currency` EUR, `transaction_id` `abc12345`, `items[0]` = `{item_id:'rlx90', item_name:'Holistic Relaxation 90 min', item_category:'relaxation', price:300}`
-- [ ] Mesmo teste em `/nl/thank-you/`
-- [ ] `?s=cpl150&v=480,50&id=…` → `value` 480.5 (vírgula aceita)
-- [ ] `?s=other&v=120&id=…` → `item_id` other, `value` 120
+- [x] `/thank-you/?s=rlx90&v=300&id=abc12345` → 1 `purchase`, `value` 300, `currency` EUR, `transaction_id` `abc12345`, `items[0]` = `{item_id:'rlx90', item_name:'Holistic Relaxation 90 min', item_category:'relaxation', price:300}` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Mesmo teste em `/nl/thank-you/` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `?s=cpl150&v=480,50&id=…` → `value` 480.5 (vírgula aceita) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `?s=other&v=120&id=…` → `item_id` other, `value` 120 — ✔ 23/11/2026 (test-gerador-link.js)
 
 ### Cenário 2 — Parâmetros inválidos / adulterados
-- [ ] `v=999999`, `v=1e9`, `v=-5`, `v=abc`, `v=20` com `s=nrg90` → `value` 350 (preço padrão de nrg90)
-- [ ] `v=999999` sem `s` → `value` 250
-- [ ] `s=<script>` ou `s=xyz` → item genérico `session`, nada de `s` aparece no DOM nem no evento
-- [ ] `id=../../x`, `id=ABC` (maiúscula), `id` com 40 chars → `transaction_id` gerado `ty-…`
-- [ ] Links legados: `/thank-you/` puro → 250 genérico; `?v=350` → 350 genérico
+- [x] `v=999999`, `v=1e9`, `v=-5`, `v=abc`, `v=20` com `s=nrg90` → `value` 350 (preço padrão de nrg90) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `v=999999` sem `s` → `value` 250 — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `s=<script>` ou `s=xyz` → item genérico `session`, nada de `s` aparece no DOM nem no evento — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `id=../../x`, `id=ABC` (maiúscula), `id` com 40 chars → `transaction_id` gerado `ty-…` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Links legados: `/thank-you/` puro → 250 genérico; `?v=350` → 350 genérico — ✔ 23/11/2026 (test-gerador-link.js)
 
 ### Cenário 3 — `?test`, dedupe, aparelho interno
-- [ ] `?test` (com ou sem os outros parâmetros) → nenhum `purchase`
-- [ ] Mesmo `id` aberto 2× no mesmo navegador → 1 `purchase` só
-- [ ] Dois `id` diferentes em seguida no mesmo navegador → 2 `purchase`
-- [ ] Sem `id`: 2 aberturas em < 12 h → 1 `purchase` (comportamento antigo mantido)
-- [ ] Com `mg_internal_device='1'` no `localStorage` → nenhum `purchase`
+- [x] `?test` (com ou sem os outros parâmetros) → nenhum `purchase` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Mesmo `id` aberto 2× no mesmo navegador → 1 `purchase` só — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Dois `id` diferentes em seguida no mesmo navegador → 2 `purchase` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Sem `id`: 2 aberturas em < 12 h → 1 `purchase` (comportamento antigo mantido) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Com `mg_internal_device='1'` no `localStorage` → nenhum `purchase` — ✔ 23/11/2026 (test-gerador-link.js)
 
 ### Cenário 4 — `/mari/`: PIN
-- [ ] Sem PIN: gerador escondido (não basta CSS: o formulário não está visível nem é focável)
-- [ ] PIN errado → mensagem "PIN incorreto", gerador continua escondido
-- [ ] 5 erros → espera de 30 s
-- [ ] PIN certo → gerador aparece; recarregar a página → continua desbloqueado
-- [ ] Trocar `PIN_HASH` (simulado no teste) → volta a pedir PIN
-- [ ] "Bloquear" → pede PIN de novo
-- [ ] O PIN provisório não aparece em nenhum arquivo do repo (`git grep` pelo valor → vazio)
+- [x] Sem PIN: gerador escondido (não basta CSS: o formulário não está visível nem é focável) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] PIN errado → mensagem "PIN incorreto", gerador continua escondido — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] 5 erros → espera de 30 s — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] PIN certo → gerador aparece; recarregar a página → continua desbloqueado — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Trocar `PIN_HASH` (simulado no teste) → volta a pedir PIN — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] "Bloquear" → pede PIN de novo — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] O PIN provisório não aparece em nenhum arquivo do repo (`git grep` pelo valor → vazio) — ✔ 23/11/2026 (test-gerador-link.js)
 
 ### Cenário 5 — `/mari/`: gerador
-- [ ] Ordem da lista = tabela do catálogo (mais barato → mais caro dentro de cada grupo; grupos Relaxation → Energy → Casal → Outro)
-- [ ] Escolher "Energy · 90 min" preenche 350; editar para 380 → link com `v=380`
-- [ ] "Outro" com valor vazio → "Gerar link" desabilitado
-- [ ] Valor 20 ou 5000 → desabilitado + aviso
-- [ ] Link EN = `<origin>/thank-you/?s=…&v=…&id=<8 chars [a-z0-9]>`; NL = `<origin>/nl/thank-you/?…`
-- [ ] Gerar 2× → `id` diferentes
-- [ ] Botão WhatsApp → `href`/`window.open` começa com `https://wa.me/?text=` e o texto decodificado = mensagem do idioma + link
-- [ ] Mensagens EN/NL sem nenhum termo da lista "Evitar" de `vocabulario.md`
-- [ ] "Ver prévia" abre o link com `&test` e não gera `purchase`
-- [ ] Fluxo ponta a ponta: gerar na `/mari/` → abrir o link num **contexto de navegador novo** (sem a flag) → 1 `purchase` com os valores escolhidos
+- [x] Ordem da lista = tabela do catálogo (mais barato → mais caro dentro de cada grupo; grupos Relaxation → Energy → Casal → Outro) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Escolher "Energy · 90 min" preenche 350; editar para 380 → link com `v=380` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] "Outro" com valor vazio → "Gerar link" desabilitado — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Valor 20 ou 5000 → desabilitado + aviso — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Link EN = `<origin>/thank-you/?s=…&v=…&id=<8 chars [a-z0-9]>`; NL = `<origin>/nl/thank-you/?…` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Gerar 2× → `id` diferentes — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Botão WhatsApp → `href`/`window.open` começa com `https://wa.me/?text=` e o texto decodificado = mensagem do idioma + link — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Mensagens EN/NL sem nenhum termo da lista "Evitar" de `vocabulario.md` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] "Ver prévia" abre o link com `&test` e não gera `purchase` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Fluxo ponta a ponta: gerar na `/mari/` → abrir o link num **contexto de navegador novo** (sem a flag) → 1 `purchase` com os valores escolhidos — ✔ 23/11/2026 (test-gerador-link.js)
 
 ### Cenário 6 — Mobile 390 px
-- [ ] `/mari/` em 390×844: sem scroll horizontal (`scrollWidth <= 390`), botões ≥ 44 px de altura, screenshot anexado no relatório (scratchpad, não no repo)
-- [ ] `/thank-you/` em 390 px sem regressão visual (screenshot)
+- [x] `/mari/` em 390×844: sem scroll horizontal (`scrollWidth <= 390`), botões ≥ 44 px de altura, screenshot anexado no relatório (scratchpad, não no repo) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `/thank-you/` em 390 px sem regressão visual (screenshot) — ✔ 23/11/2026 (test-gerador-link.js)
 
 ### Cenário 7 — Não regressão / PII / tags
-- [ ] `git diff main --stat` só toca: `thank-you/index.html`, `nl/thank-you/index.html`, `mari/index.html`, `scripts/test-gerador-link.js` e os docs/trafego listados
-- [ ] Nos 2 thank-you, todo `<script>` exceto `// CONVERSION` é byte-idêntico ao `main` (Consent Mode, `GT-55XJZX3L`, `G-EBY5JJD27V`, `AW-18036442650`, cookie banner, GTranslate, avaliação)
-- [ ] Bloco `// CONVERSION` idêntico entre EN e NL; catálogo idêntico nos 3 arquivos (o teste compara)
-- [ ] `/mari/` não carrega `googletagmanager`, `gtranslate` nem nenhum script externo (só Google Fonts CSS)
-- [ ] `/mari/` tem `noindex, nofollow`; nenhum arquivo do site linka para `/mari/` (`grep -rn "/mari/" --include=*.html` só acha a própria página)
-- [ ] Nenhum campo de nome/telefone/e-mail do cliente na `/mari/`; o link gerado só tem `s`, `v`, `id`
-- [ ] Simulação do workflow (`pages.yml` › passo "Montar _site" rodado localmente num diretório temporário) inclui `mari/` e não inclui `scripts/`
+- [x] `git diff main --stat` só toca: `thank-you/index.html`, `nl/thank-you/index.html`, `mari/index.html`, `scripts/test-gerador-link.js` e os docs/trafego listados — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Nos 2 thank-you, todo `<script>` exceto `// CONVERSION` é byte-idêntico ao `main` (Consent Mode, `GT-55XJZX3L`, `G-EBY5JJD27V`, `AW-18036442650`, cookie banner, GTranslate, avaliação) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Bloco `// CONVERSION` idêntico entre EN e NL; catálogo idêntico nos 3 arquivos (o teste compara) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `/mari/` não carrega `googletagmanager`, `gtranslate` nem nenhum script externo (só Google Fonts CSS) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] `/mari/` tem `noindex, nofollow`; nenhum arquivo do site linka para `/mari/` (`grep -rn "/mari/" --include=*.html` só acha a própria página) — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Nenhum campo de nome/telefone/e-mail do cliente na `/mari/`; o link gerado só tem `s`, `v`, `id` — ✔ 23/11/2026 (test-gerador-link.js)
+- [x] Simulação do workflow (`pages.yml` › passo "Montar _site" rodado localmente num diretório temporário) inclui `mari/` e não inclui `scripts/` — ✔ 23/11/2026 (test-gerador-link.js)
 
 ---
 
@@ -276,6 +276,82 @@ do que foi visto (ex.: "dataLayer: purchase value=300 item_id=rlx90 tx=k3x9p2qa"
 | Catálogo em 3 cópias pode divergir quando a Mari mudar preço | Comentário `SERVICE CATALOG` + teste que compara. Adicionar ao CLAUDE.md na graduação: "ao mudar preço, mudar LPs + `/prices/` + catálogo" |
 | Cliente encaminha o link para outra pessoa | `id` repetido não conta de novo no GA4 (dedupe por `transaction_id`) |
 | `crypto.subtle` exige contexto seguro | `https://` no ar e `http://localhost` no teste são seguros. Não testar via `file://` |
+
+**Evidência (23/11/2026):** `node scripts/test-gerador-link.js` → exit 0, `TODOS OS CENARIOS OK` (saída completa abaixo). Cada `[x]` acima corresponde a uma linha `OK` com o mesmo nome de cenário (C1–C7). Screenshots 390 px de `/mari/` e `/thank-you/` conferidos visualmente (scratchpad, fora do repo).
+
+Observações / desvios:
+- C4 "PIN provisório não aparece no repo": rodado com `MARI_PIN` real → `OK C4 PIN real fora do repo — verificado com MARI_PIN` (o PIN não está em nenhum arquivo, incluindo este).
+- C7 "git diff main": o `main` local/remoto está atrás do ponto de partida da branch (PR #4 já mergeado no ponto de partida do plano), então o teste compara com `ad67fb4` (pai do commit do plano; `BASE_REF`). Resultado: só os arquivos permitidos mudaram.
+- C7 "nenhum arquivo linka /mari/": o teste procura `href/src/action/location=` apontando para `/mari/`; menções em comentários de código (thank-you) são permitidas.
+- C7 workflow: o passo "Montar _site" de `pages.yml` é extraído e executado num diretório temporário pelo teste.
+- C4 "5 erros → espera de 30 s": o teste confirma o botão desabilitado + mensagem com a contagem; não espera os 30 s completos.
+- `trafego/alteracoes.md` **não** foi alterado nesta fase: a instrução do Daniel é registrar só quando a feature for para o ar (o plano pedia na Fase C). Pendente para a publicação.
+
+```
+OK   C1 EN parametros validos  — {"transaction_id":"abc12345","value":300,"currency":"EUR","items":[{"item_id":"rlx90","item_name":"Holistic Relaxation 90 min","item_category":"relaxation","price":300,"quantity":1}]}
+OK   C1 NL parametros validos  — {"transaction_id":"abc12345","value":300,"currency":"EUR","items":[{"item_id":"rlx90","item_name":"Holistic Relaxation 90 min","item_category":"relaxation","price":300,"quantity":1}]}
+OK   C1 virgula aceita  — value=480.5
+OK   C1 other  — item_id=other value=120
+OK   C2 v=999999 com s=nrg90 -> 350  — value=350
+OK   C2 v=1e9 com s=nrg90 -> 350  — value=350
+OK   C2 v=-5 com s=nrg90 -> 350  — value=350
+OK   C2 v=abc com s=nrg90 -> 350  — value=350
+OK   C2 v=20 com s=nrg90 -> 350  — value=350
+OK   C2 v=999999 sem s -> 250  — value=250
+OK   C2 s=%3Cscript%3E -> item generico, param fora do DOM e do evento  — [{"item_id":"session","item_name":"Mari Gomes session","price":300,"quantity":1}]
+OK   C2 s=xyz -> item generico, param fora do DOM e do evento  — [{"item_id":"session","item_name":"Mari Gomes session","price":300,"quantity":1}]
+OK   C2 id invalido (..%2F..%2Fx) -> ty-...  — tx=ty-mwtpc0wi1lukhl
+OK   C2 id invalido (ABC12345) -> ty-...  — tx=ty-mwtpc137th1h4q
+OK   C2 id invalido (aaaaaaaaaaaa) -> ty-...  — tx=ty-mwtpc19c70lh8f
+OK   C2 legado /thank-you/ puro  — value=250
+OK   C2 legado ?v=350  — value=350
+OK   C3 ?test com params -> nenhum purchase
+OK   C3 ?test puro -> nenhum purchase
+OK   C3 mesmo id 2x no mesmo navegador -> 1 so (2a abertura nao dispara)
+OK   C3 mesmo id em /nl/ no mesmo navegador -> nao dispara de novo
+OK   C3 id diferente em seguida -> 2o purchase  — tx=def67890
+OK   C3 sem id: 2 aberturas < 12 h -> 1 purchase
+OK   C3 mg_internal_device=1 -> nenhum purchase
+OK   C4 sem PIN: gerador escondido (hidden)
+OK   C4 sem PIN: gerador nao e focavel
+OK   C4 PIN errado -> "PIN incorreto", gerador escondido
+OK   C4 5 erros -> espera de 30 s  — PIN incorreto. Aguarde 30 s para tentar de novo.
+OK   C4 PIN certo -> gerador aparece e grava flag do aparelho
+OK   C4 recarregar -> continua desbloqueado
+OK   C4 Bloquear -> pede PIN de novo (flag do aparelho mantida)
+OK   C4 "Este aparelho nao e da Mari" -> apaga as duas chaves
+OK   C4 trocar PIN_HASH -> volta a pedir PIN
+OK   C4 PIN real fora do repo  — verificado com MARI_PIN
+OK   C5 ordem da lista  — rlx60,rlx90,rlx120,nrg60,nrg90,nrg120,cpl90,cpl120,cpl150,cpl180,other
+OK   C5 Energy 90 preenche 350
+OK   C5 link EN com v=380  — http://localhost:43865/thank-you/?s=nrg90&v=380&id=xqrm7eq4
+OK   C5 gerar 2x -> ids diferentes  — xqrm7eq4 / gvczrsi5
+OK   C5 virgula normalizada para ponto
+OK   C5 editar valor apaga o link mostrado
+OK   C5 link NL  — http://localhost:43865/nl/thank-you/?s=nrg90&v=390&id=mb1qtuiv
+OK   C5 botao WhatsApp (NL) sem numero + texto = mensagem+link
+OK   C5 mensagens EN/NL sem termos proibidos
+OK   C5 Outro vazio -> Gerar desabilitado
+OK   C5 valor 20 -> desabilitado + aviso  — O valor deve ficar entre €50 e €1500.
+OK   C5 valor 5000 -> desabilitado + aviso  — O valor deve ficar entre €50 e €1500.
+OK   C5 Ver previa = link + &test  — http://localhost:43865/thank-you/?s=rlx60&v=250&id=csaw0wda&test
+OK   C5 Ver previa -> nenhum purchase
+OK   C5 ponta a ponta (contexto novo)  — tx=csaw0wda value=250
+OK   C6 /mari/ 390px sem scroll horizontal e alvos >= 44px  — scrollWidth=390 pequenos=[]
+OK   C6 /thank-you/ 390px sem scroll horizontal  — scrollWidth=390; screenshots em <scratchpad>/shots
+OK   C7 catalogo identico nos 3 arquivos
+OK   C7 bloco CONVERSION identico EN/NL
+OK   C7 thank-you/index.html: tudo exceto o bloco CONVERSION identico a ad67fb4
+OK   C7 nl/thank-you/index.html: tudo exceto o bloco CONVERSION identico a ad67fb4
+OK   C7 /mari/ sem GTM, GTranslate, gtag nem script externo
+OK   C7 /mari/ noindex, nofollow
+OK   C7 nenhum arquivo linka /mari/  — []
+OK   C7 /mari/ sem campo de nome/telefone/e-mail
+OK   C7 diff contra ad67fb4 so toca arquivos permitidos  — []
+OK   C7 workflow publica mari/ e nao publica scripts/
+
+TODOS OS CENARIOS OK
+```
 
 ### Pendência (Daniel)
 - [ ] PIN definitivo: o implementador informa o PIN provisório na conversa; o Daniel troca quando quiser (comando no comentário do script).
