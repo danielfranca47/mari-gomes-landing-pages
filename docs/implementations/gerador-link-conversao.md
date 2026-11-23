@@ -502,7 +502,7 @@ FAIL D1 catalogo = LPs (nome, duracoes, precos EN/NL, Recomendado, tipos, Mais p
 1 FALHA(S)
 ```
 - Os checks `git diff c3785ec` / `git diff main` do D6 foram feitos pela lista de arquivos permitidos do C7 (contra `ad67fb4`): só mudaram `mari/index.html`, os 2 thank-you (bloco CONVERSION), o teste e este doc. Nenhuma LP, home ou página institucional.
-- Desvio menor: o `alt` das miniaturas é "Foto principal da página <nome>" (não descrevo o conteúdo da foto, que não verifiquei); o seletor de tipo usa fonte 14 px para caber "Holistic Couple Experience · Mais pedido" sem corte em 390 px.
+- Revisão (23/11/2026): `alt` descritivo das miniaturas (mapa local na `/mari/`, catálogo continua idêntico nos 3 arquivos) e todo select/input/textarea da `/mari/` com fonte ≥ 16 px (evita zoom do Safari/iOS); o teste confere os dois. O select de tipo fechado corta o texto longo sozinho.
 - Ordem de itens no `items[0]`: `item_id, item_name, item_category, price, quantity` e `item_variant` por último (só com `t` válido).
 
 ```

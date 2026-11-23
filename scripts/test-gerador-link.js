@@ -234,7 +234,7 @@ async function main() {
     await p.waitForFunction(() => Array.from(document.querySelectorAll('.exp-card img')).every(i => i.complete && i.naturalWidth > 0), null, { timeout: 5000 }).catch(() => {});
     const nat = await p.$$eval('.exp-card img', els => els.map(i => i.naturalWidth));
     ok(imgs.length === 3 && imgs.every((i, n) => /^\/images\/[A-Za-z0-9_]+\.webp$/.test(i.src) && fs.existsSync(path.join(ROOT, i.src)) && i.w >= 56 && i.w <= 72 && i.h >= 56 && i.h <= 72 && nat[n] > 0), 'D2 3 miniaturas /images/*.webp, existem, 56–72 px, naturalWidth>0', JSON.stringify(imgs.map(i => i.src)) + ' nat=' + nat);
-    ok(imgs.every(i => i.lazy === 'lazy' && i.alt.length > 5 && !/amarigomes|https?:/.test(i.src)), 'D2 loading=lazy, alt preenchido, sem URL externa/amarigomes');
+    ok(imgs.map(i => i.alt).join('|') === 'Cliente deitada na maca à luz de velas — Tantric Holistic Relaxation|Retrato da Mari vestida de preto — Tantric Energy Experience|Casal abraçado no estúdio — Couples Massage' && imgs.every(i => i.lazy === 'lazy' && i.alt.length > 5 && !/amarigomes|https?:/.test(i.src)), 'D2 loading=lazy, alt preenchido, sem URL externa/amarigomes');
     ok(IMG_REQS.length >= 3 && IMG_REQS.every(u => u.startsWith(ORIGIN + '/images/')), 'D2 imagens so baixadas depois do PIN', IMG_REQS.map(u => u.split('/').pop()).join(','));
     const cut = await p.$$eval('.exp-card .nm, .exp-card .pr', els => els.filter(e => e.scrollWidth > e.clientWidth + 1 || getComputedStyle(e).textOverflow === 'ellipsis').map(e => e.textContent));
     const names = await p.$$eval('.exp-card .nm', e => e.map(x => x.textContent)); const prs = await p.$$eval('.exp-card .pr', e => e.map(x => x.textContent));
@@ -324,6 +324,10 @@ async function main() {
     const e2eT = await visit(p4, genT.replace(ORIGIN, ''));
     ok(e2eT.length === 1 && e2eT[0].items[0].item_variant === 'Holistic Couple Experience' && e2eT[0].items[0].item_name === 'Couples Massage 2.5 hours', 'D3 ponta a ponta com tipo', JSON.stringify(e2eT[0] && e2eT[0].items));
     await c4.close();
+    // iOS Safari dá zoom ao focar campo com fonte < 16px
+    await pick('cpl', 'cpl90', 'hce');
+    const fs16 = await p.$$eval('#pin, select, input[type=text], input[type=password], textarea', els => els.map(e => ({ id: e.id, fs: parseFloat(getComputedStyle(e).fontSize) })));
+    ok(fs16.length >= 4 && fs16.every(x => x.fs >= 16), 'D6 todo select/input/textarea da /mari/ com font-size >= 16px (sem zoom do iOS)', JSON.stringify(fs16));
     // C6 mobile /mari/ (com tudo aberto)
     await pick('cpl', 'cpl90', 'hce'); await p.click('#gen-btn'); await p.waitForTimeout(400);
     const sw = await p.evaluate(() => document.documentElement.scrollWidth);

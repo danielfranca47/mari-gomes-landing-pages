@@ -31,9 +31,8 @@
     width: 100%; min-height: 48px; padding: 10px 12px; font: inherit; font-size: 16px; color: var(--ink);
     background: var(--parchment); border: 0.5px solid rgba(36,27,20,0.35); border-radius: 0; margin-bottom: 16px;
   }
-  textarea { min-height: 120px; resize: vertical; font-size: 14px; line-height: 1.5; }
+  textarea { min-height: 120px; resize: vertical; font-size: 16px; line-height: 1.5; }
   select:focus, input:focus, textarea:focus, button:focus-visible, a.btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 1px; }
-  #type { font-size: 14px; padding-left: 8px; padding-right: 4px; }
   .exp-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
   .exp-card { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 80px; padding: 8px; text-align: left; font: inherit; color: var(--ink); background: var(--parchment); border: 0.5px solid rgba(36,27,20,0.35); cursor: pointer; }
   .exp-card[aria-checked="true"] { border: 2px solid var(--amber); padding: 7px; background: #F7E6C7; }
@@ -252,6 +251,7 @@ var MESSAGES = {
   var val = $('val'), genBtn = $('gen-btn'), expList = $('exp-list'), durList = $('dur-list'), typeSel = $('type');
   var exp = null, dur = null;
   var NO_TYPE = 'Não especificar';
+  var ALT = { rlx: 'Cliente deitada na maca à luz de velas — Tantric Holistic Relaxation', nrg: 'Retrato da Mari vestida de preto — Tantric Energy Experience', cpl: 'Casal abraçado no estúdio — Couples Massage' };
   function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt) e.textContent = txt; return e; }
   function range(e) { return e.key === 'other' ? 'Valor livre' : e.durations.map(function (d) { return '€' + d.price; }).join(' · '); }
 
@@ -260,7 +260,7 @@ var MESSAGES = {
     if (e.img) {
       var im = document.createElement('img');
       im.src = e.img; im.width = 64; im.height = 64; im.loading = 'lazy'; im.decoding = 'async';
-      im.alt = 'Foto principal da página ' + e.name; b.appendChild(im);
+      im.alt = ALT[e.key]; b.appendChild(im);
     } else b.appendChild(el('span', 'ph', '€'));
     var tx = el('span', 'tx'); tx.appendChild(el('span', 'nm', e.name)); tx.appendChild(el('span', 'pr', range(e)));
     b.appendChild(tx);
