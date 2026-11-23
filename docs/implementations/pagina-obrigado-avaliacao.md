@@ -14,7 +14,7 @@
 - Não carrega o listener de "clique no WhatsApp = lead": o botão de feedback não conta como lead.
 
 ## Pendente
-- [ ] Criar no Google Ads a ação de conversão "Compra" (Evento da página/importar GA4 `purchase`), copiar o rótulo e colar em `ADS_PURCHASE_LABEL` nas 2 páginas. Enquanto vazio, só o GA4 registra (importável no Ads como conversão).
+- [x] (23/11/2026, rótulo ZwyrCJrolr4dEJqMuZhD, secundária) Criar no Google Ads a ação de conversão "Compra" (Evento da página/importar GA4 `purchase`), copiar o rótulo e colar em `ADS_PURCHASE_LABEL` nas 2 páginas. Enquanto vazio, só o GA4 registra (importável no Ads como conversão).
 - [ ] Mari definir se o feedback 1–4★ deve ir por WhatsApp (atual) ou e-mail.
 - [ ] Tela de pós-uso: confirmar o texto com a Mari ("Thank you for choosing Mari").
 
