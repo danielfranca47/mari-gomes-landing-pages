@@ -167,7 +167,10 @@
     .nav-menu { display: none; }
     .hero-top { grid-template-columns: 1fr; }
     .hero-left { padding: 48px 24px; }
-    .hero-right { min-height: auto; padding: 32px 24px; }
+    /* foto empilhada acima dos benefícios (antes: espremida ao lado, ~0px de largura) */
+    .hero-right { flex-direction: column; align-items: stretch; justify-content: flex-start; min-height: auto; padding: 0 !important; }
+    .hero-right > div:first-child { flex: none !important; height: 280px; min-height: 0 !important; }
+    .hero-visual { max-width: none; }
     section { padding: 56px 24px; }
     .steps { grid-template-columns: 1fr 1fr; }
     .steps::before { display: none; }
