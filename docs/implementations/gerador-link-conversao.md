@@ -197,7 +197,7 @@ Como rodar (documentar no topo do script): `node scripts/test-gerador-link.js` �
 |---|---|---|
 | A | `c2296b1` | thank-you EN/NL leem `s`/`v`/`id` com validação |
 | B | `b9c452d` | página `/mari/` |
-| C | _(preencher)_ | testes Playwright + docs |
+| C | `de38d6c` | testes Playwright + docs |
 
 Relatório de cada fase (antes / agora / como validar), em linguagem simples, logo
 abaixo da tabela, mais o prompt de retomada.
