@@ -1,6 +1,6 @@
 # Fase 2 — Atribuição da venda ao clique no anúncio (código de referência + conversão offline)
 
-**Status:** Plano pronto (23/11/2026), aguardando implementação. Nenhuma LP real muda nesta fase: só as prévias `-v2`.
+**Status:** Fases A–D implementadas e testadas (23/11/2026), aguardando revisão. Nada promovido; nada no ar. Nenhuma LP real muda nesta fase: só as prévias `-v2`.
 
 **Branch:** `claude/fase2-atribuicao-anuncio` · **Base:** `5711c4e` (main no início da fase)
 **Planejador/revisor:** sessão Opus · **Implementador:** sessão Sonnet (mesma branch)
@@ -204,8 +204,8 @@ Google Ads (upload agendado, HTTPS + Basic) ◄── GET /api/export.csv
 | Plano | (este commit) | plano da Fase 2 + pendência #14 |
 | A | `43bfd64` | Worker + teste W |
 | B | `5763506` | 6 prévias `-v2` + teste L |
-| C | — | `/mari/` + obrigado + teste M |
-| D | — | E2E + guia + docs |
+| C | `a36c30d` | `/mari/` + obrigado + teste M |
+| D | (ver `git log`: "Fase 2 / D") | E2E + guia + docs |
 
 ---
 
@@ -281,17 +281,26 @@ TODOS OS CENARIOS OK (M1 M2 M3 M4 M5 M6 M7)
 - O fragmento `#k=` é apagado da barra mesmo quando a chave é inválida (a chave inválida não é gravada).
 
 ### Cenário E — Ponta a ponta (LP servida no caminho real, simulando a promoção)
-- [ ] E1 servir o arquivo `-v2` em `/holistic-energy-massage-en/` (sem `-v2` → trava livre): Accept + gclid → clique → **1 `conversion` de lead `AW-18036442650/9rp5CIvso6QcEJqMuZhD` por clique** + `whatsapp_ref` + beacon `pv:0`
-- [ ] E2 `/mari/` com o código extraído → `matched:true`; `export.csv` tem 1 linha com o gclid, o valor e o Order ID = `id` do link
-- [ ] E3 gerar 2 vezes para o mesmo código → o CSV continua com 1 linha (a última)
-- [ ] E4 abrir o link de obrigado num contexto novo (outro "aparelho") → `purchase` com `transaction_id` = Order ID e `ref_code`
+- [x] E1 servir o arquivo `-v2` em `/holistic-energy-massage-en/` (sem `-v2` → trava livre): Accept + gclid → clique → **1 `conversion` de lead `AW-18036442650/9rp5CIvso6QcEJqMuZhD` por clique** + `whatsapp_ref` + beacon `pv:0`
+- [x] E2 `/mari/` com o código extraído → `matched:true`; `export.csv` tem 1 linha com o gclid, o valor e o Order ID = `id` do link
+- [x] E3 gerar 2 vezes para o mesmo código → o CSV continua com 1 linha (a última)
+- [x] E4 abrir o link de obrigado num contexto novo (outro "aparelho") → `purchase` com `transaction_id` = Order ID e `ref_code`
 
 ### Cenário R — Não regressão / segurança
-- [ ] R1 `git diff 5711c4e` só toca os arquivos permitidos; LPs reais e `lp*-*.html` byte a byte iguais
-- [ ] R2 cada `-v2` × `<slug>/index.html`: diferença = só `noindex` + trava + bloco novo (teste faz o diff normalizado); blocos Consent Mode, `GT-55XJZX3L`, configs `G-`/`AW-`, cookie banner e GTranslate idênticos
-- [ ] R3 o passo "Montar _site" de `pages.yml` (executado em pasta temporária) publica as 6 `-v2` e **não** publica `workers/` nem `scripts/`
-- [ ] R4 nenhum segredo/chave/PIN no repositório (grep pelos valores de teste fora de `scripts/`)
-- [ ] R5 vocabulário: o texto acrescentado ao WhatsApp só tem `(ref MG-XXXXX)`; nenhum termo de `vocabulario.md` entra
+- [x] R1 `git diff 5711c4e` só toca os arquivos permitidos; LPs reais e `lp*-*.html` byte a byte iguais
+- [x] R2 cada `-v2` × `<slug>/index.html`: diferença = só `noindex` + trava + bloco novo (teste faz o diff normalizado); blocos Consent Mode, `GT-55XJZX3L`, configs `G-`/`AW-`, cookie banner e GTranslate idênticos
+- [x] R3 o passo "Montar _site" de `pages.yml` (executado em pasta temporária) publica as 6 `-v2` e **não** publica `workers/` nem `scripts/`
+- [x] R4 nenhum segredo/chave/PIN no repositório (grep pelos valores de teste fora de `scripts/`)
+- [x] R5 vocabulário: o texto acrescentado ao WhatsApp só tem `(ref MG-XXXXX)`; nenhum termo de `vocabulario.md` entra
+
+**Evidência E/R (23/11/2026, implementador):** `node scripts/test-atribuicao.js` (todos os cenários) →
+```
+OK L1…L10  OK M1…M7  OK E1 OK E2 OK E3 OK E4  OK R1 OK R2 OK R3 OK R4 OK R5
+TODOS OS CENARIOS OK (L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 M1 M2 M3 M4 M5 M6 M7 E1 E2 E3 E4 R1 R2 R3 R4 R5)
+```
++ `node scripts/test-atribuicao-worker.mjs` → `TODOS OS CENARIOS W OK (8)` e `node scripts/test-gerador-link.js` → `TODOS OS CENARIOS OK`.
+Como o E foi feito: a `-v2` é servida em `/holistic-energy-massage-en/` por um servidor local (sem `-v2` no caminho a trava libera a conversão de lead: 1 `conversion` por clique, `whatsapp_ref`, beacon `pv:0`); o Worker roda em Node com KV em memória; o CSV é lido de `/api/export.csv` com Basic. O R2 reverte as 3 mudanças permitidas em cada `-v2` e exige igualdade byte a byte com o `<slug>/index.html` de `5711c4e`.
+Limites do que foi provado: tudo contra o Worker em Node/KV falso e servidor local. **Não** foi testado: Worker real na Cloudflare (rota, KV real, rate limit), upload no Google Ads, nem o modelo de colunas do Ads (F15 a conferir pelo Daniel, ver `trafego/conversoes-offline.md`).
 
 ---
 

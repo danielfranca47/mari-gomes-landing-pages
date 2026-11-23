@@ -361,6 +361,131 @@ async function scenarioM(browser, srv) {
   ok('M7');
 }
 
+async function scenarioE(browser) {
+  // LP -v2 servida no caminho REAL (/holistic-energy-massage-en/), simulando a promoção: sem a trava -v2, a conversão de lead dispara
+  const srv = await startServer({ rewrite: { '/holistic-energy-massage-en/': '/holistic-energy-massage-en-v2/index.html' } });
+  const errs = [];
+  try {
+    const url = '/holistic-energy-massage-en/';
+    let ctx = await newCtx(browser, srv); let page = await openPage(ctx, srv, url + '?gclid=' + GCLID, errs);
+    await page.click('#cookie-accept');
+    const rec = JSON.parse(await lsGet(page, 'mg_attr_v1'));
+    srv.api.length = 0;
+    await page.evaluate(() => document.querySelector('a.nav-cta').click()); await page.waitForTimeout(200);
+    const conv = await dlEvents(page, 'conversion');
+    assert.strictEqual(conv.length, 1, 'conversões de lead por clique: ' + conv.length);
+    assert.strictEqual(conv[0][2].send_to, 'AW-18036442650/9rp5CIvso6QcEJqMuZhD');
+    assert.strictEqual((await dlEvents(page, 'whatsapp_ref')).length, 1);
+    assert.strictEqual((await dlEvents(page, 'whatsapp_ref'))[0][2].ref_code, rec.ref);
+    const lp = leadPosts(srv); assert.strictEqual(lp.length, 1);
+    assert.deepStrictEqual(JSON.parse(lp[0].body), { ref: rec.ref, k: 'gclid', c: GCLID, ct: rec.ct, lp: url, pv: 0 });
+    assert.ok(srv.kv.m.has('lead:' + rec.ref) && !srv.kv.m.has('pv:lead:' + rec.ref));
+    const waText = decodeURIComponent((await hrefs(page)).find(h => h.includes('?text=')).split('?text=')[1]);
+    assert.ok(waText.endsWith('\n\n(ref ' + rec.ref + ')'));
+    await ctx.close(); ok('E1');
+
+    // E2 /mari/ com a mensagem do cliente (a Mari cola a conversa inteira)
+    ctx = await newCtx(browser, srv, { seed: { mg_pin_ok: PIN_HASH, mg_api_key: API_KEY } }); page = await openMari(ctx, srv, errs);
+    await page.fill('#ref', 'Hi Mari! ' + waText);
+    assert.strictEqual(await page.inputValue('#ref'), rec.ref);
+    const link1 = await generate(page);
+    await page.waitForFunction(() => /ligada/.test(document.getElementById('sale-msg').textContent));
+    const id1 = /id=([a-z0-9]{8})/.exec(link1)[1];
+    const csv = async () => { const r = await fetch(srv.base + '/api/export.csv', { headers: { authorization: EXPORT_BASIC } }); assert.strictEqual(r.status, 200); return (await r.text()).trim().split('\n'); };
+    let lines = await csv();
+    assert.strictEqual(lines.length, 3, lines.join('\n'));
+    let cols = lines[2].split(',');
+    assert.strictEqual(cols[0], GCLID); assert.strictEqual(cols[3], '350'); assert.strictEqual(cols[5], id1); assert.strictEqual(cols[6], 'Granted');
+    ok('E2');
+
+    // E3 gerar de novo para o mesmo código: continua 1 linha (a última)
+    const link2 = await generate(page, { key: 'nrg', dur: 'nrg90' });
+    await page.waitForTimeout(300);
+    const id2 = /id=([a-z0-9]{8})/.exec(link2)[1];
+    assert.notStrictEqual(id1, id2);
+    lines = await csv();
+    assert.strictEqual(lines.length, 3, 'E3 ' + lines.join('\n'));
+    assert.strictEqual(lines[2].split(',')[5], id2);
+    await ctx.close(); ok('E3');
+
+    // E4 outro "aparelho" (contexto novo, sem nenhum storage da LP) abre o link de obrigado
+    ctx = await newCtx(browser, srv); page = await ctx.newPage();
+    await page.goto(link2.replace(/^https?:\/\/[^/]+/, srv.base), { waitUntil: 'domcontentloaded' });
+    const pu = await dlEvents(page, 'purchase');
+    assert.strictEqual(pu.length, 1); assert.strictEqual(pu[0][2].transaction_id, id2); assert.strictEqual(pu[0][2].ref_code, rec.ref);
+    await ctx.close(); ok('E4');
+    assert.deepStrictEqual(errs, [], errs.join(' | '));
+  } finally { await srv.close(); }
+}
+
+async function scenarioR() {
+  const sh = (c, o) => execSync(c, Object.assign({ cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 27 }, o || {}));
+  const tracked = f => sh('git show ' + BASE + ':' + f);
+  const changed = sh('git diff --name-only ' + BASE + ' --').split('\n').filter(Boolean).concat(sh('git ls-files -o --exclude-standard').split('\n').filter(Boolean));
+
+  // R1 só arquivos permitidos; LPs reais, legados, home, institucionais e workflow byte a byte iguais
+  const allowed = /^(workers\/atribuicao\/[^/]+|scripts\/[^/]+|(holistic-energy|relaxation|couples)-massage-(en|nl)-v2\/index\.html|mari\/index\.html|thank-you\/index\.html|nl\/thank-you\/index\.html|docs\/implementations\/(atribuicao-anuncio-fase2|gerador-link-conversao|pagina-obrigado-avaliacao)\.md|docs\/pendencias-mary\.md|trafego\/conversoes-offline\.md)$/;
+  const extra = changed.filter(f => !allowed.test(f));
+  assert.deepStrictEqual(extra, [], 'fora do permitido: ' + extra);
+  const frozen = sh("git ls-files '*-massage-en/index.html' '*-massage-nl/index.html' 'lp*-*.html' 'home-*.html' index.html nl about treatments prices workshop fly-me-in .github").split('\n').filter(f => f && !/-v2\//.test(f) && !/thank-you\//.test(f));
+  assert.ok(frozen.length > 20);
+  assert.strictEqual(sh('git diff --name-only ' + BASE + ' -- ' + frozen.map(f => JSON.stringify(f)).join(' ')).trim(), '', 'arquivo congelado mudou');
+  ok('R1');
+
+  // R2 cada -v2 = <slug>/index.html + só noindex + trava + bloco
+  const bloco = fs.readFileSync(path.join(__dirname, 'atribuicao-bloco.html'), 'utf8');
+  const LEAD = "document.querySelectorAll('a[href*=\"wa.me\"]').forEach(function (link) {\n  link.addEventListener('click', function () {\n    gtag('event', 'conversion', { 'send_to': 'AW-18036442650/9rp5CIvso6QcEJqMuZhD' });\n  });\n});";
+  const LEAD_V2 = "// Prévia -v2: sem conversão de lead (teste da Mari não pode gerar conversão falsa). Removido na promoção.\nif (!/-v2\\//.test(location.pathname)) {\n" + LEAD + "\n}";
+  for (const slug of SLUGS) {
+    const v2 = fs.readFileSync(path.join(ROOT, slug + '-v2/index.html'), 'utf8');
+    const real = fs.readFileSync(path.join(ROOT, slug + '/index.html'), 'utf8');
+    assert.strictEqual(real, tracked(slug + '/index.html'), slug + ' real mudou');
+    assert.ok(v2.includes('<meta name="robots" content="noindex, nofollow">'));
+    let back = v2.replace('<meta name="robots" content="noindex, nofollow">\n', '');
+    assert.ok(back.includes(LEAD_V2) && back.includes(bloco), slug + ': trava/bloco ausente');
+    back = back.replace(LEAD_V2, LEAD).replace(bloco, '');
+    assert.strictEqual(back, real, slug + ': -v2 difere da LP real além de noindex + trava + bloco');
+    // blocos críticos presentes e idênticos
+    for (const needle of ["gtag('consent', 'default'", 'GT-55XJZX3L', "gtag('config', 'G-EBY5JJD27V')", "gtag('config', 'AW-18036442650')", "var KEY = 'cookie_consent_v1'", 'cdn.gtranslate.net/widgets/latest/flags.js']) {
+      assert.ok(v2.includes(needle) && real.includes(needle), slug + ' falta ' + needle);
+    }
+  }
+  ok('R2');
+
+  // R3 workflow publica as 6 -v2 e não publica workers/ nem scripts/
+  const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'site-r3-'));
+  try {
+    sh('cp -r . ' + JSON.stringify(path.join(tmp, 'repo')) + ' 2>/dev/null; true');
+    const wf = fs.readFileSync(path.join(ROOT, '.github/workflows/pages.yml'), 'utf8');
+    const script = wf.match(/run: \|\n([\s\S]*?)\n\s+- uses: actions\/upload-pages-artifact/)[1].split('\n').map(l => l.replace(/^ {10}/, '')).join('\n');
+    fs.writeFileSync(path.join(tmp, 'step.sh'), script);
+    sh('bash ' + JSON.stringify(path.join(tmp, 'step.sh')), { cwd: path.join(tmp, 'repo'), stdio: 'pipe' });
+    for (const slug of SLUGS) assert.ok(fs.existsSync(path.join(tmp, 'repo/_site', slug + '-v2/index.html')), 'não publicou ' + slug + '-v2');
+    assert.ok(!fs.existsSync(path.join(tmp, 'repo/_site/workers')) && !fs.existsSync(path.join(tmp, 'repo/_site/scripts')), 'publicou workers/ ou scripts/');
+  } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
+  ok('R3');
+
+  // R4 nenhum segredo/chave/PIN fora de scripts/ (valores de teste) e nada que pareça chave real no repositório
+  const files = sh('git ls-files -co --exclude-standard').split('\n').filter(f => f && !/^scripts\//.test(f) && !/\.(webp|png|jpg|jpeg)$/.test(f));
+  const bad = [];
+  for (const f of files) {
+    const t = fs.readFileSync(path.join(ROOT, f), 'utf8');
+    if (/k_abcdefghij|test_sale_key|u_test|p_test|135790/.test(t)) bad.push(f + ': valor de teste');
+    if (/#k=[A-Za-z0-9_-]{32,}/.test(t)) bad.push(f + ': #k= com chave');
+    if (/(SALE_KEY|EXPORT_PASS|EXPORT_USER)\s*[:=]\s*["'][^"']{6,}/.test(t)) bad.push(f + ': segredo literal');
+  }
+  assert.deepStrictEqual(bad, [], bad.join('; '));
+  ok('R4');
+
+  // R5 vocabulário: o texto acrescentado ao WhatsApp é só "(ref MG-XXXXX)"; o bloco não escreve texto visível
+  const sfx = decodeURIComponent('%0A%0A(ref%20MG-K7P2X)');
+  assert.ok(/^\n\n\(ref MG-[2-9A-HJ-NP-Z]{5}\)$/.test(sfx));
+  const banned = /intimate|intimacy|sensual|desire|pleasure|erotic|erotisch|nuru|happy ending|escort|sexy|adult|tantr|visit|bezoek|outcall|incall|hotel/i;
+  assert.ok(!banned.test(sfx));
+  assert.ok(!/innerHTML|textContent|innerText|document\.write|insertAdjacent/.test(bloco), 'bloco escreve texto visível');
+  ok('R5');
+}
+
 (async () => {
   const want = process.argv.slice(2).map(s => s.toUpperCase());
   const run = k => !want.length || want.includes(k);
@@ -369,6 +494,8 @@ async function scenarioM(browser, srv) {
   try {
     if (run('L')) await scenarioL(browser, srv);
     if (run('M')) await scenarioM(browser, srv);
+    if (run('E')) await scenarioE(browser);
+    if (run('R')) await scenarioR();
   } finally { await browser.close(); await srv.close(); }
   console.log('TODOS OS CENARIOS OK (' + results.join(' ') + ')');
 })().catch(e => { console.error('FALHOU:', e); process.exit(1); });

@@ -1,6 +1,6 @@
 # Gerador de link de conversão (página privada da Mari) + obrigado com parâmetros
 
-**Status:** Fases A–C implementadas e testadas (23/11/2026), aguardando revisão. Fase 1 = fases A–C abaixo; Fase 2 (atribuição ao anúncio) **só planejada, não implementar**.
+**Status:** Fases A–C implementadas e testadas (23/11/2026), aguardando revisão. Fase 1 = fases A–C abaixo; Fase 2 (atribuição ao anúncio) implementada em [`atribuicao-anuncio-fase2.md`](atribuicao-anuncio-fase2.md) (o rascunho antigo, mais abaixo, está substituído).
 
 **Rodada 2 (23/11/2026):** Fase D planejada: nomes iguais às LPs, tipos, miniaturas, mensagem com quebras de linha. Ver seção "Fase D".
 
@@ -606,7 +606,7 @@ TODOS OS CENARIOS OK
 
 ---
 
-## Fase 2 — Atribuição da venda ao anúncio (SÓ PLANO, não implementar)
+## Fase 2 — Atribuição da venda ao anúncio (rascunho SUBSTITUÍDO — ver `atribuicao-anuncio-fase2.md`)
 
 > **Substituído em 23/11/2026** pelo plano detalhado em [`atribuicao-anuncio-fase2.md`](atribuicao-anuncio-fase2.md) (decisões F1–F16). O texto abaixo fica só como histórico.
 
