@@ -2,6 +2,8 @@
 
 **Status:** Fases A–C implementadas e testadas (23/11/2026), aguardando revisão. Fase 1 = fases A–C abaixo; Fase 2 (atribuição ao anúncio) **só planejada, não implementar**.
 
+**Rodada 2 (23/11/2026):** Fase D planejada: nomes iguais às LPs, tipos, miniaturas, mensagem com quebras de linha. Ver seção "Fase D".
+
 **Branch:** `claude/plano-link-conversao` · **Planejador/revisor:** sessão Opus · **Implementador:** sessão Sonnet (mesma branch)
 
 ---
@@ -59,7 +61,7 @@ Não existe `sitemap.xml` nem `robots.txt` no repo: não criar.
 | D12 | PIN: **SHA-256 de `'mari-gomes:' + PIN`** comparado via `crypto.subtle`; desbloqueio lembrado em `localStorage['mg_pin_ok'] = <hash>` (vale enquanto for igual ao hash atual: trocar o PIN derruba todos os aparelhos) | Pedido do Daniel. **Não é segurança**: o hash está no HTML público, e um PIN numérico de 4–8 dígitos se quebra por força bruta em segundos. É só uma cortina contra visita casual. Também não protege nada que já não seja possível: qualquer pessoa pode montar `/thank-you/?v=…` lendo o código da página de obrigado |
 | D13 | O PIN em si **nunca entra no repo** (nem em doc, nem em commit, nem em comentário). O implementador escolhe um PIN provisório de 6 dígitos, grava só o hash e informa o PIN ao Daniel **na conversa** | Repo público |
 
-### Catálogo (do mais barato ao mais caro: grupos em ordem de preço inicial, durações crescentes dentro de cada grupo)
+### Catálogo (do mais barato ao mais caro: grupos em ordem de preço inicial, durações crescentes dentro de cada grupo) — **nomes e estrutura revistos na Fase D (D14–D17)**
 
 Valores conferidos em `CLAUDE.md` › "Preços nas LPs" (23/11/2026).
 
@@ -99,7 +101,7 @@ sem id válido + último disparo há menos de 12 h  → não dispara (dedupe atu
 - Evento: `gtag('event','purchase',{ transaction_id, value, currency:'EUR', items:[{ item_id: s, item_name, item_category, price: value, quantity: 1 }] })`.
   A conversão do Ads (quando `ADS_PURCHASE_LABEL` for preenchido) usa o mesmo `transaction_id` e `value`.
 
-### Mensagens prontas (o link entra no lugar de `{link}`)
+### Mensagens prontas (o link entra no lugar de `{link}`) — **substituídas na Fase D (D20)**
 
 Conferidas contra `trafego/politicas/vocabulario.md`: sem intimate, sensual,
 pleasure, visit/bezoek, hotel ou tantric.
@@ -355,6 +357,147 @@ TODOS OS CENARIOS OK
 
 ### Pendência (Daniel)
 - [ ] PIN definitivo: o implementador informa o PIN provisório na conversa; o Daniel troca quando quiser (comando no comentário do script).
+
+---
+
+## Fase D — Nomes iguais às LPs, miniaturas e mensagem com quebra de linha (rodada 2, 23/11/2026)
+
+**Pedido (Daniel, via sessão pai):** (1) trocar os dois espaços antes da
+assinatura por quebra de linha e revisar a mensagem; (2) nomes, tipos, durações e
+preços da `/mari/` **idênticos às LPs de anúncio**, que são a fonte da verdade;
+(3) miniatura de cada experiência na `/mari/`. A Fase 2 (atribuição) continua só
+no plano.
+
+### Divergências encontradas (LPs × `/mari/` em `c3785ec`)
+
+Fonte: `<title>`, `.hero-tag`/`.hero-eyebrow`, `<section id="pricing">`, cards de
+`#sessions` (LP2), `#therapies` (LP1) e `#options` (LP3), conferidos nas 6 pastas em 23/11/2026.
+
+| # | Onde | LP (fonte da verdade) | `/mari/` hoje |
+|---|---|---|---|
+| 1 | Nome do serviço LP2 | **Tantric Holistic Relaxation** (title, hero, rótulo de preços; igual em EN e NL) | "Relaxation" |
+| 2 | Nome do serviço LP1 | **Tantric Energy Experience** (igual em EN e NL) | "Energy" |
+| 3 | Nome do serviço LP3 | **Couples Massage** (title/hero EN; NL "Koppelsmassage"); card de preço "Couple session" | "Casal" |
+| 4 | Durações LP3 | **90 minutes · 2 hours · 2.5 hours · 3 hours** | "90 min · 2 h · 2,5 h · 3 h" |
+| 5 | Tipos de sessão | LP2: **Relaxation & Holistic Massage**, **Energetic Healing Massage** ("mesmo preço para os dois tipos"). LP1: **Energetic Healing Massage**, **Holistic Healing Massage**, **Tantric Therapy** ("a modalidade é escolhida com a Mari"). LP3: **Relaxation Duo**, **Holistic Couple Experience** (*Most requested*), **Tantric Couple Therapy** (todos "From €350 for two") | Não existem |
+| 6 | Destaques | LP1 e LP2: **90 min = Recommended**. LP3: **Holistic Couple Experience = Most requested** | Não aparecem |
+| 7 | `item_name` no GA4 | — | "Holistic Relaxation 60 min", "Energy Experience…", "Couples 2 h": não batem com as LPs |
+
+**Preços:** os 10 valores da `/mari/` batem com as LPs, e EN = NL nas 3 LPs
+(LP2 250/300/350 · LP1 300/350/400 · LP3 350/400/450/500). Batem também com o
+CLAUDE.md. Sem divergência de preço.
+**EN × NL:** os nomes de serviço da LP1/LP2 são iguais nos dois idiomas. A LP3 e
+os cards de tipo são traduzidos ("Ontspanning Duo", "Holistische Koppelservaring",
+"Tantrische Koppelstherapie", "Ontspannings- & Holistische Massage",
+"Energetische/Holistische Helingsmassage", "Tantrische Therapie"). Isso é
+tradução, não divergência. **A `/mari/` usa os nomes EN** (idioma principal das
+LPs, e o mesmo nome que vai para o GA4); o teste compara com a LP EN e confere
+que a LP NL tem os mesmos preços, a mesma quantidade de tipos e os mesmos destaques.
+
+### Decisões da Fase D
+
+| # | Decisão | Por quê |
+|---|---|---|
+| D14 | Catálogo passa a ter **3 experiências + Outro**, cada uma com `name` (= LP EN), `img`, `durations[]` (código `s`, rótulo exato da LP, preço, `rec` true no recomendado) e `types[]` (código `t`, nome exato do card, `pop` true no "Most requested") | Uma fonte só para a UI, o GA4 e a validação. Ordem: Tantric Holistic Relaxation (desde €250) → Tantric Energy Experience (desde €300) → Couples Massage (desde €350) → Outro; durações crescentes; tipos na ordem dos cards da LP |
+| D15 | Os códigos `s` **não mudam** (`rlx60…cpl180`, `other`) | Links de teste já gerados continuam válidos |
+| D16 | Novo parâmetro opcional **`t`** (tipo): `rlx` → `rhm`, `ehm` · `nrg` → `ehm`, `hhm`, `tt` · `cpl` → `duo`, `hce`, `tct`. Na `/mari/` o 1º item do seletor de tipo é **"Não especificar"** (padrão), e aí o link vai sem `t` | Na LP1 a modalidade é escolhida com a Mari na hora; ela pode não querer escolher. `t` só é aceito se pertencer à família do `s`; senão é ignorado |
+| D17 | GA4: `item_name` = **nome da LP + duração exata da LP** (ex.: "Tantric Holistic Relaxation 90 min", "Couples Massage 2.5 hours"), `item_category` = família, **`item_variant`** = nome do tipo (só com `t` válido) | Pedido de consistência com as LPs. A PR #5 ainda não está no ar, então não há histórico a quebrar. Fica só no GA4 (não é anúncio nem página), sem risco de política |
+| D18 | UI da `/mari/`: **cards de experiência** com miniatura, nome e a faixa de preços ("€250 · €300 · €350"). Ao tocar num card aparecem: seletor de **tipo** (se houver), botões de **duração** com preço e selo "Recomendado" / "Mais pedido" (o selo de tipo aparece na opção do seletor), e o **valor** preenchido e editável. "Outro" = só o valor | A Mari reconhece a experiência pela foto. Selos em PT porque a interface é PT |
+| D19 | Miniaturas: `/images/LP2_Hero.webp` (Relaxation), `/images/LP1_hero.webp` (Energy), `/images/LP3_Hero.webp` (Couples). `<img>` de 64×64 com `object-fit: cover`, `width`/`height` no HTML, `loading="lazy"`, `decoding="async"`, `alt` em PT descritivo (ex.: "Foto da LP Tantric Holistic Relaxation: cliente recebendo massagem no estúdio") | São as fotos principais de cada LP, as mais reconhecíveis. Não criar nem baixar imagem nova (pedido). Peso: ~84 + 109 + 111 KB = ~305 KB. Como ficam dentro de `#gen` (`display:none` até o PIN), o `lazy` faz o Chromium/Safari só baixarem depois do desbloqueio. **Se o Daniel quiser página mais leve**, a melhoria é gerar miniaturas de 128 px (~5 KB cada), mas isso exige criar imagens e fica para outra rodada |
+| D20 | Mensagem com quebras de linha (`\n`, codificadas com `encodeURIComponent` → `%0A`; o WhatsApp mostra a quebra) e **versão no plural para casal em NL** (`jullie`). EN serve para os dois casos | "Dank je wel voor je sessie" soa errado para um casal. Revisado contra `vocabulario.md`: sem termos a evitar |
+
+### Mensagens (substituem as da seção "Mensagens prontas")
+
+```
+EN (todas):
+Hi! Thank you for your session today, it was lovely to welcome you.
+
+If you have a minute, I would love to hear how it was for you:
+{link}
+
+Warm regards,
+Mari
+
+NL (individual, s = rlx*/nrg*/other):
+Hoi! Dank je wel voor je sessie vandaag, het was fijn je te ontvangen.
+
+Als je een minuutje hebt, hoor ik graag hoe je het vond:
+{link}
+
+Hartelijke groet,
+Mari
+
+NL (casal, s = cpl*):
+Hoi! Dank jullie wel voor jullie sessie vandaag, het was fijn jullie te ontvangen.
+
+Als jullie een minuutje hebben, hoor ik graag hoe jullie het vonden:
+{link}
+
+Hartelijke groet,
+Mari
+```
+
+O link fica sozinho numa linha para o WhatsApp detectar e tornar clicável sem
+grudar em pontuação.
+
+### Arquivos da Fase D (1 commit)
+
+| Arquivo | O que muda |
+|---|---|
+| `mari/index.html` | Catálogo novo (D14), UI de cards com miniatura (D18/D19), seletor de tipo + `t` no link (D16), mensagens (D20) |
+| `thank-you/index.html`, `nl/thank-you/index.html` | **Só** o bloco `// CONVERSION`: catálogo novo idêntico, leitura/validação de `t`, `item_name`/`item_variant` (D17). Resto byte-idêntico ao `main` |
+| `scripts/test-gerador-link.js` | Cenários D1–D6 abaixo + ajustes nos esperados de `item_name` dos cenários antigos |
+| este arquivo | hash, relatório, checks |
+
+Nada em LPs, home ou outras páginas. As LPs são **só lidas** pelo teste.
+
+### Checks da Fase D
+
+#### Cenário D1 — Paridade automática com as LPs (o teste lê os arquivos das LPs)
+- [ ] Para cada experiência, o `name` do catálogo aparece no `<title>` **e** no rótulo de preços (LP1/LP2) ou no `<title>`/hero (LP3) da LP EN
+- [ ] Durações e preços do catálogo = pares (rótulo, €) extraídos de `<section id="pricing">` da LP EN, na mesma ordem e com o mesmo texto do rótulo ("60 min", "2.5 hours"…)
+- [ ] Os mesmos preços, na mesma ordem, na LP NL correspondente
+- [ ] `rec: true` só na duração que tem "Recommended"/"Aanbevolen" na LP (90 min em LP1 e LP2; nenhuma na LP3)
+- [ ] `types[].name` = títulos dos cards de `#sessions` (LP2), `#therapies` (LP1) e `#options` (LP3) da LP EN, na mesma ordem; a quantidade de cards é igual na LP NL
+- [ ] `pop: true` só em Holistic Couple Experience (card com "Most requested"/"Meest gevraagd")
+- [ ] Preços em ordem crescente dentro de cada experiência, e experiências em ordem de preço inicial
+- [ ] O teste **falha** se alguém mudar um preço numa LP sem mudar o catálogo (comprovar uma vez alterando a LP numa cópia temporária, não no repo, e colar a saída de falha no relatório)
+
+#### Cenário D2 — `/mari/` em 390×844 com miniaturas
+- [ ] 3 cards com `<img>` cujo `src` começa com `/images/` e existe em `images/`, renderizados em 56–72 px, `naturalWidth > 0` depois do desbloqueio
+- [ ] Nenhum `src` com `amarigomes.com` nem URL externa; `loading="lazy"` e `alt` não vazio nos 3
+- [ ] Antes do PIN, nenhuma requisição a `/images/*` (registrar as requisições no Playwright)
+- [ ] `scrollWidth <= 390`, alvos de toque ≥ 44 px, nome + faixa de preço visíveis sem cortar (sem `text-overflow` escondendo o nome); screenshot no relatório (scratchpad)
+
+#### Cenário D3 — Gerador com tipo
+- [ ] Couples Massage → Holistic Couple Experience → 2.5 hours → valor 450 → link `?s=cpl150&t=hce&v=450&id=…`
+- [ ] Tipo "Não especificar" → link sem `t`
+- [ ] Trocar experiência limpa o tipo, a duração e o link gerado
+- [ ] Selo "Recomendado" visível em 90 min (Relaxation e Energy); "Mais pedido" em Holistic Couple Experience
+
+#### Cenário D4 — Página de obrigado com `t`
+- [ ] `?s=cpl150&t=hce&v=450&id=…` → `items[0]` = `{item_id:'cpl150', item_name:'Couples Massage 2.5 hours', item_category:'couples', item_variant:'Holistic Couple Experience', price:450}`
+- [ ] `?s=rlx90&t=tt&…` (tipo de outra família) → sem `item_variant`, resto normal
+- [ ] `?s=nrg60&t=<script>&…` → sem `item_variant`; nada de `t` no DOM
+- [ ] `?s=other&t=hce&…` → sem `item_variant`
+- [ ] Todos os cenários 1–3 antigos continuam passando (com os `item_name` novos)
+
+#### Cenário D5 — Mensagem
+- [ ] EN, NL individual e NL casal = texto exato acima (comparar `#msg-out`), com `\n` e sem espaço duplo
+- [ ] `href` do WhatsApp contém `%0A` e não contém `%20%20`
+- [ ] Nenhum termo da lista "Evitar" de `vocabulario.md` nas 3 mensagens (o teste tem a lista)
+
+#### Cenário D6 — Não regressão
+- [ ] `git diff c3785ec --stat` só toca os arquivos da tabela da Fase D
+- [ ] `git diff main --stat` não toca nenhuma LP, home ou página institucional
+- [ ] Nos 2 thank-you, tudo fora do bloco `// CONVERSION` byte-idêntico ao `ad67fb4`; bloco idêntico EN/NL; catálogo idêntico nos 3 arquivos
+- [ ] `node scripts/test-gerador-link.js` → `TODOS OS CENARIOS OK`, saída colada no relatório
+
+### Commit Fase D
+
+| Fase | Commit | O que foi implementado |
+|---|---|---|
+| D | _(preencher)_ | nomes iguais às LPs, tipos (`t`), miniaturas, mensagem com quebras |
 
 ---
 
