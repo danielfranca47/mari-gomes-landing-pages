@@ -47,7 +47,9 @@ const bad = [
   lead({ ref: 'MG-0OOO1' }), lead({ ref: 'mg-k7p2x' }), lead({ ref: '<script>' }),
   lead({ c: 'abc<def>ghijkl' }), lead({ c: 'has space 12345' }), lead({ c: 'a'.repeat(251) }), lead({ c: 'short' }),
   lead({ k: 'fbclid' }), lead({ ct: NOW + 10 * 60000 }), lead({ ct: NOW - 91 * DAY }), lead({ ct: 'x' }),
-  lead({ lp: '/about/' }), lead({ lp: '/holistic-energy-massage-en/../x/' }), lead({ pv: 2 }), lead({ pv: undefined })
+  lead({ lp: '/about/' }), lead({ lp: '/holistic-energy-massage-en/../x/' }), lead({ pv: 2 }), lead({ pv: undefined }),
+  lead({ lp: '/holistic-energy-massage-en-v2/', pv: 0 }), lead({ lp: '/holistic-energy-massage-en/', pv: 1 }),
+  lead({ lp: '/lp1-holistic-energy-en.html', pv: 1 }), lead({ lp: '/lp9-x-en.html', pv: 0 })
 ];
 for (const b of bad) { fresh(); r = await call('POST', '/api/lead', { body: b }); assert.equal(r.status, 400, JSON.stringify(b)); assert.equal(env.ATTR.m.size, 0); }
 fresh();
@@ -55,6 +57,9 @@ r = await call('POST', '/api/lead', { body: { ...lead(), pad: 'x'.repeat(1100) }
 r = await call('POST', '/api/lead', { raw: '{not json' }); assert.equal(r.status, 400);
 r = await call('POST', '/api/lead', { raw: '[1,2]' }); assert.equal(r.status, 400);
 assert.equal(env.ATTR.m.size, 0);
+for (const lp of ['/lp1-holistic-energy-en.html', '/lp1-holistic-energy-nl.html', '/lp2-relaxation-en.html', '/lp2-relaxation-nl.html', '/lp3-couples-en.html', '/lp3-couples-nl.html']) {
+  fresh(); r = await call('POST', '/api/lead', { body: lead({ lp, pv: 0 }) }); assert.equal(r.status, 204, lp); assert.ok(env.ATTR.m.has('lead:MG-K7P2X'));
+}
 ok('W2');
 
 // W3

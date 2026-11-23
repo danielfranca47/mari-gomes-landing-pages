@@ -302,6 +302,13 @@ TODOS OS CENARIOS OK (L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 M1 M2 M3 M4 M5 M6 M7 E1 E2 
 Como o E foi feito: a `-v2` é servida em `/holistic-energy-massage-en/` por um servidor local (sem `-v2` no caminho a trava libera a conversão de lead: 1 `conversion` por clique, `whatsapp_ref`, beacon `pv:0`); o Worker roda em Node com KV em memória; o CSV é lido de `/api/export.csv` com Basic. O R2 reverte as 3 mudanças permitidas em cada `-v2` e exige igualdade byte a byte com o `<slug>/index.html` de `5711c4e`.
 Limites do que foi provado: tudo contra o Worker em Node/KV falso e servidor local. **Não** foi testado: Worker real na Cloudflare (rota, KV real, rate limit), upload no Google Ads, nem o modelo de colunas do Ads (F15 a conferir pelo Daniel, ver `trafego/conversoes-offline.md`).
 
+### Revisão do planejador (23/11/2026) — 3 correções (commit "Fase 2 / revisão")
+1. `PV` no bloco agora usa `/-v2\//` (a mesma regex da trava), então `/…-v2/index.html` também é prévia: beacon `pv:1`, `lp` normalizado e sem `whatsapp_ref`. As 6 `-v2` foram geradas de novo.
+2. `validLead` rejeita (400) `pv` incoerente com o `lp` (`-v2/` exige pv 1; os demais, pv 0).
+3. O Worker aceita os 6 legados `lp*-*.html` (sempre pv 0).
+Testes novos: L4b (index.html → pv:1, sem `whatsapp_ref`, nada em `lead:` real), W2 (pv/lp inconsistentes → 400; legado pv 0 → 204, legado pv 1 → 400).
+Saída: `node scripts/test-atribuicao-worker.mjs` → `TODOS OS CENARIOS W OK (8)`; `node scripts/test-atribuicao.js` → `TODOS OS CENARIOS OK (L1 … R5)`; `node scripts/test-gerador-link.js` → `TODOS OS CENARIOS OK`.
+
 ---
 
 ## Riscos

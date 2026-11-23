@@ -11,6 +11,8 @@ const MAX_BODY = 1024;
 const REF_RE = /^MG-[2-9A-HJ-NP-Z]{5}$/;
 const CLICK_RE = /^[A-Za-z0-9_-]{10,250}$/;
 const LP_RE = /^\/(holistic-energy|relaxation|couples)-massage-(en|nl)(-v2)?\/$/;
+// legados lp*-*.html (rodam o mesmo bloco depois da promoção); sempre pv=0
+const LP_LEGACY_RE = /^\/(lp1-holistic-energy|lp2-relaxation|lp3-couples)-(en|nl)\.html$/;
 const ID_RE = /^[a-z0-9]{6,12}$/;
 const KINDS = ['gclid', 'gbraid', 'wbraid'];
 const SERVICES = ['rlx60', 'rlx90', 'rlx120', 'nrg60', 'nrg90', 'nrg120', 'cpl90', 'cpl120', 'cpl150', 'cpl180', 'other'];
@@ -47,8 +49,9 @@ function validLead(o, now) {
   if (KINDS.indexOf(o.k) === -1) return null;
   if (typeof o.c !== 'string' || !CLICK_RE.test(o.c)) return null;
   if (!Number.isInteger(o.ct) || o.ct < now - LEAD_TTL_MS || o.ct > now + 5 * 60000) return null;
-  if (typeof o.lp !== 'string' || !LP_RE.test(o.lp)) return null;
+  if (typeof o.lp !== 'string' || !(LP_RE.test(o.lp) || LP_LEGACY_RE.test(o.lp))) return null;
   if (o.pv !== 0 && o.pv !== 1) return null;
+  if (o.pv !== (/-v2\/$/.test(o.lp) ? 1 : 0)) return null; // pv tem de ser coerente com o caminho (prévia nunca entra como lead real)
   return { ref: o.ref, k: o.k, c: o.c, ct: o.ct, lp: o.lp, pv: o.pv };
 }
 

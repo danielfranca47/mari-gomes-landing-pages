@@ -470,7 +470,7 @@ document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
     var REF_RE = /^MG-[2-9A-HJ-NP-Z]{5}$/, CLICK_RE = /^[A-Za-z0-9_-]{10,250}$/;
     var ALPHA = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
     var LINKS = 'a[href^="https://wa.me/31634366008?text="]';
-    var PV = /-v2\/$/.test(location.pathname) ? 1 : 0;
+    var PV = /-v2\//.test(location.pathname) ? 1 : 0; // mesma regex da trava do listener de lead (vale também p/ /…-v2/index.html)
     var LP = location.pathname.replace(/index\.html$/, '');
     var rec = null;
 

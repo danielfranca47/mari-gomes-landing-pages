@@ -161,6 +161,16 @@ async function scenarioL(browser, srv) {
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth));
     await ctx.close();
 
+    // L4b: /…-v2/index.html também é prévia (pv:1, lp normalizado, sem whatsapp_ref)
+    srv.api.length = 0;
+    ctx = await newCtx(browser, srv, { seed: { cookie_consent_v1: 'granted' } }); page = await openPage(ctx, srv, url + 'index.html?gclid=' + GCLID, errs);
+    await page.evaluate(() => document.querySelector('a[data-wa-orig]').click()); await page.waitForTimeout(150);
+    assert.strictEqual(leadPosts(srv).length, 1);
+    assert.deepStrictEqual({ pv: JSON.parse(leadPosts(srv)[0].body).pv, lp: JSON.parse(leadPosts(srv)[0].body).lp }, { pv: 1, lp: url }, 'index.html pv');
+    assert.strictEqual((await dlEvents(page, 'whatsapp_ref')).length, 0, 'index.html whatsapp_ref');
+    assert.ok(srv.kv.m.has('pv:lead:' + JSON.parse(leadPosts(srv)[0].body).ref) && ![...srv.kv.m.keys()].some(k => k.startsWith('lead:') && k !== 'lead:MG-K7P2X'), 'index.html foi para lead: real');
+    await ctx.close();
+
     // L6 consentimento salvo, sem gclid e sem registro → ref no texto, sem beacon
     srv.api.length = 0;
     ctx = await newCtx(browser, srv, { seed: { cookie_consent_v1: 'granted' } }); page = await openPage(ctx, srv, url, errs);
