@@ -1,0 +1,19 @@
+# Copie para wrangler.toml e ajuste. NÃO coloque segredos aqui (use `wrangler secret put`).
+name = "mari-atribuicao"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+routes = [
+  { pattern = "amarigomes.com/api/*", zone_name = "amarigomes.com" }
+]
+
+[[kv_namespaces]]
+binding = "ATTR"
+id = "COLE_AQUI_O_ID_DO_KV"   # wrangler kv namespace create ATTR
+
+[vars]
+CONVERSION_NAME = "Compra (importada)"   # igual ao nome da ação de conversão no Google Ads
+
+# Logs desligados: não habilite observability/logpush (o corpo do lead não deve ser registrado).
+[observability]
+enabled = false

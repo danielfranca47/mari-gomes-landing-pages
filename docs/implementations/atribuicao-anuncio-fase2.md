@@ -217,14 +217,21 @@ Playwright: bloquear `googletagmanager`/`gtranslate`/fontes, ler `window.dataLay
 interceptar `sendBeacon`/`fetch` (ou o servidor local), `page.on('pageerror')` sem erros.
 
 ### Cenário W — Worker (Node)
-- [ ] W1 lead válido → 204 e `lead:<ref>` gravado com TTL = 90 dias desde `ct`; `pv=1` → `pv:lead:<ref>`
-- [ ] W2 inválidos → 400 e nada gravado: ref fora do padrão (`MG-0OOO1`, minúsculas, `<script>`), `c` com `<`/espaço/> 250 caracteres, `k` desconhecido, `ct` no futuro/> 90 dias, `lp` fora da lista, corpo > 1 KB, JSON inválido
-- [ ] W3 lead com `ct` mais antigo não sobrescreve o mais novo
-- [ ] W4 `/api/sale` sem chave/chave errada → 401; válida → 200 `{matched:true}` com lead de clique e `{matched:false}` sem; `v`=20/5000, `id` inválido, `s` desconhecido → 400
-- [ ] W5 `export.csv` sem/errado Basic → 401; com → `text/csv`, 1ª linha `Parameters:TimeZone=+0000`, cabeçalho F15
-- [ ] W6 exportação: só gclid; exclui `pv:`; exclui venda antes do clique e > 90 dias; 2 vendas da mesma ref em < 24 h → 1 linha (a última); ref com 2 vendas em dias diferentes → 2 linhas; gbraid só na contagem do JSON
-- [ ] W7 nenhum valor gravado contém IP, user agent, nome, telefone ou e-mail (inspecionar o KV falso); métodos/rotas erradas → 404/405
-- [ ] W8 `worker.js` não tem `import` de pacote externo nem segredo literal
+- [x] W1 lead válido → 204 e `lead:<ref>` gravado com TTL = 90 dias desde `ct`; `pv=1` → `pv:lead:<ref>`
+- [x] W2 inválidos → 400 e nada gravado: ref fora do padrão (`MG-0OOO1`, minúsculas, `<script>`), `c` com `<`/espaço/> 250 caracteres, `k` desconhecido, `ct` no futuro/> 90 dias, `lp` fora da lista, corpo > 1 KB, JSON inválido
+- [x] W3 lead com `ct` mais antigo não sobrescreve o mais novo
+- [x] W4 `/api/sale` sem chave/chave errada → 401; válida → 200 `{matched:true}` com lead de clique e `{matched:false}` sem; `v`=20/5000, `id` inválido, `s` desconhecido → 400
+- [x] W5 `export.csv` sem/errado Basic → 401; com → `text/csv`, 1ª linha `Parameters:TimeZone=+0000`, cabeçalho F15
+- [x] W6 exportação: só gclid; exclui `pv:`; exclui venda antes do clique e > 90 dias; 2 vendas da mesma ref em < 24 h → 1 linha (a última); ref com 2 vendas em dias diferentes → 2 linhas; gbraid só na contagem do JSON
+- [x] W7 nenhum valor gravado contém IP, user agent, nome, telefone ou e-mail (inspecionar o KV falso); métodos/rotas erradas → 404/405
+- [x] W8 `worker.js` não tem `import` de pacote externo nem segredo literal
+
+**Evidência W (23/11/2026, implementador):** `node scripts/test-atribuicao-worker.mjs` →
+```
+OK W1  OK W2  OK W3  OK W4  OK W5  OK W6  OK W7  OK W8
+TODOS OS CENARIOS W OK (8)
+```
+Obs.: com o KV real o lead expira junto com a janela de 90 dias, então "venda > 90 dias do clique" só ocorre com relógio torto; o teste W6 injeta essa venda direto no KV falso para provar a checagem.
 
 ### Cenário L — LPs `-v2` (Playwright, 390×844 e desktop, as 6)
 - [ ] L1 sem escolha no banner: `href`s idênticos ao HTML, sem `mg_attr_v1`, sem beacon, sem `whatsapp_ref`
