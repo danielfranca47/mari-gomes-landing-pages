@@ -1,6 +1,6 @@
 # Fase 2 — Atribuição da venda ao clique no anúncio (código de referência + conversão offline)
 
-**Status:** Fases A–D implementadas e testadas (23/11/2026), aguardando revisão. Nada promovido; nada no ar. Nenhuma LP real muda nesta fase: só as prévias `-v2`.
+**Status:** Fases A–D implementadas, testadas e **aprovadas pelo planejador** (23/11/2026; código final `b730c64`, já com o main `c280d15` e o rótulo `ADS_PURCHASE_LABEL` preservado). Próximo passo: o Daniel testa as prévias e decide a promoção. Nada promovido; nada no ar. Nenhuma LP real muda nesta fase: só as prévias `-v2`.
 
 **Branch:** `claude/fase2-atribuicao-anuncio` · **Base:** `5711c4e` (main no início da fase)
 **Planejador/revisor:** sessão Opus · **Implementador:** sessão Sonnet (mesma branch)
