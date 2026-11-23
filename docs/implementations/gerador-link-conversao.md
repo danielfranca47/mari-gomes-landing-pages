@@ -608,6 +608,8 @@ TODOS OS CENARIOS OK
 
 ## Fase 2 — Atribuição da venda ao anúncio (SÓ PLANO, não implementar)
 
+> **Substituído em 23/11/2026** pelo plano detalhado em [`atribuicao-anuncio-fase2.md`](atribuicao-anuncio-fase2.md) (decisões F1–F16). O texto abaixo fica só como histórico.
+
 ### Problema
 O `purchase` só se liga ao clique do anúncio se o cliente abrir `/thank-you/` no
 **mesmo navegador** em que clicou no anúncio, com cookies aceitos. Na prática a
