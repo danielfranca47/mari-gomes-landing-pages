@@ -1,0 +1,85 @@
+<script>
+// AD ATTRIBUTION — Fase 2 (docs/implementations/atribuicao-anuncio-fase2.md, F1–F8).
+// Só age com consentimento (localStorage cookie_consent_v1 === 'granted', ou clique em Accept nesta visita).
+// Guarda o clique do anúncio (gclid/gbraid/wbraid) + um código aleatório (MG-XXXXX) em mg_attr_v1 por 90 dias,
+// acrescenta "(ref MG-XXXXX)" ao fim do texto dos links wa.me?text=… (só no DOM, o HTML não muda) e avisa o Worker no clique.
+// Sem PII. Qualquer erro é engolido: os links ficam como estão e a conversão de lead não é afetada.
+(function () {
+  try {
+    var KEY = 'mg_attr_v1', CONSENT = 'cookie_consent_v1', DAY = 86400000, TTL = 90 * DAY;
+    var REF_RE = /^MG-[2-9A-HJ-NP-Z]{5}$/, CLICK_RE = /^[A-Za-z0-9_-]{10,250}$/;
+    var ALPHA = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+    var LINKS = 'a[href^="https://wa.me/31634366008?text="]';
+    var PV = /-v2\/$/.test(location.pathname) ? 1 : 0;
+    var LP = location.pathname.replace(/index\.html$/, '');
+    var rec = null;
+
+    function consented() { try { return localStorage.getItem(CONSENT) === 'granted'; } catch (e) { return false; } }
+    function newRef() {
+      var b = new Uint8Array(5), s = 'MG-', i;
+      crypto.getRandomValues(b); // 256 % 32 === 0: sem viés
+      for (i = 0; i < 5; i++) s += ALPHA.charAt(b[i] % 32);
+      return s;
+    }
+    function load() {
+      var o, now = Date.now();
+      try { o = JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; }
+      if (!o || typeof o !== 'object' || !REF_RE.test(o.ref || '')) return null;
+      var base = typeof o.ct === 'number' ? o.ct : o.ts;
+      if (typeof base !== 'number' || now - base > TTL) return null; // 90 dias
+      if (o.c !== undefined && !(['gclid', 'gbraid', 'wbraid'].indexOf(o.k) > -1 && CLICK_RE.test(o.c || '') && typeof o.ct === 'number')) {
+        return { ref: o.ref, ts: o.ts || base };
+      }
+      return o;
+    }
+    function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+    function clear() {
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      var a = document.querySelectorAll(LINKS.replace('[href^=', '[data-wa-orig][href^='));
+      for (var i = 0; i < a.length; i++) { a[i].setAttribute('href', a[i].getAttribute('data-wa-orig')); a[i].removeAttribute('data-wa-orig'); }
+      rec = null;
+    }
+    function clickFromUrl() {
+      var p = new URLSearchParams(location.search), ks = ['gclid', 'gbraid', 'wbraid'], i, v;
+      for (i = 0; i < ks.length; i++) { v = p.get(ks[i]); if (v && CLICK_RE.test(v)) return { k: ks[i], c: v }; }
+      return null;
+    }
+    function decorate() {
+      var a = document.querySelectorAll(LINKS), suffix = encodeURIComponent('\n\n(ref ' + rec.ref + ')'), i, orig;
+      for (i = 0; i < a.length; i++) {
+        orig = a[i].getAttribute('data-wa-orig') || a[i].getAttribute('href');
+        a[i].setAttribute('data-wa-orig', orig);
+        a[i].setAttribute('href', orig + suffix);
+      }
+    }
+    function start() {
+      if (rec || !consented()) return;
+      var now = Date.now(), cur = load(), ck = clickFromUrl(), o = cur || { ref: newRef(), ts: now };
+      if (ck) {
+        if (!(cur && cur.c === ck.c)) { o.ct = now; }
+        o.k = ck.k; o.c = ck.c; o.lp = LP;
+      }
+      rec = o; save(o); decorate();
+    }
+    function onLinkClick(e) {
+      try {
+        var t = e.target, a = t && t.closest ? t.closest('a[data-wa-orig]') : null;
+        if (!a || !rec || !rec.c || !consented()) return;
+        var body = JSON.stringify({ ref: rec.ref, k: rec.k, c: rec.c, ct: rec.ct, lp: rec.lp || LP, pv: PV });
+        var sent = false;
+        try { sent = navigator.sendBeacon('/api/lead', body); } catch (x) {}
+        if (!sent) { try { fetch('/api/lead', { method: 'POST', body: body, keepalive: true }); } catch (x) {} }
+        if (!PV) gtag('event', 'whatsapp_ref', { ref_code: rec.ref });
+      } catch (x) {}
+    }
+
+    document.addEventListener('click', onLinkClick, true);
+    var acc = document.getElementById('cookie-accept'), rej = document.getElementById('cookie-reject');
+    if (acc) acc.addEventListener('click', function () { try { start(); } catch (x) {} });
+    if (rej) rej.addEventListener('click', function () { try { clear(); } catch (x) {} });
+    var saved = null;
+    try { saved = localStorage.getItem(CONSENT); } catch (x) {}
+    if (saved === 'denied') clear(); else start();
+  } catch (e) {}
+})();
+</script>

@@ -202,7 +202,7 @@ Google Ads (upload agendado, HTTPS + Basic) ◄── GET /api/export.csv
 | Fase | Commit | O que foi implementado |
 |---|---|---|
 | Plano | (este commit) | plano da Fase 2 + pendência #14 |
-| A | — | Worker + teste W |
+| A | `43bfd64` | Worker + teste W |
 | B | — | 6 prévias `-v2` + teste L |
 | C | — | `/mari/` + obrigado + teste M |
 | D | — | E2E + guia + docs |
@@ -234,16 +234,29 @@ TODOS OS CENARIOS W OK (8)
 Obs.: com o KV real o lead expira junto com a janela de 90 dias, então "venda > 90 dias do clique" só ocorre com relógio torto; o teste W6 injeta essa venda direto no KV falso para provar a checagem.
 
 ### Cenário L — LPs `-v2` (Playwright, 390×844 e desktop, as 6)
-- [ ] L1 sem escolha no banner: `href`s idênticos ao HTML, sem `mg_attr_v1`, sem beacon, sem `whatsapp_ref`
-- [ ] L2 "Essential only" (com `mg_attr_v1` pré-existente) → chave apagada, `href`s originais, sem beacon
-- [ ] L3 `?gclid=Test_gclid-123456` + "Accept" → `mg_attr_v1` correto; todos os links com `?text=` terminam com `%0A%0A(ref%20MG-XXXXX)`; `decodeURIComponent(text)` = texto original + `\n\n(ref MG-XXXXX)`; o link do rodapé sem `text` não muda
-- [ ] L4 clique em cada tipo de botão (nav, hero, pricing, cta-final; LP3: os 3 cards) → 1 beacon `{ref,k:'gclid',c,ct,lp,pv:1}`, com `lp` = caminho da `-v2`
-- [ ] L5 na `-v2`: **nenhuma** `conversion` de lead e nenhum `whatsapp_ref` no `dataLayer`
-- [ ] L6 consentimento salvo, sem gclid e sem registro → `ref` no texto, sem beacon; visita seguinte sem gclid com registro < 90 dias → beacon com o gclid guardado e o **mesmo** ref; registro de 91 dias → descartado
-- [ ] L7 gclid adulterado (`<script>alert(1)</script>`, 300 caracteres, `a b`) → ignorado, nada no DOM; `gbraid` válido → `k:'gbraid'`
-- [ ] L8 recarregar 3 vezes não duplica o sufixo `(ref …)` (idempotente)
-- [ ] L9 EN e NL das 3 LPs; o bloco `// AD ATTRIBUTION` é idêntico nos 6 arquivos
-- [ ] L10 390 px sem scroll horizontal; nenhum erro de JS; banner continua funcionando (Accept/Essential gravam `cookie_consent_v1` como antes)
+- [x] L1 sem escolha no banner: `href`s idênticos ao HTML, sem `mg_attr_v1`, sem beacon, sem `whatsapp_ref`
+- [x] L2 "Essential only" (com `mg_attr_v1` pré-existente) → chave apagada, `href`s originais, sem beacon
+- [x] L3 `?gclid=Test_gclid-123456` + "Accept" → `mg_attr_v1` correto; todos os links com `?text=` terminam com `%0A%0A(ref%20MG-XXXXX)`; `decodeURIComponent(text)` = texto original + `\n\n(ref MG-XXXXX)`; o link do rodapé sem `text` não muda
+- [x] L4 clique em cada tipo de botão (nav, hero, pricing, cta-final; LP3: os 3 cards) → 1 beacon `{ref,k:'gclid',c,ct,lp,pv:1}`, com `lp` = caminho da `-v2`
+- [x] L5 na `-v2`: **nenhuma** `conversion` de lead e nenhum `whatsapp_ref` no `dataLayer`
+- [x] L6 consentimento salvo, sem gclid e sem registro → `ref` no texto, sem beacon; visita seguinte sem gclid com registro < 90 dias → beacon com o gclid guardado e o **mesmo** ref; registro de 91 dias → descartado
+- [x] L7 gclid adulterado (`<script>alert(1)</script>`, 300 caracteres, `a b`) → ignorado, nada no DOM; `gbraid` válido → `k:'gbraid'`
+- [x] L8 recarregar 3 vezes não duplica o sufixo `(ref …)` (idempotente)
+- [x] L9 EN e NL das 3 LPs; o bloco `// AD ATTRIBUTION` é idêntico nos 6 arquivos
+- [x] L10 390 px sem scroll horizontal; nenhum erro de JS; banner continua funcionando (Accept/Essential gravam `cookie_consent_v1` como antes)
+
+**Evidência L (23/11/2026, implementador):** `node scripts/test-atribuicao.js L` (Chromium, 390×844 nas 6 `-v2`; desktop 1280 em 1 delas; gtm/gtranslate/fontes bloqueados; beacons lidos no servidor local) →
+```
+OK L1  OK L2  OK L3  OK L4  OK L5  OK L6  OK L7  OK L8  OK L9  OK L10
+TODOS OS CENARIOS OK (L1 L2 L3 L4 L5 L6 L7 L8 L9 L10)
+```
+Teste de mutação: trocando a checagem de consentimento numa `-v2`, o teste falha (L9, bloco diferente). Os arquivos `-v2` são gerados por `node scripts/gerar-previas-v2.mjs --ref 5711c4e` (fonte do bloco: `scripts/atribuicao-bloco.html`).
+
+**Desvios/decisões do implementador na Fase B (para o revisor):**
+- O registro `mg_attr_v1` ganhou o campo `ts` (criação) só quando não há clique, para o registro só-com-`ref` também expirar em 90 dias (sem `ts`, ele duraria para sempre). Com clique, vale o `ct` (como em F4).
+- O beacon e o `whatsapp_ref` só saem em links que receberam o código (`?text=`), não no link do rodapé sem texto (que não leva código, então o lead nunca casaria com uma venda).
+- `whatsapp_ref` só sai quando há clique de anúncio guardado (leitura literal de F7: "sem clique de anúncio, não envia nada").
+- Mesmo `gclid` numa visita nova não renova o `ct` (a janela de 90 dias conta do 1º clique).
 
 ### Cenário M — `/mari/` e obrigado
 - [ ] M1 colar `Hi Mari! I'm John… availability?\n\n(ref MG-K7P2X)` → campo mostra só `MG-K7P2X`; sem código → aviso neutro, gerar continua permitido
