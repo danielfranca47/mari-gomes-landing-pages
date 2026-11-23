@@ -307,6 +307,7 @@ Limites do que foi provado: tudo contra o Worker em Node/KV falso e servidor loc
 2. `validLead` rejeita (400) `pv` incoerente com o `lp` (`-v2/` exige pv 1; os demais, pv 0).
 3. O Worker aceita os 6 legados `lp*-*.html` (sempre pv 0).
 Testes novos: L4b (index.html → pv:1, sem `whatsapp_ref`, nada em `lead:` real), W2 (pv/lp inconsistentes → 400; legado pv 0 → 204, legado pv 1 → 400).
+4. (Adendo) Merge do `origin/main` (c280d15) feito sem conflito: `ADS_PURCHASE_LABEL = 'ZwyrCJrolr4dEJqMuZhD'` e `ref_code` convivem no bloco CONVERSION. A base dos testes M6/R1/C7 passou a ser `c280d15` (o `BASE_REF` do `test-gerador-link.js` também). M5 agora exige que `?test` não dispare `purchase` nem `conversion`; M6 exige a `conversion` `AW-18036442650/ZwyrCJrolr4dEJqMuZhD` com `ref_code` no `purchase`.
 Saída: `node scripts/test-atribuicao-worker.mjs` → `TODOS OS CENARIOS W OK (8)`; `node scripts/test-atribuicao.js` → `TODOS OS CENARIOS OK (L1 … R5)`; `node scripts/test-gerador-link.js` → `TODOS OS CENARIOS OK`.
 
 ---
