@@ -602,7 +602,7 @@ TODOS OS CENARIOS OK
 
 | Fase | Commit | O que foi implementado |
 |---|---|---|
-| D | `3172852` | nomes iguais às LPs, tipos (`t`), miniaturas, mensagem com quebras |
+| D | `3172852` + correções de revisão `0c1e39f` | nomes iguais às LPs, tipos (`t`), miniaturas, mensagem com quebras |
 
 ---
 
