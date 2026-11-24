@@ -53,8 +53,9 @@ respiração, bioenergético), sem tirar o público-alvo.
 
 - **Estado da v2 (830181037431):** não qualificada; título "Sleep Better, Think
   Clearer" marcado. Leitura completa em `../relatorios/2026-11-24_leitura-campanha-4.md`.
-- **Regra:** v2 não é editada (histórico); cria-se anúncio novo. Pausar a v2 só
-  depois de a v3 ser aprovada.
+- **Regra (revista 24/11):** o texto v3 entra por **edição do próprio 830181037431**
+  (texto anterior preservado na seção "RSA EN v2" acima e no relatório de 24/11), em
+  vez de anúncio novo. Ver `../politicas/processo-reprovacao.md`.
 - **Fora (vs. v2):** Sleep Better, Think Clearer · By Appointment Only · Private Studio
   in Amsterdam · Calm the Nervous System · Certified Holistic Therapist (certificação
   não confirmada) · Personal, Calm Sessions · Holistic Relaxation Session · Restore Body

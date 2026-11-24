@@ -54,8 +54,8 @@ seus arquivos `.html`; esta pasta não tem código.
   são aplicadas depois de revisadas; aumento de orçamento por recomendação não
   pode ser desfeito.
 - **Texto de anúncio novo** passa por `politicas/vocabulario.md` (e pelo
-  Preflight, se instalado) antes de subir. Anúncio reprovado não é editado: cria-se
-  um novo, para manter o histórico.
+  Preflight, se instalado) antes de subir. Anúncio reprovado: seguir
+  `politicas/processo-reprovacao.md` (editar e salvar, ou contestar; novo só como exceção).
 - **Commit que muda uma LP usada como URL final** é anotado em `alteracoes.md`:
   o Google revisa a página de destino, e uma mudança de texto pode reprovar
   anúncios que apontam para ela.
