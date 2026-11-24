@@ -45,3 +45,17 @@ Detalhes de cartão e saldo não ficam aqui (repositório público).
 Daniel (gestor), Mari (costuma aceitar recomendações pelo app do celular) e um
 terceiro usuário que operou a conta até set/2026. E-mails de login não ficam
 aqui (repositório público).
+
+## Atualização 24/11/2026 (planilha de 23/11 05:50 UTC + painel)
+
+Ver `relatorios/2026-11-24_reprovacao-rsa-relaxation-en.md`. Resumo:
+
+- G2 EN ativo é o RSA "Relaxation Massage Amsterdam" (830181037431), limitado/
+  reprovado por encontros e acompanhantes; o "Relaxation Massage" antigo
+  (826672281530) segue pausado.
+- G1 NL/EN, G2 NL e G3 NL/EN aprovados.
+- A planilha lista 38 anúncios, incluindo uma campanha "[CP-03] (backup ignorar)"
+  e a "[CA-01] CONTATO WHATS - 2026" (anúncio "Energy Massage Amsterdam",
+  reprovado, URL = home) que não estavam neste arquivo.
+- #4, últimos 7 dias por grupo: G1 127 cliques / €81,49 / 25 conv.; G2 92 /
+  €69,65 / 17; G3 50 / €53,78 / 22.
