@@ -7,4 +7,4 @@ caminhos de exibição, títulos (com fixação), descrições e status no Ads.
 Fluxo: escrever aqui → checar contra `../politicas/vocabulario.md` (e Preflight)
 → aprovar → subir no Ads → registrar em `../alteracoes.md`. Anúncio reprovado por causa
 da página: corrigir a página e contestar ("Fiz alterações para cumprir a política").
-Reprovado pelo texto: criar um novo arquivo/versão.
+Reprovado pelo texto: editar o anúncio (nova versão neste arquivo, guardando o texto anterior) e salvar; ver `../politicas/processo-reprovacao.md`.
