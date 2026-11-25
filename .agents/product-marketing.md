@@ -1,7 +1,7 @@
 # Product Marketing Context
 
-**Document version:** v8
-**Last updated:** 2026-11-01
+**Document version:** v9
+**Last updated:** 2026-11-25
 
 > Contexto lido automaticamente pelas skills de marketing globais (`ads`,
 > `copywriting`, `ad-creative`, `cro`, `conversion-tracking`, `ab-testing`).
@@ -142,6 +142,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 *Decisions and tested lessons. Newest first. Keep it to about 20 active entries.*
 | Date | Learning | Evidence | Applies to | Status |
 |------|----------|----------|------------|--------|
+| 2026-11-25 | Anúncio com texto/página sob suspeita: editar o próprio anúncio e salvar (reenvia para revisão); contestar só se a página foi corrigida ou foi erro do Google. Recursos (callouts/snippets) também são texto de anúncio: conferir antes de culpar só os títulos | Ajuda do Google; 24/11: RSA limitado em 3 ads EN com a mesma LP e recursos ainda prometendo "Mobile service/At home" | ads, ad-creative | watch |
 | 2026-11-01 | O contato chega (mensagens ≈ conversões do Ads), mas parte pede opção mais barata: o filtro de preço precisa acontecer ANTES do clique (anúncio), não só na página | Mari, 01/11/2026; preço na LP desde set/2026 não bastou | ads, ad-creative, cro | active |
 | 2026-11-01 | CPA por contato baixo não garante venda: 29 contatos (CPA €3,75) viraram 1 agendamento | Mari, 19–23/10/2026; 1 semana só | ads, cro, copywriting | watch |
 | 2026-10-26 | Meta: CPA ≤ €4 por contato de mensagem; abaixo disso a campanha está saudável | Definido pelo Daniel; out/2026 rodou a €3,16 | ads, ad-creative | active |
@@ -153,6 +154,7 @@ Lista completa: Google Maps da Mari (9 avaliações Google) e Treatwell (11).
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v9 (2026-11-25) — Learning: processo de anúncio reprovado (editar/contestar) e recursos como fonte de risco.
 - v8 (2026-11-16) — Pagamento só cartão ou dinheiro (BTC removido).
 - v7 (2026-11-16) — Tantric de volta aos títulos das LPs (decisão do Daniel); link g.page de avaliação.
 - v6 (2026-11-16) — Casa/hotel fora de todas as páginas e anúncios (pedido da Mari); botão de Google Review no site.
